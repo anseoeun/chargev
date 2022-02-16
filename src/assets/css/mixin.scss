@@ -1,0 +1,149 @@
+@charset 'utf-8';
+
+$prefixes: webkit, moz, ms, o;
+
+$inputs: text, password, reset, submit, button, email, number, phone, date, tel;
+
+/* color */
+$c-base	: #333;
+
+/* Base Font */
+$base-font-head: 'HyundaiSansHeadKR' !default;
+$base-font-text: 'HyundaiSansTextKR' !default;
+$base-font-head-regular: 'HyundaiSansHeadKRR' !default;
+$base-font-text-regular: 'HyundaiSansTextKRR' !default;
+$base-font-size: 14px !default;
+$base-font-color: #666;
+
+$base-font-set	:$base-font-head-regular, 'sans-serif';
+
+$max: 720px;
+$size: 28px;
+
+@media screen and (min-width: $max) {
+  :root {
+    background: #fff;
+  }
+  html {
+    font-size: $size;
+  }
+}
+@for $i from 1 to 401 {
+  @media screen and (max-width: ( $max - ( 1px * $i ) )) {
+    html {
+      font-size: ($size - (0.038875 * $i));
+    }
+  }
+}
+
+// @function stripUnit($number) {
+//   $num: $number * 0 + 1;
+//   @if (type-of($number) == "number" and not unitless($number)) {
+//       @return calc($number / $num);
+//   }
+//   @return $number;
+// }
+
+// @function rem($pxValue){
+//   @return unquote(calc((stripUnit($pxValue * 1.7) / stripUnit($size)))+'rem');
+// }
+
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) * 1.7 / stripUnit($size)}rem;
+  
+}
+
+@mixin font-face($family,$file,$weight,$style:normal){
+  $path : '~@/assets/fonts/' + $file;
+  @font-face{
+    font-family: $family;
+    src: url($path + '.eot');
+    src:url($path + '.eot?#iefix') format("embedded-opentype"),
+        url($path + '.woff2') format('woff2'),
+        url($path + '.woff') format('woff');
+        // url($path + '.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin icon-draw($name, $w, $h, $bg){
+  $path : '../images/';
+  .i-#{$name}{width:rem($w);height:rem($h);background:url("#{$bg}") no-repeat 0 0;} 
+}
+
+@function svg(){
+  @return 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M0 8L8.00009 0L9.77759 1.7775L3.55509 8L9.77759 14.2225L8.00009 16L0 8Z" fill="#{$fill}"/> </svg>';
+}
+
+@mixin i-svg($name, $fill, $stroke){
+  @if ($name == 'back'){
+    background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M0 8L8.00009 0L9.77759 1.7775L3.55509 8L9.77759 14.2225L8.00009 16L0 8Z" fill="#{$fill}"/> </svg>') no-repeat 0 0;
+  } @else if ($name == 'back'){
+
+  }
+}
+
+//prefix
+@mixin prefix($property, $value, $prefixes) {
+    @each $prefix in $prefixes {
+      // @if not index($prefixes, $prefix) {
+      //   @warn "Unknown prefix #{$prefix}.";
+      // }
+      -#{$prefix}-#{$property}: $value;
+    }
+    #{$property}: $value;
+}
+
+@mixin placeholder {
+    &:-webkit-input-placeholder {
+      @content;
+    }
+    &:-moz-placeholder {
+      @content;
+    }
+    &::-moz-placeholder {
+      @content;
+    }
+    &:-ms-input-placeholder {
+      @content;
+    }
+    &::placeholder {
+      @content;
+    }
+}
+  
+//flex
+@mixin flexbox($justify: flex-start, $align: center) {
+  // ,  $dir: row, $wrap: nowrap
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  // flex-direction: $dir;
+  // flex-wrap: $wrap;  
+  @content
+}
+@mixin flexInline($justify: center, $align: center) {
+  display: inline-flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin posCenter($top:50%, $left:50%){
+  position:absolute;top:$top;left:$left;
+  transform:translate(-$left, -$top);-webkit-transform:translate(-$left, -$top);
+}
+
+@mixin ftApple($weight:400){
+  font-family: 'AppleSDGothicNeo';
+  font-weight:$weight;
+}
+
+@mixin ftNoto($weight:400){
+  font-family: 'NotoSansCJKkr';
+  font-weight:$weight;
+}
+

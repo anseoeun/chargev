@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+@import 'mixin';
+
+@each $name, $file, $weight, $style in 
+('NotoSansCJKkr', 'NotoSans-Black', 800, normal),
+('NotoSansCJKkr', 'NotoSans-Bold', 700, normal),
+('NotoSansCJKkr', 'NotoSans-Medium', 500, normal),
+('NotoSansCJKkr', 'NotoSans-Regular', 400, normal),
+('NotoSansCJKkr', 'NotoSans-DemiLight', 300, normal), 
+('NotoSansCJKkr', 'NotoSans-Light', 200, normal), 
+('NotoSansCJKkr', 'NotoSans-Thin', 100, normal),
+('AppleSDGothicNeo', 'AppleSDGothicNeoH', 700, normal),
+('AppleSDGothicNeo', 'AppleSDGothicNeoM', 500, normal),
+('AppleSDGothicNeo', 'AppleSDGothicNeoR', 400, normal),
+{
+  @include font-face($name, $file, $weight, $style);
+}
+
+/* ========== reset ========== */
+*{margin:0;padding:0;border:none;word-break:break-all;box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-hyphens:auto;hyphens:auto;vertical-align:baseline;font-size:inherit;line-height:inherit;font-family:inherit;}
+*:before, *:after{box-sizing:border-box;-webkit-box-sizing:border-box;}
+html,body{height:100%;}
+body{overflow:hidden;font-size:13px;line-height:1.25;font-family:"Noto Sans KR","Sans-serif";-webkit-text-size-adjust:none;color:#565555;word-break:keep-all;word-wrap:break-word;}
+dl,ul,ol,menu,li {list-style:none;}
+p{margin:0;}
+table {width:100%;border-collapse:collapse;border-spacing:0}
+table caption {visibility:hidden;overflow:hidden;width:0;height:0;font-size:0;line-height:0;}
+img,fieldset{border:0 none;}
+img{vertical-align:middle;max-width:100%;max-height:100%;}
+a{color:inherit;text-decoration:none;cursor:pointer;color:inherit;font-family:inherit;}
+a:hover{text-decoration:none}
+i,em,address{font-style:normal;}
+button{border:none;background:none;cursor: pointer;}
+
+// ::-webkit-scrollbar{-webkit-appearance:none}
+// ::-webkit-scrollbar:vertical{width:5px;}
+// ::-webkit-scrollbar-thumb:vertical{ background-color:#001c6f; border-radius:10px; }
+// ::-webkit-scrollbar-track:vertical{ background-color:rgba(0,0,0,.05); border-radius:10px; }
+// ::-webkit-scrollbar:horizontal{height:12px;}
+// ::-webkit-scrollbar-thumb:horizontal{ background-color:#c1c1c1;}
+// ::-webkit-scrollbar-track:horizontal{ background-color:#f1f1f1;}
+
+// body::-webkit-scrollbar:vertical{width:12px;}
+// body::-webkit-scrollbar-thumb:vertical{ background-color:#c1c1c1; border-radius:0;}
+// body::-webkit-scrollbar-track:vertical{ background-color:#f1f1f1; border-radius:0; }
+
+// input[type="text"]::placeholder { color:#bebebe;vertical-align:middle;}
+
+// input[type="text"],input[type="password"], select,
+// .form-control,
+// .bootstrap-select button{-webkit-appearance: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;padding: .375rem .75rem;border-radius:0;height:50px;border: 2px solid #C4C4C4;border-radius:4px;font-size:20px;overflow-y:auto !important;}
+
+// select,
+// .bootstrap-select .dropdown-toggle{height:50px;padding-right:40px;background:#fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 9'><path d='M13 0H0L6.5 9L13 0Z' fill='gray'/></svg>") no-repeat right 17px top 50%;background-size:auto 7px !important;}
+
+// input[type="text"].sm,input[type="password"].sm, select.sm, .sm input[type="text"], .sm input[type="password"], .sm select,
+// .form-control.sm, .bootstrap-select.sm .dropdown-toggle{height:36px;font-size:14px;background-size:auto 7px;background-position:right 15px top 50%;}
+// .bootstrap-select.sm .dropdown-toggle .filter-option-inner-inner{line-height:20px;font-size:14px;padding-right:20px;}
+
+// input[type="text"]:focus,
+// input[type="text"].sm:focus,
+// input[type="password"]:focus,
+// input[type="password"].sm:focus,
+// select:focus,
+// select.sm:focus,
+// .form-control:focus,
+// .form-control.sm:focus,
+// .bootstrap-select button:focus{border-color:#CDE4FF !important;}
+// .bootstrap-select.sm button:focus{border-color:#CDE4FF !important;}
+
+/* icon */
+// $homeStroke: '%2317233D';
+// i[class*=i-]{display:inline-block;background-size:100% 100% !important;vertical-align: middle;}
+// @each $name, $w, $h, $bg in 
+// (back, 10, 16, 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path d="M0 8L8.00009 0L9.77759 1.7775L3.55509 8L9.77759 14.2225L8.00009 16L0 8Z" fill="%2317233D"/> </svg>'),
+// (home, 20, 22, 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 24"><path d="M0.901525 7.79682L9.40152 1.44708C9.75646 1.18193 10.2435 1.18193 10.5985 1.44708L19.0985 7.79682C19.3512 7.9856 19.5 8.28254 19.5 8.59797V22C19.5 22.5523 19.0523 23 18.5 23H14.4926C14.0293 23 13.6538 22.6245 13.6538 22.1613V17.428C13.6538 15.4101 12.018 13.7742 10 13.7742C7.98204 13.7742 6.34615 15.4101 6.34615 17.428V22.1613C6.34615 22.6245 5.97065 23 5.50745 23H1.5C0.947715 23 0.5 22.5523 0.5 22V8.59796C0.5 8.28254 0.648823 7.9856 0.901525 7.79682Z" stroke="#{$homeStroke}" fill="none"/></svg>'),
+// (tel, 20, 22, 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 24"><path d="M0.901525 7.79682L9.40152 1.44708C9.75646 1.18193 10.2435 1.18193 10.5985 1.44708L19.0985 7.79682C19.3512 7.9856 19.5 8.28254 19.5 8.59797V22C19.5 22.5523 19.0523 23 18.5 23H14.4926C14.0293 23 13.6538 22.6245 13.6538 22.1613V17.428C13.6538 15.4101 12.018 13.7742 10 13.7742C7.98204 13.7742 6.34615 15.4101 6.34615 17.428V22.1613C6.34615 22.6245 5.97065 23 5.50745 23H1.5C0.947715 23 0.5 22.5523 0.5 22V8.59796C0.5 8.28254 0.648823 7.9856 0.901525 7.79682Z" stroke="%2317233D" fill="none"/></svg>'),
+// {
+//   @include icon-draw($name, $w, $h, $bg);
+// }
+
+$blue: #5D96F6;
+
+i[class*=i-]{position:relative;display:inline-block;background-size:100% 100% !important;vertical-align: middle;}
+i[class*=i-] svg{width:100%;height:100%;}
+i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;height:100%;}
+@each $name, $w, $h, $bg in 
+(back, 10, 16),
+(home, 20, 22),
+(tel, 24, 24),
+{
+  // .i-#{$name}{width:rem($w);height:rem($h); @include i-svg($name, '%23ff0000, %2317233D', 'none')}
+  // .i-#{$name}{width:rem($w);height:rem($h);background:url($bg) no-repeat 0 0;}
+  .i-#{$name}{width:rem($w);height:rem($h);}
+}
+
+/* align */
+.align-l{text-align:left !important;}
+.align-c{text-align:center !important;}
+.align-r{text-align:right !important;}
+
+/* c-color */
+.c-blue{color:$blue !important;}
+
+/*********************************
+  layout
+*********************************/
+
+.header{position:fixed;top:0;left:0;height:rem(40);width:100%;}
+.header .title{text-align:center;height:100%;@include flexbox(center){background:red};font-size:rem(14);color:#515A6E;@include ftApple(700)}
+.header .left{position:absolute;top:0;left:0;height:100%;@include flexbox;}
+.header .right{position:absolute;top:0;right:0;height:100%;@include flexbox;}
+.header .btn{height:100%;min-width: rem(35);@include flexbox(center);font-size:rem(14);@include ftApple(700)}
+
+.header ~ .contents{padding-top:rem(40);}
+$background:#ff0000;
+.header:hover{
+  $background: '#000';
+  background:$background;
+  $homeStroke: '%23ff0000';
+}
+
+
+
+/* btn */
+.svg-prevent{content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0, 0, 0, 0);}
+
+.container-calendar .table-calendar{font-family: 'AppleSDGothicNeo';}
+.container-calendar .table-calendar table{table-layout: fixed;}
+.container-calendar .table-calendar table th,
+.container-calendar .table-calendar table td{width:14.2857%;}
+.container-calendar .table-calendar table th{font-weight:400;font-size:rem(16);color:#000;height:rem(22);vertical-align: top;padding-bottom:rem(15);}
+.container-calendar .table-calendar table td{height:rem(40);text-align:center;}
+.container-calendar .table-calendar .date{display:inline-block;width:rem(20);height:rem(20);border-radius:rem(16);font-size:rem(13); color:#808695;line-height:rem(16);text-align:center;}
+.container-calendar .table-calendar .bold{ color:#000;font-size:rem(15);line-height:rem(22);}
+.container-calendar .table-calendar .today .date{background:#5D96F6; color:#fff; font-size:rem(15);line-height:rem(19);}
+.container-calendar .table-calendar .price{font-size:rem(10);}
