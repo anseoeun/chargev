@@ -803,25 +803,27 @@
 
 @media screen and (max-width: 320px) { html { font-size: 12.45px; } }
 
-@font-face { font-family: "NotoSansCJKkr"; src: url("~@/assets/fonts/NotoSans-Black.eot"); src: url("~@/assets/fonts/NotoSans-Black.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Black.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Black.woff") format("woff"); font-weight: 800; font-style: normal; }
+@font-face { font-family: "NotoSansKr"; src: url("~@/assets/fonts/NotoSans-Black.eot"); src: url("~@/assets/fonts/NotoSans-Black.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Black.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Black.woff") format("woff"); font-weight: 800; font-style: normal; }
 
-@font-face { font-family: "NotoSansCJKkr"; src: url("~@/assets/fonts/NotoSans-Bold.eot"); src: url("~@/assets/fonts/NotoSans-Bold.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Bold.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Bold.woff") format("woff"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "NotoSansKr"; src: url("~@/assets/fonts/NotoSans-Bold.eot"); src: url("~@/assets/fonts/NotoSans-Bold.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Bold.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Bold.woff") format("woff"); font-weight: 700; font-style: normal; }
 
-@font-face { font-family: "NotoSansCJKkr"; src: url("~@/assets/fonts/NotoSans-Medium.eot"); src: url("~@/assets/fonts/NotoSans-Medium.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Medium.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Medium.woff") format("woff"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "NotoSansKr"; src: url("~@/assets/fonts/NotoSans-Medium.eot"); src: url("~@/assets/fonts/NotoSans-Medium.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Medium.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Medium.woff") format("woff"); font-weight: 500; font-style: normal; }
 
-@font-face { font-family: "NotoSansCJKkr"; src: url("~@/assets/fonts/NotoSans-Regular.eot"); src: url("~@/assets/fonts/NotoSans-Regular.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Regular.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Regular.woff") format("woff"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "NotoSansKr"; src: url("~@/assets/fonts/NotoSans-Regular.eot"); src: url("~@/assets/fonts/NotoSans-Regular.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Regular.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Regular.woff") format("woff"); font-weight: 400; font-style: normal; }
 
-@font-face { font-family: "NotoSansCJKkr"; src: url("~@/assets/fonts/NotoSans-DemiLight.eot"); src: url("~@/assets/fonts/NotoSans-DemiLight.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-DemiLight.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-DemiLight.woff") format("woff"); font-weight: 300; font-style: normal; }
+@font-face { font-family: "NotoSansKr"; src: url("~@/assets/fonts/NotoSans-DemiLight.eot"); src: url("~@/assets/fonts/NotoSans-DemiLight.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-DemiLight.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-DemiLight.woff") format("woff"); font-weight: 300; font-style: normal; }
 
-@font-face { font-family: "NotoSansCJKkr"; src: url("~@/assets/fonts/NotoSans-Light.eot"); src: url("~@/assets/fonts/NotoSans-Light.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Light.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Light.woff") format("woff"); font-weight: 200; font-style: normal; }
+@font-face { font-family: "NotoSansKr"; src: url("~@/assets/fonts/NotoSans-Light.eot"); src: url("~@/assets/fonts/NotoSans-Light.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Light.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Light.woff") format("woff"); font-weight: 200; font-style: normal; }
 
-@font-face { font-family: "NotoSansCJKkr"; src: url("~@/assets/fonts/NotoSans-Thin.eot"); src: url("~@/assets/fonts/NotoSans-Thin.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Thin.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Thin.woff") format("woff"); font-weight: 100; font-style: normal; }
+@font-face { font-family: "NotoSansKr"; src: url("~@/assets/fonts/NotoSans-Thin.eot"); src: url("~@/assets/fonts/NotoSans-Thin.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/NotoSans-Thin.woff2") format("woff2"), url("~@/assets/fonts/NotoSans-Thin.woff") format("woff"); font-weight: 100; font-style: normal; }
 
-@font-face { font-family: "AppleSDGothicNeo"; src: url("~@/assets/fonts/AppleSDGothicNeoH.eot"); src: url("~@/assets/fonts/AppleSDGothicNeoH.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/AppleSDGothicNeoH.woff2") format("woff2"), url("~@/assets/fonts/AppleSDGothicNeoH.woff") format("woff"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "AppleSDGothicNeo"; src: url("~@/assets/fonts/AppleSDGothicNeoEB.eot"); src: url("~@/assets/fonts/AppleSDGothicNeoEB.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/AppleSDGothicNeoEB.woff2") format("woff2"), url("~@/assets/fonts/AppleSDGothicNeoEB.woff") format("woff"); font-weight: 800; font-style: normal; }
 
-@font-face { font-family: "AppleSDGothicNeo"; src: url("~@/assets/fonts/AppleSDGothicNeoM.eot"); src: url("~@/assets/fonts/AppleSDGothicNeoM.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/AppleSDGothicNeoM.woff2") format("woff2"), url("~@/assets/fonts/AppleSDGothicNeoM.woff") format("woff"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "AppleSDGothicNeo"; src: url("~@/assets/fonts/AppleSDGothicNeoB.eot"); src: url("~@/assets/fonts/AppleSDGothicNeoB.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/AppleSDGothicNeoB.woff2") format("woff2"), url("~@/assets/fonts/AppleSDGothicNeoB.woff") format("woff"); font-weight: 700; font-style: normal; }
 
-@font-face { font-family: "AppleSDGothicNeo"; src: url("~@/assets/fonts/AppleSDGothicNeoR.eot"); src: url("~@/assets/fonts/AppleSDGothicNeoR.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/AppleSDGothicNeoR.woff2") format("woff2"), url("~@/assets/fonts/AppleSDGothicNeoR.woff") format("woff"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "AppleSDGothicNeo"; src: url("~@/assets/fonts/AppleSDGothicNeoM.eot"); src: url("~@/assets/fonts/AppleSDGothicNeoM.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/AppleSDGothicNeoM.woff2") format("woff2"), url("~@/assets/fonts/AppleSDGothicNeoM.woff") format("woff"); font-weight: 400; font-style: normal; }
+
+@font-face { font-family: "AppleSDGothicNeo"; src: url("~@/assets/fonts/AppleSDGothicNeoL.eot"); src: url("~@/assets/fonts/AppleSDGothicNeoL.eot?#iefix") format("embedded-opentype"), url("~@/assets/fonts/AppleSDGothicNeoL.woff2") format("woff2"), url("~@/assets/fonts/AppleSDGothicNeoL.woff") format("woff"); font-weight: 300; font-style: normal; }
 
 /* ========== reset ========== */
 * { margin: 0; padding: 0; border: none; word-break: break-all; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-overflow-scrolling: touch; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; vertical-align: baseline; font-size: inherit; line-height: inherit; font-family: inherit; }
@@ -830,7 +832,7 @@
 
 html, body { height: 100%; }
 
-body { overflow: hidden; font-size: 13px; line-height: 1.25; font-family: "Noto Sans KR","Sans-serif"; -webkit-text-size-adjust: none; color: #565555; word-break: keep-all; word-wrap: break-word; }
+body { overflow: hidden; font-size: 13px; line-height: 1.25; font-family: "AppleSDGothicNeo", "NotoSansKr","Sans-serif"; -webkit-text-size-adjust: none; color: #565555; word-break: keep-all; word-wrap: break-word; }
 
 dl, ul, ol, menu, li { list-style: none; }
 
@@ -880,17 +882,15 @@ i[class*=i-] .svg-prevent { position: absolute; top: 0; left: 0; z-index: 1; wid
 *********************************/
 .header { position: fixed; top: 0; left: 0; height: 2.42857rem; width: 100%; }
 
-.header .title { text-align: center; height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; background: red; font-size: 0.85rem; color: #515A6E; font-family: 'AppleSDGothicNeo'; font-weight: 700; }
+.header .title { text-align: center; height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; font-size: 0.85rem; color: #515A6E; font-weight: 700; }
 
-.header .left { position: absolute; top: 0; left: 0; height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+.header .left { position: absolute; top: 0; left: 0.60714rem; height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
 
-.header .right { position: absolute; top: 0; right: 0; height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+.header .right { position: absolute; top: 0; right: 0.60714rem; height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
 
-.header .btn { height: 100%; min-width: 2.125rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; font-size: 0.85rem; font-family: 'AppleSDGothicNeo'; font-weight: 700; }
+.header .btn { height: 100%; padding: 0 12px; min-width: 2.125rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; font-size: 0.85rem; font-weight: 700; }
 
 .header ~ .contents { padding-top: 2.42857rem; }
-
-.header:hover { background: "#000"; }
 
 /* btn */
 .svg-prevent { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0); }

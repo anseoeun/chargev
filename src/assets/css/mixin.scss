@@ -124,26 +124,28 @@ $size: 28px;
   justify-content: $justify;
   // flex-direction: $dir;
   // flex-wrap: $wrap;  
-  @content
+  @content;
 }
-@mixin flexInline($justify: center, $align: center) {
+@mixin flexInline($justify: flex-start, $align: center) {
   display: inline-flex;
   align-items: $align;
   justify-content: $justify;
+  @content;
 }
 
-@mixin posCenter($top:50%, $left:50%){
-  position:absolute;top:$top;left:$left;
+@mixin posCenter(){
+  position:absolute;top:50%;left:50%;
   transform:translate(-$left, -$top);-webkit-transform:translate(-$left, -$top);
+  @content;
 }
 
-@mixin ftApple($weight:400){
-  font-family: 'AppleSDGothicNeo';
-  font-weight:$weight;
-}
+// @mixin ftApple($weight:400){
+//   font-family: 'AppleSDGothicNeo';
+//   font-weight:$weight;
+// }
 
 @mixin ftNoto($weight:400){
-  font-family: 'NotoSansCJKkr';
+  font-family: 'NotoSansKr';
   font-weight:$weight;
 }
 

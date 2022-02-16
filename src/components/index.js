@@ -6,3 +6,5 @@ import Icon from './element/Icon'
 Vue.component('Icon', Icon)
 import BtmLayer from './common/BtmLayer'
 Vue.component('BtmLayer', BtmLayer)
+import SlideList from './common/SlideList'
+Vue.component('SlideList', SlideList)

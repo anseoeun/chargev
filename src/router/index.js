@@ -20,9 +20,7 @@ const routes = [
     component: () => import('@/views/About.vue')
   },
   // 공지사항
-	{ path: '/notice', component: () => import('@/views/Notice.vue'), meta:{
-    title: '공지사항'
-  }},
+	{ path: '/notice', component: () => import('@/views/Notice.vue')},
   // 테스트
 	{ path: '/test', component: () => import('@/views/Test.vue') },
   // 테스트

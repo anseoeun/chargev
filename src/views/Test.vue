@@ -56,11 +56,11 @@
         <!-- <word-relay start-word="무지개"></word-relay>
         <word-relay start-word="개나리"></word-relay> -->
         
-      <btm-layer :content="true">
+      <BtmLayer :content="true">
         <template slot="content">
           dfsf
         </template>
-      </btm-layer>
+      </BtmLayer>
   </div>
 </template>
 
