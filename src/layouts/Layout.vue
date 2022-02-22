@@ -1,23 +1,29 @@
 <template>
     <component :is="layout" >
-        <slot  />
+        <slot />
     </component>
 </template>
 
 <script>
-import DefaultLayout from './DefaultLayout';
+import Default from './Default';
+import Noheader from './Noheader';
+import Nofooter from './Nofooter';
+import None from './None';
 import MobileLayout from './MobileLayout';
 
 export default {
     name: 'TheLayout',
     components: {
-        DefaultLayout,
+        Default,
+        Noheader,
+        Nofooter,
+        None,
         MobileLayout,
     },
     props: {
         layout:{
             type: String,
-            default: 'DefaultLayout',
+            default: 'Default',
         },
     },
 }

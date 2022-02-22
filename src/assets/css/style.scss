@@ -23,7 +23,7 @@
 *{margin:0;padding:0;border:none;word-break:break-all;box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-hyphens:auto;hyphens:auto;vertical-align:baseline;font-size:inherit;line-height:inherit;font-family:inherit;}
 *:before, *:after{box-sizing:border-box;-webkit-box-sizing:border-box;}
 html,body{height:100%;}
-body{overflow:hidden;font-size:13px;line-height:1.25;font-family:"AppleSDGothicNeo", "NotoSansKr","Sans-serif";-webkit-text-size-adjust:none;color:#565555;word-break:keep-all;word-wrap:break-word;}
+body{overflow:hidden;font-size:13px;line-height:1.25;font-family:"AppleSDGothicNeo", "NotoSansKr","Sans-serif";-webkit-text-size-adjust:none;color:$c-base;word-break:keep-all;word-wrap:break-word;}
 dl,ul,ol,menu,li {list-style:none;}
 p{margin:0;}
 table {width:100%;border-collapse:collapse;border-spacing:0}
@@ -87,14 +87,24 @@ $blue: #5D96F6;
 i[class*=i-]{position:relative;display:inline-block;background-size:100% 100% !important;vertical-align: middle;}
 i[class*=i-] svg{width:100%;height:100%;}
 i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;height:100%;}
-@each $name, $w, $h, $bg in 
+@each $name, $w, $h, $fill, $stroke in 
 (back, 10, 16),
-(home, 20, 22),
+(home, 20, 24),
 (tel, 24, 24),
+('arr-right', 14, 24),
+('answer-complete', 16, 16),
+('answer-wating', 16, 16),
+('arr-cate', 10, 16),
+('foot-charging-station', 17, 23, 'none', '%23808695'),
+('foot-route-recommend', 22, 20, 'none', '%23808695'),
+('foot-instant-charge', 22, 22, 'none', '%23808695'),
+('foot-favorites', 18, 23, 'none', '%23808695'),
+('foot-more', 22, 4),
 {
-  // .i-#{$name}{width:rem($w);height:rem($h); @include i-svg($name, '%23ff0000, %2317233D', 'none')}
+  .i-#{$name}{width:rem($w);height:rem($h); @include svg($name, $width:$w, $height:$h, $fill:$fill, $stroke:$stroke)}
+  // .i-#{$name}{width:rem($w);height:rem($h);}
   // .i-#{$name}{width:rem($w);height:rem($h);background:url($bg) no-repeat 0 0;}
-  .i-#{$name}{width:rem($w);height:rem($h);}
+  // .i-#{$name}{width:rem($w);height:rem($h);}
 }
 
 /* align */
@@ -110,16 +120,23 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 *********************************/
 
 .header{position:fixed;top:0;left:0;height:rem(40);width:100%;}
-.header .title{text-align:center;height:100%;@include flexbox(center);font-size:rem(14);color:#515A6E;font-weight:700;}
-.header .left{position:absolute;top:0;left:rem(10);height:100%;@include flexbox;}
-.header .right{position:absolute;top:0;right:rem(10);height:100%;@include flexbox;}
-.header .btn{height:100%;padding:0 12px;min-width: rem(35);@include flexbox(center);font-size:rem(14);font-weight:700;}
+.header .title{text-align:center;height:100%;@include flex(center);font-size:rem(14);color:#515A6E;font-weight:700;}
+.header .left{position:absolute;top:0;left:rem(10);height:100%;@include flex;}
+.header .right{position:absolute;top:0;right:rem(10);height:100%;@include flex;}
+.header .btn{height:100%;padding:0 12px;min-width: rem(35);@include flex(center);font-size:rem(14);font-weight:700;}
 
 .header ~ .contents{padding-top:rem(40);}
-.header:hover{
-  $background: '#000';
-  $homeStroke: '%23ff0000';
-}
+
+.footer{position:fixed;bottom:0;left:0;width:100%;z-index: 10;background:#fff;}
+.footer .footer-menu{@include flex;height:rem(56);padding:0 rem(20);}
+.footer .footer-menu .menu{flex:1;text-align:center;}
+.footer .footer-menu .menu .icon{@include flexInline(center);height:rem(30);}
+.footer .footer-menu .menu.on .icon .i-foot-charging-station{@include svg('foot-charging-station', $fill:'%235D96F6', $stroke:'%23000000');}
+.footer .footer-menu .menu.on .icon .i-foot-route-recommend{@include svg('foot-route-recommend', $fill:'%235D96F6', $stroke:'%23000000');}
+.footer .footer-menu .menu.on .icon .i-foot-instant-charge{@include svg('foot-instant-charge', $fill:'%235D96F6', $stroke:'%23000000');}
+.footer .footer-menu .menu.on .icon .i-foot-favorites{@include svg('foot-favorites', $stroke:'%23000000');}
+.footer .footer-menu .menu .txt{display:block;font-size:rem(8);color:#808695;margin-top:rem(3);}
+
 
 /* btn */
 .svg-prevent{content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0, 0, 0, 0);}
@@ -134,3 +151,28 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .container-calendar .table-calendar .bold{ color:#000;font-size:rem(15);line-height:rem(22);}
 .container-calendar .table-calendar .today .date{background:#5D96F6; color:#fff; font-size:rem(15);line-height:rem(19);}
 .container-calendar .table-calendar .price{font-size:rem(10);}
+
+
+.slide-list ul li{box-shadow: inset 0px -1px 0px #DCDEE2;}
+.slide-list ul li > button{width:100%;padding:rem(8) rem(40) rem(8) rem(15);text-align:left;position:relative;}
+.slide-list ul li > button .i-arr-right{@include posCenter(y);right:rem(20);@include easing;}
+.slide-list ul li > button.on .i-arr-right{@include prefix(transform, rotate(90deg) translateX(-50%));}
+.slide-list ul li .title{color:#17233D;font-size:rem(16);@include bold;@include ell;}
+.slide-list ul li .conts-wrap{display:none;}
+
+.notice-wrap{padding:0 rem(8);}
+.notice-wrap .slide-list ul li .date{font-size:rem(12);color:#808695;display:block;margin-bottom:rem(8);}
+.notice-wrap .slide-list ul li .conts-wrap .conts{font-size:rem(12);padding:rem(25) rem(15);}
+
+.qna-wrap .slide-list ul li .info{@include flex;}
+.qna-wrap .slide-list ul li .info .date{font-size:rem(14);color:#515A6E;}
+.qna-wrap .slide-list ul li .info .status{font-size:rem(16);margin-left:rem(8);}
+.qna-wrap .slide-list ul li .info .status i{margin-right:rem(7);}
+.qna-wrap .slide-list ul li .info .status.complete{color:#46C768;}
+.qna-wrap .slide-list ul li .info .status.wating{color:#5D96F6;}
+.qna-wrap .slide-list ul li .category{@include flex;margin-top:rem(5);}
+.qna-wrap .slide-list ul li .category .tag{@include flexInline;height:rem(24);margin-right:rem(5);font-size:rem(16);color:#fff;padding:0 rem(4);border-radius:rem(4);background:#5D96F6;}
+.qna-wrap .slide-list ul li .category .cate{@include flex;flex:1;font-size:rem(16);@include ell;height:1em;}
+.qna-wrap .slide-list ul li .category .cate i{margin:0 rem(8);}
+.qna-wrap .slide-list ul li .conts-wrap{padding:0 rem(15) rem(8);}
+.qna-wrap .slide-list ul li .conts-wrap .conts{background: #F5F5F5;border: 1px solid #DCDEE2;padding: rem(8);border-radius:rem(4);font-size:rem(14);}
