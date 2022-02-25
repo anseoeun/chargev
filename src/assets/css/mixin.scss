@@ -173,12 +173,12 @@ $size: 28px;
 }
   
 //flex
-@mixin flex($justify: flex-start, $align: center) {
+@mixin flex($justify: flex-start, $align: center, $dir: row) {
   // ,  $dir: row, $wrap: nowrap
   display: flex;
   align-items: $align;
   justify-content: $justify;
-  // flex-direction: $dir;
+  flex-direction: $dir;
   // flex-wrap: $wrap;  
   @content;
 }
@@ -237,4 +237,52 @@ $size: 28px;
 //font-ebold
 @mixin ebold {
   font-weight: 800;
+}
+
+
+
+/* Scrollbar
+ -------------------------- */
+ @mixin scrollbar($show:block) {
+  $--scrollbar-thumb-background: rgba(0,0,0,.2);
+  $--scrollbar-track-background: rgba(0,0,0,.05);
+
+  &::-webkit-scrollbar {
+    -webkit-appearance:none;
+    display:$show;
+    &:vertical {
+      width:5px;
+    }
+    &:horizontal {
+      height: 5px;
+    }
+
+    &-thumb {
+      border-radius: 10px;
+      background: $--scrollbar-thumb-background;
+    }
+
+    &-corner {
+      background: $--scrollbar-track-background;
+    }
+
+    &-track {
+      border-radius: 10px;
+      background: $--scrollbar-track-background;
+
+      &-piece {
+        background: $--scrollbar-track-background;
+        width: 6px;
+      }
+    }
+  }
+}
+
+@mixin hideScroll {
+  scrollbar-width: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

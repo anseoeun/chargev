@@ -2009,6 +2009,8 @@
     font-size: 12.45px;
   }
 }
+/* Scrollbar
+ -------------------------- */
 @font-face {
   font-family: "NotoSansKr";
   src: url("~@/assets/fonts/NotoSans-Black.eot");
@@ -2308,8 +2310,9 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   font-size: 0.85rem;
-  color: #515A6E;
+  color: #17233D;
   font-weight: 700;
 }
 
@@ -2321,6 +2324,7 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: row;
 }
 
 .header .right {
@@ -2331,6 +2335,7 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: row;
 }
 
 .header .btn {
@@ -2340,12 +2345,13 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   font-size: 0.85rem;
   font-weight: 700;
 }
 
 .header ~ .contents {
-  padding-top: 2.4285714286rem;
+  padding-top: 2.9142857143rem;
 }
 
 .footer {
@@ -2361,6 +2367,7 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: row;
   height: 3.4rem;
   padding: 0 1.2142857143rem;
 }
@@ -2398,6 +2405,15 @@ i[class*=i-] .svg-prevent {
   font-size: 0.4857142857rem;
   color: #808695;
   margin-top: 0.1821428571rem;
+}
+
+/*********************************
+  common content
+*********************************/
+.tit-type1 {
+  font-size: 1.8214285714rem;
+  color: #17233D;
+  font-weight: 700;
 }
 
 /* btn */
@@ -2530,6 +2546,7 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: row;
 }
 
 .qna-wrap .slide-list ul li .info .date {
@@ -2558,6 +2575,7 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: row;
   margin-top: 0.3035714286rem;
 }
 
@@ -2578,13 +2596,13 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: row;
   flex: 1;
   font-size: 0.9714285714rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
   word-wrap: break-word;
   line-height: 1.2em;
   height: 1.2em;
@@ -2605,5 +2623,107 @@ i[class*=i-] .svg-prevent {
   padding: 0.4857142857rem;
   border-radius: 0.2428571429rem;
   font-size: 0.85rem;
+}
+
+.x-scrolling-list {
+  overflow-x: auto;
+  width: 100%;
+  white-space: nowrap;
+  padding-left: 0.9107142857rem;
+}
+.x-scrolling-list::-webkit-scrollbar {
+  -webkit-appearance: none;
+  display: none;
+}
+.x-scrolling-list::-webkit-scrollbar:vertical {
+  width: 5px;
+}
+.x-scrolling-list::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+.x-scrolling-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.x-scrolling-list::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.05);
+}
+.x-scrolling-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.05);
+}
+.x-scrolling-list::-webkit-scrollbar-track-piece {
+  background: rgba(0, 0, 0, 0.05);
+  width: 6px;
+}
+
+.x-scrolling-list ul li:last-child {
+  padding-right: 0.9107142857rem;
+}
+
+.x-scrolling-list li {
+  display: inline-block;
+}
+
+.x-scrolling-list li ~ li {
+  margin-left: 1.4571428571rem;
+}
+
+.x-scrolling-list .gradient-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1.5178571429rem 0.9107142857rem 1.8214285714rem;
+  height: 16.5142857143rem;
+  width: 15.0571428571rem;
+  background: linear-gradient(180deg, #0D2A8B 57.34%, rgba(13, 42, 139, 0.4) 100%);
+  box-shadow: 0.2428571429rem 0.2428571429rem 0.6071428571rem rgba(0, 0, 0, 0.25);
+  border-radius: 1.2142857143rem;
+}
+
+.x-scrolling-list .gradient-box .period {
+  float: right;
+  display: block;
+  width: 3.8857142857rem;
+  height: 4.3714285714rem;
+  margin-left: auto;
+  padding: 0.3035714286rem 0 0.425rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 0.6071428571rem;
+  color: #17233D;
+}
+
+.x-scrolling-list .gradient-box .period .month {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.x-scrolling-list .gradient-box .period .day {
+  font-size: 1.3357142857rem;
+}
+
+.x-scrolling-list .gradient-box .text {
+  color: #fff;
+  font-size: 1.4571428571rem;
+  white-space: normal;
+}
+
+.event-wrap .event-header {
+  padding: 0 0.9107142857rem;
+}
+
+.event-wrap .event-header .date {
+  margin-bottom: 0.4857142857rem;
+  font-size: 0.85rem;
+  color: #808695;
+}
+
+.event-wrap .x-scrolling-list {
+  margin-top: 1.8214285714rem;
 }
 /*# sourceMappingURL=style.css.map */

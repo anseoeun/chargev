@@ -23,7 +23,7 @@ export default {
     props: {
         layout:{
             type: String,
-            default: 'Default',
+            default: 'None',
         },
     },
 }

@@ -14,6 +14,8 @@ const routes = [
 	{ path: '/notice', component: () => import('@/views/Notice.vue')},
   // 문의내역
 	{ path: '/qna', component: () => import('@/views/Qna.vue')},
+  // 이벤트
+	{ path: '/event', component: () => import('@/views/Event.vue')},
   // 테스트
 	{ path: '/test', component: () => import('@/views/Test.vue') },
   // 테스트
@@ -21,6 +23,18 @@ const routes = [
   // 테스트
 	{ path: '/calendar', component: () => import('@/views/Calendar.vue')},
 ]
+
+for(let i=0;i<routes.length;i++){
+  if(routes[i].meta === undefined){
+    routes[i].meta = {};
+    routes[i].meta.layout = 'Default';
+  }else if(routes[i].meta.layout === undefined){
+    routes[i].meta.layout = 'Default';
+  }
+}
+
+console.log(routes)
+
 
 
 const router = new VueRouter({

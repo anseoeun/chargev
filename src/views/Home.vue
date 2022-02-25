@@ -1,8 +1,9 @@
 <template>
   <div class="index">
+    <h2>Publishing work sheet</h2>
     <table>
     <colgroup>
-      <col style="width:50px" />
+      <col style="width:40px" />
       <!-- <col style="width:150px" />
       <col style="width:200px" /> -->
       <col style="width:20%" />
@@ -21,10 +22,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(item, index) in indexList" :key="index">
+      <tr v-for="(value, name, index) in titleData" :key="index">
         <td>{{ index + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td><router-link :to="item.link">{{ item.link }}</router-link></td>
+        <td>{{ value }}</td>
+        <td><router-link :to="'/'+name">{{ '/'+name }}</router-link></td>
         <td></td>
       </tr>
     </tbody>
@@ -33,31 +34,18 @@
 </template>
 
 <script>
+// import '../router/index.js'
 export default {
   name: 'Home',
   components: {
 
   },
-  data(){
-    return {
-      indexList: [
-        {
-          name: '공지사항',
-          link: '/notice'
-        },
-        {
-          name: '문의내역',
-          link: '/qna'
-        },
-      ]
-    }
-  }
 }
 </script>
 
-<style>
-  body {padding:20px;}
-
+<style scoped>
+  h2{font-size:20px;color: #000;}
+  .index{padding:20px;}
   .index table {width:100%; border-collapse:collapse; border:0px solid #666;margin-top:10px;}
   .index caption {text-align:left; font-size:200%; color:#999;}
   .index th {padding:6px; border:1px solid #fff; color:#fff; font-size:110%; background-color:#000;}

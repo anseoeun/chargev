@@ -41,10 +41,10 @@ export default {
     methods: {
         setMenus(){
             if(this.title === '문의내역') {
-                 this.menus.tel = true
+                 this.menus.tel = true;
             }else{
-                this.menus.back = true
-                this.menus.home = true
+                this.menus.back = true;
+                this.menus.home = true;
             }
         }
     }

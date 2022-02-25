@@ -7,6 +7,7 @@ Vue.mixin({
         titleData: {
             'notice': '공지사항',
             'qna': '문의내역',
+            'event': '이벤트',
             'calendar': '캘린더'
         },
       }
@@ -15,7 +16,8 @@ Vue.mixin({
         $route: {
             immediate: true,
             handler(to) {
-                this.title = this.titleData[to.path.split('/')[1]]
+                if(to) this.title = this.titleData[to.path.split('/')[1]]
+                console.log(this.title)
             }
         },
     },        
