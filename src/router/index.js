@@ -16,6 +16,14 @@ const routes = [
 	{ path: '/qna', component: () => import('@/views/Qna.vue')},
   // 이벤트
 	{ path: '/event', component: () => import('@/views/Event.vue')},
+  // 충전기 설치신청 목록
+	{ path: '/chargerInstallApplyList', component: () => import('@/views/ChargerInstallApplyList.vue')},
+  // 충전기 설치신청 장소
+	{ path: '/chargerInstallApplyPlace', component: () => import('@/views/ChargerInstallApplyPlace.vue')},
+  // 충전기 설치신청 폼
+	{ path: '/chargerInstallApplyForm', component: () => import('@/views/ChargerInstallApplyForm.vue')},
+
+  
   // 테스트
 	{ path: '/test', component: () => import('@/views/Test.vue') },
   // 테스트

@@ -137,6 +137,15 @@ $size: 28px;
   @content;
 }
 
+@mixin btn-style{
+  @content;
+}
+@mixin btn-type($name, $h, $fs, $fw:normal){
+  .#{$name}{height:$h;font-size:$fs;font-weight:$fw;}
+}
+@mixin btn-st($name, $c, $bg, $br, $fw:normal){
+  [class*=btn-type].#{$name}{color:$c;background:$bg;border:1px solid $br;}
+}
 
 //prefix
 @mixin prefix($property, $value, $prefixes:$prefixes) {

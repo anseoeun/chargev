@@ -8,6 +8,9 @@ Vue.mixin({
             'notice': '공지사항',
             'qna': '문의내역',
             'event': '이벤트',
+            'chargerInstallApplyList': '충전기 설치신청',
+            'chargerInstallApplyPlace': '충전기 설치신청',
+            'chargerInstallApplyForm': '충전기 설치신청',
             'calendar': '캘린더'
         },
       }
