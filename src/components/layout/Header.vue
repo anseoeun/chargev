@@ -1,8 +1,9 @@
 <template>
     <div class="header">
         <div class="left">
-            <!-- <router-link v-if="menus.back" to="/" class="btn"><Icon type="back" /></router-link> -->
-            <router-link v-if="menus.back" to="/"><i class="i-back"></i></router-link>
+            <router-link v-if="menus.back" to="/" class="btn"><Icon type="back" /></router-link>
+            <router-link v-if="menus.back" to="/" class="btn"><i class="i-back"></i></router-link>
+            <router-link to="/" class="btn"><i class="i-back-red"></i></router-link>
         </div>
        <h1 class="title">{{ title }}</h1>
        <div class="right">

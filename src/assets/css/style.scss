@@ -90,18 +90,25 @@ i[class*=i-]{position:relative;display:inline-block;background-size:100% 100% !i
 i[class*=i-] svg{width:100%;height:100%;}
 i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;height:100%;}
 @each $name, $w, $h, $fill, $stroke in 
-(back, 10, 16),
-(home, 20, 24),
+// (back, 18, 18),
+(back-red, 18, 18),
+(home, 16, 18),
 (tel, 24, 24),
 ('arr-right', 14, 24),
 ('answer-complete', 16, 16),
 ('answer-wating', 16, 16),
 ('arr-cate', 10, 16),
-('foot-charging-station', 17, 23, 'none', '%23808695'),
-('foot-route-recommend', 22, 20, 'none', '%23808695'),
-('foot-instant-charge', 22, 22, 'none', '%23808695'),
-('foot-favorites', 18, 23, 'none', '%23808695'),
-('foot-more', 22, 4),
+// ('foot-charging-station', 17, 23, 'none', '%23808695'),
+// ('foot-route-recommend', 22, 20, 'none', '%23808695'),
+// ('foot-instant-charge', 22, 22, 'none', '%23808695'),
+// ('foot-favorites', 18, 23, 'none', '%23808695'),
+// ('foot-more', 22, 4),
+
+('foot-search', 25, 24, 'none', '%235A5B5C'),
+('foot-origin', 29, 28, '%235A5B5C', '%235A5B5C'),
+('foot-mapsearch', 29, 29, '%235A5B5C', '%235A5B5C'),
+('foot-favorites', 21, 25, 'none', '%235A5B5C'),
+('foot-legend', 21, 27, '%235A5B5C', '%235A5B5C'),
 {
   .i-#{$name}{width:rem($w);height:rem($h); @include svg($name, $width:$w, $height:$h, $fill:$fill, $stroke:$stroke)}
   // .i-#{$name}{width:rem($w);height:rem($h);}
@@ -201,22 +208,22 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 *********************************/
 
 .header{position:fixed;top:0;left:0;height:rem(40);width:100%;}
-.header .title{text-align:center;height:100%;@include flex(center);font-size:rem(14);color:#17233D;font-weight:700;}
-.header .left{position:absolute;top:0;left:rem(10);height:100%;@include flex;}
-.header .right{position:absolute;top:0;right:rem(10);height:100%;@include flex;}
+.header .title{text-align:center;height:100%;@include flex(center);font-size:rem(14);color:#000;font-weight:700;}
+.header .left{position:absolute;top:0;left:rem(15);height:100%;@include flex;}
+.header .right{position:absolute;top:0;right:rem(15);height:100%;@include flex;}
 .header .btn{height:100%;padding:0 12px;min-width: rem(35);@include flex(center);font-size:rem(14);font-weight:700;}
 
 .header ~ .contents{padding-top:rem(48);}
 
 .footer{position:fixed;bottom:0;left:0;width:100%;z-index: 10;background:#fff;}
-.footer .footer-menu{@include flex;height:rem(56);padding:0 rem(20);}
+.footer .footer-menu{@include flex;height:rem(54);padding:0 rem(20);}
 .footer .footer-menu .menu{flex:1;text-align:center;}
 .footer .footer-menu .menu .icon{@include flexInline(center);height:rem(30);}
 .footer .footer-menu .menu.on .icon .i-foot-charging-station{@include svg('foot-charging-station', $fill:'%235D96F6', $stroke:'%23000000');}
 .footer .footer-menu .menu.on .icon .i-foot-route-recommend{@include svg('foot-route-recommend', $fill:'%235D96F6', $stroke:'%23000000');}
 .footer .footer-menu .menu.on .icon .i-foot-instant-charge{@include svg('foot-instant-charge', $fill:'%235D96F6', $stroke:'%23000000');}
 .footer .footer-menu .menu.on .icon .i-foot-favorites{@include svg('foot-favorites', $stroke:'%23000000');}
-.footer .footer-menu .menu .txt{display:block;font-size:rem(8);color:#808695;margin-top:rem(3);}
+.footer .footer-menu .menu .txt{display:block;font-size:rem(8);color:#808695;}
 
 .fixed-btm{position: fixed;bottom:rem(56);left:0;width:100%;z-index: 10;}
 .fixed-btm .btn-wrap{padding:rem(16) rem(32);}

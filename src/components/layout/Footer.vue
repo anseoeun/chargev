@@ -1,11 +1,11 @@
 <template>
     <div class="footer">
        <div class="footer-menu">
-           <router-link to="/" class="menu" :class="{ on : menus['charging-station'] }"><span class="icon"><i class="i-foot-charging-station"></i></span><span class="txt">충전소찾기</span></router-link>
-           <router-link to="/" class="menu" :class="{ on : menus['route-recommend'] }"><span class="icon"><i class="i-foot-route-recommend"></i></span><span class="txt">경로추천</span></router-link>
-           <router-link to="/" class="menu" :class="{ on : menus['instant-charge'] }"><span class="icon"><i class="i-foot-instant-charge"></i></span><span class="txt">즉시충전</span></router-link>
+           <router-link to="/" class="menu" :class="{ on : menus['search'] }"><span class="icon"><i class="i-foot-search"></i></span><span class="txt">검색조건</span></router-link>
+           <router-link to="/" class="menu" :class="{ on : menus['origin'] }"><span class="icon"><i class="i-foot-origin"></i></span><span class="txt">현재위치로</span></router-link>
+           <router-link to="/" class="menu" :class="{ on : menus['mapsearch'] }"><span class="icon"><i class="i-foot-mapsearch"></i></span><span class="txt">지도상검색</span></router-link>
            <router-link to="/" class="menu" :class="{ on : menus['favorites'] }"><span class="icon"><i class="i-foot-favorites"></i></span><span class="txt">즐겨찾기</span></router-link>
-           <router-link to="/" class="menu"><span class="icon"><i class="i-foot-more"></i></span><span class="txt">더보기</span></router-link>
+           <router-link to="/" class="menu" :class="{ on : menus['legend'] }"><span class="icon"><i class="i-foot-legend"></i></span><span class="txt">범례</span></router-link>
        </div>
     </div>
 </template>
@@ -16,10 +16,11 @@ export default {
     data() {
         return {
             menus: {
-                'charging-station': false,
-                'route-recommend': false,
-                'instant-charge': false,
-                'favorites': false
+                'search': false,
+                'origin': false,
+                'mapsearch': false,
+                'favorites': false,
+                'legend': false
             }
         }
     },
