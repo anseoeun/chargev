@@ -260,6 +260,10 @@ $size: 28px;
 @mixin regular {
   font-weight: 400;
 }
+//font-medium
+@mixin medium {
+  font-weight: 400;
+}
 //font-bold
 @mixin bold {
   font-weight: 700;
@@ -268,7 +272,6 @@ $size: 28px;
 @mixin ebold {
   font-weight: 800;
 }
-
 
 
 /* Scrollbar

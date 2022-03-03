@@ -1,13 +1,12 @@
 <template>
-    <div class="slide-list">
+    <div class="slide-list" :class="setClass">
         <ul>
             <li v-for="(item, index) in data" :key="index" :data-id="String(index + 1)">
-                <button @click=listToggle($event)>
-                    <i class="i-arr-right"></i>
+                <button class="btn" @click="listToggle($event)">
                     <slot name="header" :item="item" />
                 </button>
-                <!-- <slot name="content" :item="item" /> -->
                 <div class="conts-wrap">
+                    <slot name="content" :item="item" />
                     <div class="conts" v-html="item.content"></div>
                 </div>
             </li>
@@ -16,13 +15,16 @@
 </template>
 
 <script>
-// import { defineComponent } from '@vue/composition-api'
 import $ from 'jquery'
 export default {
     props:{
       data: {
         type: Array,
         default: () => []
+      },
+      setClass: {
+        type: String,
+        default: ''
       }
     },
     mounted(){

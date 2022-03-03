@@ -5,9 +5,12 @@ Vue.mixin({
       return {
         title:'',
         titleData: {
-            'notice': '공지사항',
+            'notice': '고객지원',
+            'support': '고객지원',
             'qna': '문의내역',
-            'event': '이벤트',
+            'event': '고객지원',
+            'eventDetail': '고객지원',
+            'ruleService': '고객지원',
             'chargerInstallApplyList': '충전기 설치신청',
             'chargerInstallApplyPlace': '충전기 설치신청',
             'chargerInstallApplyForm': '충전기 설치신청',

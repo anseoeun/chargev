@@ -12,10 +12,16 @@ const routes = [
   { path: '/about', name: 'About', component: () => import('@/views/About.vue') },
   // 공지사항
 	{ path: '/notice', component: () => import('@/views/Notice.vue')},
+  // 고객지원
+	{ path: '/support', component: () => import('@/views/Support.vue')},
   // 문의내역
 	{ path: '/qna', component: () => import('@/views/Qna.vue')},
   // 이벤트
 	{ path: '/event', component: () => import('@/views/Event.vue')},
+  // 이벤트 상세
+	{ path: '/eventDetail', component: () => import('@/views/EventDetail.vue')},
+  // 서비스이용약관
+	{ path: '/ruleService', component: () => import('@/views/RuleService.vue')},
   // 충전기 설치신청 목록
 	{ path: '/chargerInstallApplyList', component: () => import('@/views/ChargerInstallApplyList.vue')},
   // 충전기 설치신청 장소
@@ -35,9 +41,9 @@ const routes = [
 for(let i=0;i<routes.length;i++){
   if(routes[i].meta === undefined){
     routes[i].meta = {};
-    routes[i].meta.layout = 'Default';
+    routes[i].meta.layout = 'Nofooter';
   }else if(routes[i].meta.layout === undefined){
-    routes[i].meta.layout = 'Default';
+    routes[i].meta.layout = 'Nofooter';
   }
 }
 
