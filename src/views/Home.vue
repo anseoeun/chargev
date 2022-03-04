@@ -24,7 +24,7 @@
     <tbody>
       <tr v-for="(value, name, index) in titleData" :key="index">
         <td>{{ index + 1 }}</td>
-        <td>{{ value }}</td>
+        <td>{{ value[1] }}</td>
         <td><router-link :to="'/'+name">{{ '/'+name }}</router-link></td>
         <td></td>
       </tr>

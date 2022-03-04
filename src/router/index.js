@@ -22,6 +22,10 @@ const routes = [
 	{ path: '/eventDetail', component: () => import('@/views/EventDetail.vue')},
   // 서비스이용약관
 	{ path: '/ruleService', component: () => import('@/views/RuleService.vue')},
+  
+  // 충전기 고장신고
+	{ path: '/breakdownReport.vue', component: () => import('@/views/BreakdownReport.vue')},
+
   // 충전기 설치신청 목록
 	{ path: '/chargerInstallApplyList', component: () => import('@/views/ChargerInstallApplyList.vue')},
   // 충전기 설치신청 장소
