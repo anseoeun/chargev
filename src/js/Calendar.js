@@ -1,4 +1,6 @@
-export default function calendar (priceData) {
+export default function calendar (paymentData) {
+
+  const _this = this;
 
   function generate_year_range(start, end) {
     var years = "";
@@ -7,6 +9,7 @@ export default function calendar (priceData) {
     }
     return years;
   }
+
 
   var today = new Date();
   var currentMonth = today.getMonth();
@@ -74,7 +77,9 @@ export default function calendar (priceData) {
     // monthAndYear.innerHTML = months[month] + " " + year;
     selectYear.value = year;
     selectMonth.value = month;
-
+    
+ 
+  
     // creating all cells
     var date = 1;
     for ( var i = 0; i < 6; i++ ) {
@@ -91,14 +96,20 @@ export default function calendar (priceData) {
             } else if (date > daysInMonth(month, year)) {
                 break;
             } else {
-                var price = priceData[year+'-'+(month+1)+'-'+date] ? priceData[year+'-'+(month+1)+'-'+date] : '';
+                var price = paymentData[year+'-'+(month+1)+'-'+date] ? paymentData[year+'-'+(month+1)+'-'+date] : '';
                 cell = document.createElement("td");
                 cell.setAttribute("data-date", date);
                 cell.setAttribute("data-month", month + 1);
                 cell.setAttribute("data-year", year);
                 cell.setAttribute("data-month_name", months[month]);
                 cell.className = "date-picker";
-                cell.innerHTML = "<div class='date "+ (price ? "bold" : "") +"'>" + date +"</div><div class='price'>" +  (price ? price : "&nbsp") + "</div>";
+
+                if(price){
+                  cell.innerHTML = "<button type=button class='btn-payment'><div class='date payment'>" + date +"</div><div class='price'>" +  price + "</div></button>";
+                }else{
+                  cell.innerHTML = "<div class='date'>" + date +"</div><div class='price'>&nbsp</div>";
+                }                
+                // cell.innerHTML = "<div class='date "+ (price ? "payment" : "") +"'>" + date +"</div><div class='price'>" +  (price ? price : "&nbsp") + "</div>";
 
                 if ( date === today.getDate() && year === today.getFullYear() && month === today.getMonth() ) {
                     cell.className = "date-picker today";
@@ -106,11 +117,16 @@ export default function calendar (priceData) {
                 row.appendChild(cell);
                 date++;
             }
-
-
         }
 
         tbl.appendChild(row);
+
+        document.querySelectorAll('.btn-payment').forEach(function(el){
+          el.addEventListener('click', function(){
+            const date = el.querySelector('.date').textContent;
+            _this.selectedDate = currentYear+''+currentMonth+''+ date
+          })
+        })
     }
 
   }
@@ -120,6 +136,16 @@ export default function calendar (priceData) {
   }
 
   return {
+    next: function(){
+      currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+      currentMonth = (currentMonth + 1) % 12;
+      showCalendar(currentMonth, currentYear);
+    },
+    previous: function(){
+      currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+      currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+      showCalendar(currentMonth, currentYear);
+    },
     jump: function (){
       currentYear = parseInt(selectYear.value);
       currentMonth = parseInt(selectMonth.value);

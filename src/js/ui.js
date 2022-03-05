@@ -13,6 +13,7 @@ Vue.mixin({
             'ruleService': ['문의내역', '서비스이용약관'],
 
             'breakdownReport': ['문의하기', '충전기 고장신고'],
+            'refund': ['문의하기', '환불문의'],
 
             'chargerInstallApplyList': ['문의하기', '충전기 설치신청'],
             'chargerInstallApplyPlace': ['문의하기', '충전기 설치신청'],
