@@ -4,76 +4,158 @@
       <h2 class="tit-type1">환불문의</h2>
       <!-- 환불 항목 -->
       <div class="shadow-box">
-        <h3 class="tit-type2">환불 항목 <div class="right"><button v-if="selectedRefun" class="c-gray" @click="selectedRefun = ''">수정</button></div></h3>
-        <div v-if="!selectedRefun" class="box-list">
+        <h3 class="tit-type2">환불 항목 <div class="right"><button v-if="selectedRefun" class="c-gray" @click="init()">수정</button></div></h3>
+        <div v-if="!selectedRefun.text" class="box-list">
           <ul>
-            <li v-for="(item, index) in refundList" :key="index"><button v-html="item" @click="selectedRefun = item"></button></li>
+            <li v-for="(item, index) in refundList" :key="index"><button v-html="item" @click="selectedRefun.text = item;selectedRefun.val = index"></button></li>
           </ul>
         </div>
-        <div v-if="selectedRefun" class="grid-list">
+        <div v-if="selectedRefun.text" class="grid-list">
             <div class="row">
                 <div class="tit">항목</div>
-                <div class="text">{{ selectedRefun }}</div>
+                <div class="text" v-html="selectedRefun.text.replace('<br>', ' ')"></div>
             </div>
         </div>
       </div>
-      
-      <!-- 결제일 선택 -->
-      <div class="shadow-box">
-        <h3 class="tit-type2">결제일 선택</h3>
-        <div class="calendar-wrap">
-          <div class="calendar-select">
-              <button class="prev" @click="calendarData(-1)"><Icon type="arr-left" /></button>
-              <div class="select">
-                <select @change="dateJump($event, month)">
-                  <option v-for="(item, index) in yearList" :key="index" :value="item" :selected="item === year">{{ item }}년</option>
-                </select>
-                <select @change="dateJump(year, $event)">
-                  <option v-for="(item, index) in monthList" :key="index" :value="item" :selected="item === month">{{ item }}월</option>
-                </select>
-              </div>
-              <button class="next" @click="calendarData(1)"><Icon type="arr-right" /></button>
-          </div>        
-          <div class="table-calendar">
-            <table>
-              <thead>
-                <tr>
-                  <th v-for="day in days" :key="day" scope="col">{{ day }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for=" (date, idx) in dates" :key="idx">
-                  <td v-for="(day, secondIdx) in date" :key="secondIdx" :class="{ 'today': isToday(year, month, day)}">
-                    <template v-if="!(idx === 0 && day >= lastMonthStart) && !(dates.length - 1 === idx && nextMonthStart > day)">
-                      <template v-if="!setPayDate(year, month, day)"><div class="date">{{ day }}</div><div class="price">&nbsp;</div></template>
-                      <button v-else class="btn-payment" :class="{ 'on': isSelected(year, month, day)}" @click="setSelected(year, month, day)">
-                        <div class="date">{{ day }}</div>
-                        <div class="price">
-                          {{ setPayDate(year, month, day) }}
-                        </div>
-                      </button>
-                    </template>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <!-- 결제후 미충전 -->
+      <template v-if="selectedRefun.val === 0">
+        <!-- 결제일 선택 -->
+        <div class="shadow-box">
+          <h3 class="tit-type2">결제일 선택</h3>
+          <div class="calendar-wrap">
+            <div class="calendar-select">
+                <button class="prev" @click="calendarData(-1)"><Icon type="arr-left" /></button>
+                <div class="select">
+                  <select @change="dateJump($event, month)">
+                    <option v-for="(item, index) in yearList" :key="index" :value="item" :selected="item === year">{{ item }}년</option>
+                  </select>
+                  <select @change="dateJump(year, $event)">
+                    <option v-for="(item, index) in monthList" :key="index" :value="item" :selected="item === month">{{ item }}월</option>
+                  </select>
+                </div>
+                <button class="next" @click="calendarData(1)"><Icon type="arr-right" /></button>
+            </div>        
+            <div class="table-calendar">
+              <table>
+                <thead>
+                  <tr>
+                    <th v-for="day in days" :key="day" scope="col">{{ day }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for=" (date, idx) in dates" :key="idx">
+                    <td v-for="(day, secondIdx) in date" :key="secondIdx" :class="{ 'today': isToday(year, month, day)}">
+                      <template v-if="!(idx === 0 && day >= lastMonthStart) && !(dates.length - 1 === idx && nextMonthStart > day)">
+                        <template v-if="!setPayDate(year, month, day)"><div class="date">{{ day }}</div><div class="price">&nbsp;</div></template>
+                        <button v-else class="btn-payment" :class="{ 'on': isSelected(year, month, day)}" @click="setSelected(year, month, day)">
+                          <div class="date">{{ day }}</div>
+                          <div class="price">
+                            {{ setPayDate(year, month, day) }}
+                          </div>
+                        </button>
+                      </template>
+                    </td> 
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </div>      
-
-      <!-- 결제건 선택 -->
-      <div class="shadow-box">
-        <h3 class="tit-type2">결제건 선택</h3>
-        <div class="grid-list">
-            <div class="row">
-                <div class="tit">선택</div>
-                <div class="text">2건</div>
+        </div>      
+ 
+        <!-- 결제건 선택 -->
+        <div class="payment-select-box shadow-box">
+          <h3 class="tit-type2">결제건 선택</h3>
+          <template v-if="isPaymentList">
+            <div class="grid-list">
+                <div class="row">
+                    <div class="tit">선택</div>
+                    <div class="text">{{ paymentData.length }}건</div>
+                </div>
             </div>
+            <div class="blackbox-list">
+              <div v-for="(item, index) in paymentData" :key="index" class="black-box">
+                <router-link to="/" class="box">
+                  <Icon type="arr-right" />
+                  <div class="check w-sm">
+                  <button  @click="checkIcon($event, 'paymentChecked', index)">
+                    <Icon type="check" :class="{on: paymentChecked[index]}" />
+                  </button>
+                  </div>
+                  <div class="t-wrap">
+                    <div class="row">
+                      <div class="cell tit"><b>차지비</b></div>
+                      <div class="cell">{{ item.addr }}</div>
+                    </div>
+                    <div class="row">
+                      <div class="cell tit">정상이용 </div>
+                      <div class="cell">
+                        <p><b class="price">{{ item.price }}원</b> {{ item.method }}</p>
+                        <p>{{ item.time }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </router-link>
+              </div>
+            </div>
+          </template>
+          <button class="btn-type1 st1" :disabled="!paymentChecked.includes(true)" @click="alertPop = true">문의하기</button>
         </div>
-        <button class="btn-type1 st1">문의하기</button>
-      </div>
-      
+      </template>
+
+      <!-- 선불상품 -->
+      <!-- 충전권 선택 -->
+      <template v-if="selectedRefun.val === 1">
+        <div class="shadow-box">
+          <h3 class="tit-type2">충전권 선택</h3>
+          <div class="blackbox-list">
+            <div v-for="(item, index) in chargeData" :key="index" class="black-box">
+              <router-link to="/" class="box">
+                <Icon type="arr-right" />
+                <div class="check">
+                  <button  @click="checkIcon($event, 'chargeChecked', index)">
+                    <Icon type="check" :class="{on: chargeChecked[index]}" />
+                  </button>
+                </div>
+                <div class="t-wrap">
+                  <div class="row">
+                    <div class="cell">{{ item.tit }}</div>
+                  </div>
+                  <div class="row">
+                    <div class="cell">
+                      <p><b class="price">{{ item.price }}원</b></p>
+                      <p>{{ item.time }}</p>
+                    </div>
+                  </div>
+                </div>
+              </router-link>
+            </div>
+          </div>
+          <button v-if="!chargeSelected" :disabled="!chargeChecked.includes(true)" class="btn-type1 st1" @click="chargeSelected = true">선택완료</button>
+        </div>
+        <!-- 환불 사유 -->
+        <div v-if="chargeSelected" class="shadow-box">
+          <h3 class="tit-type2">환불 사유</h3>
+          <div class="box-list">
+            <ul>
+              <li v-for="(item, index) in refundReasonList" :key="index" :class="{on : refundReasonCase === index}"><button v-html="item" @click="refundReasonCase = index"></button></li>
+            </ul>
+          </div>
+          <div v-if="refundReasonCase !== ''" class="input-wrap">
+            <input type="text">
+          </div>
+          <button :disabled="refundReasonCase === ''" class="btn-type1 st1">확인</button>
+        </div>
+      </template>
+
     </div>
+    <!-- // refund-wrap -->
+
+    <Alert :is-open="alertPop" @close="alertPop = false">      
+        <template slot="header">모바일 충전권 등록</template>
+        <template slot="body">
+            모바일 충전권 등록이 완료되었습니다.
+        </template>
+    </Alert>
   </div>
 </template>
 
@@ -86,7 +168,10 @@ export default {
   data(){
     return {
       //환불문의 
-      selectedRefun: '',
+      selectedRefun: {
+        text: '',
+        val: '',
+      },
       refundList: ['결제 후<br>미충전', '선불상품', '기타'],
 
       //결제일 선택
@@ -102,9 +187,8 @@ export default {
       lastMonthStart: 0,
       nextMonthStart: 0,
       today: 0,
-      timeList : ['10:00', '13:00', '14:00', '16:00'],
       selectedDate: '',
-      paymentData: {
+      paymentDayData: {
         "2022-3-25": "6,000",
         "2022-3-26": "10,560",
         "2022-3-27": "55,010",
@@ -120,6 +204,45 @@ export default {
         "2022-4-6": "60,000",
         "2022-4-7": "58,000",
       },
+
+      //결제건 선택
+      paymentChecked: [],      
+      isPaymentList: false,
+      paymentData: [
+        {
+          addr: '서울시 송파구 롯데타워지하4층 완속#1',
+          method: '충전포인트 결제',
+          price: '9,010 ',
+          time: '2021-11-02 15:05:02',
+        },
+        {
+          addr: '서울시 송파구 롯데타워지하4층 완속#1',
+          method: '충전포인트 결제',
+          price: '9,010 ',
+          time: '2021-11-02 15:05:02',
+        },
+      ],
+
+      //충전권 선택
+      chargeChecked: [],
+      chargeSelected: false,
+      chargeData: [
+        {
+          tit: '모바일 충전권',
+          price: '9,010 ',
+          time: '2021-10-01 ~ 2022-10-01',
+        },
+        {
+          tit: '모바일 충전권',
+          price: '9,010 ',
+          time: '2021-10-01 ~ 2022-10-01',
+        },
+      ],
+      refundReasonCase: '',
+      refundReasonList: ['차지비<br>사용안함', '실수로 구매', '기타'],
+
+      //팝업
+      alertPop: false,
     }
   },
   created() {
@@ -131,10 +254,13 @@ export default {
     this.today = date.getDate() // 오늘 날짜
     this.calendarData()
   },  
-  mounted(){
-      // this.calendar = CalendarJs.call(this, this.paymentData)
-  },
+
   methods: {
+    init(){
+      this.selectedRefun.text = ''
+      this.selectedRefun.val = ''
+    },
+
     calendarData(arg) { // 인자를 추가
       if (arg < 0) { // -1이 들어오면 지난 달 달력으로 이동
         this.month -= 1
@@ -231,12 +357,6 @@ export default {
       this.nextMonthStart = weekOfDays[0] // 이번 달 마지막 주에서 제일 작은 날짜
       return dates
     },
-    // setDate(year, month, day, time) {
-    //   this.selectedDate.date = year+'-'+month+'-'+day
-    //   this.selectedDate.time =  time
-    //   this.setSelectedDriving(this.selectedDate)
-    //   this.showChange()
-    // },
     isToday(year, month, day){
       if(day === this.today && month === this.currentMonth && year === this.currentYear){
         return true
@@ -249,17 +369,11 @@ export default {
     },
     setSelected(year, month, day){
       this.selectedDate = year+'-'+ month+'-'+ day;
+      this.isPaymentList = true;
     },
     setPayDate(year, month, day){
-      return this.paymentData[year+'-'+ month+'-'+ day] !== undefined ? this.paymentData[year+'-'+ month+'-'+ day] : false
+      return this.paymentDayData[year+'-'+ month+'-'+ day] !== undefined ? this.paymentDayData[year+'-'+ month+'-'+ day] : false
     },
-    // showPayment(e){
-    //   const td = document.querySelectorAll('.btn-payment')
-    //   td.forEach((el)=>{
-    //     el.classList.remove('on')
-    //   });
-    //   e.currentTarget.classList.add('on');
-    // }
   }
 }
 </script>

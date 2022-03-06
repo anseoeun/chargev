@@ -61,6 +61,79 @@
           dfsf
         </template>
       </BtmLayer>
+
+
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <Icon type="arr-right" />
+          <span class="payco">
+            <Icon type="payco" />
+          </span>
+         </router-link>
+      </div>
+      <br>
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <Icon type="arr-right" />
+          <div class="check">
+            <button @click="checkIcon">
+              <Icon type="check" />
+            </button>
+          </div>
+          <div class="t-wrap">
+            <div class="row"><div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div></div>
+            <div class="row"><div class="cell"><b class="price">9,010원</b> 충전포인트 결제</div></div>
+            <div class="row"><div class="cell">2021-11-02 15:05:02</div></div>
+          </div>
+         </router-link>
+      </div>
+      <br>
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <Icon type="arr-right" />
+          <div class="t-wrap">
+            <div class="row">
+              <div class="cell tit"><b>차지비</b></div>
+              <div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div>
+            </div>
+            <div class="row">
+              <div class="cell tit">
+                <b class="c-red">잔액부족<br>미결제</b>
+              </div>
+              <div class="cell">
+                <p><b class="price">9,010원</b> 충전포인트 결제</p>
+                <p>2021-11-02 15:05:02</p>
+              </div>
+            </div>
+          </div>
+         </router-link>
+      </div>
+      <br>
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <Icon type="arr-right" />
+           <div class="check w-sm">
+            <button @click="checkIcon">
+              <Icon type="check" />
+            </button>
+          </div>
+          <div class="t-wrap">
+            <div class="row">
+              <div class="cell tit"><b>차지비</b></div>
+              <div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div>
+            </div>
+            <div class="row">
+              <div class="cell tit">
+                정상이용
+              </div>
+              <div class="cell">
+                <p><b class="price">9,010원</b> 충전포인트 결제</p>
+                <p>2021-11-02 15:05:02</p>
+              </div>
+            </div>
+          </div>
+         </router-link>
+      </div>
   </div>
 </template>
 
@@ -99,7 +172,7 @@ export default {
   methods: {
     formatter(e) {
       return e.value + "분";
-    }
+    },
   },
 }
 </script>

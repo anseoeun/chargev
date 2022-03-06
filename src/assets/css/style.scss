@@ -76,7 +76,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 
 @include btn-style{
   [class*=btn-type]{text-align:center;white-space:nowrap;border-radius:rem(4);width:100%;}
-  [class*=btn-type].full{@include flex(center);width:100%;} 
+  [class*=btn-type]:disabled{background: #A3A9A4 !important;border-color: #A3A9A4 !important;} 
   [class*=btn-type] i{margin-right:rem(3);}
 
   @each $name, $h, $fs in 
@@ -87,7 +87,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 
   @each $name, $c, $bg, $br in 
   (st1, #000, #92FF44, #92FF44),
-  (st2, #fff, #5D96F6, #5D96F6),
+  (st2, #5A5B5C, #fff, #5A5B5C),
   {
     @include btn-st($name, $c, $bg, $br);
   }    
@@ -169,6 +169,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 
 /* c-color */
 .c-blue{color:#5D96F6 !important;}
+.c-red{color:#FF4444 !important;}
 .c-gray{color:#5A5B5C !important;}
 
 /*********************************
@@ -270,6 +271,9 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .shadow-box{padding:rem(16);box-shadow: 0px rem(2) rem(4) rgba(40, 41, 61, 0.04), 0px 8px 16px rgba(96, 97, 112, 0.16); border-radius: rem(4);;}
 .shadow-box .tit-type2{margin:rem(8) 0;}
 .shadow-box + .shadow-box{margin-top:rem(16);}
+.shadow-box .blackbox-list{margin-top:rem(16);}
+.shadow-box .btn-type1{margin-top:rem(16);}
+.shadow-box .input-wrap{margin-top:rem(16);}
 
 .search-box .btn-type1{margin-top:rem(8);}
 
@@ -333,6 +337,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .box-list ul:after{content:'';display:block;clear: both;}
 .box-list ul li{float:left;width:33.3333%;padding-left:rem(16);margin-top:rem(16);}
 .box-list ul li button{width:100%;height:rem(48);padding-top:rem(3);line-height:1;border: 1px solid #5A5B5C;font-size:rem(16);  border-radius: rem(4);box-shadow: 0 rem(1) rem(2) rgba(40, 41, 61, 0.04), 0px rem(3) rem(6) rgba(96, 97, 112, 0.16);}
+.box-list ul li.on button{border:1px solid #92FF44;background:#92FF44;color:#000;}
 
 .select-date{overflow:hidden;border:1px solid #E8EAEC;border-radius:rem(8);color:#515A6E;font-size:rem(12);margin-top:rem(10);}
 .select-date > .row{@include flex;align-items: flex-start;width:100%;}
@@ -375,3 +380,34 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 
 .refund-wrap{padding:0 rem(16);}
 .refund-wrap .tit-type1{padding:rem(16);}
+
+
+.blackbox-list .black-box ~ .black-box{margin-top:rem(16);}
+.black-box .box{@include flex;padding:rem(8);background:#000;color:#fff;font-size:rem(14);position:relative;border-radius:rem(4);}
+.black-box .box b{@include bold;}
+.black-box .i-arr-right {@include posCenter(y);right:rem(16);}
+.black-box .i-arr-right svg path {stroke:#92FF44}
+.black-box .check {@include flex(center);width:rem(40);padding-right:rem(8);}
+.black-box .check.w-sm{width:rem(20);}
+.black-box .check button{height:100%;width:100%;}
+.black-box .check button .i-check.on svg path {stroke:#92FF44}
+.black-box .t-wrap {flex:1;display:table;}
+.black-box .t-wrap .row{display:table-row;}
+.black-box .t-wrap .row .cell{display:table-cell;padding:rem(3) 0;}
+.black-box .t-wrap .row .cell ~ .cell{padding-left:rem(6);}
+.black-box .t-wrap .row .cell.tit{white-space: nowrap;}
+.black-box .t-wrap .row .cell p ~ p{margin-top:rem(6);}
+.black-box .t-wrap .row .price {color:#92FF44;@include bold;}
+.black-box .payco {display:inline-block;padding:rem(8);}
+
+
+/* layerpopup */
+.alert-popup{position:fixed;top:0;left:0;width:100%;height:100%;min-width:320px;overflow-y:auto;z-index:100;}
+.alert-popup .dim{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0);}
+.alert-popup .popup{@include posCenter;padding:rem(16);margin:0 auto;width:rem(343);max-width:90%;box-shadow: 0 rem(1) rem(2) rgba(40, 41, 61, 0.04), 0px rem(3) rem(6) rgba(96, 97, 112, 0.16);border-radius:rem(3);background:#fff;}
+.alert-popup .popup .pop-header{position:relative;}
+.alert-popup .popup .pop-header .pop-tit{margin-bottom:rem(16);text-align:center;@include bold;font-size:rem(20);color:#000;}
+.alert-popup .popup .pop-body .alert-txt{font-size:rem(16);text-align:center;}
+.alert-popup .popup .pop-body .btn-wrap{margin-top:rem(16);}
+
+.alert-popup .btn-wrap [class*=btn-type] ~ [class*=btn-type]{margin-top:rem(16);}

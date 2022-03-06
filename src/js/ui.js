@@ -40,6 +40,17 @@ Vue.mixin({
    
     },
     methods: {
-       
+      checkIcon(e, arr, i){
+        e.stopPropagation();
+        e.preventDefault  ();
+        const el = e.currentTarget.querySelector('i')
+        if(el.classList.contains('on')){
+          // el.classList.remove('on')
+          this.$set(this[arr], i, false)
+        }else{
+          // el.classList.add('on')
+          this.$set(this[arr], i, true)
+        }
+      }
     }
   })

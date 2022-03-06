@@ -4,7 +4,9 @@ import Vue from 'vue'
 /** 사용할 컴포넌트 파일 Import */
 import Icon from './element/Icon'
 Vue.component('Icon', Icon)
-import BtmLayer from './common/BtmLayer'
+import BtmLayer from './element/BtmLayer'
 Vue.component('BtmLayer', BtmLayer)
-import SlideList from './common/SlideList'
+import SlideList from './element/SlideList'
 Vue.component('SlideList', SlideList)
+import Alert from './element/Alert'
+Vue.component('Alert', Alert)
