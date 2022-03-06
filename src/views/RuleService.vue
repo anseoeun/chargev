@@ -4,7 +4,7 @@
           <div class="rule-header">
               <h2 class="tit-type1">서비스 이용약관</h2>
               <div class="date-select">
-                  <select>
+                  <select class="st1">
                       <option v-for="(date, index) in dateList" :key="index">{{ date }}</option>
                   </select>
               </div>

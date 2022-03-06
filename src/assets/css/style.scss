@@ -102,19 +102,7 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
 }
 
-$inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input[type=number]', 'input[type=phone]', 'input[type=date]', 'input[type=tel]', textarea, select;
-%select-set {
-  -webkit-appearance: none; -moz-appearance: none; appearance: none;
-  background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 4"><path d="M7 0.25H0L3.5 3.75L7 0.25Z" fill="black"/></svg>') no-repeat right rem(10) top 50%;
-  background-size:auto rem(6);
-  padding-right:rem(40);
-}
-%textarea-set {
-  padding:10px;border:1px solid #e9e9e9;border-radius:4px;
-}
-%disabled-set {
-  color:#aeaeae;background-color:#eeeeee !important;
-}
+$inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input[type=number]', 'input[type=phone]', 'input[type=date]', 'input[type=tel]', textarea, select, 'select.st1', 'select.st2';
 
 @each $input in $inputs {
   //input[type="#{$input}"] {
@@ -133,12 +121,38 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
   }
   @if #{$input}  == 'select' {
     #{$input} {
-      @extend %select-set;
+      -webkit-appearance: none; -moz-appearance: none; appearance: none;
+      background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 4"><path d="M7 0.25H0L3.5 3.75L7 0.25Z" fill="black"/></svg>') no-repeat right rem(10) top 50%;
+      background-size:auto rem(6);
+      padding-right:rem(40);
+    }
+  }  
+  @if #{$input}  == 'select.st1' {
+    #{$input} {
+      font-size:rem(13); 
+      height:rem(40);
+      width:auto; 
+      border:1px solid #e3e4ec; 
+      padding-right:rem(30); 
+      background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 4"><path d="M7 0.25H0L3.5 3.75L7 0.25Z" fill="%234F4F4F"/></svg>') no-repeat right rem(10) top 50%; 
+      background-size:auto rem(4); 
+    }
+  }  
+  @if #{$input}  == 'select.st2' {
+    #{$input} {
+      height:rem(22);
+      width:auto;
+      border:none;
+      font-size:rem(16);
+      padding-left:0;
+      padding-right:rem(24);
+      background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 10"><path d="M8.25 10L16.25 1.99991L14.75 0.5L8.25 7L1.75 0.5L0.25 1.99991L8.25 10Z" fill="%235A5B5C"/></svg>') no-repeat right 0 top 50%; 
+      background-size:auto rem(9); 
     }
   }  
   @if  #{$input}  == 'textarea' {
     #{$input} {
-      @extend %textarea-set;
+      padding:10px;border:1px solid #e9e9e9;border-radius:4px;
     }
   }  
 }
@@ -213,7 +227,6 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .calendar-wrap .calendar-select{margin:rem(20) 0;@include flex;justify-content: space-between;}
 .calendar-wrap .calendar-select i{width:rem(16) !important;height:rem(16) !important;}
 .calendar-wrap .calendar-select .select{@include flex;}
-.calendar-wrap .calendar-select .select select{height:rem(22);width:auto;border:none;font-size:rem(16);padding-left:0;padding-right:rem(24); background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 10"><path d="M8.25 10L16.25 1.99991L14.75 0.5L8.25 7L1.75 0.5L0.25 1.99991L8.25 10Z" fill="%235A5B5C"/></svg>') no-repeat right 0 top 50%; background-size:auto rem(9); }
 .calendar-wrap .calendar-select .select select ~ select{margin-left:rem(25);}
 .calendar-wrap .table-calendar{font-family: 'AppleSDGothicNeo';}
 .calendar-wrap .table-calendar table{table-layout: fixed;}
@@ -352,15 +365,6 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .rule-wrap{padding:0 rem(32) rem(30);}
 .rule-wrap .rule-header{margin-top:rem(56);padding-bottom:rem(16);border-bottom:1px solid #c7c9d9;}
 .rule-wrap .date-select{margin-top:rem(16);}
-.rule-wrap .date-select select{
-  font-size:rem(13);
-  height:rem(40);
-  width:auto;
-  border:1px solid #e3e4ec;
-  padding-right:rem(30);
-  background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 4"><path d="M7 0.25H0L3.5 3.75L7 0.25Z" fill="%234F4F4F"/></svg>') no-repeat right rem(10) top 50%;
-  background-size:auto rem(4);  
-}
 .rule-wrap .rule-view pre{padding-top:rem(16);font-size:rem(16);color:#4F4F4F;white-space: pre-line;}
 
 .breakdown-report-wrap{padding:0 rem(16);}

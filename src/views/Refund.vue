@@ -26,10 +26,10 @@
             <div class="calendar-select">
                 <button class="prev" @click="calendarData(-1)"><Icon type="arr-left" /></button>
                 <div class="select">
-                  <select @change="dateJump($event, month)">
+                  <select class="st2" @change="dateJump($event, month)">
                     <option v-for="(item, index) in yearList" :key="index" :value="item" :selected="item === year">{{ item }}년</option>
                   </select>
-                  <select @change="dateJump(year, $event)">
+                  <select class="st2" @change="dateJump(year, $event)">
                     <option v-for="(item, index) in monthList" :key="index" :value="item" :selected="item === month">{{ item }}월</option>
                   </select>
                 </div>
