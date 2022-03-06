@@ -27,6 +27,7 @@ const routes = [
 	{ path: '/breakdownReport', component: () => import('@/views/BreakdownReport.vue')},
   // 환불문의
 	{ path: '/refund', component: () => import('@/views/Refund.vue')},
+  
 
   // 충전기 설치신청 목록
 	{ path: '/chargerInstallApplyList', component: () => import('@/views/ChargerInstallApplyList.vue')},

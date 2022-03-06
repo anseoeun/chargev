@@ -175,7 +175,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
   layout
 *********************************/
 
-.header{position:fixed;top:0;left:0;height:rem(40);width:100%;background:#fff;}
+.header{position:fixed;top:0;left:0;height:rem(40);width:100%;background:#fff;z-index: 10;}
 .header .title{text-align:center;height:100%;@include flex(center);font-size:rem(14);color:#000;font-weight:700;}
 .header .left{position:absolute;top:0;left:rem(15);height:100%;@include flex;}
 .header .right{position:absolute;top:0;right:rem(15);height:100%;@include flex;}
@@ -213,17 +213,17 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .calendar-wrap .calendar-select i{width:rem(16) !important;height:rem(16) !important;}
 .calendar-wrap .calendar-select .select{@include flex;}
 .calendar-wrap .calendar-select .select select{height:rem(22);width:auto;border:none;font-size:rem(16);padding-left:0;padding-right:rem(24); background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 10"><path d="M8.25 10L16.25 1.99991L14.75 0.5L8.25 7L1.75 0.5L0.25 1.99991L8.25 10Z" fill="%235A5B5C"/></svg>') no-repeat right 0 top 50%; background-size:auto rem(9); }
-.calendar-wrap .calendar-select .select select ~ select{margin-left:rem(20);}
+.calendar-wrap .calendar-select .select select ~ select{margin-left:rem(25);}
 .calendar-wrap .table-calendar{font-family: 'AppleSDGothicNeo';}
 .calendar-wrap .table-calendar table{table-layout: fixed;}
 .calendar-wrap .table-calendar table th,
-.calendar-wrap .table-calendar table td{width:14.2857%;}
-.calendar-wrap .table-calendar table th{font-weight:400;font-size:rem(16);color:#000;height:rem(22);vertical-align: top;padding-bottom:rem(15);}
+.calendar-wrap .table-calendar table td{width:14.2857%;vertical-align: middle;color:#5A5B5C;}
+.calendar-wrap .table-calendar table th{font-weight:400;font-size:rem(16);height:rem(22);vertical-align: top;padding-bottom:rem(15);}
 .calendar-wrap .table-calendar table td{height:rem(40);text-align:center;}
-.calendar-wrap .table-calendar .date{display:inline-block;width:rem(20);height:rem(20);border-radius:rem(16);font-size:rem(13); color:#808695;line-height:rem(16);text-align:center;}
-.calendar-wrap .table-calendar .payment{ font-size:rem(15);line-height:rem(23) !important;}
-.calendar-wrap .table-calendar .selected .date{background:#5A5B5C;}
-.calendar-wrap .table-calendar .price{font-size:rem(10);}
+.calendar-wrap .table-calendar .date{display:inline-block;width:rem(20);height:rem(20);border-radius:rem(16);font-size:rem(13);line-height:rem(21);text-align:center;}
+.calendar-wrap .table-calendar .btn-payment .date{ font-size:rem(15);line-height:rem(23) !important;}
+.calendar-wrap .table-calendar .on .date{background:#92FF44;}
+.calendar-wrap .table-calendar .price{font-size:rem(10);margin-top:rem(2);}
 
 .slide-list ul li .conts-wrap{display:none;}
 
@@ -332,7 +332,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .box-list ul{margin-left:rem(-16);margin-top:rem(-16);}
 .box-list ul:after{content:'';display:block;clear: both;}
 .box-list ul li{float:left;width:33.3333%;padding-left:rem(16);margin-top:rem(16);}
-.box-list ul li button{width:100%;height:rem(48);padding-top:rem(3);line-height:1;border: 1px solid #5A5B5C;font-size:rem(16);  border-radius: rem(4);box-shadow: 0 rem(2) rem(4) rgba(40, 41, 61, 0.04), 0px rem(4) rem(8) rgba(96, 97, 112, 0.16);}
+.box-list ul li button{width:100%;height:rem(48);padding-top:rem(3);line-height:1;border: 1px solid #5A5B5C;font-size:rem(16);  border-radius: rem(4);box-shadow: 0 rem(1) rem(2) rgba(40, 41, 61, 0.04), 0px rem(3) rem(6) rgba(96, 97, 112, 0.16);}
 
 .select-date{overflow:hidden;border:1px solid #E8EAEC;border-radius:rem(8);color:#515A6E;font-size:rem(12);margin-top:rem(10);}
 .select-date > .row{@include flex;align-items: flex-start;width:100%;}

@@ -4,7 +4,7 @@
       <h2 class="tit-type1">충전기 고장신고</h2>
       <!-- 충전기 선택 -->
       <div class="shadow-box">
-        <h3 class="tit-type2">충전기 선택 <div class="right"><button v-if="isCharger" class="c-gray" @click="modifyCharger">수정</button></div></h3>
+        <h3 class="tit-type2">충전기 선택 <div class="right"><button v-if="isCharger" class="c-gray" @click="isCharger = false;">수정</button></div></h3>
         <!-- search-box -->
         <div v-if="!isCharger" class="search-box">
           <div class="form-layer-wrap">
@@ -141,9 +141,6 @@ export default {
 
       this.chargeId = val.id;
       this.chargeType = val.type;
-    },
-    modifyCharger(){
-      this.isCharger = false;
     },
     photoUpload(e){
 
