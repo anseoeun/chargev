@@ -6,7 +6,7 @@
         <p class="date">2021년 11월 23일, 수요일</p>
       </div>
       <!-- 진행중 -->
-      <h2 class="tit-type2">진행중</h2>
+      <h2 class="tit-type4">진행중</h2>
       <div class="x-scrolling-list">
         <ul class="event-list">
           <li v-for="(item, index) in eventList" :key="index">
@@ -24,7 +24,7 @@
         </ul>
       </div>
       <!-- 예정 -->
-      <h2 class="tit-type2">예정</h2>
+      <h2 class="tit-type4">예정</h2>
       <div class="x-scrolling-list">
         <ul class="event-list">
           <li v-for="(item, index) in eventList" :key="index">
@@ -40,7 +40,7 @@
         </ul>
       </div>
       <!-- 종료 -->
-      <h2 class="tit-type2">종료</h2>
+      <h2 class="tit-type4">종료</h2>
       <div class="x-scrolling-list">
         <ul class="event-list">
           <li v-for="(item, index) in eventList" :key="index">

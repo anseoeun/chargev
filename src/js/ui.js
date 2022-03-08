@@ -15,8 +15,11 @@ Vue.mixin({
             'breakdownReport': ['문의하기', '충전기 고장신고'],
             'refund': ['문의하기', '환불문의'],
 
-            'chargerInstallApplyList': ['문의하기', '충전기 설치신청'],
-            'chargerInstallApplyPlace': ['문의하기', '충전기 설치신청'],
+            'chargerInstallApplyList': ['신청/설치관리', '충전기 설치 신청'],
+            'chargerInstallApplyPlace': ['신청/설치관리', '설치 장소 선택'],
+            'chargerInstallApplyModel': ['신청/설치관리', '충전기 모델 선택'],
+            'ChargerInstallApplyDate': ['신청/설치관리', '설치 요청 날짜 선택'],
+
             'chargerInstallApplyForm': ['문의하기', '충전기 설치신청'],
             'calendar': ['캘린더', '캘린더'],
         },

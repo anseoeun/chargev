@@ -29,10 +29,14 @@ const routes = [
 	{ path: '/refund', component: () => import('@/views/Refund.vue')},
   
 
-  // 충전기 설치신청 목록
+  // 충전기 설치 신청
 	{ path: '/chargerInstallApplyList', component: () => import('@/views/ChargerInstallApplyList.vue')},
-  // 충전기 설치신청 장소
+  // 설치 장소 선택
 	{ path: '/chargerInstallApplyPlace', component: () => import('@/views/ChargerInstallApplyPlace.vue')},
+  // 충전기 모델 선택
+	{ path: '/chargerInstallApplyModel', component: () => import('@/views/ChargerInstallApplyModel.vue')},
+  // 설치 요청 날짜 선택
+	{ path: '/chargerInstallApplyDate', component: () => import('@/views/ChargerInstallApplyDate.vue')},
   // 충전기 설치신청 폼
 	{ path: '/chargerInstallApplyForm', component: () => import('@/views/ChargerInstallApplyForm.vue')},
 

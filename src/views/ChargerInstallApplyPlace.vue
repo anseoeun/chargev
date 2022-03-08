@@ -1,14 +1,17 @@
 <template>
   <div class="contents">
     <div class="charger-install-wrap">
-      <p class="noti-txt">충전소 설치를 원하는 장소를 선택해주세요</p>
+      <div class="charger-install-header">
+        <h2 class="tit-type3">설치 장소 선택</h2>
+        <p class="text-type1">설치를 원하는 장소를 선택해주세요.</p>
+      </div>
       <div class="x-scrolling-list">
-        <ul>
+        <ul class="place-list">
           <li v-for="(item, index) in placeList" :key="index">
-            <router-link to="/" class="gradient-box">
-              <strong class="tit">{{ item.title }}</strong>
-              <div class="text">
-                {{ item.text }}
+            <router-link to="/" class="place-card">
+              <div class="img" :style="`background-image:url(${item.src})`"></div>
+              <div class="desc">
+                <strong class="tit">{{ item.title }}</strong>
               </div>
             </router-link>
           </li>
@@ -29,15 +32,15 @@ export default {
       placeList: [
         {
           title: '단독주택',
-          text: '현장실사 설치 사진',
+          src: require('@/assets/images/temp-place.jpg'),
         },
         {
           title: '빌라, 오피스텔',
-          text: '현장실사 설치 사진',
+          src: require('@/assets/images/temp-place.jpg'),
         },
         {
           title: '단독주택',
-          text: '현장실사 설치 사진',
+          src: require('@/assets/images/temp-place.jpg'),
         },
       ]
     }

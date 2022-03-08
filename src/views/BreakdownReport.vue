@@ -1,10 +1,10 @@
 <template>
   <div class="contents">
     <div class="breakdown-report-wrap">
-      <h2 class="tit-type1">충전기 고장신고</h2>
+      <h2 class="tit-type4">충전기 고장신고</h2>
       <!-- 충전기 선택 -->
       <div class="shadow-box">
-        <h3 class="tit-type2">충전기 선택 <div class="right"><button v-if="isCharger" class="c-gray" @click="isCharger = false;">수정</button></div></h3>
+        <h3 class="tit-type4">충전기 선택 <div class="right"><button v-if="isCharger" class="c-gray" @click="isCharger = false;">수정</button></div></h3>
         <!-- search-box -->
         <div v-if="!isCharger" class="search-box">
           <div class="form-layer-wrap">
@@ -47,7 +47,7 @@
       
       <!-- 고장항목 -->
       <div class="shadow-box">
-        <h3 class="tit-type2">고장항목 <div class="right"><button class="c-gray" @click="brokenItem = ''">수정</button></div></h3>
+        <h3 class="tit-type4">고장항목 <div class="right"><button class="c-gray" @click="brokenItem = ''">수정</button></div></h3>
         <div v-if="!brokenItem" class="box-list">
           <ul>
             <li v-for="(item, index) in brokenItemList" :key="index"><button v-html="item" @click="brokenItem = item"></button></li>
@@ -63,7 +63,7 @@
       
       <!-- 사진 -->
       <div class="shadow-box">
-        <h3 class="tit-type2">사진</h3>
+        <h3 class="tit-type4">사진</h3>
         <div class="photo-upload">
           <div v-show="photoNum" class="photo-list"></div>
           <div class="text-upload">

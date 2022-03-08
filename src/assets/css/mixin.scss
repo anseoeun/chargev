@@ -48,7 +48,7 @@ $size: 28px;
 }
 
 @function rem($pxValue){
-  @return unquote(calc((stripUnit($pxValue) / stripUnit($size)) * 2)+'rem');
+  @return unquote(calc((stripUnit($pxValue) / stripUnit($size)) * 1.95)+'rem');
 }
 
 // @function stripUnit($value) {
