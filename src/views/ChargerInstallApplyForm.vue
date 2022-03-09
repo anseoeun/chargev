@@ -6,15 +6,15 @@
             <div class="list-tit">신청자정보</div>
             <div class="row">
                 <div class="tit">신청자명</div>
-                <div class="text">김김김</div>
+                <div class="txt">김김김</div>
             </div>
             <div class="row">
                 <div class="tit">신청자구분</div>
-                <div class="text">법인</div>
+                <div class="txt">법인</div>
             </div>
             <div class="row">
                 <div class="tit">전화번호</div>
-                <div class="text">010-0000-1234</div>
+                <div class="txt">010-0000-1234</div>
             </div>
             <div class="row">
                 <div class="tit">유선전화</div>
@@ -71,7 +71,7 @@
             <div class="list-tit">설치정보</div>            
             <div class="row">
                 <div class="tit">설치장소</div>
-                <div class="text">단독주택</div>
+                <div class="txt">단독주택</div>
             </div>
             <div class="row">
                 <div class="tit">설치주소</div>

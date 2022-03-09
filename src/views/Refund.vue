@@ -69,7 +69,7 @@
             <div class="grid-list">
                 <div class="row">
                     <div class="tit">선택</div>
-                    <div class="text">{{ paymentData.length }}건</div>
+                    <div class="txt">{{ paymentData.length }}건</div>
                 </div>
             </div>
             <div class="blackbox-list">

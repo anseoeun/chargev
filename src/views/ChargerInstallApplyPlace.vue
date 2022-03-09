@@ -11,7 +11,7 @@
             <router-link to="/" class="place-card">
               <div class="img" :style="`background-image:url(${item.src})`"></div>
               <div class="desc">
-                <strong class="tit">{{ item.title }}</strong>
+                <strong class="tit">{{ item.type }}</strong>
               </div>
             </router-link>
           </li>
@@ -31,15 +31,15 @@ export default {
     return{
       placeList: [
         {
-          title: '단독주택',
+          type: '단독주택',
           src: require('@/assets/images/temp-place.jpg'),
         },
         {
-          title: '빌라, 오피스텔',
+          type: '빌라, 오피스텔',
           src: require('@/assets/images/temp-place.jpg'),
         },
         {
-          title: '단독주택',
+          type: '단독주택',
           src: require('@/assets/images/temp-place.jpg'),
         },
       ]

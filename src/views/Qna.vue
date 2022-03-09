@@ -1,11 +1,11 @@
 <template>
   <div class="contents">
     <div class="qna-wrap">
-      <h2 class="tit-type1">문의 내역</h2>
+      <h2 class="tit-type2">문의 내역</h2>
       <div class="search">
         <input type="text" placeholder="문의 내역 검색">
       </div>
-      <h3 class="tit-type2">가입자 정보</h3>
+      <h3 class="tit-type4">가입자 정보</h3>
       <SlideList :data="notiList" class="noti-list">
         <template slot="header" slot-scope="props">
           <div class="info">
@@ -19,9 +19,13 @@
           </div>
         </template>
         <template slot="content">
-          <h4 class="tit-type2">가입자 정보</h4>
+          <h4 class="tit-type4">가입자 정보</h4>
         </template>
       </SlideList>
+
+      <div class="no-result">
+        문의 내역이 없습니다.
+      </div>
     </div>
   </div>
 </template>

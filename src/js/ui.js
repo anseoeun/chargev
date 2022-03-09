@@ -3,24 +3,46 @@ import Vue from 'vue'
 Vue.mixin({
     data(){
       return {
+        headerTitle:'',
         title:'',
         titleData: {
+            // 고객지원
             'notice': ['고객지원', '공지사항'],
-            'support': ['고객지원', '고객지원'],
-            'qna': ['문의내역', '문의내역'],
-            'event': ['문의내역', '이벤트'],
-            'eventDetail': ['문의내역', '이벤트상세'],
-            'ruleService': ['문의내역', '서비스이용약관'],
+            'supportRules': ['고객지원', '약관'],
+            'supportIndex': ['고객지원', '고객지원 메인'],
+            'chargerUsingGuide': ['고객지원', '충전기 사용방법'],
+            'chargerInstallApply': ['고객지원', '충전기 설치 신청'],
+            'chargerSortGuide': ['고객지원', '충전기 종류 안내'],
+            'chargerPhevGuide': ['고객지원', 'PHEV차량 충전안내'],
+            'roamingServiceGuide': ['고객지원', '로밍서비스 안내'],
+            'carPromotion': ['고객지원', '완성차 프로모션'],
+            'carMemberCard': ['고객지원', '완성차 멤버십카드'],
 
+            'ruleService': ['고객지원', '서비스이용약관'],
+            'event': ['고객지원', '이벤트'],
+            'eventDetail': ['고객지원', '이벤트상세'],
+
+            // 문의내역
+            'qna': ['문의내역', '문의내역'],
+
+            // 문의하기
+            'qnaList': ['문의하기', '문의하기 목록'],
             'breakdownReport': ['문의하기', '충전기 고장신고'],
             'refund': ['문의하기', '환불문의'],
+            // 'chargerInstallApplyForm': ['문의하기', '충전기 설치신청'],
 
+            // 신청/설치관리
+            'chargerInstallApplyIndex': ['신청/설치관리', '신청/설치관리 메인'],
+            'memberCard': ['신청/설치관리', '멤버십카드 관리- 카드 없을때'],
+            'memberCardList': ['신청/설치관리', '멤버십 카드 관리 - 카드있을때'],
+            'memberCardApply': ['신청/설치관리', '멤버십 카드 신청'],
+            'memberCardDelivery': ['신청/설치관리', '멤버십 카드 신청 - 배송현황'],
             'chargerInstallApplyList': ['신청/설치관리', '충전기 설치 신청'],
             'chargerInstallApplyPlace': ['신청/설치관리', '설치 장소 선택'],
             'chargerInstallApplyModel': ['신청/설치관리', '충전기 모델 선택'],
             'ChargerInstallApplyDate': ['신청/설치관리', '설치 요청 날짜 선택'],
 
-            'chargerInstallApplyForm': ['문의하기', '충전기 설치신청'],
+
             'calendar': ['캘린더', '캘린더'],
         },
       }
@@ -33,7 +55,8 @@ Vue.mixin({
                 // console.log(this.titleData[to.path.split('/')[1]][0])
                let path = this.titleData[to.path.split('/')[1]];
                 if(path && path.length > 0){
-                    this.title = path[0]
+                    this.headerTitle = path[0]
+                    this.title = path[1]
                 }
               }
             }

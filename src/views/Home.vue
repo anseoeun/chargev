@@ -3,11 +3,11 @@
     <h2>Publishing work sheet</h2>
     <table>
     <colgroup>
-      <col style="width:40px" />
+      <col style="width:60px" />
       <!-- <col style="width:150px" />
       <col style="width:200px" /> -->
-      <col style="width:20%" />
-      <col style="width:30%" />
+      <col style="width:35%" />
+      <col style="width:35%" />
       <col style="width:auto" />
     </colgroup>
 

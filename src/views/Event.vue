@@ -42,7 +42,7 @@
       <!-- 종료 -->
       <h2 class="tit-type4">종료</h2>
       <div class="x-scrolling-list">
-        <ul class="event-list">
+        <ul class="event-list end">
           <li v-for="(item, index) in eventList" :key="index">
             <div class="event" :style="`background-image:url(${item.bg})`">
               <div class="title">{{ item.title }} </div>

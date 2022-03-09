@@ -12,11 +12,11 @@
         <div class="grid-list">
             <div class="row">
                 <div class="tit">이름</div>
-                <div class="text">이상욱</div>
+                <div class="txt">이상욱</div>
             </div>
             <div class="row">
                 <div class="tit">전화번호</div>
-                <div class="text">010-9467-3693</div>
+                <div class="txt">010-9467-3693</div>
             </div>
         </div>
       </div>
@@ -27,11 +27,11 @@
         <div v-if="addressInfo || addressDetailInfo" class="grid-list">
             <div v-if="addressInfo" class="row">
                 <div class="tit">주소</div>
-                <div class="text">{{ address }}</div>
+                <div class="txt">{{ address }}</div>
             </div>
             <div v-if="addressDetailInfo" class="row">
                 <div class="tit">상세주소</div>
-                <div class="text">{{ addressDetail }}</div>
+                <div class="txt">{{ addressDetail }}</div>
             </div>
         </div>
         <!-- search-box -->
@@ -51,7 +51,7 @@
           <button class="btn-type1 st1" :disabled="!addressInfo" @click="setDetailAddress">확인</button>
         </div>
         <!-- // search-box -->
-      </div>      
+      </div>
 
       <!-- 실사 방문 요청일 선택 -->
       <div v-if="applyDateShow" class="shadow-box">
@@ -59,11 +59,11 @@
         <div v-if="applyDateInfo" class="grid-list">
             <div class="row">
                 <div class="tit">방문 요청일</div>
-                <div class="text">{{ applyDate }}</div>
+                <div class="txt">{{ applyDate }}</div>
             </div>
             <div class="row">
                 <div class="tit">방문 요청시간대</div>
-                <div class="text">{{ applyTime }}</div>
+                <div class="txt">{{ applyTime }}</div>
             </div>
         </div>        
         <div v-if="applyDateSlect" class="select-date">
@@ -84,7 +84,7 @@
               <div class="cell">14:00<br>~17:00</div>
               <div v-for="(item, name) in dateList" :key="name" class="cell c-blue"><button :disabled="!item['09:00 ~ 13:00']" v-html="getTimeStatus(item['14:00 ~ 17:00'])" @click="setDateStatus(Object.keys(item)[1], name)"></button></div>
           </div>
-      </div>
+        </div>
       </div>      
 
       <!-- 옵션 선택 -->
@@ -95,6 +95,7 @@
                 <div class="tit">
                    <button  @click="checkIcon($event, 'optionChecked', index)">
                     <Icon type="check" :class="{on: optionChecked[index]}" />
+                    &nbsp;
                     {{ item.name }} 추가
                   </button>
                 </div>
@@ -133,10 +134,15 @@
                     <div class="tit">
                       <button  @click="checkIcon($event, 'ruleChecked')">
                         <Icon type="check" :class="{on: ruleChecked}" />
+                        &nbsp;
                         개인정보 제3자 제공 동의
                       </button>
                     </div>
-                    <div class="text align-r"><Icon type="arr-right" /></div>
+                    <div class="right">
+                       <router-link to="/">
+                          <Icon type="arr-right" />
+                        </router-link>
+                    </div>
                 </div>
             </div>        
             <router-link to="/" class="btn-type1 st1">충전기 설치 신청</router-link>

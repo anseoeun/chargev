@@ -1,6 +1,6 @@
 <template>
   <div class="contents">
-    <div class="notice-wrap">
+    <div class="rules-list-wrap">
       <div class="noti-list">
         <ul>
             <li v-for="(item, index) in supportList" :key="index">

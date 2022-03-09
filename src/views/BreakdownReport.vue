@@ -1,7 +1,7 @@
 <template>
   <div class="contents">
     <div class="breakdown-report-wrap">
-      <h2 class="tit-type4">충전기 고장신고</h2>
+      <h2 class="tit-type2">충전기 고장신고</h2>
       <!-- 충전기 선택 -->
       <div class="shadow-box">
         <h3 class="tit-type4">충전기 선택 <div class="right"><button v-if="isCharger" class="c-gray" @click="isCharger = false;">수정</button></div></h3>
@@ -32,15 +32,15 @@
         <div v-if="isCharger" class="grid-list">
             <div class="row">
                 <div class="tit">충전소</div>
-                <div class="text">{{ chargePlace }}</div>
+                <div class="txt">{{ chargePlace }}</div>
             </div>
             <div class="row">
                 <div class="tit">충전기 ID</div>
-                <div class="text">{{ chargeId }}</div>
+                <div class="txt">{{ chargeId }}</div>
             </div>
             <div class="row">
                 <div class="tit">충전기타입</div>
-                <div class="text">{{ chargeType }}</div>
+                <div class="txt">{{ chargeType }}</div>
             </div>
         </div>
       </div>
