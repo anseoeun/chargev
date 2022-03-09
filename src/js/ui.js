@@ -47,12 +47,13 @@ Vue.mixin({
         e.stopPropagation();
         e.preventDefault  ();
         const el = e.currentTarget.querySelector('i')
+        console.log(this[arr]);
         if(el.classList.contains('on')){
-          // el.classList.remove('on')
-          this.$set(this[arr], i, false)
+          if(Array.isArray(this[arr])) this.$set(this[arr], i, false)
+          else this[arr] = false
         }else{
-          // el.classList.add('on')
-          this.$set(this[arr], i, true)
+          if(Array.isArray(this[arr]))  this.$set(this[arr], i, true)
+          else this[arr] = true
         }
       }
     }

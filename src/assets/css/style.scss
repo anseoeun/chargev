@@ -216,6 +216,9 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
   common content
 *********************************/
 
+/* icon */
+.i-check.on svg path {stroke:#92FF44}
+
 /* tit */
 .tit-type1{font-size:rem(30);color:#17233D;@include bold;}
 .tit-type2{font-size:rem(24);color:#17233D;@include bold;}
@@ -287,6 +290,8 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .shadow-box .blackbox-list{margin-top:rem(16);}
 .shadow-box .btn-type1{margin-top:rem(16);}
 .shadow-box .input-wrap{margin-top:rem(16);}
+.shadow-box .grid-list ~ .search-box{margin-top:rem(16);}
+.shadow-box *  ~ .dash-indent-list{margin-top:rem(16);}
 
 .search-box .btn-type1{margin-top:rem(8);}
 
@@ -362,6 +367,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .grid-list > .row + .row{margin-top:rem(10);}
 .grid-list > .row .tit{min-width: rem(120);padding-right:rem(8);@include flex;align-items:flex-start;color:#000;}
 .grid-list > .row .text{flex:1;@include flex;color:#5A5B5C;}
+.grid-list > .row .text.align-r{justify-content: flex-end;}
 
 .box-list ul{margin-left:rem(-16);margin-top:rem(-16);}
 .box-list ul:after{content:'';display:block;clear: both;}
@@ -369,11 +375,13 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .box-list ul li button{width:100%;height:rem(48);padding-top:rem(3);line-height:1;border: 1px solid #5A5B5C;font-size:rem(16);  border-radius: rem(4);box-shadow: 0 rem(1) rem(2) rgba(40, 41, 61, 0.04), 0px rem(3) rem(6) rgba(96, 97, 112, 0.16);}
 .box-list ul li.on button{border:1px solid #92FF44;background:#92FF44;color:#000;}
 
-.select-date{overflow:hidden;border:1px solid #E8EAEC;border-radius:rem(8);color:#515A6E;font-size:rem(12);margin-top:rem(10);}
+.select-date{overflow:hidden;border:1px solid #F1F2F4;border-radius:rem(8);color:#5A5B5C;font-size:rem(12);}
 .select-date > .row{@include flex;align-items: flex-start;width:100%;}
 .select-date > .row .cell{@include flex(center);flex:1;height:rem(40);border-left:1px solid #E8EAEC;border-top:1px solid #E8EAEC;text-align:right;text-align:center;}
+.select-date > .row .cell:first-child{border-left: none}
+.select-date > .row .cell.tit{@include bold;}
 .select-date > .row .cell button{height:100%;width:100%;}
-.select-date > .row button[disabled]{color:#808695;background:#E8EAEC;}
+.select-date > .row button[disabled]{color:#A3A9A4;background:#E8EAEC;}
 .select-date > .row-header button[disabled]{color:#C5C5CE;background:#fff;}
 .select-date > .row .cell:first-child{border-right:none;}
 .select-date > .row:first-child .cell{border-top:none;}
@@ -411,7 +419,6 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .black-box .check {@include flex(center);width:rem(40);padding-right:rem(8);}
 .black-box .check.w-sm{width:rem(20);}
 .black-box .check button{height:100%;width:100%;}
-.black-box .check button .i-check.on svg path {stroke:#92FF44}
 .black-box .t-wrap {flex:1;display:table;}
 .black-box .t-wrap .row{display:table-row;}
 .black-box .t-wrap .row .cell{display:table-cell;padding:rem(3) 0;}
