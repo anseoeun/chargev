@@ -5,7 +5,7 @@
         <h2 class="tit-type2">완성차 멤버십카드</h2>
         <div class="header-menu">
           <div class="date">2022-02-02</div>
-          <div class="sns">
+          <div class="right">
             <button>
               <Icon type="sns" />
             </button>

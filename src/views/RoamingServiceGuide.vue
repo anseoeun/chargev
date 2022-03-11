@@ -5,7 +5,7 @@
         <h2 class="tit-type2">로밍서비스 안내</h2>
         <div class="header-menu">
           <div class="date">2022-02-02</div>
-          <div class="sns">
+          <div class="right">
             <button>
               <Icon type="sns" />
             </button>
@@ -25,7 +25,7 @@
       
       <!-- 한국전력 공동주택 충전기 -->
       <div class="shadow-box">
-        <h3 class="tit-type4"><span class="i-wrap"><Icon type="logo-kepco" /><span>한국전력 공동주택 충전기</span></span></h3>
+        <h3 class="tit-type4"><span class="i-wrap"><Icon type="logo-kepco-s" /><span>한국전력 공동주택 충전기</span></span></h3>
         <div class="text-wrap">
           <p>한국전력 공동주택 충전기는 한국전력 정책상 한국전력 회원으로만 이용이 가능합니다. 따라서 차지비 회원으로 이용이 불가능하며, 한국전력 회원으로 가입 후 사용하여 주시기 바랍니다.</p>
         </div>

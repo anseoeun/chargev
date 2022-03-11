@@ -34,6 +34,8 @@ const routes = [
 	{ path: '/chargerSortGuide', component: () => import('@/views/ChargerSortGuide.vue')},
   // PHEV차량 충전안내
 	{ path: '/chargerPhevGuide', component: () => import('@/views/ChargerPhevGuide.vue')},
+  // 충전요금 안내
+	{ path: '/chargerPriceGuide', component: () => import('@/views/ChargerPriceGuide.vue')},  
   // 로밍서비스 안내
 	{ path: '/roamingServiceGuide', component: () => import('@/views/RoamingServiceGuide.vue')},  
   // 완성차 프로모션
@@ -58,6 +60,20 @@ const routes = [
 	{ path: '/breakdownReport', component: () => import('@/views/BreakdownReport.vue')},
   // 환불문의
 	{ path: '/refund', component: () => import('@/views/Refund.vue')},
+  // 모바일카드 이용
+	{ path: '/mobileCardGuide', component: () => import('@/views/MobileCardGuide.vue')},
+  // 배송현황 확인
+	{ path: '/deliveryCheck', component: () => import('@/views/DeliveryCheck.vue')},
+  // 멤버십카드 발급
+	{ path: '/memberCardIssued', component: () => import('@/views/MemberCardIssued.vue')},
+  // 멤버십카드 재발급
+	{ path: '/memberCardReIssued', component: () => import('@/views/MemberCardReIssued.vue')},
+  // 멤버십카드 인증불가
+	{ path: '/memberCardNoAuth', component: () => import('@/views/MemberCardNoAuth.vue')},
+  // 멤버십카드 문의
+	{ path: '/memberCardNoInquiry', component: () => import('@/views/MemberCardNoInquiry.vue')},
+  // 개선사항 건의
+	{ path: '/improvementsSuggest', component: () => import('@/views/ImprovementsSuggest.vue')},
     // 충전기 설치신청 폼
 	// { path: '/chargerInstallApplyForm', component: () => import('@/views/ChargerInstallApplyForm.vue')},
 

@@ -5,7 +5,7 @@
         <h2 class="tit-type2">충전기 설치 신청</h2>
         <div class="header-menu">
           <div class="date">2022-02-02</div>
-          <div class="sns">
+          <div class="right">
             <button>
               <Icon type="sns" />
             </button>

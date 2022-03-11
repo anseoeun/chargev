@@ -14,6 +14,7 @@ Vue.mixin({
             'chargerInstallApply': ['고객지원', '충전기 설치 신청'],
             'chargerSortGuide': ['고객지원', '충전기 종류 안내'],
             'chargerPhevGuide': ['고객지원', 'PHEV차량 충전안내'],
+            'chargerPriceGuide': ['고객지원', '충전요금 안내'],
             'roamingServiceGuide': ['고객지원', '로밍서비스 안내'],
             'carPromotion': ['고객지원', '완성차 프로모션'],
             'carMemberCard': ['고객지원', '완성차 멤버십카드'],
@@ -29,6 +30,13 @@ Vue.mixin({
             'qnaList': ['문의하기', '문의하기 목록'],
             'breakdownReport': ['문의하기', '충전기 고장신고'],
             'refund': ['문의하기', '환불문의'],
+            'mobileCardGuide': ['문의하기', '모바일카드 이용'],
+            'deliveryCheck': ['문의하기', '배송현황 확인'],
+            'memberCardIssued': ['문의하기', '멤버십카드 발급'],
+            'memberCardReIssued': ['문의하기', '멤버십카드 재발급'],
+            'memberCardNoAuth': ['문의하기', '멤버십카드 인증불가'],
+            'memberCardNoInquiry': ['문의하기', '멤버십카드 문의'],
+            'improvementsSuggest': ['문의하기', '개선사항 건의'],
             // 'chargerInstallApplyForm': ['문의하기', '충전기 설치신청'],
 
             // 신청/설치관리
