@@ -14,7 +14,7 @@
         <ul>
             <li>
                 <div class="logo">
-                    <Icon type="chargev-s" />
+                    <img :src="`${require('@/assets/images/logo/logo-chargev.png')}`" alt="" class="logo-chargev">
                 </div>
                 <div class="place">
                     <p>공동주택</p>
@@ -37,7 +37,7 @@
             </li>
             <li>
                 <div class="logo">
-                    <Icon type="logo-jeju" />
+                    <img :src="`${require('@/assets/images/logo/logo-jeju.png')}`" alt="" class="logo-jeju">
                 </div>
                 <div class="place">
                     <p>제주도청</p>
@@ -48,7 +48,7 @@
             </li>
             <li>
                 <div class="logo">
-                    <Icon type="logo-me" />
+                    <img :src="`${require('@/assets/images/logo/logo-me.png')}`" alt="" class="logo-me">
                 </div>
                 <div class="place">
                     <p>환경부 급속</p>
@@ -60,7 +60,7 @@
             </li>
             <li>
                 <div class="logo">
-                    <Icon type="logo-kepco" />
+                    <img :src="`${require('@/assets/images/logo/logo-kepco.png')}`" alt="" class="logo-kepco">
                 </div>
                 <div class="place">
                     <p>한국전력공사</p>
@@ -68,6 +68,28 @@
                 <div class="info">
                     <p>심야 289,</p>
                     <p>주간 309</p>
+                </div>
+            </li>
+            <li>
+                <div class="logo">
+                    <img :src="`${require('@/assets/images/logo/logo-lghellow.png')}`" alt="" class="logo-lghellow">
+                </div>
+                <div class="place">
+                    <p>LG헬로비전</p>
+                </div>
+                <div class="info">
+                    <p>300</p>
+                </div>
+            </li>
+            <li>
+                <div class="logo">
+                    <img :src="`${require('@/assets/images/logo/logo-gs.png')}`" alt="" class="logo-gs">
+                </div>
+                <div class="place">
+                    <p>GS칼텍스</p>
+                </div>
+                <div class="info">
+                    <p>309</p>
                 </div>
             </li>
         </ul>

@@ -16,8 +16,14 @@ const routes = [
 	{ path: '/chart', component: () => import('@/views/Chart.vue') },
   // 테스트
 	{ path: '/calendar', component: () => import('@/views/Calendar.vue')},
+  // 테스트
+	{ path: '/slider', component: () => import('@/views/Slider.vue')},
 
   
+
+  // ------------ 알림---------------- //
+  // 알림
+	{ path: '/alarm', component: () => import('@/views/Alarm.vue')},
 
   // ------------ 고객지원---------------- //
   // 공지사항
@@ -42,10 +48,14 @@ const routes = [
 	{ path: '/carPromotion', component: () => import('@/views/CarPromotion.vue')},  
   // 완성차 멤버십카드
 	{ path: '/carMemberCard', component: () => import('@/views/CarMemberCard.vue')},  
+  // 비회원 충전
+	{ path: '/noMemberCharge', component: () => import('@/views/NoMemberCharge.vue')},  
   // 서비스이용약관
 	{ path: '/ruleService', component: () => import('@/views/RuleService.vue')},
   // 이벤트
 	{ path: '/event', component: () => import('@/views/Event.vue')},
+  // 이벤트 상세
+	{ path: '/eventDetail', component: () => import('@/views/EventDetail.vue')},
 
 
 

@@ -6,6 +6,9 @@ Vue.mixin({
         headerTitle:'',
         title:'',
         titleData: {
+            // 알림
+            'alarm': ['알림', '알림'],
+
             // 고객지원
             'notice': ['고객지원', '공지사항'],
             'supportRules': ['고객지원', '약관'],
@@ -18,6 +21,7 @@ Vue.mixin({
             'roamingServiceGuide': ['고객지원', '로밍서비스 안내'],
             'carPromotion': ['고객지원', '완성차 프로모션'],
             'carMemberCard': ['고객지원', '완성차 멤버십카드'],
+            'noMemberCharge': ['고객지원', '비회원 충전'],
 
             'ruleService': ['고객지원', '서비스이용약관'],
             'event': ['고객지원', '이벤트'],
