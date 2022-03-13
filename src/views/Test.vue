@@ -74,6 +74,26 @@
       <br>
       <div class="black-box">
         <router-link to="/" class="box">
+          <div class="t-wrap">
+            <div class="row">
+              <div class="cell">BMW 530e 
+                <div class="fr">
+                    <button  @click="checkIcon($event, 'complteChecked')">
+                      <Icon type="check" :class="{on: complteChecked}" />
+                      &nbsp;
+                      차량공유 등록 완료
+                    </button>
+                </div>
+              </div>
+            </div>
+            <div class="row"><div class="cell">02보6596</div></div>
+            <div class="row"><div class="cell">(삼성) 5361 48** **** 4151</div></div>
+          </div>
+         </router-link>
+      </div>
+      <br>
+      <div class="black-box">
+        <router-link to="/" class="box">
           <Icon type="arr-right" />
           <div class="check">
             <button @click="checkIcon">
@@ -162,6 +182,7 @@ export default {
     return {
       sliderValue: 60,
       radius: 80,
+      complteChecked: true,
     }
   },
   mounted(){

@@ -35,7 +35,7 @@
             고객센터에서 확인 후 답변드리도록 하겠습니다. 
             <br>차지비 서비스 이용에 감사드립니다.
         </template>
-    </Alert>    
+    </Alert>
   </div>
 </template>
 

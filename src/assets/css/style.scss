@@ -70,7 +70,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 // }
 
 
-/* btn */
+/* float */
+.fr{float:right;}
+.fl{float:left;}
 
 /* btn */
 .btn-box{margin-top:30px;text-align:center;}
@@ -186,6 +188,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 
 /* c-color */
 .c-blue{color:#5D96F6 !important;}
+.c-green{color:#92FF44 !important;}
 .c-red{color:#FF4444 !important;}
 .c-gray{color:#5A5B5C !important;}
 
@@ -223,7 +226,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .i-check.on svg path {stroke:#92FF44}
 .svg-prevent{content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0, 0, 0, 0);}
 
-/* tit */
+/* tit-type */
 .tit-type1{font-size:rem(30);color:#17233D;@include bold;}
 .tit-type2{font-size:rem(24);color:#17233D;@include bold;}
 .tit-type3{font-size:rem(20);color:#17233D;@include bold;}
@@ -235,12 +238,19 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .tit-type4 .i-wrap i.i-car{top:rem(-3)}
 .tit-type4 .i-wrap i.i-logo-kepco{top:rem(-2)}
 .tit-type4 .i-wrap span{display:inline-block;height:rem(15);}
+.tit-type4 .btn-info{margin-left:rem(8);height:rem(16);}
+.tit-type4 .btn-info i{vertical-align:top;}
 .tit-type4 .right{margin-left:auto;}
 .tit-type4 .right button{padding:0 rem(8);}
 
-
 /* text */
 .text-type1{font-size:rem(16);color:#4F4F4F;}
+
+/* tab-type */
+.tab-type1{@include flex;justify-content: space-between;margin-bottom:rem(16);}
+.tab-type1 button{flex:1;height:rem(32);font-size:rem(16);padding-top:rem(1);color:#5A5B5C;border: 1px solid #5A5B5C; box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04), 0px 4px 8px rgba(96, 97, 112, 0.16); border-radius: 2px;}
+.tab-type1 button ~ button{margin-left:rem(8);}
+.tab-type1 button.on{background:#92FF44;border-color: #92FF44;}
 
 /* calendar */
 .calendar-wrap .calendar-select{margin:rem(20) 0;@include flex;justify-content: space-between;}
@@ -301,19 +311,29 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .shadow-box{padding:rem(16);box-shadow: 0px rem(2) rem(4) rgba(40, 41, 61, 0.04), 0px 8px 16px rgba(96, 97, 112, 0.16); border-radius: rem(4);;}
 .shadow-box .tit-type4{margin:rem(8) 0 rem(10);}
 .shadow-box + .shadow-box{margin-top:rem(16);}
-.shadow-box .blackbox-list{margin-top:rem(16);}
+.shadow-box .grid-list + .blackbox-list{margin-top:rem(10);}
 .shadow-box .btn-type1{margin-top:rem(16);}
+.shadow-box .black-box + input[type="text"]{margin-top:rem(16);}
 .shadow-box .input-wrap{margin-top:rem(16);}
 .shadow-box .grid-list ~ .search-box{margin-top:rem(16);}
 .shadow-box .tit-type4 ~ *  ~ .dash-indent-list{margin-top:rem(16);}
 .shadow-box .text-wrap p ~ p{margin-top:rem(16);}
 .shadow-box .card-type{padding-top:rem(25);}
+.shadow-box.black{background:#000;color:#fff;}
+.shadow-box.black [class*=tit-type]{color:#fff;}
+.shadow-box.black .grid-list > .row .tit,
+.shadow-box.black .grid-list > .row .txt{color:#fff;}
 
-.card-type .card{margin:0 auto;@include flex(center);overflow:hidden;width:rem(227);height:rem(145);border-radius:rem(8);}
+.card-type .card{position:relative;margin:0 auto;@include flex(center);overflow:hidden;width:rem(227);height:rem(145);border-radius:rem(8);}
 .card-type .card.line{border:1px solid #92ff44;}
 .card-type .card img{width:100%;height:100%;}
+.card-type .card .card-info{position:absolute;bottom:rem(12);left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);font-size:rem(14);white-space: nowrap;}
+.card-type .card .card-info i{position:absolute;bottom:rem(6);left:rem(-18);width:rem(13) !important;height:rem(11) !important;}
 .card-type .info{margin-top:rem(10);text-align:center;font-size:rem(14);}
 .card-type .info .name{margin-right:rem(8);}
+.card-type .menu{margin-top:rem(8);text-align:center;}
+.card-type .menu button{min-width:rem(42);height:rem(32);font-size:rem(14);margin:0 rem(5);border:1px solid #5A5B5C;border-radius:rem(2);}
+.card-type .menu button.on{background:#92FF44;border-color: #92FF44;}
 
 .search-box .btn-type1{margin-top:rem(8);}
 
@@ -398,6 +418,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .grid-list > .row + .row{margin-top:rem(10);}
 .grid-list > .row .tit{min-width: rem(120);padding-right:rem(8);@include flex;align-items:flex-start;color:#000;}
 .grid-list > .row .txt{flex:1;@include flex;color:#5A5B5C;}
+.grid-list > .row .txt.align-r{justify-content: flex-end;}
 .grid-list > .row .right{margin-left:auto;}
 .grid-list > .row .text.align-r{justify-content: flex-end;}
 .grid-list.type2{margin-bottom:rem(-5);}
@@ -448,8 +469,8 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .refund-wrap .tit-type1{padding:rem(16);}
 
 
-.blackbox-list .black-box ~ .black-box{margin-top:rem(16);}
-.black-box .box{@include flex;padding:rem(8);background:#000;color:#fff;font-size:rem(14);position:relative;border-radius:rem(4);}
+.blackbox-list .black-box ~ .black-box{margin-top:rem(10);}
+.black-box .box{@include flex;padding:rem(8);background:#000;color:#fff;font-size:rem(14);position:relative;}
 .black-box .box b{@include bold;}
 .black-box .i-arr-right {@include posCenter(y);right:rem(16);}
 .black-box .i-arr-right svg path {stroke:#92FF44}
@@ -464,6 +485,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .black-box .t-wrap .row .cell p ~ p{margin-top:rem(6);}
 .black-box .t-wrap .row .price {color:#92FF44;@include bold;}
 .black-box .payco {display:inline-block;padding:rem(8);}
+.black-box .i-check {position:relative;top:rem(-2)}
 
 .index-list-wrap{padding:rem(40) rem(16) rem(30);}
 .index-list-wrap .logo-chargev{text-align:center;margin-bottom:rem(40);}
@@ -505,15 +527,28 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .alarm-wrap .alarm-list ul li{position:relative;padding:rem(12) rem(28);font-size:rem(14);background:#F1F2F4;}
 .alarm-wrap .alarm-list ul li > i{position:absolute;top:rem(12);left:rem(4);}
 .alarm-wrap .alarm-list ul li button{position:absolute;top:0;right:0;height:100%;width:rem(30);@include flex(center);}
+ 
+.car-manage-wrap{padding:rem(40) rem(16) rem(20);}
+.car-manage-wrap .logo-chargev{text-align:center;margin-bottom:rem(40);}
 
-.tab-type1{@include flex;justify-content: space-between;margin-bottom:rem(16);}
-.tab-type1 button{flex:1;height:rem(32);font-size:rem(16);padding-top:rem(1);color:#5A5B5C;border: 1px solid #5A5B5C; box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04), 0px 4px 8px rgba(96, 97, 112, 0.16); border-radius: 2px;}
-.tab-type1 button ~ button{margin-left:rem(8);}
-.tab-type1 button.on{background:#92FF44;border-color: #92FF44;}
+.my-chargv-wrap{padding:rem(40) rem(16) rem(20);}
+.my-chargv-wrap .logo-chargev{text-align:center;margin-bottom:rem(40);}
+.my-chargv-wrap .grid-list{font-size:rem(16);}
+.my-chargv-wrap .grid-list .row .unit{width:rem(30);margin-left:rem(8);text-align:left;}
+.my-chargv-wrap .wating{@include flex(center);height:rem(174);}
+
+.charge-point-wrap{padding:rem(40) rem(16) rem(20);}
+.charge-point-wrap .logo-chargev{text-align:center;margin-bottom:rem(40);}
+
+
+.custom-charge-wrap{padding:rem(32) rem(16);}
+.custom-charge-wrap .custom-charge-header .text-type1{margin-top:rem(16);}
+.custom-charge-wrap .custom-charge-header{padding:0 rem(16);margin-bottom:rem(48);}
+
 
 /* layerpopup */ 
 .alert-popup{position:fixed;top:0;left:0;width:100%;height:100%;min-width:320px;overflow-y:auto;z-index:100;}
-.alert-popup .dim{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0);}
+.alert-popup .dim{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);}
 .alert-popup .popup{@include posCenter;padding:rem(16);margin:0 auto;width:rem(343);max-width:90%;box-shadow: 0 rem(1) rem(2) rgba(40, 41, 61, 0.04), 0px rem(3) rem(6) rgba(96, 97, 112, 0.16);border-radius:rem(3);background:#fff;}
 .alert-popup .popup .pop-header{position:relative;}
 .alert-popup .popup .pop-header .pop-tit{margin-bottom:rem(16);text-align:center;@include bold;font-size:rem(20);color:#000;}

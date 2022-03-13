@@ -17,13 +17,27 @@ const routes = [
   // 테스트
 	{ path: '/calendar', component: () => import('@/views/Calendar.vue')},
   // 테스트
-	{ path: '/slider', component: () => import('@/views/Slider.vue')},
+	{ path: '/slider', meta: { layout: 'Default' }, component: () => import('@/views/Slider.vue')},
 
   
 
   // ------------ 알림---------------- //
   // 알림
 	{ path: '/alarm', component: () => import('@/views/Alarm.vue')},
+
+  // ------------ 맞춤충전---------------- //
+	{ path: '/customChargeSet', component: () => import('@/views/CustomChargeSet.vue')},
+  // ------------ 마이차지비---------------- //
+	{ path: '/myChargev', component: () => import('@/views/MyChargev.vue')},
+  // ------------ 내정보---------------- //
+	{ path: '/mypage', component: () => import('@/views/Mypage.vue')},
+  // ------------ 차량관리---------------- //
+	{ path: '/carManage', component: () => import('@/views/CarManage.vue')},
+  // ------------ 결제관리---------------- //
+	{ path: '/paymentManage', component: () => import('@/views/PaymentManage.vue')},
+  // ------------ 충전포인트---------------- //
+	{ path: '/chargePoint', component: () => import('@/views/ChargePoint.vue')},
+
 
   // ------------ 고객지원---------------- //
   // 공지사항

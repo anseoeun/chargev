@@ -4,7 +4,7 @@
       <h2 class="tit-type1">환불문의</h2>
       <!-- 환불 항목 -->
       <div class="shadow-box">
-        <h3 class="tit-type2">환불 항목 <div class="right"><button v-if="selectedRefun" class="c-gray" @click="init()">수정</button></div></h3>
+        <h3 class="tit-type4">환불 항목 <div class="right"><button v-if="selectedRefun" class="c-gray" @click="init()">수정</button></div></h3>
         <div v-if="!selectedRefun.text" class="box-list">
           <ul>
             <li v-for="(item, index) in refundList" :key="index"><button v-html="item" @click="selectedRefun.text = item;selectedRefun.val = index"></button></li>
@@ -21,7 +21,7 @@
       <template v-if="selectedRefun.val === 0">
         <!-- 결제일 선택 -->
         <div class="shadow-box">
-          <h3 class="tit-type2">결제일 선택</h3>
+          <h3 class="tit-type4">결제일 선택</h3>
           <div class="calendar-wrap">
             <div class="calendar-select">
                 <button class="prev" @click="calendarData(-1)"><Icon type="arr-left" /></button>
@@ -64,7 +64,7 @@
  
         <!-- 결제건 선택 -->
         <div class="payment-select-box shadow-box">
-          <h3 class="tit-type2">결제건 선택</h3>
+          <h3 class="tit-type4">결제건 선택</h3>
           <template v-if="isPaymentList">
             <div class="grid-list">
                 <div class="row">
@@ -106,7 +106,7 @@
       <!-- 충전권 선택 -->
       <template v-if="selectedRefun.val === 1">
         <div class="shadow-box">
-          <h3 class="tit-type2">충전권 선택</h3>
+          <h3 class="tit-type4">충전권 선택</h3>
           <div class="blackbox-list">
             <div v-for="(item, index) in chargeData" :key="index" class="black-box">
               <router-link to="/" class="box">
