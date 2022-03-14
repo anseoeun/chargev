@@ -16,6 +16,7 @@
     "veeno": "^0.0.4",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.4.2",
+    "vue-d3": "^0.1.0",
     "vue-round-slider": "^1.0.1",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
