@@ -8,7 +8,7 @@
     <br>
     <br>
     <br>
-    <div id="line-chart"></div>
+    <div id="line-chart" style="width:311px"></div>
   </div>
 </template>
 
@@ -47,50 +47,66 @@ export default {
         {y: 3.051444580631277},
         {y: 3.051444580631277},
       ],
-      // label: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '00:00 ']
       label: [],
       now: 7,
     };
   },
   mounted(){
-    for(let i=0; i<=24; i++){
-       let time = i.length <= 1 ? '0'+i+':00' : i+':00'
-       if(i == 0) time = "00:00"
-       if(i == 24) time = " 00:00 "
-      this.$set(this.label, i, time)
-    }
+    this.setLabel();
+    this.drawChart();
+  },
+  methods: {
+    setLabel(){
+      for(let i=0; i<=24; i++){
+        let time = i.length <= 1 ? '0'+i+':00' : i+':00'
+        if(i == 0) time = "00:00"
+        if(i == 24) time = " 00:00 "
+        this.$set(this.label, i, time)
+      }
+    },
+    drawChart(){
+      const chart = document.querySelector('#line-chart')
+      chart.style.transform = 'scale('+ scale()+')'
 
+      function scale(){
+        let win = window.innerWidth
+        let per;
+        if(win <= 720){
+          per = ((311 - (686 - win)) / 345 * 100).toFixed(2)
+          return per === 1 ? per + 1 : per * 0.01 + 1
+        }else{
+          chart.style.width = 311 + ((window.innerWidth - (622 + 60)) / 2) +'px'
+          return per = 2
+        }
+      }
 
-    let h = window.innerWidth / 12
+      console.log(chart.offsetWidth)
 
-    let margin = {top: 30, right: 15, bottom: 10, left: 15}
-      // , width = window.innerWidth - 30 
-      , width = document.querySelector('#line-chart').offsetWidth - 30
-      , height = h; 
+      let margin = {top: 30, right: 15, bottom: 10, left: 15}
+        , width = chart.offsetWidth - 30
+        , height = 50; 
 
-    // let label = ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '00:00 ']
-    let xScale = d3.scalePoint()
-        .domain(this.label) // input
-        .range([0, width]); // output
+      let xScale = d3.scalePoint()
+          .domain(this.label) // input
+          .range([0, width]); // output
 
-    let yScale = d3.scaleLinear()
-        .domain([0, 10])
-        .range([height, 0]); 
+      let yScale = d3.scaleLinear()
+          .domain([0, 10])
+          .range([height, 0]); 
 
-    let line = d3.line()
-        .x(function(d, i) { 
-            console.log(d,i)
-            return xScale(this.label[i]);
-        }.bind(this)) 
-        .y(function(d) { return yScale(d.y); }) 
-        .curve(d3.curveMonotoneX)
+      let line = d3.line()
+          .x(function(d, i) { 
+              return xScale(this.label[i]);
+          }.bind(this)) 
+          .y(function(d) { return yScale(d.y); }) 
+          .curve(d3.curveMonotoneX)
 
-    let svg = d3.select("#line-chart").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .attr("style", "font-size:10px")
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      let svg = d3.select("#line-chart").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .attr("style", "font-size:10px")
+          .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         
       svg.append("path")
           .datum(this.dataset) 
@@ -121,23 +137,25 @@ export default {
           }
         })
 
-    document.querySelector('.domain').remove()
+      document.querySelector('.domain').remove()
 
-    svg.append("path").data(this.dataset)
-    .attr('d', 'M21 17L15 23L9 17H3C1.89543 17 1 16.1046 1 15V3C1 1.89543 1.89543 1 3 1H27C28.1046 1 29 1.89543 29 3V15C29 16.1046 28.1046 17 27 17H21Z')
-    .attr('stroke-width', '1')
-    .attr('stroke', '#92FF44')
-    .attr('fill', '#fff')
-    .attr("transform", "translate(" + (xScale(this.label[this.now]) - 15) + "," +  (yScale(this.dataset[this.now].y) - 25) + ")");
+      svg.append("path").data(this.dataset)
+      .attr('d', 'M21 17L15 23L9 17H3C1.89543 17 1 16.1046 1 15V3C1 1.89543 1.89543 1 3 1H27C28.1046 1 29 1.89543 29 3V15C29 16.1046 28.1046 17 27 17H21Z')
+      .attr('stroke-width', '1')
+      .attr('stroke', '#92FF44')
+      .attr('fill', '#fff')
+      .attr("transform", "translate(" + (xScale(this.label[this.now]) - 15) + "," +  (yScale(this.dataset[this.now].y) - 25) + ")");
 
-    svg.append("text").data(this.dataset)
-    .attr("transform", "translate(" + (xScale(this.label[this.now]) - 9.5) + "," +  (yScale(this.dataset[this.now].y) - 12)+ ")")
-    .attr('fill', '#5A5B5C')
-    .text(function() { return '지금'; });
+      svg.append("text").data(this.dataset)
+      .attr("transform", "translate(" + (xScale(this.label[this.now]) - 9.5) + "," +  (yScale(this.dataset[this.now].y) - 12)+ ")")
+      .attr('fill', '#5A5B5C')
+      .text(function() { return '지금'; });
+    }
   }
 };
 </script>
 <style lang="scss">
+body{padding:30px;}
   // #line-chart .tick:not(:nth-child(4n+1)) text{display:none;}
-// #line-chart svg{width:100%;}
+#line-chart{transform-origin: 0 0;}
 </style>

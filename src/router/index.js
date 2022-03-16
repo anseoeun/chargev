@@ -15,6 +15,8 @@ const routes = [
   // 테스트
 	{ path: '/chart', component: () => import('@/views/Chart.vue') },
   // 테스트
+	{ path: '/time', meta: { layout: 'None' }, component: () => import('@/views/Time.vue') },
+  // 테스트
 	{ path: '/calendar', component: () => import('@/views/Calendar.vue')},
   // 테스트
 	{ path: '/slider', meta: { layout: 'Default' }, component: () => import('@/views/Slider.vue')},
