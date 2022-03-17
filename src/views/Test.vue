@@ -62,6 +62,15 @@
         </template>
       </BtmLayer>
 
+      <div class="pin-setting">
+        <div class="pin-num">{{ pin[0] }}</div>
+        <div class="pin-num">{{ pin[1] }}</div>
+        <div class="pin-num">{{ pin[2] }}</div>
+        <div class="pin-num">{{ pin[3] }}</div>
+      </div>
+
+      <input type="number" v-model="pin" @change="setPin">
+
 
       <div class="black-box">
         <router-link to="/" class="box">
@@ -183,6 +192,7 @@ export default {
       sliderValue: 60,
       radius: 80,
       complteChecked: true,
+      pin: '',
     }
   },
   mounted(){
@@ -194,6 +204,9 @@ export default {
     formatter(e) {
       return e.value + "분";
     },
+    setPin(){
+
+    }
   },
 }
 </script>

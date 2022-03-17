@@ -11,7 +11,7 @@ const routes = [
   //
   // { path: '/about', name: 'About', component: () => import('@/views/About.vue') },
   // 테스트
-	{ path: '/test', component: () => import('@/views/Test.vue') },
+	{ path: '/test', meta: {bodyClass: 'bg-black' }, component: () => import('@/views/Test.vue') },
   // 테스트
 	{ path: '/chart', component: () => import('@/views/Chart.vue') },
   // 테스트

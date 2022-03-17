@@ -88,7 +88,7 @@ Vue.mixin({
         },
     },        
     mounted(){
-   
+
     },
     methods: {
       checkIcon(e, arr, i){

@@ -7,6 +7,7 @@
     <router-view/> -->
 
     <Layout :layout="layout">
+        {{ bodyClass }}
         <router-view />
     </Layout>
   </div>
@@ -17,11 +18,28 @@ import Layout from '@/layouts/Layout';
 export default {
     name: 'App',
     components: { Layout },
+    data(){
+      return {
+        // bodyClass: this.$root.$route.meta.bodyClass
+      }
+    },
     computed: {
       layout(){
         return this.$root.$route.meta.layout
+      },
+      bodyClass(){
+        return this.$root.$route.meta.bodyClass
       }
     },
+    mounted(){
+      let bodyClassCheck = setInterval(()=>{
+        if(this.bodyClass != undefined) {
+          document.querySelector('body').classList.add(this.bodyClass)
+          clearInterval(bodyClassCheck)
+        }
+      }, 50)      
+      setTimeout(bodyClassCheck, 100)
+    }
 }
 </script>
 
