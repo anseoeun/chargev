@@ -6,6 +6,9 @@ Vue.mixin({
         headerTitle:'',
         title:'',
         titleData: {
+            // 로그인
+            'login': ['로그인', '로그인'],
+
             // 알림
             'alarm': ['알림', '알림'],
 

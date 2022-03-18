@@ -11,7 +11,7 @@ const routes = [
   //
   // { path: '/about', name: 'About', component: () => import('@/views/About.vue') },
   // 테스트
-	{ path: '/test', meta: {bodyClass: 'bg-black' }, component: () => import('@/views/Test.vue') },
+	{ path: '/test', meta: {bodyClass: 'black-mode' }, component: () => import('@/views/Test.vue') },
   // 테스트
 	{ path: '/chart', component: () => import('@/views/Chart.vue') },
   // 테스트
@@ -23,8 +23,11 @@ const routes = [
 
   
 
+  // ------------ 로그인---------------- //
+	{ path: '/Login', meta: {layout: 'None', bodyClass: 'black-mode' }, component: () => import('@/views/Login.vue')},
+  
+
   // ------------ 알림---------------- //
-  // 알림
 	{ path: '/alarm', component: () => import('@/views/Alarm.vue')},
 
   // ------------ 맞춤충전---------------- //

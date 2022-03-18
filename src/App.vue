@@ -1,13 +1,6 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/> -->
-
     <Layout :layout="layout">
-        {{ bodyClass }}
         <router-view />
     </Layout>
   </div>
@@ -20,7 +13,7 @@ export default {
     components: { Layout },
     data(){
       return {
-        // bodyClass: this.$root.$route.meta.bodyClass
+
       }
     },
     computed: {

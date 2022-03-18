@@ -2186,6 +2186,43 @@ body > iframe {
 }
 
 /*********************************
+  black layout
+*********************************/
+body.black-mode {
+  background: #000;
+  color: #fff;
+}
+body.black-mode .i-chargev svg path {
+  fill: #fff;
+}
+body.black-mode .btm-layer-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+body.black-mode .btm-layer-wrap .dim {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+body.black-mode .btm-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  z-index: 1;
+  border-radius: 1.1142857143rem 1.1142857143rem 0px 0px;
+  padding: 1.95rem 2.2285714286rem;
+  border: 1px solid #fff;
+}
+
+/*********************************
   layout
 *********************************/
 .header {
