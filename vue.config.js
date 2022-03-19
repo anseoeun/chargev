@@ -1,6 +1,9 @@
 // const webpack = require('webpack')
 
 module.exports = {
+    devServer: {
+      overlay: false
+    },
     css: {
         loaderOptions: {
           sass: {

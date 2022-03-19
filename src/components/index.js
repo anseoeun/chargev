@@ -10,3 +10,5 @@ import SlideList from './element/SlideList'
 Vue.component('SlideList', SlideList)
 import Alert from './element/Alert'
 Vue.component('Alert', Alert)
+import Slider from './element/Slider'
+Vue.component('Slider', Slider)
