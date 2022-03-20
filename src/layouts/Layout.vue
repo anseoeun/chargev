@@ -10,6 +10,7 @@ import Noheader from './Noheader';
 import Nofooter from './Nofooter';
 import None from './None';
 import MobileLayout from './MobileLayout';
+// import BlackNone from './BlackNone';
 
 export default {
     name: 'TheLayout',
@@ -19,6 +20,7 @@ export default {
         Nofooter,
         None,
         MobileLayout,
+        // BlackNone
     },
     props: {
         layout:{

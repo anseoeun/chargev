@@ -42,6 +42,19 @@
           'max': 3250 
         }" 
       />
+      
+      <br>
+      <br>
+      <veeno 
+      :pipsy = "{ 
+          mode: 'range', 
+          density: 5000
+        }"
+        :tooltips="[{ to: (n) => n.toFixed(0) }]"
+        :handles="[249]" 
+        :range="{'min': 199, 'max': 420}"
+        :style="{'margin-bottom': '2rem'}"
+      />
   </div>
 </template>
 

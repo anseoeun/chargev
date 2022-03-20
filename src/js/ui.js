@@ -6,6 +6,8 @@ Vue.mixin({
         headerTitle:'',
         title:'',
         titleData: {
+            // 스플래시
+            'splash': ['스플래시', '스플래시'],
             // 로그인
             'login': ['로그인', '로그인'],
 
@@ -90,8 +92,11 @@ Vue.mixin({
             }
         },
     },        
+    created(){
+      
+    },
     mounted(){
-
+      
     },
     methods: {
       checkIcon(e, arr, i){

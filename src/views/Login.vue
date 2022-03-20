@@ -22,6 +22,9 @@
         </splide-slide>
       </template>
     </Slider>
+    <div class="custom-dotting">
+      <button v-for="(item, index) in 4" :key="index" @click="gotoPage(index)">{{ index }}</button>
+    </div>
     <BtmLayer :visible="btmLayer.agency" @close="btmLayer.agency = false">
       <template slot="content">
           dfsf
@@ -56,9 +59,12 @@ export default {
   methods: {
     update(){
       this.slider1 = true;
-      this.componentKey += 1;  
+      this.componentKey += 1;   
       this.options.start = 1
       // this.$forceUpdate();
+    },
+    gotoPage(index){
+      document.querySelector('.splide__pagination li:nth-child('+(index +  1)+') button').click()
     }
   }
 }

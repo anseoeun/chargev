@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <body id="app">
     <Layout :layout="layout">
         <router-view />
     </Layout>
-  </div>
+  </body>
 </template>
 <script>
 import Layout from '@/layouts/Layout';
@@ -24,14 +24,25 @@ export default {
         return this.$root.$route.meta.bodyClass
       }
     },
-    mounted(){
-      let bodyClassCheck = setInterval(()=>{
-        if(this.bodyClass != undefined) {
-          document.querySelector('body').classList.add(this.bodyClass)
-          clearInterval(bodyClassCheck)
+    watch:{
+      bodyClass(newval) {
+        if(newval === 'black-mode') {
+          console.log('a:'+newval);
+          document.querySelector('body').classList.add('black-mode')
+        }else{
+          console.log('b:'+newval);
+          document.querySelector('body').classList.remove('black-mode')
         }
-      }, 50)      
-      setTimeout(bodyClassCheck, 100)
+      }
+    },
+    mounted(){
+      // let bodyClassCheck = setInterval(()=>{
+      //   if(this.bodyClass != undefined) {
+      //     document.querySelector('body').classList.add(this.bodyClass)
+      //     clearInterval(bodyClassCheck)
+      //   }
+      // }, 50)      
+      // setTimeout(bodyClassCheck, 100)
     }
 }
 </script>

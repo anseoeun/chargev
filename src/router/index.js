@@ -24,6 +24,7 @@ const routes = [
   
 
   // ------------ 로그인---------------- //
+	{ path: '/Splash', meta: {layout: 'None', bodyClass: 'black-mode' }, component: () => import('@/views/Splash.vue')},
 	{ path: '/Login', meta: {layout: 'None', bodyClass: 'black-mode' }, component: () => import('@/views/Login.vue')},
   
 
