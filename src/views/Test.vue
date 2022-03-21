@@ -1,6 +1,6 @@
 <template>
   <div class="notice">
-    테스트
+    테스트2222
 
 <round-slider
   v-model="sliderValue"
