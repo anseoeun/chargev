@@ -163,6 +163,7 @@
           </div>
          </router-link>
       </div>
+      <word-relay startWord="가나다"></word-relay>
   </div>
 </template>
 
