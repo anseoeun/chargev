@@ -6,9 +6,10 @@
       :options="setOption"
       :btmarrow="btmarrow"
       :class="{'btm-arrow' : btmarrow}"
-      @splide:mounted="initClientOnlyComp"
+      @splide:mounted="init"
       @splide:move="onMove"
       @splide:moved="onMoved"
+      @splide:drag="onDrag"
     >
 
       <template v-if="content">
@@ -123,30 +124,19 @@ export default {
     if(this.thumbnail) this.$refs.primary.sync( this.$refs.secondary.splide )
   },
   methods: {
-    initClientOnlyComp(count = 10) {
-      this.$nextTick(() => {
-        if (this.btmarrow) {
-          this.$refs.primary.$el.firstChild.firstChild.style.left = -this.pagingSize / 2 + 'px'
-          this.$refs.primary.$el.firstChild.lastChild.style.right = -this.pagingSize / 2 + 'px'
-        } else if (count > 0) {
-          this.initClientOnlyComp(count - 1)
-        }
-        this.$emit('init')
-      })
+    init(slider) {
+      this.$emit('init', slider)
     },
-    onMove(){
-      document.querySelectorAll('.el-popover.el-popper').forEach((value) => {
-        value.style.display = 'none'
-      })
-      document.querySelectorAll('.similar-recommend-list .option .active').forEach((value) => {
-        value.classList.remove('active')
-      })
+    onDrag(slider){
+      console.log(slider)
+      this.$refs.primary.$el.classList.add('drag')
     },
-    onMoved(){
-      if(document.querySelector('.getpage')){
-        let page = document.querySelector('.getpage .splide__pagination .is-active').getAttribute('aria-label').split('slide ')[1]
-        this.$emit('onMoved', page)
-      }
+    onMove(slider){
+      this.$emit('onMove', slider)
+    },
+    onMoved(slider){
+      this.$refs.primary.$el.classList.remove('drag')
+      this.$emit('onMoved', slider)
     },
     getDataLength() {
       if(this.content){

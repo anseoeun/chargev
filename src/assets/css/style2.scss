@@ -23,7 +23,7 @@
 *{margin:0;padding:0;border:none;word-break:break-all;box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-hyphens:auto;hyphens:auto;vertical-align:baseline;font-size:inherit;line-height:inherit;font-family:inherit;color:inherit;}
 *:before, *:after{box-sizing:border-box;-webkit-box-sizing:border-box;}
 // html,body{height:100%;}
-body{line-height:1.25;font-family:"AppleSDGothicNeo", "NotoSansKr","Sans-serif";-webkit-text-size-adjust:none;color:$c-base;word-break:keep-all;word-wrap:break-word;color:#fff;}
+body{line-height:1.25;font-family:"AppleSDGothicNeo", "NotoSansKr","Sans-serif";-webkit-text-size-adjust:none;color:$c-base;word-break:keep-all;word-wrap:break-word;color:#5A5B5C;}
 dl,ul,ol,menu,li {list-style:none;}
 p{margin:0;}
 table {width:100%;border-collapse:collapse;border-spacing:0}
@@ -51,31 +51,8 @@ body.black-mode{background:#000;color:#fff;
   .btm-layer{position:absolute;bottom:0;left:0;width:100%;background:#000;z-index: 1;border-radius: rem(16) rem(16) 0px 0px;padding:rem(28) rem(32);border:1px solid #fff;}
 
   /* login */
-  .login-wrap .logo-chargev{position:absolute;top:rem(60);left:0;width:100%;text-align:center;z-index: 0;}
-  .login-wrap .transparent-box-wrap{margin-top:rem(148);}
-  .login-wrap .info-text{font-size:rem(14);margin-top:rem(115);text-align:center;}
+  .login-wrap .logo-chargev{text-align:center;padding-top:rem(60);}
 
-  .transparent-box-wrap .tit{display:block;margin-bottom:rem(16);@include bold;text-align:center;}
-  .transparent-box{width:rem(294);padding:rem(16);margin:0 auto;background: rgba(42, 43, 44, 0.56); border-radius: 8px;}
-  .transparent-box .box-btn{margin-top:rem(16);}
-  .transparent-box .form-box .row{@include flex;}
-  .transparent-box .form-box .row .auto,
-  .transparent-box .form-box .row  *:only-child{flex:1;}
-  .transparent-box .form-box .row  ~ .row{margin-top:rem(16);}
-  .transparent-box .form-box .row  * ~ .btn{margin-left:rem(24);}
-
-  .slider-page{height:100vh;}
-  // .slider-page .splide__slide .transparent-box-wrap{transition: all 0.5s ease;-webkit-transition: all 0.5s ease;}
-  // .slider-page .splide__slide.is-active ~ .splide__slide .transparent-box-wrap{transform: translateX(0);}
-  // .slider-page .drag .splide__slide[tabindex='0'] .transparent-box-wrap{transform: translateX(rem(60));}
-  // .slider-page .splide__slide[tabindex='-1'] .transparent-box-wrap{transform: translateX(rem(60));}
-  .slider-page .splide__pagination{position: absolute;overflow-y:auto;clip:rect(0 0 0 0);height:1px;width:1px;padding:0 0;}
-
-
-  .grident-bottom{position:absolute;bottom:rem(80);left:0;width:100%;height:rem(124);@include flex(center);background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 26.04%);}
-  .custom-dotting{text-align:center;}
-  .custom-dotting > button{width: 10px; height: 10px;margin:0 rem(5);border-radius:100%;background: #CACBCC;}
-  .custom-dotting > button.on{background: #8FFF44;}
 }
 
 /*********************************
@@ -124,13 +101,15 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
     #{$input} {
       width:100%;
       font-size:rem(14);
-      border-bottom:1px solid #fff;
-      height:rem(32);
+      border:1px solid #5A5B5C;
+      border-radius: rem(2);
+      height:rem(56);
+      padding:0 rem(15);
+      padding-top:rem(3);
       outline:none;
-      color:#fff;
-      background: none;
+      color:#4F4F4F;
       @include prefix(box-shadow, none);
-      @include placeholder{color:#8A8B8C;}
+      @include placeholder{color:#A3A9A4;}
   }
   @if #{$input}  == 'select' {
     #{$input} {
@@ -175,13 +154,6 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 // .inp-addr{@include flex;padding:0 0;border-left:none;}
 // .inp-addr input{flex: 1;border-right:none;border-radius:rem(8) 0 0 rem(8);}
 // .inp-addr button{height:100%;width:rem(56);color:#fff;font-size:rem(14);line-height:rem(40);border-radius:0 rem(8) rem(8) 0;background:#46C768;}
-.inp-certify{position:relative;}
-.inp-certify .time{@include posCenter(y);right:0;color:#CACBCC;@include bold;}
-.inp-pin{position:relative;}
-.inp-pin .pin{@include flex;}
-.inp-pin .pin input{flex:1;text-align:center;}
-.inp-pin .pin input ~ input{margin-left:rem(16);}
-.inp-pin > input{position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity: 0;}
 
 .form-layer-wrap{position:relative;}
 .form-layer{position:absolute;top:rem(56);left:0;width:100%;background:#fff;}
@@ -205,10 +177,10 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 .align-r{text-align:right !important;}
 
 /* c-color */
-// .c-blue{color:#5D96F6 !important;}
-// .c-green{color:#92FF44 !important;}
-// .c-red{color:#FF4444 !important;}
-// .c-gray{color:#5A5B5C !important;}
+.c-blue{color:#5D96F6 !important;}
+.c-green{color:#92FF44 !important;}
+.c-red{color:#FF4444 !important;}
+.c-gray{color:#5A5B5C !important;}
 
 /* btn */
 .btn-box{margin-top:30px;text-align:center;}
@@ -218,20 +190,17 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
   [class*=btn-type]{text-align:center;white-space:nowrap;border-radius:rem(4);width:100%;}
   [class*=btn-type]:disabled{background: #A3A9A4 !important;border-color: #A3A9A4 !important;} 
   [class*=btn-type] i{margin-right:rem(3);}
-  [class*=btn-type].inbl{display:inline-block;width:auto;}
-  [class*=btn-type].btn-type2.inbl{padding:0 rem(8);}
 
   @each $name, $h, $fs in 
   (btn-type1, rem(48), rem(14)),
-  (btn-type2, rem(32), rem(13)),
   {
     @include btn-type($name, $h, $fs);
   }
  
   @each $name, $c, $bg, $br in 
-  (st1, #fff, #000, #000),
-  // (st2, #5A5B5C, #fff, #5A5B5C),
-  // (st3, #fff, linear-gradient(180deg, #4985f1 0%, #0867f7 35%), #fff, none),
+  (st1, #000, #92FF44, #92FF44),
+  (st2, #5A5B5C, #fff, #5A5B5C),
+  (st3, #fff, linear-gradient(180deg, #4985f1 0%, #0867f7 35%), #fff, none),
   {
     @include btn-st($name, $c, $bg, $br);
   }
