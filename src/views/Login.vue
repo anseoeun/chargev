@@ -53,10 +53,49 @@
             </div>
           </splide-slide>
           <splide-slide>
-            <div style="height: 200px; background: black">아자차</div>
+            <div class="transparent-box-wrap">
+              <strong class="tit">로그인</strong>
+              <div class="transparent-box">
+                <div class="form-box">
+                  <div class="row">
+                    <div class="input">
+                        <input type="text" placeholder="ID(Email)">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input">
+                        <input type="text" placeholder="비밀번호">
+                    </div>
+                  </div>
+                </div>
+                <div class="box-btn">
+                  <button class="btn-type1 st1">로그인</button>
+                </div>
+              </div>
+            </div>
           </splide-slide>
-          <splide-slide v-if="false">
-            <div style="height: 200px; background: black">파하</div>
+          <!-- <splide-slide v-if="false"> -->
+          <splide-slide>
+          <div class="transparent-box-wrap">
+              <strong class="tit">로그인</strong>
+              <div class="transparent-box">
+                <div class="form-box">
+                  <div class="row">
+                    <div class="input">
+                        <input type="text" placeholder="ID(Email)">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input">
+                        <input type="text" placeholder="비밀번호">
+                    </div>
+                  </div>
+                </div>
+                <div class="box-btn">
+                  <button class="btn-type1 st1">로그인</button>
+                </div>
+              </div>
+            </div>
           </splide-slide>
         </template>
       </Slider>      

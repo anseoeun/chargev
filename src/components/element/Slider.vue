@@ -85,17 +85,19 @@ export default {
   data() {
     return {
       pagingNumber: 1,
-        secondaryOptions: {
-          type: 'slide',
-          rewind: true,
-          cover: true,
-          isNavigation: true,
-          perPage  : 2.7,
-          gap: '0.8rem',
-          trimSpace: true,
-          pagination  : false,
-          arrows: false,
-        },
+      secondaryOptions: {
+        type: 'slide',
+        rewind: true,
+        cover: true,
+        isNavigation: true,
+        perPage  : 2.7,
+        gap: '0.8rem',
+        trimSpace: true,
+        pagination  : false,
+        arrows: false,
+      },
+      prev: null,
+      isSlide: 0
     }
   },
   computed: {
@@ -130,9 +132,21 @@ export default {
     onDrag(slider){
       console.log(slider)
       this.$refs.primary.$el.classList.add('drag')
+
     },
     onMove(slider){
+      console.log(this.isSlide, slider.index)
       this.$emit('onMove', slider)
+      if(this.prev !== null) this.prev.removeAttribute('prev')
+      if(this.isSlide === slider.index){
+        this.prev = this.$refs.primary.$el.querySelector('.is-active')  
+        console.log('a')
+      }else if(this.isSlide < slider.index){
+        this.prev = this.$refs.primary.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
+        console.log('b')
+      }
+      this.prev.setAttribute('prev', true)
+      this.isSlide = slider.index
     },
     onMoved(slider){
       this.$refs.primary.$el.classList.remove('drag')

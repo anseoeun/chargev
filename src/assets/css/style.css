@@ -2269,6 +2269,13 @@ body.black-mode .transparent-box .form-box .row * ~ .btn {
 body.black-mode .slider-page {
   height: 100vh;
 }
+body.black-mode .slider-page .splide__slide .transparent-box-wrap {
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+body.black-mode .slider-page .splide__slide[prev] .transparent-box-wrap {
+  transform: translateX(4.1785714286rem);
+}
 body.black-mode .slider-page .splide__pagination {
   position: absolute;
   overflow-y: auto;
