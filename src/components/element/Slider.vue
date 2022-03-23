@@ -130,25 +130,27 @@ export default {
       this.$emit('init', slider)
     },
     onDrag(slider){
-      console.log(slider)
+      console.log('drag:'+slider)
       this.$refs.primary.$el.classList.add('drag')
 
     },
     onMove(slider){
-      console.log(this.isSlide, slider.index)
+            console.log('isSlide:'+ this.isSlide)
+            console.log('ing:'+slider.index)
+      // console.log(this.isSlide, slider.index)
       this.$emit('onMove', slider)
       if(this.prev !== null) this.prev.removeAttribute('prev')
-      if(this.isSlide === slider.index){
+      if(this.isSlide <= slider.index){
         this.prev = this.$refs.primary.$el.querySelector('.is-active')  
-        console.log('a')
-      }else if(this.isSlide < slider.index){
+      }else if(this.isSlide > slider.index){
         this.prev = this.$refs.primary.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
-        console.log('b')
       }
+      this.isSlide = slider.index      
       this.prev.setAttribute('prev', true)
-      this.isSlide = slider.index
+
     },
     onMoved(slider){
+      // console.log('ed:'+slider.index)
       this.$refs.primary.$el.classList.remove('drag')
       this.$emit('onMoved', slider)
     },
