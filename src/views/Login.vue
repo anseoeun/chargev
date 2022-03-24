@@ -5,6 +5,13 @@
       <Slider :options="options" :content="true" class="slider-page" :key="componentKey" @init="pageSliderInit" @onMove="pageSliderMove" @onMoved="pageSliderMoved">
         <template slot="content">
           <splide-slide>
+            <Slider :options="options" :content="true">
+              <template slot="content">
+                <splide-slide>가나달<br>가나다</splide-slide>
+                <splide-slide>가나달2<br>가나다</splide-slide>
+                <splide-slide>가나달3<br>가나다</splide-slide>
+              </template>
+            </Slider>
             <div class="transparent-box-wrap">
               <strong class="tit">로그인</strong>
               <div class="transparent-box">
