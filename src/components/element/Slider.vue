@@ -97,7 +97,7 @@ export default {
         arrows: false,
       },
       prev: null,
-      isSlide: 0
+      posX: 0
     }
   },
   computed: {
@@ -129,29 +129,28 @@ export default {
     init(slider) {
       this.$emit('init', slider)
     },
-    onDrag(slider){
-      console.log('drag:'+slider)
+    onDrag(){
       this.$refs.primary.$el.classList.add('drag')
-
     },
     onMove(slider){
-            console.log('isSlide:'+ this.isSlide)
-            console.log('ing:'+slider.index)
-      // console.log(this.isSlide, slider.index)
-      this.$emit('onMove', slider)
+      let currentPos = this.getTranslateX(this.$refs.primary.$el.querySelector('.splide__list'))
+      console.log(this.posX, currentPos)
       if(this.prev !== null) this.prev.removeAttribute('prev')
-      if(this.isSlide <= slider.index){
+      if(this.posX <= currentPos){
+        console.log('a')
         this.prev = this.$refs.primary.$el.querySelector('.is-active')  
-      }else if(this.isSlide > slider.index){
+      }else if(this.posX > currentPos){
+        console.log('b')
         this.prev = this.$refs.primary.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
       }
-      this.isSlide = slider.index      
-      this.prev.setAttribute('prev', true)
 
+      this.prev.setAttribute('prev', true)
+      this.$emit('onMove', slider)
     },
     onMoved(slider){
-      // console.log('ed:'+slider.index)
-      this.$refs.primary.$el.classList.remove('drag')
+      let currentPos = this.getTranslateX(this.$refs.primary.$el.querySelector('.splide__list'))      
+            console.log(currentPos)
+      this.posX = currentPos      
       this.$emit('onMoved', slider)
     },
     getDataLength() {
@@ -165,6 +164,12 @@ export default {
         return this.data.length
       }
     },
+    getTranslateX(element) {
+      let style = window.getComputedStyle(element);
+      //eslint-disable-next-line
+      let matrix = new WebKitCSSMatrix(style.transform);
+      return matrix.m41
+    }
   },
 }
 </script>

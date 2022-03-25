@@ -3610,27 +3610,27 @@ i[class*=i-] .svg-prevent {
   color: #808695;
 }
 
-.event-wrap .event-list {
+.event-list {
   margin-top: 2.0892857143rem;
   padding-left: 2.2285714286rem;
   padding-bottom: 2.7857142857rem;
 }
 
-.event-wrap .event-list li {
+.event-list li {
   width: calc(100% - 2.2285714286rem);
 }
 
-.event-wrap .event-list li ~ li {
+.event-list li ~ li {
   margin-left: 1.1142857143rem;
 }
 
-.event-wrap .event-list.end .period {
+.event-list.end .period {
   border-color: #c7c9d9;
   background: #c7c9d9;
   color: #fff;
 }
 
-.event-wrap .event {
+.event {
   background-repeat: no-repeat !important;
   background-position: 50% 50% !important;
   background-size: cover !important;
@@ -3641,25 +3641,25 @@ i[class*=i-] .svg-prevent {
   box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.04), 0px 16px 24px rgba(96, 97, 112, 0.16);
 }
 
-.event-wrap .event .link-btn {
+.event .link-btn {
   display: block;
   height: 100%;
 }
 
-.event-wrap .event .title {
+.event .title {
   font-size: 1.3928571429rem;
   color: #000;
   font-weight: 700;
 }
 
-.event-wrap .event .type {
+.event .type {
   margin-top: 0.2089285714rem;
   font-size: 0.975rem;
   color: #5B8DEF;
   font-weight: 400;
 }
 
-.event-wrap .event .period {
+.event .period {
   display: block;
   width: 4.4571428571rem;
   height: 5.0142857143rem;
@@ -3675,20 +3675,20 @@ i[class*=i-] .svg-prevent {
   border: 1px solid #4683f1;
 }
 
-.event-wrap .event .period .month {
+.event .period .month {
   font-size: 0.975rem;
   font-weight: 700;
 }
 
-.event-wrap .event .period .day {
+.event .period .day {
   font-size: 1.5321428571rem;
 }
 
-.event-wrap .event-detail {
+.event-detail {
   padding-bottom: 2.7857142857rem;
 }
 
-.event-wrap .event-view {
+.event-view {
   position: relative;
   font-size: 1.1142857143rem;
   color: #4F4F4F;
@@ -3697,7 +3697,7 @@ i[class*=i-] .svg-prevent {
   line-height: 1.4;
 }
 
-.event-wrap .event-view:before {
+.event-view:before {
   content: "";
   display: block;
   width: 2.0892857143rem;

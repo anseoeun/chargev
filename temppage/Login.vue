@@ -2,9 +2,46 @@
   <div class="contents">
     <div class="login-wrap">
       <div class="logo-chargev"><Icon type="chargev" /></div>      
-      <Slider :options="options" :content="true" class="slider-page" @init="pageSliderInit" @onMove="pageSliderMove" @onMoved="pageSliderMoved">
+      <Slider :options="options" :content="true" class="slider-page" :key="componentKey" @init="pageSliderInit" @onMove="pageSliderMove" @onMoved="pageSliderMoved">
         <template slot="content">
           <splide-slide>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+      <!-- <div class="x-scrolling-list">
+        <ul class="event-list">
+          <li v-for="(item, index) in eventList" :key="index">
+            <div class="event" :style="`background-image:url(${item.bg})`">
+              <button class="link-btn">
+                <div class="title">{{ item.title }} </div>
+                <div class="type">{{ item.type }} </div>
+                <div class="period">
+                  <div class="month">{{ item.month }}</div>
+                  <div class="day">{{ item.day }}</div>
+                </div>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>             -->
+            <Slider :options="options2" :content="true" class="expct">
+              <template slot="content">
+                <splide-slide>가나달<br>가가나달가나달나다<br>가나다<br>가t나다</splide-slide>
+                <splide-slide>가나달2<br>가가나달가나달나다<br>가나다<br>가나다</splide-slide>
+                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
+              </template>
+            </Slider>
             <div class="transparent-box-wrap">
               <strong class="tit">로그인</strong>
               <div class="transparent-box">
@@ -138,6 +175,11 @@ export default {
         // pagination: false,
         // arrows: false,
       },      
+      options2: {
+        focus    : 'center',
+        autoWidth: true,
+        perPage: 1,
+      },        
       paging: new Array(6),
       eventList: [
         {
@@ -179,9 +221,16 @@ export default {
     }
   },
   mounted(){
-
+    var el = document.querySelector('.expct')
+  el.addEventListener("touchstart", function(e){ e.stopPropagation() });
   },
   methods: {
+    update(){
+      this.slider1 = true;
+      this.componentKey += 1;   
+      this.options.start = 1
+      // this.$forceUpdate();
+    },
     pageSliderInit(slider){
       this.currentPage = slider.index
     },
