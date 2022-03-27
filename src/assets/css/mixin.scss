@@ -63,11 +63,11 @@ $size: 28px;
   $path : '~@/assets/fonts/' + $file;
   @font-face{
     font-family: $family;
-    src: url($path + '.eot');
-    src:url($path + '.eot?#iefix') format("embedded-opentype"),
-        url($path + '.woff2') format('woff2'),
-        url($path + '.woff') format('woff');
-        // url($path + '.ttf') format('truetype');
+    // src: url($path + '.eot');
+    // src:url($path + '.eot?#iefix') format("embedded-opentype"),
+        // url($path + '.woff2') format('woff2'),
+      src:url($path + '.woff') format('woff'),
+          url($path + '.ttf') format('truetype');
     font-weight: $weight;
     font-style: $style;
   }
@@ -162,7 +162,7 @@ $size: 28px;
   @content;
 }
 @mixin btn-type($name, $h, $fs, $fw:normal){
-  .#{$name}{display:block;height:$h;font-size:$fs;font-weight:$fw;line-height:$h;}
+  .#{$name}{display:block;height:$h;font-size:$fs;font-weight:$fw;line-height:$h; @content;}
 }
 @mixin btn-st($name, $c, $bg, $br, $fw:normal){
   [class*=btn-type].#{$name}{color:$c;background:$bg;border:1px solid $br;}

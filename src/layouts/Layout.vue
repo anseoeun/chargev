@@ -1,6 +1,8 @@
 <template>
     <component :is="layout" >
-        <slot />
+        <div :class="'layout'+layout">
+            <slot />
+        </div>
     </component>
 </template>
 

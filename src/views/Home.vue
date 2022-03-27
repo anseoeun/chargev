@@ -45,7 +45,7 @@ export default {
 
 <style scoped>
   h2{font-size:20px;color: #000;}
-  .index{padding:20px;font-size:12px;}
+  .index{padding:20px;font-size:12px;background:#fff;color: #000;}
   .index table {width:100%; border-collapse:collapse; border:0px solid #666;margin-top:10px;}
   .index caption {text-align:left; font-size:200%; color:#999;}
   .index th {padding:6px; border:1px solid #fff; color:#fff; font-size:110%; background-color:#000;}

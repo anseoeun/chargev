@@ -22,6 +22,11 @@
 // import Vue from 'vue'
 // Vue.prototype.$EventBus = new Vue();
 // import EventBus from '@/js/EventBus';
+
+//루핑
+//https://dev-qa.com/600565/vue-ios-datepicker
+//https://codepen.io/gnauhca/pen/JrdpZZ
+
 import CalendarJs from "@/js/Calendar"; // 
 
 export default {

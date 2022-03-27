@@ -10,6 +10,8 @@ Vue.mixin({
             'splash': ['스플래시', '스플래시'],
             // 로그인
             'login': ['로그인', '로그인'],
+            'LoginMenu': ['로그인', '로그인메뉴'],
+            'loginRuleList': ['로그인', '로그인약관'],
 
             // 알림
             'alarm': ['알림', '알림'],
@@ -103,7 +105,6 @@ Vue.mixin({
         e.stopPropagation();
         e.preventDefault  ();
         const el = e.currentTarget.querySelector('i')
-        console.log(this[arr]);
         if(el.classList.contains('on')){
           if(Array.isArray(this[arr])) this.$set(this[arr], i, false)
           else this[arr] = false

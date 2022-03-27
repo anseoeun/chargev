@@ -11,9 +11,9 @@ const routes = [
   //
   // { path: '/about', name: 'About', component: () => import('@/views/About.vue') },
   // 테스트
-	{ path: '/component', meta: {bodyClass: 'black-mode' }, component: () => import('@/views/Component.vue') },
+	{ path: '/component', component: () => import('@/views/Component.vue') },
   // 테스트
-	{ path: '/test', meta: {bodyClass: 'black-mode' }, component: () => import('@/views/Test.vue') },
+	{ path: '/test', component: () => import('@/views/Test.vue') },
   // 테스트
 	{ path: '/chart', component: () => import('@/views/Chart.vue') },
   // 테스트
@@ -26,8 +26,10 @@ const routes = [
   
 
   // ------------ 로그인---------------- //
-	{ path: '/Splash', meta: {layout: 'None', bodyClass: 'black-mode' }, component: () => import('@/views/Splash.vue')},
-	{ path: '/Login', meta: {layout: 'None', bodyClass: 'black-mode' }, component: () => import('@/views/Login.vue')},
+	{ path: '/splash', meta: {layout: 'None'}, component: () => import('@/views/Splash.vue')},
+	{ path: '/login', meta: {layout: 'None' }, component: () => import('@/views/Login.vue')},
+	{ path: '/loginMenu', meta: {layout: 'None' }, component: () => import('@/views/LoginMenu.vue')},
+	{ path: '/loginRuleList', meta: {layout: 'None' }, component: () => import('@/views/LoginRuleList.vue')},
   
 
   // ------------ 알림---------------- //
