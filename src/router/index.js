@@ -28,6 +28,7 @@ const routes = [
   // ------------ 로그인---------------- //
 	{ path: '/splash', meta: {layout: 'None'}, component: () => import('@/views/Splash.vue')},
 	{ path: '/login', meta: {layout: 'None' }, component: () => import('@/views/Login.vue')},
+	{ path: '/login2', meta: {layout: 'None' }, component: () => import('@/views/Login2.vue')},
 	{ path: '/loginMenu', meta: {layout: 'None' }, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', meta: {layout: 'None' }, component: () => import('@/views/LoginRuleList.vue')},
   

@@ -11,7 +11,7 @@
 }
 
 /* ========== reset ========== */
-*{margin:0;padding:0;border:none;word-break:break-all;box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-hyphens:auto;hyphens:auto;vertical-align:baseline;font-size:inherit;line-height:inherit;font-family:inherit;color:inherit;}
+*{margin:0;padding:0;border:none;word-break:break-all;box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-hyphens:auto;hyphens:auto;vertical-align:baseline;font-size:inherit;line-height:inherit;font-family:inherit;color:inherit;font-weight:inherit;}
 *:before, *:after{box-sizing:border-box;-webkit-box-sizing:border-box;}
 // html,body{height:100%;}
 body{line-height:1.25;font-family:"Gotham", "Sans-serif";-webkit-text-size-adjust:none;color:$c-base;word-break:keep-all;word-wrap:break-word;color:#fff;font-weight:500;}
@@ -38,13 +38,19 @@ body{color:#fff;background:#000 url('~@/assets/images/bg-body.jpg') no-repeat 50
 .i-chargev svg path{fill:#fff}
 
 /* btm-layer */
-.btm-layer-wrap{position:fixed;bottom:0;left:0;width:100%;height:100%;}
-.btm-layer-wrap .dim{position:fixed;bottom:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);}
-.btm-layer{position:absolute;bottom:0;left:0;width:100%;background:#000;z-index: 1;border-radius: rem(16) rem(16) 0px 0px;padding:rem(28) rem(32);border:1px solid #fff;}
+.btm-layer-wrap{display:none; position:fixed;bottom:0;left:0;width:100%; height:100%; background:rgba(0,0,0,0.5);}
+// .btm-layer-wrap .dim{position:fixed;bottom:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);}
+.btm-layer-wrap .btm-layer{display:none;position:absolute;bottom:0;left:0;width:100%;border-radius: rem(16) rem(16) 0px 0px;padding:rem(28) rem(32); background:rgba(0,0,0,0);}
+.btm-layer-wrap .btm-layer .scroll{overflow:auto;}
+.btm-layer-wrap.agency-select-wrap .btm-layer{padding:rem(28) rem(32);background:#2A2B2C;}
+.btm-layer-wrap.agency-select-wrap .agency-select{font-size:rem(16);color:#CACBCC;}
+.btm-layer-wrap.agency-select-wrap .agency-select .tit{display:block;@include bold;margin-bottom:rem(24);}
+.btm-layer-wrap.agency-select-wrap .agency-list li ~ li{margin-top:rem(20);}
 
 /* login */
 .login-wrap .logo-chargev{padding-top:rem(60);text-align:center;margin-bottom:rem(68);}
-.login-wrap .info-text{font-size:rem(14);margin-top:rem(115);text-align:center;}
+.login-wrap .min-fix{min-height:rem(330);}
+.login-wrap .info-text{font-size:rem(14);margin-top:rem(20);text-align:center;}
 .login-wrap .slider-page .splide__slide{padding-bottom:rem(200);}
 
 /* login-menu-wrap */
@@ -62,8 +68,10 @@ body{color:#fff;background:#000 url('~@/assets/images/bg-body.jpg') no-repeat 50
 
 /* transparent-box */
 .transparent-box-wrap .tit{display:block;margin-bottom:rem(16);@include bold;text-align:center;}
+.transparent-box-wrap .btn-wrap{width:rem(294);margin:0 auto;margin-top:rem(16);}
+.transparent-box-wrap .camera-box{width:rem(294);height:rem(194);margin:0 auto;border:rem(2) solid #92FF44;background: #000;border-radius:rem(8);}
 .transparent-box{width:rem(294);padding:rem(16);margin:0 auto;background: rgba(42, 43, 44, 0.56); border-radius: 8px;}
-.transparent-box .box-btn{margin-top:rem(16);}
+.transparent-box .btn-box{margin-top:rem(16);}
 .transparent-box .form-box .row{@include flex;}
 .transparent-box .form-box .row .auto,
 .transparent-box .form-box .row  *:only-child{flex:1;}

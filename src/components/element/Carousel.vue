@@ -1,8 +1,8 @@
 <template>
   <div class="carousel">
     <Splide
-      ref="primary"
-      class="primary"
+      ref="slider"
+      class="slider"
       :options="setOption"
       @splide:mounted="init"
       @splide:move="onMove"
@@ -36,6 +36,12 @@
         </SplideSlide>
       </template>
     </Splide>
+
+    <div v-if="customPaging" class="grident-bottom">
+      <div class="custom-dotting">
+          <button v-for="(item, index) in paging" :key="index" :class="{on: currentPage === index}" @click="gotoPage(index)"></button>
+      </div>
+    </div>    
   </div>
 </template>
 
@@ -49,7 +55,6 @@ import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 export default {
    components: { Splide, SplideSlide },
     props: {
-
     data: {
       type: Array,
       default: () => [],
@@ -62,6 +67,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    customPaging: {
+      type: Boolean,
+      default: false,
+    },
     thumbnail:{
       type: Boolean,
       default: false,
@@ -70,7 +79,7 @@ export default {
 
   data() {
     return {
-      pagingNumber: 1,
+      currentPage: 0, 
       secondaryOptions: {
         type: 'slide',
         rewind: true,
@@ -82,6 +91,8 @@ export default {
         pagination  : false,
         arrows: false,
       },
+      // paging: new Array(this.$refs.slider.$children),
+      paging: [],
       prev: null,
       prevIndex: 0,
       prevX: 0
@@ -110,7 +121,10 @@ export default {
   },
   updated() {
     // this.initClientOnlyComp()
-    if(this.thumbnail) this.$refs.primary.sync( this.$refs.secondary.splide )
+    if(this.thumbnail) this.$refs.slider.sync( this.$refs.secondary.splide )
+  },
+  mounted(){
+    this.paging = this.$refs.slider.$children
   },
   methods: {
     init(slider) {
@@ -119,10 +133,10 @@ export default {
     onMove(slider, index){
       if(index != this.prevIndex){
         if(this.prevIndex < index){
-          this.prev = this.$refs.primary.$el.querySelector('.is-active')  
+          this.prev = this.$refs.slider.$el.querySelector('.is-active')  
         }else{
           this.prev.removeAttribute('prev')
-          this.prev = this.$refs.primary.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
+          this.prev = this.$refs.slider.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
         }
 
       if(this.prev !== null) this.prev.removeAttribute('prev')
@@ -134,14 +148,14 @@ export default {
     },
     // onMove(slider, index){
     //   console.log(index, slider.index);
-    //   let currentPos = this.getTranslateX(this.$refs.primary.$el.querySelector('.splide__list'))
+    //   let currentPos = this.getTranslateX(this.$refs.slider.$el.querySelector('.splide__list'))
     //   let total = window.innerWidth * (slider.length - 1)
     //   if(this.prev !== null) this.prev.removeAttribute('prev')
 
     //   if((this.prevX > currentPos || currentPos == 0) && currentPos != -total){
-    //     this.prev = this.$refs.primary.$el.querySelector('.is-active')  
+    //     this.prev = this.$refs.slider.$el.querySelector('.is-active')  
     //   }else if((this.prevX < currentPos || currentPos == -total) && currentPos != 0){
-    //     this.prev = this.$refs.primary.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
+    //     this.prev = this.$refs.slider.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
     //   }
 
     //   this.prev ? this.prev.setAttribute('prev', true) : ''
@@ -168,7 +182,10 @@ export default {
       //eslint-disable-next-line
       let matrix = new WebKitCSSMatrix(style.transform);
       return matrix.m41
-    }
+    },
+    gotoPage(index){
+      this.$refs.slider.$el('.splide__pagination li:nth-child('+(index +  1)+') button').click()
+    },    
   },
 }
 </script>

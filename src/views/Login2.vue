@@ -5,36 +5,49 @@
         <template slot="content">
           <splide-slide>
             <div class="logo-chargev"><Icon type="chargev" /></div>
-            <!-- 로그인 -->
+            <div class="min-fix">
+              <!-- 본인인증 -->
+              <SelfAuth :agency="agency" @agencyOpen="btmLayer.agency = true" />
+            </div>
+          </splide-slide>            
+          <splide-slide>
+            <div class="logo-chargev"><Icon type="chargev" /></div>
+            <!-- 결제정보 추가 -->
             <div class="min-fix">
               <div class="transparent-box-wrap">
-                <strong class="tit">로그인</strong>
+                <strong class="tit">결제정보 추가</strong>
+
+                <div class="camera-box"></div>
+                <div class="btn-wrap">
+                    <button class="btn-type1 st2">카메라 인식</button>
+                </div>
+
                 <div class="transparent-box parallel-box">
                   <div class="form-box">
                     <div class="row">
                       <div class="input">
-                          <input type="text" placeholder="ID(Email)">
+                          <input type="number" placeholder="카드번호">
                       </div>
                     </div>
                     <div class="row">
                       <div class="input">
-                          <input type="text" placeholder="비밀번호">
+                          <input type="number" placeholder="유효기간">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input">
+                          <input type="number" placeholder="비밀번호 앞2자리">
                       </div>
                     </div>
                   </div>
                   <div class="btn-box">
-                    <button class="btn-type1 st1">로그인</button>
+                    <button class="btn-type1 st1">확인</button>
                   </div>
                 </div>
-              </div>
-            </div>
-          </splide-slide>
-          <splide-slide>
-            <div class="logo-chargev"><Icon type="chargev" /></div>
-            <!-- 결제정보 확인 -->
-            <div class="min-fix">
-              <div class="transparent-box-wrap">
-                <strong class="tit">결제정보 확인</strong>
+                <div class="btn-wrap">
+                    <button class="btn-type1 st2">카메라 인식</button>
+                </div>
+
                 <div class="transparent-box parallel-box">
                   <div class="info-box">
                       <div class="row">
@@ -55,7 +68,8 @@
               </div>
             </div>
             <div class="info-text">
-              결제 정보를 확인해주세요.
+                테두리에 신용카드를 맞춰주시면<br />
+                자동으로 신용카드정보가 입력됩니다.
             </div>
           </splide-slide>
           <splide-slide>
@@ -115,18 +129,7 @@
               상품정보를 확인 해주세요.
             </div>
           </splide-slide>
-          <splide-slide>
-            <div class="logo-chargev"><Icon type="chargev" /></div>
-            <div class="min-fix">
-              <!-- 본인인증 -->
-              <SelfAuth :agency="agency" @agencyOpen="btmLayer.agency = true" />
-            </div>
-            <div class="info-text">
-              신규앱 최초 1회 로그인 시<br />
-              인증키 생성을 위한 정보확인 및<br />
-              전화번호 인증을 진행합니다.
-            </div>
-          </splide-slide>
+          
           <splide-slide>
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <div class="min-fix">
