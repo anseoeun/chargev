@@ -20,7 +20,7 @@
               </div>
             </div>
           </div>
-          <div class="box-btn">
+          <div class="btn-box">
             <button class="btn-type1 st1">로그인</button>
           </div>
         </div>
@@ -52,7 +52,7 @@
               </div>
             </div>
           </div>
-          <div class="box-btn">
+          <div class="btn-box">
             <button class="btn-type1 st1">인증번호 발송</button>
           </div>
         </div>
@@ -76,7 +76,7 @@
               </div>
             </div>
           </div>
-          <div class="box-btn">
+          <div class="btn-box">
             <button class="btn-type1 st1">인증번호 발송</button>
           </div>
         </div>
@@ -97,7 +97,7 @@
                 <span class="space-text"><span>C</span><span>5361</span><span>48**</span><span>****</span><span>4151</span></span>
               </div>
           </div>
-          <div class="box-btn">
+          <div class="btn-box">
             <button class="btn-type1 st1">확인</button>
           </div>
         </div>

@@ -26,15 +26,15 @@ const routes = [
   
 
   // ------------ 로그인---------------- //
-	{ path: '/splash', meta: {layout: 'None'}, component: () => import('@/views/Splash.vue')},
-	{ path: '/login', meta: {layout: 'None' }, component: () => import('@/views/Login.vue')},
-	{ path: '/login2', meta: {layout: 'None' }, component: () => import('@/views/Login2.vue')},
-	{ path: '/loginMenu', meta: {layout: 'None' }, component: () => import('@/views/LoginMenu.vue')},
-	{ path: '/loginRuleList', meta: {layout: 'None' }, component: () => import('@/views/LoginRuleList.vue')},
+	{ path: '/splash', component: () => import('@/views/Splash.vue')},
+	{ path: '/login', component: () => import('@/views/Login.vue')},
+	{ path: '/join', component: () => import('@/views/Join.vue')},
+	{ path: '/loginMenu', component: () => import('@/views/LoginMenu.vue')},
+	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
   
 
   // ------------ 알림---------------- //
-	{ path: '/alarm', component: () => import('@/views/Alarm.vue')},
+	{ path: '/alarm', meta: {layout: 'Default' }, component: () => import('@/views/Alarm.vue')},
 
   // ------------ 맞춤충전---------------- //
 	{ path: '/customChargeSet', component: () => import('@/views/CustomChargeSet.vue')},
@@ -139,15 +139,11 @@ const routes = [
 for(let i=0;i<routes.length;i++){
   if(routes[i].meta === undefined){
     routes[i].meta = {};
-    routes[i].meta.layout = 'Nofooter';
+    routes[i].meta.layout = 'None';
   }else if(routes[i].meta.layout === undefined){
-    routes[i].meta.layout = 'Nofooter';
+    routes[i].meta.layout = 'None';
   }
 }
-
-console.log(routes)
-
-
 
 const router = new VueRouter({
   mode: 'history',

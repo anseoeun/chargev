@@ -47,7 +47,7 @@ export default {
             'splash': ['', '스플래시'],
             // 로그인
             'login': ['', '로그인'],
-            'login2': ['', '로그인2'],
+            'join': ['', '로그인2'],
             'LoginMenu': ['로그인', '로그인메뉴'],
             'loginRuleList': ['로그인', '로그인약관'],
 

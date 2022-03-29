@@ -17,7 +17,7 @@
               <div class="check">
                   <button  @click="checkIcon($event, 'ruleChecked', index)">
                     <Icon type="check" :class="{on: ruleChecked[index]}" />
-                    <sp class="txt">{{ item.tit }}</sp>
+                    <span class="txt">{{ item.tit }}</span>
                   </button>
               </div>
               <div class="right">
@@ -28,10 +28,20 @@
             </div>
           </div>
           <div class="btn-wrap">
-            <button class="btn-type1 st2">확인</button>
+            <button class="btn-type1 st2" @click="alertPop = true">확인</button>
           </div>
         </div>
     </div>
+
+    <!-- 팝업 -->
+    <Alert :is-open="alertPop" @close="alertPop = false">      
+        <template slot="header">전화번호 인증 안내</template>
+        <template slot="body">
+          차지비 신규앱 최초 로그인 시<br />
+          전화번호 인증을 1회 진행합니다.<br />
+          약관 동의 후 회원 정보를 확인해주세요.
+        </template>
+    </Alert>    
   </div>
 </template>
 
@@ -62,7 +72,9 @@ export default {
           tit: '마케팅 이용 동의 [선택]',
           link: '/'
         },
-      ]
+      ],
+      //팝업
+      alertPop: false,            
     }
   },
   methods: {
@@ -71,7 +83,7 @@ export default {
       for(let i=0;i<=num;i++){
         this.$set(this.ruleChecked, i, true);
       }
-    }
+    },
   }
 }
 </script>

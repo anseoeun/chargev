@@ -8,7 +8,6 @@
       @splide:move="onMove"
       @splide:moved="onMoved"
     >
-
       <template v-if="content">
         <slot ref="content" name="content"></slot>
       </template>
@@ -74,6 +73,10 @@ export default {
     thumbnail:{
       type: Boolean,
       default: false,
+    },
+    page:{
+      type: Number,
+      default: 0,
     }
   },
 
@@ -120,14 +123,21 @@ export default {
     }
   },
   updated() {
-    // this.initClientOnlyComp()
     if(this.thumbnail) this.$refs.slider.sync( this.$refs.secondary.splide )
+  },
+  watch:{
+    page(value){
+      if(value){
+        this.gotoPage(value)
+      }
+    }
   },
   mounted(){
     this.paging = this.$refs.slider.$children
   },
   methods: {
     init(slider) {
+      this.currentPage = slider.index
       this.$emit('init', slider)
     },
     onMove(slider, index){
@@ -143,27 +153,13 @@ export default {
         this.prev ? this.prev.setAttribute('prev', true) : ''
         this.prevIndex = index
       }
-
+      this.currentPage = index
       this.$emit('onMove', slider)
+      this.$emit('update:page', index)
     },
-    // onMove(slider, index){
-    //   console.log(index, slider.index);
-    //   let currentPos = this.getTranslateX(this.$refs.slider.$el.querySelector('.splide__list'))
-    //   let total = window.innerWidth * (slider.length - 1)
-    //   if(this.prev !== null) this.prev.removeAttribute('prev')
-
-    //   if((this.prevX > currentPos || currentPos == 0) && currentPos != -total){
-    //     this.prev = this.$refs.slider.$el.querySelector('.is-active')  
-    //   }else if((this.prevX < currentPos || currentPos == -total) && currentPos != 0){
-    //     this.prev = this.$refs.slider.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
-    //   }
-
-    //   this.prev ? this.prev.setAttribute('prev', true) : ''
-    //   this.prevX = currentPos 
-    //   this.$emit('onMove', slider)
-    // },
     onMoved(slider){  
       if(this.prev !== null) this.prev.scrollTop = 0      
+      this.$refs.slider.$el.querySelector('.is-active').scrollTop = 0
       this.$emit('onMoved', slider)
     },
     getDataLength() {
@@ -184,8 +180,8 @@ export default {
       return matrix.m41
     },
     gotoPage(index){
-      this.$refs.slider.$el('.splide__pagination li:nth-child('+(index +  1)+') button').click()
-    },    
+      this.$refs.slider.$el.querySelector('.splide__pagination li:nth-child('+(index +  1)+') button').click()
+    },
   },
 }
 </script>

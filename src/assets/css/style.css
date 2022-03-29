@@ -2179,8 +2179,19 @@ body {
   margin-bottom: 1.6714285714rem;
 }
 
-.btm-layer-wrap.agency-select-wrap .agency-list li ~ li {
-  margin-top: 1.3928571429rem;
+.btm-layer-wrap.agency-select-wrap .agency-list li button {
+  padding: 0.6964285714rem 0;
+  height: 100%;
+  text-align: left;
+  width: 100%;
+}
+
+.btm-layer-wrap.agency-select-wrap .agency-list li:first-child button {
+  padding-top: 0;
+}
+
+.btm-layer-wrap.agency-select-wrap .agency-list li:last-child button {
+  padding-bottom: 0;
 }
 
 /* login */
@@ -2191,12 +2202,12 @@ body {
 }
 
 .login-wrap .min-fix {
-  min-height: 22.9821428571rem;
+  min-height: 22.2857142857rem;
 }
 
 .login-wrap .info-text {
   font-size: 0.975rem;
-  margin-top: 1.3928571429rem;
+  margin-top: 2.0892857143rem;
   text-align: center;
 }
 
@@ -2305,6 +2316,21 @@ body {
 
 .transparent-box .form-box .row * ~ .btn {
   margin-left: 1.6714285714rem;
+}
+
+.transparent-box .form-box .row .right {
+  margin-left: 1.1142857143rem;
+}
+
+.transparent-box .form-box .btn {
+  display: inline-block;
+  padding: 0 0.5571428571rem;
+  line-height: 2.2285714286rem;
+  height: 2.2285714286rem;
+  font-weight: 700;
+  font-size: 0.975rem;
+  border-radius: 0.1392857143rem;
+  background: #000;
 }
 
 .transparent-box .info-box {
@@ -2521,33 +2547,46 @@ body {
   bottom: 0;
 }
 
+.layoutDefault .contents {
+  padding-top: 7.6607142857rem;
+}
+
+.layoutDefault .contents .btn-type1 {
+  padding-top: 2.2285714286rem;
+}
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  height: 2.7857142857rem;
-  width: 100%;
-  background: #fff;
-  z-index: 10;
-}
-
-.header .title {
-  text-align: center;
-  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
-  font-size: 0.975rem;
-  color: #000;
-  font-weight: 700;
+  height: 7.6607142857rem;
+  width: 100%;
+  z-index: 10;
+  background: linear-gradient(180deg, #000000 73.52%, rgba(0, 0, 0, 0) 100%);
+}
+
+.header .user {
+  display: inline-block;
+  height: 3.2035714286rem;
+  padding: 0 1.1142857143rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  border-radius: 0 0.2785714286rem 0.2785714286rem 0;
+  background: #2A2B2C;
+}
+
+.header .user i {
+  margin-right: 0.5571428571rem;
 }
 
 .header .left {
-  position: absolute;
-  top: 0;
-  left: 1.0446428571rem;
-  height: 100%;
+  height: 3.2035714286rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -2555,19 +2594,18 @@ body {
 }
 
 .header .right {
-  position: absolute;
-  top: 0;
-  right: 1.0446428571rem;
-  height: 100%;
+  height: 3.2035714286rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
+  margin-left: auto;
+  padding-right: 1.0446428571rem;
 }
 
 .header .btn {
   height: 100%;
-  padding: 0 12px;
+  padding: 0 0.5571428571rem;
   min-width: 2.4375rem;
   display: flex;
   align-items: center;
@@ -3167,14 +3205,6 @@ select.st2 {
   line-height: 3.3428571429rem;
 }
 
-.btn-type2 {
-  display: block;
-  height: 2.2285714286rem;
-  font-size: 0.9053571429rem;
-  font-weight: normal;
-  line-height: 2.2285714286rem;
-}
-
 [class*=btn-type].st1 {
   color: #fff;
   background: #000;
@@ -3230,9 +3260,10 @@ i[class*=i-] .svg-prevent {
 
 /* tit-type */
 .tit-type1 {
-  font-size: 2.0892857143rem;
-  color: #17233D;
+  font-size: 1.1142857143rem;
+  color: #8A8B8C;
   font-weight: 700;
+  text-align: center;
 }
 
 .tit-type2 {
@@ -4800,7 +4831,7 @@ i[class*=i-] .svg-prevent {
   -webkit-transform: translate(-50%, -50%);
   padding: 1.1142857143rem;
   margin: 0 auto;
-  width: 23.8875rem;
+  width: 22.5642857143rem;
   max-width: 90%;
   box-shadow: 0 0.0696428571rem 0.1392857143rem rgba(40, 41, 61, 0.04), 0px 0.2089285714rem 0.4178571429rem rgba(96, 97, 112, 0.16);
   border-radius: 0.2089285714rem;
@@ -4815,13 +4846,15 @@ i[class*=i-] .svg-prevent {
   margin-bottom: 1.1142857143rem;
   text-align: center;
   font-weight: 700;
-  font-size: 1.3928571429rem;
+  font-size: 1.4625rem;
   color: #000;
 }
 
 .alert-popup .popup .pop-body .alert-txt {
-  font-size: 1.1142857143rem;
+  font-size: 0.975rem;
   text-align: center;
+  color: #8A8B8C;
+  line-height: 1.5;
 }
 
 .alert-popup .popup .pop-body .btn-wrap {

@@ -1,7 +1,7 @@
 <template>
   <div class="contents">
     <div class="alarm-wrap">
-      <h2 class="tit-type2">알림</h2>
+      <h2 class="tit-type1">알림</h2>
       
       <div class="tab-type1">
         <button @click="setAlarm('total')" :class="{on: alarmTit === '전체'}">전체</button>

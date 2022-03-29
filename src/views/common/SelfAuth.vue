@@ -7,8 +7,8 @@
             <div class="input auto">
                 <input type="text" v-model="agency.label" placeholder="통신사">
             </div>
-            <div class="btn">
-            <button class="btn-type2 st1 inbl" @click="$emit('agencyOpen')">선택</button>
+            <div class="right">
+              <button class="btn" @click="$emit('agencyOpen')">선택</button>
             </div>
         </div>
         <div class="row">
@@ -17,16 +17,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="input">
-                <div class="inp-certify">
+            <div class="input inp-certify">
                 <input type="number" placeholder="인증번호">
-                <span class="time">2:59</span>
-                </div>
+                <span v-if="setForm" class="time">2:59</span>
             </div>
         </div>
         </div>
-        <div class="box-btn">
-            <button class="btn-type1 st1">인증번호 발송</button>
+        <div class="btn-box">
+            <button v-if="!setForm" class="btn-type1 st1" @click="setForm = true">인증번호 발송</button>
+            <button v-else class="btn-type1 st1" @click="$emit('complete')">확인</button>
         </div>
     </div>
 </div>
@@ -43,9 +42,7 @@ export default {
   },  
   data(){
     return{
-      pinSet:false,
-      pin: [],   
-      pin2: [],   
+      setForm: false
     }
   },
   methods:{

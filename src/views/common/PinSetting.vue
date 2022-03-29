@@ -17,8 +17,8 @@
             </div>
         </div>
         </div>
-        <div class="box-btn">
-        <button class="btn-type1 st1" @click="pinSet = true">확인</button>
+        <div class="btn-box">
+          <button class="btn-type1 st1" @click="pinSetting">확인</button>
         </div>
     </div>
     </div>
@@ -40,7 +40,7 @@
             </div>
         </div>
         </div>
-        <div class="box-btn">
+        <div class="btn-box">
         <button class="btn-type1 st1">확인</button>
         </div>
     </div>
@@ -71,6 +71,10 @@ export default {
         if(type === 'check') this.pin2 = []
         else this.pin = []
       }
+    },
+    pinSetting(){
+      this.pinSet = true;
+      this.$emit('pinset', this.pinSet)
     }
   }
 }

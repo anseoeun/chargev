@@ -1,7 +1,7 @@
 <template>
   <div class="contents">
     <div class="login-wrap">
-      <Carousel :options="options" :content="true" :customPaging="true" class="slider-page parallel-slider" @init="pageSliderInit" @onMove="pageSliderMove" @onMoved="pageSliderMoved">
+      <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page parallel-slider">
         <template slot="content">
           <splide-slide>
             <div class="logo-chargev"><Icon type="chargev" /></div>
@@ -23,7 +23,7 @@
                     </div>
                   </div>
                   <div class="btn-box">
-                    <button class="btn-type1 st1">로그인</button>
+                    <button class="btn-type1 st1" @click="currentPage = 1">로그인</button>
                   </div>
                 </div>
               </div>
@@ -49,7 +49,7 @@
                       </div>
                   </div>
                   <div class="btn-box">
-                    <button class="btn-type1 st1">확인</button>
+                    <button class="btn-type1 st1" @click="currentPage = 2">확인</button>
                   </div>
                 </div>
               </div>
@@ -78,7 +78,7 @@
                       </div>
                   </div>
                   <div class="btn-box">
-                    <button class="btn-type1 st1">확인</button>
+                    <button class="btn-type1 st1" @click="currentPage = 3">확인</button>
                   </div>
                 </div>
               </div>
@@ -106,7 +106,7 @@
                       </div>
                   </div>
                   <div class="btn-box">
-                    <button class="btn-type1 st1">확인</button>
+                    <button class="btn-type1 st1" @click="currentPage = 4">확인</button>
                   </div>
                 </div>
               </div>
@@ -119,7 +119,7 @@
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <div class="min-fix">
               <!-- 본인인증 -->
-              <SelfAuth :agency="agency" @agencyOpen="btmLayer.agency = true" />
+              <SelfAuth :agency="agency" @agencyOpen="btmLayer.agency = true" @complete="currentPage = 5" />
             </div>
             <div class="info-text">
               신규앱 최초 1회 로그인 시<br />
@@ -164,26 +164,15 @@ export default {
       },
       agency: {},
       options: {
-        // rewind: true, // 맨끝에서 처음으로 다시 돌아가기
-        // width: 800,
         perPage: 1,
         perMove: 1,
-        // pagination: false,
         arrows: false,
       },      
+      currentPage: 0,
       paging: new Array(6),
     }
   },
   methods: {
-    pageSliderInit(slider){
-      this.currentPage = slider.index
-    },
-    pageSliderMove(slider){
-      this.currentPage = slider.index
-    },
-    pageSliderMoved(slider){
-      this.currentPage = slider.index
-    },
     agencySelect(val){
       this.agency = val
       this.btmLayer.agency = false
