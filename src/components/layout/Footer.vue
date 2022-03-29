@@ -24,7 +24,11 @@ export default {
             }
         }
     },
-
+    computed: {
+      menu(){
+        return this.$root.$route.meta.menu
+      },
+    },
     mounted(){
         this.setMenus()
     },
