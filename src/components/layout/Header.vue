@@ -5,7 +5,7 @@
         </div>
        <div class="right">
            <router-link to="/" class="btn"><Icon type="search" /></router-link>
-           <router-link to="/" class="btn"><Icon type="alarm" /></router-link>
+           <router-link to="/" class="btn" :class="{on: true}"><Icon type="alarm" /></router-link>
        </div>
     </div>
 </template>

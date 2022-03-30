@@ -49,6 +49,7 @@ export default {
             'login': ['', '로그인'],
             'join': ['', '로그인2'],
             'LoginMenu': ['로그인', '로그인메뉴'],
+            'loginMenuCoper': ['로그인', '로그인메뉴(법인)'],
             'loginRuleList': ['로그인', '로그인약관'],
 
             // 알림

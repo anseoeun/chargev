@@ -30,11 +30,11 @@ const routes = [
 	{ path: '/login', component: () => import('@/views/Login.vue')},
 	{ path: '/join', component: () => import('@/views/Join.vue')},
 	{ path: '/loginMenu', component: () => import('@/views/LoginMenu.vue')},
+	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
-  
 
   // ------------ 알림---------------- //
-	{ path: '/alarm', meta: {layout: 'Default' }, component: () => import('@/views/Alarm.vue')},
+	{ path: '/alarm', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Alarm.vue')},
 
   // ------------ 맞춤충전---------------- //
 	{ path: '/customChargeSet', component: () => import('@/views/CustomChargeSet.vue')},

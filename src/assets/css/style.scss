@@ -97,8 +97,11 @@ body{color:#fff;background:#000 url('~@/assets/images/bg-body.jpg') no-repeat 50
 .slider-page .splide__pagination{position: absolute;overflow-y:auto;clip:rect(0 0 0 0);height:1px;width:1px;padding:0 0;}
 
 .custom-dotting{text-align:center;}
+.custom-dotting > span{display:inline-block;}
+.custom-dotting > span,
 .custom-dotting > button{width: 10px; height: 10px;margin:0 rem(5);border-radius:100%;background: #CACBCC;}
 .custom-dotting > button.on{background: #8FFF44;}
+.custom-dotting > span:only-child{background: #8FFF44;}
 
 
 .grident-bottom{position:fixed;bottom:rem(80);left:0;width:100%;height:rem(124);@include flex(center);background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 26.04%);}
@@ -128,19 +131,12 @@ body{color:#fff;background:#000 url('~@/assets/images/bg-body.jpg') no-repeat 50
 .grid-list.type2 > .row:last-child{padding-bottom:rem(13);}
 
 
-
-
-
-
-
-
-
 /*********************************
   layout
 *********************************/
 
 .layoutNone .grident-bottom{bottom: 0;}
-.layoutDefault .contents{padding-top:rem(110);}
+.layoutDefault .contents{padding:rem(110) rem(16) rem(220);}
 .layoutDefault .contents .btn-type1{padding-top:rem(32);}
 
 .header{position:fixed;top:0;left:0;@include flex;height:rem(110);width:100%;z-index: 10;background: linear-gradient(180deg, #000000 73.52%, rgba(0, 0, 0, 0) 100%);}
@@ -149,18 +145,22 @@ body{color:#fff;background:#000 url('~@/assets/images/bg-body.jpg') no-repeat 50
 .header .left{height:rem(46);@include flex;}
 .header .right{height:rem(46);@include flex;margin-left:auto;padding-right:rem(15);}
 .header .btn{height:100%;padding:0 rem(8);min-width: rem(35);@include flex(center);font-size:rem(14);font-weight:700;}
+.header .btn.on svg path{fill:#fff}
 
 .header ~ .contents{padding-top:rem(40);}
 
-.footer{position:fixed;bottom:0;left:0;width:100%;z-index: 10;background:#fff;}
-.footer .footer-menu{@include flex;height:rem(54);padding:0 rem(20);}
-.footer .footer-menu .menu{flex:1;text-align:center;}
-.footer .footer-menu .menu .icon{@include flexInline(center);height:rem(30);}
-.footer .footer-menu .menu.on .icon .i-foot-charging-station{@include svg('foot-charging-station', $fill:'%235D96F6', $stroke:'%23000000');}
-.footer .footer-menu .menu.on .icon .i-foot-route-recommend{@include svg('foot-route-recommend', $fill:'%235D96F6', $stroke:'%23000000');}
-.footer .footer-menu .menu.on .icon .i-foot-instant-charge{@include svg('foot-instant-charge', $fill:'%235D96F6', $stroke:'%23000000');}
-.footer .footer-menu .menu.on .icon .i-foot-favorites{@include svg('foot-favorites', $stroke:'%23000000');}
-.footer .footer-menu .menu .txt{display:block;font-size:rem(8);color:#808695;}
+.footer{position:fixed;bottom:0;left:0;width:100%;z-index: 10;background:#000;}
+.footer .footer-menu{@include flex;height:rem(80);padding:0 rem(20);}
+.footer .footer-menu .menu{position:relative;flex:1;text-align:center;}
+.footer .footer-menu .menu .icon{position:relative;top:0;@include flexInline(center);height:rem(30);width:100%;transition: all 1s ease;-webkit-transition: all 1s ease;}
+.footer .footer-menu .menu.on .txt{opacity: 1;bottom: 0;}
+.footer .footer-menu .menu.on .icon{top:rem(-15);}
+.footer .footer-menu .menu.on .icon .i-foot-home svg path{stroke:#fff}
+.footer .footer-menu .menu.on .icon .i-foot-map svg path{fill:#fff}
+.footer .footer-menu .menu.on .icon .i-foot-charge svg path{fill:#fff}
+.footer .footer-menu .menu.on .icon .i-foot-apply svg path{fill:#fff}
+.footer .footer-menu .menu.on .icon .i-foot-more svg path{stroke:#fff}
+.footer .footer-menu .menu .txt{position:absolute;bottom:rem(-15);left:0;width:100%;opacity: 0;font-size:rem(10);transition: all 1s ease;-webkit-transition: all 1s ease;}
 
 // .fixed-btm{position: fixed;bottom:rem(56);left:0;width:100%;z-index: 10;}
 // .fixed-btm .btn-wrap{padding:rem(16) rem(32);}
@@ -309,7 +309,7 @@ $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input
 
 /* icon */
 i[class*=i-]{position:relative;display:inline-block;background-size:100% 100% !important;vertical-align: middle;}
-i[class*=i-] svg{width:100%;height:100%;}
+i[class*=i-] svg{width:100%;height:100%;vertical-align:top;}
 i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;height:100%;}
 .i-check.on svg path {stroke:#92FF44}
 .i-favorite.on svg path:first-child {fill:#92FF44}
@@ -337,10 +337,10 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .text-type1{font-size:rem(16);color:#4F4F4F;}
 
 /* tab-type */
-.tab-type1{@include flex;justify-content: space-between;margin-bottom:rem(16);}
-.tab-type1 button{flex:1;height:rem(32);font-size:rem(16);padding-top:rem(1);color:#5A5B5C;border: 1px solid #5A5B5C; box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04), 0px 4px 8px rgba(96, 97, 112, 0.16); border-radius: 2px;}
+.tab-type1{white-space: nowrap;overflow-x: auto;@include scrollbar(none);}
+.tab-type1 button{flex:1;height:rem(32);width:rem(64);font-size:rem(16);color:#8A8B8C;}
 .tab-type1 button ~ button{margin-left:rem(8);}
-.tab-type1 button.on{background:#92FF44;border-color: #92FF44;}
+.tab-type1 button.on{color:#fff;}
 
 /* calendar */
 .calendar-wrap .calendar-select{margin:rem(20) 0;@include flex;justify-content: space-between;}
@@ -617,11 +617,13 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .charger-price-wrap .logo-lghellow{width:rem(64);height:rem(14);}
 .charger-price-wrap .logo-gs{width:rem(68);height:rem(20);}
 
-.alarm-wrap{padding:rem(32) rem(16);}
-.alarm-wrap .tit-type2{padding:0 rem(16);margin-bottom:rem(32);}
-.alarm-wrap .alarm-list ul li{position:relative;padding:rem(12) rem(28);font-size:rem(14);background:#F1F2F4;}
-.alarm-wrap .alarm-list ul li > i{position:absolute;top:rem(12);left:rem(4);}
-.alarm-wrap .alarm-list ul li button{position:absolute;top:0;right:0;height:100%;width:rem(30);@include flex(center);}
+.alarm-wrap .tit-type1{margin:rem(32) 0;}
+.alarm-wrap .tab-type1{width:calc(100% + rem(32));padding:0 rem(16);margin-left:rem(-16)}
+.alarm-wrap .alarm-list{margin-top:rem(40);}
+.alarm-wrap .alarm-list ul li{position:relative;padding:rem(12) rem(28) rem(12) rem(40);font-size:rem(14);background:#2A2B2C;border-radius:rem(8);}
+.alarm-wrap .alarm-list ul li ~ li{margin-top:rem(16);}
+.alarm-wrap .alarm-list ul li > i{position:absolute;top:50%;left:rem(16);transform:translateY(-50%);-webkit-transform:translateY(-50%);}
+// .alarm-wrap .alarm-list ul li button{position:absolute;top:0;right:0;height:100%;width:rem(30);@include flex(center);}
  
 .car-manage-wrap{padding:rem(40) rem(16) rem(20);}
 .car-manage-wrap .logo-chargev{text-align:center;margin-bottom:rem(40);}

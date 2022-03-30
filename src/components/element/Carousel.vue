@@ -40,7 +40,7 @@
       <div class="custom-dotting">
           <button v-for="(item, index) in paging" :key="index" :class="{on: currentPage === index}" @click="gotoPage(index)"></button>
       </div>
-    </div>    
+    </div>
   </div>
 </template>
 
