@@ -36,7 +36,7 @@ export default {
               $(layer).slideDown()
               $('.btm-layer .scroll').on('scroll', function(e){
                 e.stopPropagation(); 
-                var el = document.querySelector('.scroll')
+                let el = document.querySelector('.scroll')
                 el.addEventListener("touchstart", function(e){ e.stopPropagation() });
                 el.addEventListener("touchmove", function(e){ e.stopPropagation() });
               });

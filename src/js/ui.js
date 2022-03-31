@@ -40,6 +40,9 @@ Vue.mixin({
           if(Array.isArray(this[arr]))  this.$set(this[arr], i, true)
           else this[arr] = true
         }
-      }
+      },
+      maxLength(max){
+        return 'if (this.value.length > '+ max +') this.value = this.value.slice(0, '+ max +')';
+      }      
     }
   })

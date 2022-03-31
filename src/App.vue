@@ -11,11 +11,6 @@ import Layout from '@/layouts/Layout';
 export default {
     name: 'App',
     components: { Layout },
-    data(){
-      return {
-
-      }
-    },
     computed: {
       layout(){
         return this.$root.$route.meta.layout
@@ -24,9 +19,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import '@/assets/css/style.scss';
+<style>
+  @import '~@/assets/css/style.css';
 </style>
-<!-- <style>
-@import '~@/assets/css/style.css';
-</style> -->

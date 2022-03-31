@@ -18,7 +18,7 @@
                     </div>
                     <div class="row">
                       <div class="input">
-                          <input type="text" placeholder="비밀번호">
+                          <input type="password" placeholder="비밀번호">
                       </div>
                     </div>
                   </div>
@@ -167,14 +167,14 @@ export default {
         perPage: 1,
         perMove: 1,
         arrows: false,
-      },      
+      },
       currentPage: 0,
       paging: new Array(6),
     }
   },
   methods: {
     agencySelect(val){
-      this.agency = val
+      val ? this.agency = val : ''
       this.btmLayer.agency = false
     },
   }

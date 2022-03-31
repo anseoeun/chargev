@@ -94,7 +94,6 @@ export default {
         pagination  : false,
         arrows: false,
       },
-      // paging: new Array(this.$refs.slider.$children),
       paging: [],
       prev: null,
       prevIndex: 0,

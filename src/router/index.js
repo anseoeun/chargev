@@ -23,15 +23,16 @@ const routes = [
   // 테스트
 	{ path: '/slider', meta: { layout: 'Default' }, component: () => import('@/views/Slider.vue')},
 
-  
-
-  // ------------ 로그인---------------- //
+  // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
 	{ path: '/login', component: () => import('@/views/Login.vue')},
 	{ path: '/join', component: () => import('@/views/Join.vue')},
 	{ path: '/loginMenu', component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
+
+  // 메인
+  { path: '/main', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/Main.vue')},
 
   // ------------ 알림---------------- //
 	{ path: '/alarm', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Alarm.vue')},

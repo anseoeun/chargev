@@ -29,17 +29,17 @@
                     <div class="form-box">
                       <div class="row">
                         <div class="input">
-                            <input type="number" placeholder="카드번호">
+                            <input type="number" :oninput="maxLength(16)" placeholder="카드번호">
                         </div>
                       </div>
                       <div class="row">
                         <div class="input">
-                            <input type="number" placeholder="유효기간">
+                            <input type="number" :oninput="maxLength(4)" placeholder="유효기간">
                         </div>
                       </div>
                       <div class="row">
                         <div class="input">
-                            <input type="number" placeholder="비밀번호 앞2자리">
+                            <input type="password" maxlength="2" placeholder="비밀번호 앞2자리">
                         </div>
                       </div>
                     </div>
@@ -119,7 +119,7 @@
                           </div>
                           <div class="row">
                               <div class="input auto">
-                                  <input type="number" placeholder="멤버십 카드 번호 입력">
+                                  <input type="number" :oninput="maxLength(16)" placeholder="멤버십 카드 번호 입력">
                               </div>
                               <div class="right"><button class="btn">간편인식</button></div>
                           </div>

@@ -12,7 +12,7 @@
                     <input type="password" v-model="pin[2]" autocomplete="new-password" maxlength="1">
                     <input type="password" v-model="pin[3]" autocomplete="new-password" maxlength="1">
                 </div>
-                <input type="number" v-model="pin" @focus="initPinFocus">
+                <input type="number" v-model="pin" @focus="initPinFocus" :oninput="maxLength(4)">
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     <input type="password" v-model="pin2[2]" autocomplete="new-password" maxlength="1">
                     <input type="password" v-model="pin2[3]" autocomplete="new-password" maxlength="1">
                 </div>
-                <input type="number" v-model="pin2" @focus="initPinFocus('check')">
+                <input type="number" v-model="pin2" @focus="initPinFocus('check')" :oninput="maxLength(4)">
                 </div>
             </div>
         </div>

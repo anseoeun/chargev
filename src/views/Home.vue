@@ -4,8 +4,6 @@
     <table>
     <colgroup>
       <col style="width:60px" />
-      <!-- <col style="width:150px" />
-      <col style="width:200px" /> -->
       <col style="width:35%" />
       <col style="width:35%" />
       <col style="width:auto" />
@@ -14,17 +12,15 @@
     <thead>
       <tr>
         <th></th>
-        <!-- <th>depth1</th>
-        <th>depth2</th> -->
         <th>페이지</th>
         <th>FileName/Link</th>
         <th>memo</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(value, name, index) in titleData" :key="index">
+      <tr v-for="(value, name, index) in list" :key="index">
         <td>{{ index + 1 }}</td>
-        <td>{{ value[1] }}</td>
+        <td>{{ value }}</td>
         <td><router-link :to="'/'+name">{{ '/'+name }}</router-link></td>
         <td></td>
       </tr>
@@ -34,7 +30,6 @@
 </template>
 
 <script>
-// import '../router/index.js'
 export default {
   name: 'Home',
   components: {
@@ -42,18 +37,20 @@ export default {
   },
   data(){
     return {
-        titleData: {
+        list: {
             // 스플래시
-            'splash': ['', '스플래시'],
+            'splash': '스플래시',
+
             // 로그인
-            'login': ['', '로그인'],
-            'join': ['', '로그인2'],
-            'LoginMenu': ['로그인', '로그인메뉴'],
-            'loginMenuCoper': ['로그인', '로그인메뉴(법인)'],
-            'loginRuleList': ['로그인', '로그인약관'],
+            'login': '로그인',
+            'LoginMenu': '로그인메뉴',
+            'loginMenuCoper': '로그인메뉴(법인)',
+            'loginRuleList': '로그인약관',
 
             // 알림
-            'alarm': ['알림', '알림'],
+            'alarm': '알림',
+        },      
+        list2: {
 
             // 맞춤충전
             'customChargeSet': ['맞춤충전', '맞춤충전 설정'],
@@ -123,7 +120,7 @@ export default {
 
 <style scoped>
   h2{font-size:20px;color: #000;}
-  .index{padding:20px;font-size:12px;background:#fff;color: #000;}
+  .index{padding:20px;font-size:12px;background:#fff;color: #000;min-height:100vh;}
   .index table {width:100%; border-collapse:collapse; border:0px solid #666;margin-top:10px;}
   .index caption {text-align:left; font-size:200%; color:#999;}
   .index th {padding:6px; border:1px solid #fff; color:#fff; font-size:110%; background-color:#000;}
