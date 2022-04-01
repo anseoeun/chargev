@@ -11,9 +11,9 @@ const routes = [
   //
   // { path: '/about', name: 'About', component: () => import('@/views/About.vue') },
   // 테스트
-	{ path: '/component', meta: {bodyClass: 'black-mode' }, component: () => import('@/views/Component.vue') },
+	{ path: '/component', component: () => import('@/views/Component.vue') },
   // 테스트
-	{ path: '/test', meta: {bodyClass: 'black-mode' }, component: () => import('@/views/Test.vue') },
+	{ path: '/test', component: () => import('@/views/Test.vue') },
   // 테스트
 	{ path: '/chart', component: () => import('@/views/Chart.vue') },
   // 테스트
@@ -23,15 +23,19 @@ const routes = [
   // 테스트
 	{ path: '/slider', meta: { layout: 'Default' }, component: () => import('@/views/Slider.vue')},
 
-  
+  // 로그인
+	{ path: '/splash', component: () => import('@/views/Splash.vue')},
+	{ path: '/login', component: () => import('@/views/Login.vue')},
+	{ path: '/join', component: () => import('@/views/Join.vue')},
+	{ path: '/loginMenu', component: () => import('@/views/LoginMenu.vue')},
+	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
+	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
 
-  // ------------ 로그인---------------- //
-	{ path: '/Splash', meta: {layout: 'None', bodyClass: 'black-mode' }, component: () => import('@/views/Splash.vue')},
-	{ path: '/Login', meta: {layout: 'None', bodyClass: 'black-mode' }, component: () => import('@/views/Login.vue')},
-  
+  // 메인
+  { path: '/main', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/Main.vue')},
 
   // ------------ 알림---------------- //
-	{ path: '/alarm', component: () => import('@/views/Alarm.vue')},
+	{ path: '/alarm', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Alarm.vue')},
 
   // ------------ 맞춤충전---------------- //
 	{ path: '/customChargeSet', component: () => import('@/views/CustomChargeSet.vue')},
@@ -136,15 +140,11 @@ const routes = [
 for(let i=0;i<routes.length;i++){
   if(routes[i].meta === undefined){
     routes[i].meta = {};
-    routes[i].meta.layout = 'Nofooter';
+    routes[i].meta.layout = 'None';
   }else if(routes[i].meta.layout === undefined){
-    routes[i].meta.layout = 'Nofooter';
+    routes[i].meta.layout = 'None';
   }
 }
-
-console.log(routes)
-
-
 
 const router = new VueRouter({
   mode: 'history',

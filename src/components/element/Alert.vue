@@ -26,21 +26,15 @@
 
 <script>
 export default {
-  name: 'VPopup',
   props: {
     isOpen:{
-      type:Boolean,
-      default:false
+      type: Boolean,
+      default: false
     },
     isDim:{
-      type:Boolean,
-      default:true
+      type: Boolean,
+      default: true
     },
-  },
-  data() {
-    return {
-
-    }
   },
   watch:{
     isOpen(newValue, oldValue) {

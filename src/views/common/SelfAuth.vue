@@ -1,0 +1,59 @@
+<template>
+<div class="transparent-box-wrap">
+    <strong class="tit">본인인증</strong>
+    <div class="transparent-box parallel-box">
+        <div class="form-box">
+        <div class="row">
+            <div class="input auto">
+                <input type="text" v-model="agency.label" placeholder="통신사">
+            </div>
+            <div class="right">
+              <button class="btn" @click="$emit('agencyOpen')">선택</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input">
+                <input type="number" :oninput="maxLength(11)" placeholder="전화번호">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input inp-certify">
+                <input type="number" :oninput="maxLength(6)" placeholder="인증번호">
+                <span v-if="setForm" class="time">2:59</span>
+            </div>
+        </div>
+        </div>
+        <div class="btn-box">
+            <button v-if="!setForm" class="btn-type1 st1" @click="setForm = true">인증번호 발송</button>
+            <button v-else class="btn-type1 st1" @click="$emit('complete')">확인</button>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+
+export default {
+  props: {
+    agency: {
+      type: Object,
+      default: ()=>{}
+    },
+  },  
+  data(){
+    return{
+      setForm: false
+    }
+  },
+  methods:{
+    initPinFocus(type){
+      let pin = this.pin
+      if(type === 'check') pin = this.pin2
+      if(pin.length >= 4){
+        if(type === 'check') this.pin2 = []
+        else this.pin = []
+      }
+    }
+  }
+}
+</script>

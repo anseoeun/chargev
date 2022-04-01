@@ -20,7 +20,7 @@
               </div>
             </div>
           </div>
-          <div class="box-btn">
+          <div class="btn-box">
             <button class="btn-type1 st1">로그인</button>
           </div>
         </div>
@@ -46,13 +46,13 @@
             <div class="row">
               <div class="input">
                   <div class="inp-certify">
-                    <input type="text" placeholder="인증번호">
+                    <input type="number" placeholder="인증번호">
                     <span class="time">2:59</span>
                   </div>
               </div>
             </div>
           </div>
-          <div class="box-btn">
+          <div class="btn-box">
             <button class="btn-type1 st1">인증번호 발송</button>
           </div>
         </div>
@@ -66,18 +66,39 @@
               <div class="input">
                   <div class="inp-pin">
                     <div class="pin">
-                        <input type="password" v-model="pin[0]">
-                        <input type="password" v-model="pin[1]">
-                        <input type="password" v-model="pin[2]">
-                        <input type="password" v-model="pin[3]">
+                        <input type="password" v-model="pin[0]" autocomplete="new-password" maxlength="1">
+                        <input type="password" v-model="pin[1]" autocomplete="new-password" maxlength="1">
+                        <input type="password" v-model="pin[2]" autocomplete="new-password" maxlength="1">
+                        <input type="password" v-model="pin[3]" autocomplete="new-password" maxlength="1">
                     </div>
-                    <input type="number" v-model="pin">
+                    <input type="text" v-model="pin" @focus="initPinFocus">
                   </div>
               </div>
             </div>
           </div>
-          <div class="box-btn">
+          <div class="btn-box">
             <button class="btn-type1 st1">인증번호 발송</button>
+          </div>
+        </div>
+      </div>
+      <!-- 차량정보 확인 -->
+      <div class="transparent-box-wrap">
+        <strong class="tit">차량정보 확인</strong>
+        <div class="transparent-box">
+          <div class="info-box">
+              <div class="row">
+                <div class="space-text"><span>BMW</span><span>530e</span></div>
+                <div class="right"><b>상세정보</b></div>
+              </div>
+              <div class="row">
+                <div class="space-text"><span>M</span><span>1010</span><span>0101</span><span>1234</span><span>1234</span></div>
+              </div>
+              <div class="row">
+                <span class="space-text"><span>C</span><span>5361</span><span>48**</span><span>****</span><span>4151</span></span>
+              </div>
+          </div>
+          <div class="btn-box">
+            <button class="btn-type1 st1">확인</button>
           </div>
         </div>
       </div>
@@ -92,8 +113,17 @@ export default {
   },
   data() {
     return {
-        pin:''
+        pin: []
     }
   },
+  mounted(){
+  },
+  methods: {
+    initPinFocus(){
+      if(this.pin.length == 4){
+        this.pin = []
+      }
+    }
+  }
 }
 </script>
