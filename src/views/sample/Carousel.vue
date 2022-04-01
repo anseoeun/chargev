@@ -36,6 +36,7 @@ export default {
         arrows: false,
         // rewind: true, // 맨끝에서 처음으로 다시 돌아가기
         // pagination: false
+        //star :start index
       },
     }
   },

@@ -10,7 +10,9 @@
   @include font-face($name, $file, $weight, $style);
 }
 
-/* ========== reset ========== */
+/* ========================================
+  reset
+=========================================== */
 *{margin:0;padding:0;border:none;word-break:break-all;box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-hyphens:auto;hyphens:auto;vertical-align:baseline;font-size:inherit;line-height:inherit;font-family:inherit;color:inherit;font-weight:inherit;}
 *:before, *:after{box-sizing:border-box;-webkit-box-sizing:border-box;}
 body{line-height:1.25;font-family:"Gotham", "Sans-serif";-webkit-text-size-adjust:none;color:$c-base;word-break:keep-all;word-wrap:break-word;color:#fff;font-weight:500;}
@@ -28,9 +30,9 @@ button:disabled{cursor: default;}
 
 body > iframe{display:none;}
 
-/*********************************
+/* ========================================
   layout
-*********************************/
+=========================================== */
 
 body{color:#fff;background:#000 url('~@/assets/images/bg-body.jpg') no-repeat 50% 50%;background-size:100% auto;}
 
@@ -81,9 +83,9 @@ body{color:#fff;background:#000 url('~@/assets/images/bg-body.jpg') no-repeat 50
 .login-rule-list-wrap .menu-wrap{width:100%;}
 .login-rule-list-wrap .btn-wrap{margin-top:rem(16);}
 
-/*********************************
+/* ========================================
   common contents
-*********************************/
+=========================================== */
 
 /* form */
 //input type number 에서 화살표 제거
@@ -94,28 +96,26 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
 }
 
-$inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input[type=number]', 'input[type=phone]', 'input[type=date]', 'input[type=tel]', textarea, select, 'select.st1', 'select.st2';
-
-@each $input in $inputs {
-    #{$input} {
-      width:100%;
-      font-size:rem(14);
-      border-bottom:1px solid #fff; 
-      height:rem(32);
-      outline:none;
-      color:#fff;
-      background: none;
-      @include bold;
-      @include prefix(box-shadow, none);
-      @include placeholder{color:#8A8B8C;}
-      
-      &:-webkit-autofill,
-      &:-webkit-autofill:hover,
-      &:-webkit-autofill:focus,
-      &:-webkit-autofill:active {
-          transition: background-color 5000000s ease-in-out 0s;
-      }      
-  }
+// $inputs: 'input[type=text]', 'input[type=password]', 'input[type=email]', 'input[type=number]', 'input[type=phone]', 'input[type=date]', 'input[type=tel]', textarea, select;
+input{
+  @include placeholder{color:#8A8B8C;}
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+      transition: background-color 5000000s ease-in-out 0s;
+  }   
+}
+input[type=text], input[type=password], input[type=number], textarea{
+  width:100%;
+  font-size:rem(14);
+  border-bottom:1px solid #fff; 
+  height:rem(32);
+  outline:none;
+  color:#fff;
+  background: none;
+  @include bold;
+  @include prefix(box-shadow, none);  
 }
 
 .inp-certify{position:relative;}
@@ -208,22 +208,22 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 
 /* slider-page */
 .slider-page{height:100vh;}
-.slider-page .splide__slide{height:100vh;}
-.slider-page .splide__slide.is-active{overflow:auto}
-.slider-page .splide__slide .parallel-box{transition: all 0.5s ease;-webkit-transition: all 0.5s ease;}
-.slider-page .splide__slide[prev] .parallel-box{transform: translateX(rem(60));}
-.slider-page .splide__pagination{position: absolute;overflow-y:auto;clip:rect(0 0 0 0);height:1px;width:1px;padding:0 0;}
+.slider-page > .splide > .splide__track > .splide__list > .splide__slide{height:100vh;}
+.slider-page > .splide > .splide__track > .splide__list > .splide__slide.is-active{overflow:auto}
+.slider-page > .splide > .splide__track > .splide__list > .splide__slide .parallel-box{transition: all 0.5s ease;-webkit-transition: all 0.5s ease;}
+.slider-page > .splide > .splide__track > .splide__list > .splide__slide[prev] .parallel-box{transform: translateX(rem(60));}
+.slider-page > .splide > .splide__track > .splide__list > .splide__pagination{position: absolute;overflow-y:auto;clip:rect(0 0 0 0);height:1px;width:1px;padding:0 0;}
 
 .custom-dotting{text-align:center;}
 .custom-dotting > span{display:inline-block;}
 .custom-dotting > span,
-.custom-dotting > button{width: 10px; height: 10px;margin:0 rem(5);border-radius:100%;background: #CACBCC;}
+.custom-dotting > button{width: rem(10); height: rem(10);margin:0 rem(5);border-radius:100%;background: #CACBCC;}
 .custom-dotting > button.on{background: #8FFF44;}
 .custom-dotting > span:only-child{background: #8FFF44;}
 
 .grident-bottom{position:fixed;bottom:rem(80);left:0;width:100%;height:rem(124);@include flex(center);background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 26.04%);}
 
-.grid-list-menu{font-size:rem(12);}
+.grid-list-menu{font-size:rem(12);@include bold;}
 .grid-list-menu > .row{@include flex;width:100%;}
 .grid-list-menu > .row ~ .row{margin-top:rem(22);}
 .grid-list-menu > .row .check .txt{margin-left:rem(8);}
@@ -232,9 +232,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .grid-list-menu > .row.total{font-size:rem(14);}
 .grid-list-menu > .row .bth-link{display:block;padding:rem(8);position:absolute;top:50%;right:rem(-8);transform:translateY(-50%);-webkit-transform:translateY(-50%);}
 
-/*********************************
-  contents
-*********************************/
+/* ========================================
+  content
+=========================================== */
 
 /* alarm */
 .alarm-wrap .tit-type1{margin:rem(32) 0;}
@@ -248,9 +248,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 /* splash */
 .splash-wrap{height:100vh;@include flex(center);}
 .reveal { position: relative; display: flex; color: #6ee1f5; font-family: "Raleway", sans-serif; text-transform: uppercase; white-space: pre; }
-.reveal i { display:inline-flex; margin:0 rem(9);align-items: center; justify-content: center; /* margin:0 5px; */ width:40px; opacity: 0; transform: scale(0); animation: fade-in 2.4s forwards; }
+.reveal i { display:inline-flex; margin:0 rem(9);align-items: center; justify-content: center; /* margin:0 5px; */ width:rem(40); opacity: 0; transform: scale(0); animation: fade-in 2.4s forwards; }
 .reveal::before, 
-.reveal::after { display:none; position: absolute; content: ""; top: 0; height: 100%; width: 2px; background: white; opacity: 0; transform: scale(0); }
+.reveal::after { display:none; position: absolute; content: ""; top: 0; height: 100%; width: rem(2); background: white; opacity: 0; transform: scale(0); }
 .reveal::before { left: 50%; animation: slide-left 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards; }
 .reveal::after { right: 50%; animation: slide-right 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards; }
 @keyframes fade-in { to { opacity: 1; transform: scale(1); } }
@@ -258,7 +258,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 @keyframes slide-right { to { right: -6%; opacity: 1; transform: scale(0.9); } }
 
 /* layerpopup */ 
-.alert-popup{position:fixed;top:0;left:0;width:100%;height:100%;min-width:320px;overflow-y:auto;z-index:100;}
+.alert-popup{position:fixed;top:0;left:0;width:100%;height:100%;min-width:rem(320);overflow-y:auto;z-index:100;}
 .alert-popup .dim{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);}
 .alert-popup .popup{@include posCenter;padding:rem(16);margin:0 auto;width:rem(324);max-width:90%;box-shadow: 0 rem(1) rem(2) rgba(40, 41, 61, 0.04), 0px rem(3) rem(6) rgba(96, 97, 112, 0.16);border-radius:rem(3);background:#fff;}
 .alert-popup .popup .pop-header{position:relative;}
@@ -268,9 +268,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 
 .alert-popup .btn-wrap [class*=btn-type] ~ [class*=btn-type]{margin-top:rem(16);}
 
-/*********************************
-  common content
-*********************************/
+/* ========================================
+  content 2
+=========================================== */
 
 .grid-list{font-size:rem(14);}
 .grid-list > .row{@include flex;align-items: flex-start;width:100%;}
@@ -318,20 +318,25 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .text-type1{font-size:rem(16);color:#4F4F4F;}
 
 /* calendar */
-.calendar-wrap .calendar-select{margin:rem(20) 0;@include flex;justify-content: space-between;}
-.calendar-wrap .calendar-select i{width:rem(16) !important;height:rem(16) !important;}
-.calendar-wrap .calendar-select .select{@include flex;}
-.calendar-wrap .calendar-select .select select ~ select{margin-left:rem(25);}
-.calendar-wrap .table-calendar{font-family: 'AppleSDGothicNeo';}
-.calendar-wrap .table-calendar table{table-layout: fixed;}
-.calendar-wrap .table-calendar table th,
-.calendar-wrap .table-calendar table td{width:14.2857%;vertical-align: middle;color:#5A5B5C;}
-.calendar-wrap .table-calendar table th{font-weight:400;font-size:rem(16);height:rem(22);vertical-align: top;padding-bottom:rem(15);}
-.calendar-wrap .table-calendar table td{height:rem(40);text-align:center;}
-.calendar-wrap .table-calendar .date{display:inline-block;width:rem(20);height:rem(20);border-radius:rem(16);font-size:rem(13);line-height:rem(21);text-align:center;}
-.calendar-wrap .table-calendar .btn-payment .date{ font-size:rem(15);line-height:rem(23) !important;}
-.calendar-wrap .table-calendar .on .date{background:#92FF44;}
-.calendar-wrap .table-calendar .price{font-size:rem(10);margin-top:rem(2);}
+.calendar .splide__slide{padding:rem(7);}
+.calendar .splide__slide{font-size:rem(20);color:#8A8B8C;}
+.calendar .splide__slide .on{color:#fff;}
+.calendar .month-slide .splide__slide button{width: rem(48);text-align:center;}
+.calendar .month-slide .splide__slide .on{color:#fff;}
+// .calendar-wrap .calendar-select{margin:rem(20) 0;@include flex;justify-content: space-between;}
+// .calendar-wrap .calendar-select i{width:rem(16) !important;height:rem(16) !important;}
+// .calendar-wrap .calendar-select .select{@include flex;}
+// .calendar-wrap .calendar-select .select select ~ select{margin-left:rem(25);}
+// .calendar-wrap .table-calendar{font-family: 'AppleSDGothicNeo';}
+// .calendar-wrap .table-calendar table{table-layout: fixed;}
+// .calendar-wrap .table-calendar table th,
+// .calendar-wrap .table-calendar table td{width:14.2857%;vertical-align: middle;color:#5A5B5C;}
+// .calendar-wrap .table-calendar table th{font-weight:400;font-size:rem(16);height:rem(22);vertical-align: top;padding-bottom:rem(15);}
+// .calendar-wrap .table-calendar table td{height:rem(40);text-align:center;}
+// .calendar-wrap .table-calendar .date{display:inline-block;width:rem(20);height:rem(20);border-radius:rem(16);font-size:rem(13);line-height:rem(21);text-align:center;}
+// .calendar-wrap .table-calendar .btn-payment .date{ font-size:rem(15);line-height:rem(23) !important;}
+// .calendar-wrap .table-calendar .on .date{background:#92FF44;}
+// .calendar-wrap .table-calendar .price{font-size:rem(10);margin-top:rem(2);}
 
 .slide-list ul li .conts-wrap{display:none;}
 
@@ -615,10 +620,3 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 #line-chart .tick:not(:nth-child(4n+1)) text{display:none;}
 // #line-chart .tick text{font-size:rem(10);}
 
-
-
-활용 예제
-'소수점 몇 자리 아래를 버리고 싶다' 라는 문제가 있다면 어떻게 해결 할 수 있을까요? 소수점 아래를 버려버리는 floor() 함수를 활용하는 방법이 있습니다. 아래 코드는 소수점 아래 3째 자리 까지만 남겨두고 그 아래는 버리는 코드입니다.
-let input = 10.123456789
-let output = floor(input * 1000) / 1000
-// output == 10.123

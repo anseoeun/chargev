@@ -13,7 +13,7 @@
       </template>
       <!-- list -->
       <template v-else>
-        <SplideSlide v-for="(item, index) in list" :key="index">
+        <SplideSlide v-for="(item, index) in data" :key="index">
           <slot :item="item" :index="index"></slot>
         </SplideSlide>
       </template>
@@ -30,7 +30,7 @@
       </template>
       <!-- list -->
       <template v-else>
-        <SplideSlide v-for="(item, index) in list" :key="index">
+        <SplideSlide v-for="(item, index) in data" :key="index">
           <slot :item="item" :index="index"></slot>
         </SplideSlide>
       </template>
@@ -101,12 +101,6 @@ export default {
     }
   },
   computed: {
-    list() {
-      return this.data.map((item) => ({ ...item }))
-    },
-    pagingSize() {
-      return 31 * this.list.length
-    },
     setOption() {
       let opt =Object.assign({
         arrows : this.options.perPage <  this.getDataLength(),
@@ -114,7 +108,7 @@ export default {
         drag : this.options.perPage <  this.getDataLength()
       }, this.options)
 
-      if(!this.content && this.list.length <= 1){
+      if(!this.content && this.data.length <= 1){
         opt.arrows = false
       }
 
