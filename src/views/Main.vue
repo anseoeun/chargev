@@ -5,48 +5,43 @@
         <template slot="content">
             <splide-slide>
                 <div class="using-history">
-                    <h2 class="tit-type1">이용기록</h2>
+                    <h2 class="tit-type1">이용기록 </h2>
                     <div class="calendar expct">
-                      <Carousel :data ="year" :options="yearOpt" class="year-slide">>
+                      <Carousel :data ="year" :options="yearOpt" class="year-slide">
                         <template slot-scope="props">
-                          <button :class="{on:props.item == selectedCal.year}" @click="selectedCal.year = props.item">{{ props.item }}년</button>
+                          <button :class="{on:props.item == selectedCal.year}" @click="setYear(props.item)">{{ props.item }}년</button>
                         </template>
                       </Carousel>
-                      <Carousel :data ="month" :options="monthOpt" class="month-slide">>
+                      <Carousel :data ="month" :options="monthOpt" class="month-slide">
                         <template slot-scope="props">
-                          <button :class="{on:props.item == selectedCal.month}" @click="selectedCal.month = props.item">{{ props.item }}월</button>
+                          <button :class="{on:props.item == selectedCal.month}" @click="setMonth(props.item)">{{ props.item }}월</button>
                         </template>
                       </Carousel>
-                   
 
-                      <div v-for="m in month" :key="m" class="month">
-                        <div class="month"><button>{{ m }}</button></div>
-                        <div class="days">
-                          <div v-for="d in day[m]" :key="d" class="day">
-                            <button>{{ d }}</button>
+                      <Carousel :data ="date[selectedCal.month]" :options="dateOpt" class="date-slide">
+                        <template slot-scope="props">
+                          <div :class="{on:selectedCal.year === fixedCal.year && selectedCal.month === fixedCal.month && props.item == fixedCal.date}" class="days">
+                            <button @click="setDate(props.item)">
+                              <div class="date-day">
+                                <div class="day">
+                                  {{ days[selectedCal.month][props.item -1] }}
+                                </div>
+                                <div class="date">
+                                  {{ date[selectedCal.month][props.item -1] }}
+                                </div>
+                              </div>
+                              <div class="account">
+                                {{ dayData[selectedCal.month][props.item -1] }}
+                              </div>
+                            </button>
                           </div>
-                        </div>
-                      </div>
+                        </template>
+                      </Carousel>
                     </div>
                 </div>
             </splide-slide>
             <splide-slide>
-                <div class="charge-status">
-                    <!-- 충전차량 -->
-                    <h2 class="tit-type1">충전차량</h2>
-                    <div class="desc">
-                        <div class="space-text"><span>BMW</span><span>530e</span></div>
-                        02보6596
-                    </div>
-                    <button class="btn-type1 st3">충전차량 설정</button>
-
-                    <!-- 충전포인트 -->
-                    <h2 class="tit-type1">충전포인트</h2>
-                    <div class="desc">
-                        <div class="point">360,000원</div>
-                    </div>
-                    <button class="btn-type1 st3">상세확인</button>
-                </div>
+                <div class="charge-status"><!-- 충전차량 --><h2 class="tit-type1">충전차량</h2><div class="desc"><div class="space-text"><span>BMW</span><span>530e</span></div>02보6596</div><button class="btn-type1 st3">충전차량 설정</button><!-- 충전포인트 --><h2 class="tit-type1">충전포인트</h2><div class="desc"><div class="point">360,000원</div></div><button class="btn-type1 st3">상세확인</button></div>
             </splide-slide>
         </template>
       </Carousel>
@@ -66,91 +61,151 @@ export default {
   },
   data(){
     return{
-      year: [],
+      year: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
+      // year: [],
       month: [],
-      day: [],
-      btmLayer:{
-        agency: false,
-      },
-      
+      date: [],
+      days:  [],
+      dayData: [
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+        ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', ''],
+      ],
       options: {
         perPage: 1,
         perMove: 1,
         arrows: false,
       },
-
-      selectedCal:{
-        year: '2022',
-        month: '5',
+      fixedCal: {
+        year: 0,
+        month: 0,
+        date: 0
+      },
+      selectedCal: {
+        year: 0,
+        month: 0,
+        date: 0
       },
       yearOpt: {
-        focus: 'center',
-        autoWidth: true,
-        arrows: false,
-        pagination: false,
-        perPage: 4,
-        start: 0
-      },
-      monthOpt: {
-        focus: 'center',
-        type   : 'loop',
         // autoWidth: true,
         arrows: false,
         pagination: false,
-        perPage: 5,
+        perPage: 4,
+        start: 7
       },
-      dayOpt: {
-        focus: 'center',
-        autoWidth: true,
+      monthOpt: {
+        type   : 'loop',
         arrows: false,
-        pagination: false,
-        perPage: 1,
+        perPage: 6,
+      },
+      dateOpt: {
+        type   : 'loop',
+        arrows: false,
+        perPage: 7,
+        perMove:1
       },
       currentPage: 0,
       paging: new Array(6),
+      btmLayer:{
+        agency: false,
+      },
     }
   },
   created(){
-    this.showYear(2022);
-
+    this.setToday();
+    this.showYear(this.selectedCal.year)
   },
   mounted(){
-    var el = document.querySelector('.expct')
-    el.addEventListener("touchstart", function(e){ e.stopPropagation() });
-
-    console.log(this.month)
+    // this.yearOpt.start = this.year.length - 1;
   },
   methods: {
     agencySelect(val){
       val ? this.agency = val : ''
       this.btmLayer.agency = false
     },
-    showYear(y) {
-      let year = [];
-      let month = [];
-      let day = {};
+    setToday(){
+      let today = new Date(); 
 
-      for (let i = 0; i < 8; i++) {
-          year.push(y-(7-i));
-      }
+      this.selectedCal.year = today.getFullYear();
+      this.selectedCal.month = today.getMonth() + 1;
+      this.selectedCal.date = today.getDate();  
+
+      this.fixedCal.year = today.getFullYear();
+      this.fixedCal.month = today.getMonth() + 1;
+      this.fixedCal.date = today.getDate();    
+
+    },
+    showYear(y) {
+      // let year = [];
+      let month = [];
+      let date = {};
+      let days = {};
+
+      let day = ['일', '월', '화', '수', '목', '금', '토'];
+
+      // for (let i = 0; i < 8; i++) {
+      //     year.push(y-(7-i));
+      // }
+      // console.log(year);
 
       var d1, d2 = y+(y-1-(y-1)%4)/4-(y-1-(y-1)%100)/100+(y-1-(y-1)%400)/400;
       for (let m = 1; m < 13; m++) {
           d1 = d2%7;
           d2 = d1+(m*9-m*9%8)/8%2+(m==2?y%4||y%100==0&&y%400?28:29:30);
           month.push(m)
-          day[m] = []
+          date[m] = []
+          days[m] = []
+          let daynum = 0
           for (let i = 0; i < 42; i++) {
+              if(i%7==0) daynum = 0
               if (i < d1 || i >= d2) ''
-              else  day[m].push((i+1-d1))
+              else {
+                 days[m].push(day[daynum])
+                 date[m].push((i+1-d1))
+              }
+              
+              daynum += 1
           }
       }
-      this.year = year
-      this.yearOpt.start = this.year.length - 1
-      this.month = month
-      this.monthOpt.start = 4
-      this.day = day
-    }    
+      // this.year = year;
+      this.month = month;
+      this.date = date;
+      this.days = days;
+
+      this.monthOpt.start = this.selectedCal.month -4;
+      this.dateOpt.start = this.selectedCal.date - 5;
+    },
+    aaa(){
+
+    },
+    setYear(year){
+      this.selectedCal.year= year;
+      this.showYear(this.selectedCal.year)
+      document.querySelector('.month-slide .splide__pagination li:nth-child(1) button').click()
+      document.querySelector('.date-slide .splide__pagination li:nth-child(1) button').click()
+      this.selectedCal.month = 1
+      this.selectedCal.date = 0
+      
+    },
+    setMonth(month){
+      this.selectedCal.month = month;
+      document.querySelector('.date-slide .splide__pagination li:nth-child(1) button').click()
+      this.selectedCal.date = 1
+    },
+    setDate(date){
+      this.fixedCal.year = this.selectedCal.year;
+      this.fixedCal.month = this.selectedCal.month;
+      this.fixedCal.date = date;
+    }
   }
 }
 </script>

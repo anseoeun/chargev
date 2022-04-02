@@ -3223,8 +3223,12 @@ i[class*=i-] .svg-prevent {
 }
 
 /* calendar */
+.calendar {
+  margin-top: 0.835rem;
+}
+
 .calendar .splide__slide {
-  padding: 0.487rem;
+  padding: 0.835rem 0.417rem;
 }
 
 .calendar .splide__slide {
@@ -3236,13 +3240,59 @@ i[class*=i-] .svg-prevent {
   color: #fff;
 }
 
+.calendar .splide__pagination {
+  position: absolute;
+  top: -9999%;
+  left: -9999%;
+  height: 0px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.calendar .year-slide .splide__slide button {
+  width: 5.153rem;
+  text-align: center;
+  font-size: 1.392rem;
+}
+
 .calendar .month-slide .splide__slide button {
   width: 3.342rem;
   text-align: center;
+  font-size: 1.392rem;
 }
 
-.calendar .month-slide .splide__slide .on {
+.calendar .date-slide .splide__slide button {
+  width: 2.785rem;
+  text-align: center;
+  font-size: 1.114rem;
+}
+
+.calendar .date-slide .date-day {
+  margin: 0 auto;
+  width: 1.671rem;
+  border-radius: 1.671rem;
+  padding: 0.557rem 0;
+}
+
+.calendar .date-slide .date-day .date {
   color: #fff;
+  margin-top: 0.905rem;
+}
+
+.calendar .date-slide .account {
+  margin-top: 0.557rem;
+  color: #8A8B8C;
+  font-size: 0.696rem;
+  text-align: center;
+}
+
+.calendar .date-slide .on .date-day {
+  background: #fff;
+  color: #000;
+}
+
+.calendar .date-slide .on .date-day .date {
+  color: #000;
 }
 
 .slide-list ul li .conts-wrap {

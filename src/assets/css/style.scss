@@ -318,11 +318,20 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .text-type1{font-size:rem(16);color:#4F4F4F;}
 
 /* calendar */
-.calendar .splide__slide{padding:rem(7);}
+// .calendar{width:calc(100% + rem(32));margin-left:rem(-16);}
+.calendar{margin-top:rem(12);}
+.calendar .splide__slide{padding:rem(12) rem(6);}
 .calendar .splide__slide{font-size:rem(20);color:#8A8B8C;}
 .calendar .splide__slide .on{color:#fff;}
-.calendar .month-slide .splide__slide button{width: rem(48);text-align:center;}
-.calendar .month-slide .splide__slide .on{color:#fff;}
+.calendar .splide__pagination{position:absolute;top:-9999%;left:-9999%;height:0px;width:1px;overflow:hidden;}
+.calendar .year-slide .splide__slide button{width: rem(74);text-align:center;font-size:rem(20);}
+.calendar .month-slide .splide__slide button{width: rem(48);text-align:center;font-size:rem(20);}
+.calendar .date-slide .splide__slide button{width: rem(40);text-align:center;font-size:rem(16);}
+.calendar .date-slide .date-day{margin:0 auto;width:rem(24);border-radius:rem(24);padding:rem(8) 0;}
+.calendar .date-slide .date-day .date{color:#fff;margin-top:rem(13);}
+.calendar .date-slide .account{margin-top:rem(8);color:#8A8B8C;font-size:rem(10);text-align:center;}
+.calendar .date-slide .on .date-day{background:#fff;color:#000;}
+.calendar .date-slide .on .date-day .date{color:#000;}
 // .calendar-wrap .calendar-select{margin:rem(20) 0;@include flex;justify-content: space-between;}
 // .calendar-wrap .calendar-select i{width:rem(16) !important;height:rem(16) !important;}
 // .calendar-wrap .calendar-select .select{@include flex;}

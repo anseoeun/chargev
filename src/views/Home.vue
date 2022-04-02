@@ -49,6 +49,9 @@ export default {
 
             // 알림
             'alarm': '알림',
+
+            // 메인
+            'main': '메인',
         },      
         list2: {
 

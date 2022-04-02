@@ -52,8 +52,8 @@ Vue.use( VueSplide );
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 export default {
-   components: { Splide, SplideSlide },
-    props: {
+  components: { Splide, SplideSlide },
+  props: {
     data: {
       type: Array,
       default: () => [],
@@ -127,6 +127,7 @@ export default {
   },
   mounted(){
     this.paging = this.$refs.slider.$children
+   this.$refs.slider.$el.addEventListener("touchstart", function(e){ e.stopPropagation() });
   },
   methods: {
     init(slider) {
