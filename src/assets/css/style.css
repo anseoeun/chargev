@@ -2139,10 +2139,6 @@ body {
   bottom: 0;
 }
 
-.layoutDefault .contents {
-  padding: 7.66rem 1.114rem 15.321rem;
-}
-
 .layoutDefault .contents .btn-type1 {
   padding-top: 2.228rem;
 }
@@ -2764,12 +2760,18 @@ i[class*=i-] .svg-prevent {
 }
 
 /* slider-page */
-.slider-page {
+.layoutNone .slider-page,
+.layoutNone .slider-page > .splide > .splide__track > .splide__list > .splide__slide {
   height: 100vh;
 }
 
-.slider-page > .splide > .splide__track > .splide__list > .splide__slide {
+.layoutDefault .slider-page,
+.layoutDefault .slider-page > .splide > .splide__track > .splide__list > .splide__slide {
   height: 100vh;
+}
+
+.layoutDefault .slider-page > .splide > .splide__track > .splide__list > .splide__slide {
+  padding: 7.66rem 1.114rem 15.321rem;
 }
 
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide.is-active {
@@ -2785,13 +2787,16 @@ i[class*=i-] .svg-prevent {
   transform: translateX(4.178rem);
 }
 
-.slider-page > .splide > .splide__track > .splide__list > .splide__pagination {
+.slider-page > .splide > .splide__pagination {
   position: absolute;
   overflow-y: auto;
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
   padding: 0 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .custom-dotting {

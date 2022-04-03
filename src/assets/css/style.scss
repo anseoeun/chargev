@@ -37,7 +37,7 @@ body > iframe{display:none;}
 body{color:#fff;background:#000 url('~@/assets/images/bg-body.jpg') no-repeat 50% 50%;background-size:100% auto;}
 
 .layoutNone .grident-bottom{bottom: 0;}
-.layoutDefault .contents{padding:rem(110) rem(16) rem(220);}
+// .layoutDefault .contents{padding:rem(110) rem(16) rem(220);}
 .layoutDefault .contents .btn-type1{padding-top:rem(32);}
 
 .header{position:fixed;top:0;left:0;@include flex;height:rem(110);width:100%;z-index: 10;background: linear-gradient(180deg, #000000 73.52%, rgba(0, 0, 0, 0) 100%);}
@@ -207,12 +207,15 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .transparent-box .info-box .space-text span ~ span{margin-left:rem(8);}
 
 /* slider-page */
-.slider-page{height:100vh;}
-.slider-page > .splide > .splide__track > .splide__list > .splide__slide{height:100vh;}
+.layoutNone .slider-page,
+.layoutNone .slider-page > .splide > .splide__track > .splide__list > .splide__slide{height:100vh;}
+.layoutDefault .slider-page,
+.layoutDefault .slider-page > .splide > .splide__track > .splide__list > .splide__slide{height:100vh;}
+.layoutDefault .slider-page > .splide > .splide__track > .splide__list > .splide__slide{padding:rem(110) rem(16) rem(220);}
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide.is-active{overflow:auto}
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide .parallel-box{transition: all 0.5s ease;-webkit-transition: all 0.5s ease;}
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide[prev] .parallel-box{transform: translateX(rem(60));}
-.slider-page > .splide > .splide__track > .splide__list > .splide__pagination{position: absolute;overflow-y:auto;clip:rect(0 0 0 0);height:1px;width:1px;padding:0 0;}
+.slider-page > .splide > .splide__pagination{position: absolute;overflow-y:auto;clip:rect(0 0 0 0);height:1px;width:1px;padding:0 0;width:0;height:0;overflow:hidden;}
 
 .custom-dotting{text-align:center;}
 .custom-dotting > span{display:inline-block;}

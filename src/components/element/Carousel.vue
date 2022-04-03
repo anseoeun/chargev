@@ -97,7 +97,8 @@ export default {
       paging: [],
       prev: null,
       prevIndex: 0,
-      prevX: 0
+      prevX: 0,
+      isPageslider: false
     }
   },
   computed: {
@@ -126,8 +127,11 @@ export default {
     }
   },
   mounted(){
-    this.paging = this.$refs.slider.$children
+   this.paging = this.$refs.slider.$children
    this.$refs.slider.$el.addEventListener("touchstart", function(e){ e.stopPropagation() });
+   if(this.$refs.slider.$el.parentNode.classList.contains('slider-page')){
+    this.isPageslider = true
+   }
   },
   methods: {
     init(slider) {
@@ -135,15 +139,21 @@ export default {
       this.$emit('init', slider)
     },
     onMove(slider, index){
-      if(index != this.prevIndex){
+      if(this.isPageslider && index != this.prevIndex){
         if(this.prevIndex < index){
-          this.prev = this.$refs.slider.$el.querySelector('.is-active')  
+          this.prev = this.getPrev();
         }else{
+          console.log('a');
+          console.log(this.prev);
           this.prev.removeAttribute('prev')
-          this.prev = this.$refs.slider.$el.querySelector('.is-active').previousElementSibling.previousElementSibling
+          this.prev = this.getPrev('reverse')
         }
 
-      if(this.prev !== null) this.prev.removeAttribute('prev')
+      if(this.prev !== null && this.prev !== undefined) {
+        console.log('b');
+        console.log(this.prev);
+        this.prev.removeAttribute('prev')
+      }
         this.prev ? this.prev.setAttribute('prev', true) : ''
         this.prevIndex = index
       }
@@ -152,8 +162,13 @@ export default {
       this.$emit('update:page', index)
     },
     onMoved(slider){  
-      if(this.prev !== null) this.prev.scrollTop = 0      
-      this.$refs.slider.$el.querySelector('.is-active').scrollTop = 0
+      if(this.isPageslider){
+        if(this.prev !== null && this.prev !== undefined) {
+          this.prev.removeAttribute('prev')
+          this.prev.scrollTop = 0
+        }
+        this.$refs.slider.$el.querySelector('.is-active').scrollTop = 0
+      }
       this.$emit('onMoved', slider)
     },
     getDataLength() {
@@ -174,8 +189,18 @@ export default {
       return matrix.m41
     },
     gotoPage(index){
-      this.$refs.slider.$el.querySelector('.splide__pagination li:nth-child('+(index +  1)+') button').click()
+      this.$refs.slider.$el.lastChild.querySelector('.splide__pagination li:nth-child('+(index +  1)+') button').click()
     },
+    getPrev(dir){
+      let element = '';
+      this.$refs.slider.$el.firstChild.firstChild.childNodes.forEach(el => {
+        if(el.classList.contains('is-active')) {
+          if(dir === 'reverse') element = el.previousElementSibling.previousElementSibling
+          else element = el
+        }
+      });
+      return element;
+    }
   },
 }
 </script>
