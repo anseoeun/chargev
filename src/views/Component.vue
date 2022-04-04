@@ -103,6 +103,38 @@
         </div>
       </div>
 
+      <!--  -->
+      <div class="charge-status">
+        <!-- 충전차량 -->
+        <h2 class="tit-type1">충전차량</h2>
+        <div class="desc">
+          <p class="space-text"><span>BMW</span><span>530e</span></p>
+          <p>02보6596</p>
+        </div>
+        <button class="btn-type1 st2">충전차량 설정</button>
+
+        <!-- 충전포인트 -->
+        <h2 class="tit-type1">충전포인트</h2>
+        <div class="desc">
+          <div class="point">360,000원</div>
+        </div>
+        <button class="btn-type1 st2">상세확인</button>
+      </div>
+
+      <!--  -->
+      <h2 class="tit-type1">충전소검색</h2>      
+      <div class="form-box-wrap">
+        <div class="form-box">
+          <div class="row">
+            <div class="input">
+                <input type="text" placeholder="충전소 명 또는 주소 입력">
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <button class="btn-type1 st2">검색</button>
+        </div>
+      </div>
   </div>
 </template>
 

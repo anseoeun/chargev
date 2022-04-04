@@ -4,20 +4,40 @@
       <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page parallel-slider">
         <template slot="content">
             <splide-slide>
+                <div class="charge-status">
+                  <!-- 충전차량 -->
+                  <h2 class="tit-type1">충전차량</h2>
+                  <div class="desc">
+                    <div class="space-text"><span>BMW</span><span>530e</span></div>
+                    02보6596
+                  </div>
+                  <button class="btn-type1 st2">충전차량 설정</button>
+
+                  <!-- 충전포인트 -->
+                  <h2 class="tit-type1">충전포인트</h2>
+                  <div class="desc">
+                    <div class="point">360,000원</div>
+                  </div>
+                  <button class="btn-type1 st2">상세확인</button>
+                </div>
+            </splide-slide>          
+            <splide-slide>
                 <div class="using-history">
                     <h2 class="tit-type1">이용기록 </h2>
-                    <div class="calendar expct">
+                    <div class="calendar">
+                      <!-- year -->
                       <Carousel :data ="year" :options="yearOpt" class="year-slide">
                         <template slot-scope="props">
                           <button :class="{on:props.item == selectedCal.year}" @click="setYear(props.item)">{{ props.item }}년</button>
                         </template>
                       </Carousel>
+                      <!-- month -->
                       <Carousel :data ="month" :options="monthOpt" :key="selectedCal.year" class="month-slide">
                         <template slot-scope="props">
                           <button :class="{on:props.item == selectedCal.month}" @click="setMonth(props.item)">{{ props.item }}월</button>
                         </template>
                       </Carousel>
-
+                      <!-- date -->
                       <Carousel :data ="date[selectedCal.month]" :options="dateOpt" :key="selectedCal.month" class="date-slide">
                         <template slot-scope="props">
                           <div :class="{on:selectedCal.year === fixedCal.year && selectedCal.month === fixedCal.month && props.item == fixedCal.date}" class="days">
@@ -39,10 +59,29 @@
                         </template>
                       </Carousel>
                     </div>
+                    <ul class="history-list">
+                      <li>
+                        <router-link to="/" class="box">
+                          <Icon type="arr-right" />
+                          <div class="t-wrap">
+                            <div class="row">
+                              <div class="cell tit"><b>차지비</b></div>
+                              <div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div>
+                            </div>
+                            <div class="row">
+                              <div class="cell tit">
+                                <b class="c-red">잔액부족<br>미결제</b>
+                              </div>
+                              <div class="cell">
+                                <p><b class="price">9,010원</b> 충전포인트 결제</p>
+                                <p clas="thin">2021-11-02 15:05:02</p>
+                              </div>
+                            </div>
+                          </div>
+                        </router-link>
+                      </li>
+                    </ul>
                 </div>
-            </splide-slide>
-            <splide-slide>
-                <div class="charge-status"><!-- 충전차량 --><h2 class="tit-type1">충전차량</h2><div class="desc"><div class="space-text"><span>BMW</span><span>530e</span></div>02보6596</div><button class="btn-type1 st3">충전차량 설정</button><!-- 충전포인트 --><h2 class="tit-type1">충전포인트</h2><div class="desc"><div class="point">360,000원</div></div><button class="btn-type1 st3">상세확인</button></div>
             </splide-slide>
         </template>
       </Carousel>

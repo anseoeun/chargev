@@ -110,10 +110,10 @@ export default {
       }, this.options)
 
       if(!this.content && this.data.length <= 1){
-        opt.arrows = false
+        opt.arrows = false;
       }
 
-      return opt
+      return opt;
     }
   },
   updated() {
@@ -122,54 +122,41 @@ export default {
   watch:{
     page(value){
       if(value){
-        this.gotoPage(value)
+        this.gotoPage(value);
       }
     }
   },
   mounted(){
-   this.paging = this.$refs.slider.$children
+   this.paging = this.$refs.slider.$children;
    this.$refs.slider.$el.addEventListener("touchstart", function(e){ e.stopPropagation() });
    if(this.$refs.slider.$el.parentNode.classList.contains('slider-page')){
-    this.isPageslider = true
+    this.isPageslider = true;
    }
   },
   methods: {
     init(slider) {
-      this.currentPage = slider.index
-      this.$emit('init', slider)
+      this.currentPage = slider.index;
+      this.$emit('init', slider);
     },
     onMove(slider, index){
-      if(this.isPageslider && index != this.prevIndex){
-        if(this.prevIndex < index){
-          this.prev = this.getPrev();
-        }else{
-          console.log('a');
-          console.log(this.prev);
-          this.prev.removeAttribute('prev')
-          this.prev = this.getPrev('reverse')
+      if(this.isPageslider){
+        if(this.prev !== null && this.prev !== undefined) {
+          this.prev.removeAttribute('prev');
         }
-
-      if(this.prev !== null && this.prev !== undefined) {
-        console.log('b');
-        console.log(this.prev);
-        this.prev.removeAttribute('prev')
+        this.prev = this.getPrev(index);
+        this.prev ? this.prev.setAttribute('prev', true) : null;
       }
-        this.prev ? this.prev.setAttribute('prev', true) : ''
-        this.prevIndex = index
-      }
-      this.currentPage = index
-      this.$emit('onMove', slider)
-      this.$emit('update:page', index)
+      this.currentPage = index;
+      this.$emit('onMove', slider);
+      this.$emit('update:page', index);
     },
     onMoved(slider){  
       if(this.isPageslider){
-        if(this.prev !== null && this.prev !== undefined) {
-          this.prev.removeAttribute('prev')
-          this.prev.scrollTop = 0
-        }
-        this.$refs.slider.$el.querySelector('.is-active').scrollTop = 0
+        this.$refs.slider.$el.firstChild.firstChild.querySelectorAll('li').forEach((el) => {
+          el.scrollTop = 0;
+        })
       }
-      this.$emit('onMoved', slider)
+      this.$emit('onMoved', slider);
     },
     getDataLength() {
       if(this.content){
@@ -179,27 +166,20 @@ export default {
         }
         return num
       }else{
-        return this.data.length
+        return this.data.length;
       }
     },
-    getTranslateX(element) {
-      let style = window.getComputedStyle(element);
-      //eslint-disable-next-line
-      let matrix = new WebKitCSSMatrix(style.transform);
-      return matrix.m41
-    },
+    // getTranslateX(element) {
+    //   let style = window.getComputedStyle(element);
+    //   //eslint-disable-next-line
+    //   let matrix = new WebKitCSSMatrix(style.transform);
+    //   return matrix.m41
+    // },
     gotoPage(index){
-      this.$refs.slider.$el.lastChild.querySelector('.splide__pagination li:nth-child('+(index +  1)+') button').click()
+      this.$refs.slider.$el.lastChild.querySelector('.splide__pagination li:nth-child('+(index +  1)+') button').click();
     },
-    getPrev(dir){
-      let element = '';
-      this.$refs.slider.$el.firstChild.firstChild.childNodes.forEach(el => {
-        if(el.classList.contains('is-active')) {
-          if(dir === 'reverse') element = el.previousElementSibling.previousElementSibling
-          else element = el
-        }
-      });
-      return element;
+    getPrev(index){
+      return  index === 0 ? null : this.$refs.slider.$el.firstChild.firstChild.querySelector('li:nth-child('+index+')');
     }
   },
 }
