@@ -1,5 +1,5 @@
 <template>
-    <div class="has-footer">
+    <div>
         <Header />
         <slot />
         <Footer />

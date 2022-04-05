@@ -19,7 +19,7 @@
       </template>
     </Splide>
 
-    <Splide
+    <!-- <Splide
       v-if="thumbnail"
       ref="secondary"
       class="secondary"
@@ -28,13 +28,13 @@
       <template v-if="content">
         <slot ref="content" name="content"></slot>
       </template>
-      <!-- list -->
+
       <template v-else>
         <SplideSlide v-for="(item, index) in data" :key="index">
           <slot :item="item" :index="index"></slot>
         </SplideSlide>
       </template>
-    </Splide>
+    </Splide> -->
 
     <div v-if="customPaging" class="grident-bottom">
       <div class="custom-dotting">
@@ -83,17 +83,17 @@ export default {
   data() {
     return {
       currentPage: 0, 
-      secondaryOptions: {
-        type: 'slide',
-        rewind: true,
-        cover: true,
-        isNavigation: true,
-        perPage  : 2.7,
-        gap: '0.8rem',
-        trimSpace: true,
-        pagination  : false,
-        arrows: false,
-      },
+      // secondaryOptions: {
+      //   type: 'slide',
+      //   rewind: true,
+      //   cover: true,
+      //   isNavigation: true,
+      //   perPage  : 2.7,
+      //   gap: '0.8rem',
+      //   trimSpace: true,
+      //   pagination  : false,
+      //   arrows: false,
+      // },
       paging: [],
       prev: null,
       prevIndex: 0,
@@ -104,9 +104,8 @@ export default {
   computed: {
     setOption() {
       let opt =Object.assign({
-        arrows : this.options.perPage <  this.getDataLength(),
-        pagination : this.options.perPage <  this.getDataLength(),
-        drag : this.options.perPage <  this.getDataLength()
+        arrows : false,
+        pagination : true
       }, this.options)
 
       if(!this.content && this.data.length <= 1){

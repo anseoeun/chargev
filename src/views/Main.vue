@@ -1,7 +1,7 @@
 <template>
   <div class="contents">
     <div class="home-wrap">
-      <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page parallel-slider">
+      <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
         <template slot="content">
             <splide-slide>
                 <div class="charge-status">
@@ -60,49 +60,77 @@
                       </Carousel>
                     </div>
                     <ul class="history-list">
-                      <li>
-                        <router-link to="/" class="box">
+                      <li v-for="(item, index) in historyList" :key="index">
+                        <button class="box" @click="btmLayer.popPaymentDetail = true">
                           <Icon type="arr-right" />
                           <div class="t-wrap">
                             <div class="row">
-                              <div class="cell tit"><b>차지비</b></div>
-                              <div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div>
-                            </div>
-                            <div class="row">
-                              <div class="cell tit">
-                                <b class="c-red">잔액부족<br>미결제</b>
+                              <div class="cell tit"><b>차지비</b>
+                                <div v-if="item.status === 'error-type1'" class="c-green">잔액부족<br>미결제</div>
+                                <div v-if="item.status === 'normal'">정상이용</div>
                               </div>
                               <div class="cell">
-                                <p><b class="price">9,010원</b> 충전포인트 결제</p>
-                                <p clas="thin">2021-11-02 15:05:02</p>
+                                <p>{{ item.addr }}</p>
+                                <p><b class="price">{{ item.price }}원</b> {{ item.method }} 결제</p>
+                                <p class="thin">{{ item.date }}</p>
                               </div>
                             </div>
                           </div>
-                        </router-link>
+                        </button>
                       </li>
                     </ul>
                 </div>
+            </splide-slide>
+            <splide-slide>
+              <div class="notice-wrap">
+                <h2 class="tit-type1">공지사항 </h2>
+                 <div class="noti-list">
+                   <Carousel :data ="notiList" :options="notiOpt">
+                    <template slot-scope="props">
+                      <router-link to="/" class="noti">
+                        <div class="img" :style="`background-image:url(${props.item.src})`"></div>
+                        <div class="cate">{{ props.item.cate }}</div>
+                        <div class="tit">{{ props.item.tit }}</div>
+                        <div class="date">{{ props.item.date }}</div>
+                      </router-link>
+                    </template>
+                    </Carousel>
+                 </div>
+                 
+                 <h2 class="tit-type1">이벤트 </h2>
+                 <div class="noti-list">
+                   <Carousel :data ="notiList" :options="notiOpt">
+                    <template slot-scope="props">
+                      <router-link to="/" class="noti">
+                        <div class="img" :style="`background-image:url(${props.item.src})`"></div>
+                        <div class="cate">{{ props.item.cate }}</div>
+                        <div class="tit">{{ props.item.tit }}</div>
+                        <div class="date">{{ props.item.date }}</div>
+                      </router-link>
+                    </template>
+                    </Carousel>
+                 </div>
+              </div>
             </splide-slide>
         </template>
       </Carousel>
     </div>
 
-    <!-- 팝업:통신사 선택 -->
-    <AgencySelect :visible="btmLayer.agency" @close="agencySelect"/>
+    <!-- 상세 결제내역 -->
+    <PopPaymentDetail :visible="btmLayer.popPaymentDetail" @close="btmLayer.popPaymentDetail = false"/>
 
   </div>
 </template>
 
 <script>
-import AgencySelect from '@/views/common/AgencySelect'
+import PopPaymentDetail from '@/views/PopPaymentDetail'
 export default {
   components:{
-    AgencySelect
+    PopPaymentDetail
   },
   data(){
     return{
       year: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
-      // year: [],
       month: [],
       date: [],
       days:  [],
@@ -120,11 +148,6 @@ export default {
         ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '3,960', '55,010'],
         ['', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '', '55,010', '13,450', '', '3,960', '6,000', '', '3,960', '55,010'],
       ],
-      options: {
-        perPage: 1,
-        perMove: 1,
-        arrows: false,
-      },
       fixedCal: {
         year: 0,
         month: 0,
@@ -136,36 +159,88 @@ export default {
         date: 0
       },
       yearOpt: {
-        // autoWidth: true,
-        arrows: false,
         pagination: false,
         perPage: 4,
         start: 7
       },
       monthOpt: {
-        // type   : 'loop',
-        arrows: false,
         perPage: 6,
       },
       dateOpt: {
-        // type   : 'loop',
-        arrows: false,
         perPage: 7,
         perMove:1
       },
+      historyList: [
+        {
+          addr:'서울시 송파구 롯데타워지하4층 완속#1',
+          status: 'normal',
+          price:'9,010',
+          method:'충전포인트',
+          date:'2021-11-03 02:55:23',
+        },
+        {
+          addr:'서울시 송파구 롯데타워지하4층 완속#1',
+          status: 'error-type1',
+          price:'13,450',
+          method:'신용카드',
+          date:'2021-11-02 15:05:02',
+        },
+        {
+          addr:'서울시 송파구 롯데타워지하4층 완속#1',
+          status: 'normal',
+          price:'9,010',
+          method:'충전포인트',
+          date:'2021-11-03 02:55:23',
+        },
+        {
+          addr:'서울시 송파구 롯데타워지하4층 완속#1',
+          status: 'error-type1',
+          price:'13,450',
+          method:'신용카드',
+          date:'2021-11-02 15:05:02',
+        },
+      ],
+
+      notiOpt: {
+        autoWidth: true,
+        perMove:1,
+        pagination:false,
+      },
+      notiList: [
+        {
+          src: require('@/assets/images/temp-noti.jpg'),
+          cate: '신규 서비스 안내',
+          tit: '기프티쇼 쿠폰 출시 안내',
+          date: '2022-02-25'
+        },
+        {
+          src: require('@/assets/images/temp-noti.jpg'),
+          cate: '신규 서비스 안내',
+          tit: '기프티쇼 쿠폰 출시 안내',
+          date: '2022-02-25'
+        },
+        {
+          src: require('@/assets/images/temp-noti.jpg'),
+          cate: '신규 서비스 안내',
+          tit: '기프티쇼 쿠폰 출시 안내',
+          date: '2022-02-25'
+        },
+      ],
+
+      options: {
+        perPage: 1,
+        perMove: 1,
+      },
       currentPage: 0,
-      paging: new Array(6),
+      paging: new Array(3),
       btmLayer:{
-        agency: false,
+        popPaymentDetail: false,
       },
     }
   },
   created(){
     this.setToday();
     this.showYear(this.selectedCal.year)
-  },
-  mounted(){
-    // this.yearOpt.start = this.year.length - 1;
   },
   methods: {
     agencySelect(val){
@@ -182,20 +257,12 @@ export default {
       this.fixedCal.year = today.getFullYear();
       this.fixedCal.month = today.getMonth() + 1;
       this.fixedCal.date = today.getDate();    
-
     },
     showYear(y) {
-      // let year = [];
       let month = [];
       let date = {};
       let days = {};
-
       let day = ['일', '월', '화', '수', '목', '금', '토'];
-
-      // for (let i = 0; i < 8; i++) {
-      //     year.push(y-(7-i));
-      // }
-      // console.log(year);
 
       var d1, d2 = y+(y-1-(y-1)%4)/4-(y-1-(y-1)%100)/100+(y-1-(y-1)%400)/400;
       for (let m = 1; m < 13; m++) {
@@ -216,7 +283,6 @@ export default {
               daynum += 1
           }
       }
-      // this.year = year;
       this.month = month;
       this.date = date;
       this.days = days;
@@ -227,16 +293,9 @@ export default {
     setYear(year){
       this.selectedCal.year= year;
       this.showYear(this.selectedCal.year)
-      // document.querySelector('.month-slide .splide__pagination li:nth-child(1) button').click()
-      // document.querySelector('.date-slide .splide__pagination li:nth-child(1) button').click()
-      // this.selectedCal.month = 1
-      // this.selectedCal.date = 0
-      
     },
     setMonth(month){
       this.selectedCal.month = month;
-      // document.querySelector('.date-slide .splide__pagination li:nth-child(1) button').click()
-      // this.selectedCal.date = 1
     },
     setDate(date){
       this.selectedCal.date = date;

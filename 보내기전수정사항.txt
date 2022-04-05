@@ -1,0 +1,7 @@
+보내기전 수정사항
+
+mixin.scss 
+rem floor변경
+
+app.vue 하단
+스타일 링크변경

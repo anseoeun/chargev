@@ -2,8 +2,9 @@
     <div 
       ref="layerwrap" 
       class="btm-layer-wrap"
+      :class="{on:visible}"
      >
-      <div ref="layer" class="btm-layer">
+      <div ref="layer" class="btm-layer" style="display:none">
           <template>
               <slot ref="content" name="content" />
           </template>
@@ -32,9 +33,11 @@ export default {
         if (newVisible) {
             setTimeout(()=>{
               $('body').css('overflow', 'hidden');
-              $(layerwrap).slideDown()
-              $(layer).slideDown()
-              $('.btm-layer .scroll').on('scroll', function(e){
+              $(layerwrap).slideDown(250);
+              setTimeout(()=>{
+                $(layer).slideDown(300);
+              },300)
+              $(layer).find('.scroll').on('scroll', function(e){
                 e.stopPropagation(); 
                 let el = document.querySelector('.scroll')
                 el.addEventListener("touchstart", function(e){ e.stopPropagation() });
