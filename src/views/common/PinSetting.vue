@@ -6,13 +6,13 @@
         <div class="row">
             <div class="input">
                 <div class="inp-pin">
-                <div class="pin">
-                    <input type="password" v-model="pin[0]" autocomplete="new-password" maxlength="1">
-                    <input type="password" v-model="pin[1]" autocomplete="new-password" maxlength="1">
-                    <input type="password" v-model="pin[2]" autocomplete="new-password" maxlength="1">
-                    <input type="password" v-model="pin[3]" autocomplete="new-password" maxlength="1">
-                </div>
-                <input type="number" v-model="pin" @focus="initPinFocus" :oninput="maxLength(4)">
+                  <div class="pin">
+                      <Input type="password" v-model="form.pin[0]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin[1]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin[2]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin[3]" autocomplete="new-password" maxlength="1" />
+                  </div>
+                  <Input type="number" v-model="form.pin" @focus="initPinFocus" maxlength="4" />
                 </div>
             </div>
         </div>
@@ -29,13 +29,13 @@
         <div class="row">
             <div class="input">
                 <div class="inp-pin">
-                <div class="pin">
-                    <input type="password" v-model="pin2[0]" autocomplete="new-password" maxlength="1">
-                    <input type="password" v-model="pin2[1]" autocomplete="new-password" maxlength="1">
-                    <input type="password" v-model="pin2[2]" autocomplete="new-password" maxlength="1">
-                    <input type="password" v-model="pin2[3]" autocomplete="new-password" maxlength="1">
-                </div>
-                <input type="number" v-model="pin2" @focus="initPinFocus('check')" :oninput="maxLength(4)">
+                  <div class="pin">
+                      <Input type="password" v-model="form.pin2[0]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin2[1]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin2[2]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin2[3]" autocomplete="new-password" maxlength="1" />
+                  </div>
+                  <Input type="number" v-model="form.pin2" @focus="initPinFocus('check')" maxlength="4" />
                 </div>
             </div>
         </div>
@@ -55,21 +55,23 @@ export default {
       type: Boolean,
       default: false  
     },
+    form: {
+      type: Object,
+      default: ()=>{}
+    },    
   },  
   data(){
     return{
       pinSet:false,
-      pin: [],   
-      pin2: [],   
     }
   },
   methods:{
     initPinFocus(type){
-      let pin = this.pin
-      if(type === 'check') pin = this.pin2
+      let pin = this.form.pin
+      if(type === 'check') pin = this.form.pin2
       if(pin.length >= 4){
-        if(type === 'check') this.pin2 = []
-        else this.pin = []
+        if(type === 'check') this.form.pin2 = ''
+        else this.form.pin = ''
       }
     },
     pinSetting(){

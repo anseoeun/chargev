@@ -5,7 +5,7 @@
         <div class="form-box">
         <div class="row">
             <div class="input auto">
-                <input type="text" v-model="agency.label" placeholder="통신사">
+                <Input type="text" v-model="form.agency.label" placeholder="통신사" />
             </div>
             <div class="right">
               <button class="btn" @click="$emit('agencyOpen')">선택</button>
@@ -13,12 +13,12 @@
         </div>
         <div class="row">
             <div class="input">
-                <input type="number" :oninput="maxLength(11)" placeholder="전화번호">
+                <Input type="number" v-model="form.tel" placeholder="전화번호" maxlength="11" />
             </div>
         </div>
         <div class="row">
             <div class="input inp-certify">
-                <input type="number" :oninput="maxLength(6)" placeholder="인증번호">
+                <Input type="number" v-model="form.auth" placeholder="인증번호" maxlength="6" />
                 <span v-if="setForm" class="time">2:59</span>
             </div>
         </div>
@@ -35,7 +35,7 @@
 
 export default {
   props: {
-    agency: {
+    form: {
       type: Object,
       default: ()=>{}
     },
@@ -45,15 +45,5 @@ export default {
       setForm: false
     }
   },
-  methods:{
-    initPinFocus(type){
-      let pin = this.pin
-      if(type === 'check') pin = this.pin2
-      if(pin.length >= 4){
-        if(type === 'check') this.pin2 = []
-        else this.pin = []
-      }
-    }
-  }
 }
 </script>

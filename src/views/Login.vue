@@ -13,12 +13,12 @@
                   <div class="form-box">
                     <div class="row">
                       <div class="input">
-                          <input type="text" placeholder="ID(Email)">
+                        <Input type="text" v-model="form.id" placeholder="ID(Email)" />
                       </div>
                     </div>
                     <div class="row">
                       <div class="input">
-                          <input type="password" placeholder="비밀번호">
+                        <Input type="password" v-model="form.pw" placeholder="비밀번호" />
                       </div>
                     </div>
                   </div>
@@ -118,8 +118,8 @@
           <splide-slide>
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <div class="min-fix">
-              <!-- 본인인증 -->
-              <SelfAuth :agency="agency" @agencyOpen="btmLayer.agency = true" @complete="currentPage = 5" />
+               <!-- 본인인증 -->
+              <SelfAuth :form="form" @agencyOpen="btmLayer.agency = true" @complete="currentPage = 5" />
             </div>
             <div class="info-text">
               신규앱 최초 1회 로그인 시<br />
@@ -131,7 +131,7 @@
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <div class="min-fix">
               <!-- pin설정 -->
-              <PinSetting />
+              <PinSetting :form="form" />
             </div>
             <div class="info-text">
               보안을 위한 PIN을 설정합니다.
@@ -159,10 +159,15 @@ export default {
   },
   data(){
     return{
-      btmLayer:{
-        agency: false,
+      form:{
+        id: '',
+        pw: '',
+        agency: {},
+        tel: '',
+        auth: '',
+        pin: '',
+        pin2: '',
       },
-      agency: {},
       options: {
         perPage: 1,
         perMove: 1,
@@ -170,11 +175,15 @@ export default {
       },
       currentPage: 0,
       paging: new Array(6),
+
+      btmLayer:{
+        agency: false,
+      }, 
     }
   },
   methods: {
     agencySelect(val){
-      val ? this.agency = val : ''
+      val ? this.form.agency = val : ''
       this.btmLayer.agency = false
     },
   }

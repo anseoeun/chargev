@@ -7,6 +7,8 @@
       @splide:mounted="init"
       @splide:move="onMove"
       @splide:moved="onMoved"
+      @splide:drag="onDrag"
+      @splide:dragged="onDragged"
     >
       <template v-if="content">
         <slot ref="content" name="content"></slot>
@@ -149,13 +151,32 @@ export default {
       this.$emit('onMove', slider);
       this.$emit('update:page', index);
     },
-    onMoved(slider){  
+    onMoved(slider, index){  
       if(this.isPageslider){
+        if(this.prevIndex == index) return;        
         this.$refs.slider.$el.firstChild.firstChild.querySelectorAll('li').forEach((el) => {
           el.scrollTop = 0;
         })
+        this.prevIndex = index;
       }
+      setTimeout(()=>{
+        this.$refs.slider.$el.classList.remove('ing');
+      }, 200)
       this.$emit('onMoved', slider);
+    },
+    onDrag(){
+      this.$refs.slider.$el.classList.add('ing');
+      // console.log(this.$refs.slider.$el.parentNode.parentNode)
+      // if(this.$refs.slider.$el.parentNode.parentNode.classList.contains('ing')) {
+      //   console.log('message')
+      //   document.querySelector('body').addEventListener("touchmove", function(){
+      //     console.log('touchmoveing')
+      //   });
+      //   this.$refs.slider.$el.querySelector('.splide__track').addEventListener("touchmove", function(e){ e.stopPropagation() });
+      // }
+    },
+    onDragged(){
+      this.$refs.slider.$el.classList.remove('ing');
     },
     getDataLength() {
       if(this.content){
