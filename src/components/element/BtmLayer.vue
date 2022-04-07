@@ -4,6 +4,7 @@
       class="btm-layer-wrap"
       :class="{on:visible}"
      >
+     <div class="dim"></div>
       <div ref="layer" class="btm-layer" style="display:none">
           <template>
               <slot ref="content" name="content" />
@@ -58,11 +59,14 @@ export default {
         const layer = this.$refs.layer
 
         let startY= null;
+        let startX= null;
         let dir = null;
         let menutop = 0 
+        let menuleft = 0 
         let over = 100;
         let close = false;
-        let move = null;
+        let moveY = null;
+        let moveX = null;
 
         function touchMove(){
             if($(layer).find('.splide.slider').hasClass('ing')){
@@ -70,16 +74,31 @@ export default {
             }
 
             let e = window.event;
-            // e.stopPropagation();
-            // e.stopImmediatePropagation();
-
             let touch = e.touches[0];
-            move = Math.abs(menutop - parseInt(startY - touch.clientY));
+            // let style = $(layerwrap).find('.splide__list').attr('style');
             
-            if(move < 30) return;
+            moveY = Math.abs(menutop - parseInt(startY - touch.clientY));
+            moveX = Math.abs(menuleft - parseInt(startX - touch.clientX));
+            
+            e.stopPropagation()
+            if(moveY < 30) return;
             $(layer).addClass('ing');
-            // layer.querySelector('.splide__track').addEventListener("touchmove", function(e){ e.stopPropagation() });
-            layer.querySelector('.splide__track').addEventListener("touchmove", {capture: false});
+            $(layerwrap).find('.dim').show();
+            if(moveX > 30){
+              // console.log('a')
+              // e.stopPropagation()
+              //  $(layerwrap).find('.carousel').append('<div class="dim" style="opacity:0"></div>')
+              //  $(layerwrap).find('.carousel .dim').on("touchmove",function(e){ 
+              //    console.log('dimff')
+              //    e.stopPropagation() 
+              //  });
+              // $('body').append('<style>.splide__list{'+style.split(';')[0]+' !important;}</style>')
+
+            }
+            // if(moveY >= 30){
+            //   console.log('b')
+            //   $(layerwrap).find('.splide__list').unbind('touchmove.temp');    
+            // }
             
             if(startY > touch.clientY) dir = 'plus'
             else dir = 'minus'
@@ -90,7 +109,7 @@ export default {
               $(layer).css('bottom', 0);
             }
 
-           if(dir == 'minus' && move > over){
+           if(dir == 'minus' && moveY > over){
                 close = true;
             }else{
                 close = false;
@@ -98,9 +117,6 @@ export default {
         }
 
         function touchEnd(){  
-            // let e = window.event;
-            // e.stopPropagation();
-
             if(close) {
                 this.closeLayer();
                 setTimeout(()=>{
@@ -112,25 +128,24 @@ export default {
             }
 
             $(layer).removeClass('ing');
-            layer.querySelector('.splide__track').addEventListener("touchmove", {capture: true});
+            $(layerwrap).find('.dim').hide()
+            // $(layerwrap).find('.splide__list').unbind('touchmove.temp');            
         }
 
         function touchStart(e){
             let touch = e.touches[0];
             menutop = 0;
             startY = touch.clientY;
+            startX = touch.clientX;
             close = false;
         }
 
-        $(layerwrap).on("touchstart",function(e){  
-          touchStart(e);
-        });
-        $(layerwrap).find('*').on("touchstart",function(e){  
-           touchStart(e);
-        });
+        $(layerwrap).on("touchstart",function(e){ touchStart(e); });
+        $(layerwrap).find('*').on("touchstart",function(e){ touchStart(e); });
 
         $(layerwrap).off("touchmove");
-        $(layerwrap).on("touchmove",touchMove);         
+        // $(layerwrap).on("touchmove", touchMove);
+        $(layerwrap)[0].addEventListener("touchmove",touchMove, true);         
        
         $(layerwrap).off("touchend");
         $(layerwrap).on("touchend",touchEnd.bind(this))

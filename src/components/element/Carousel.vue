@@ -113,7 +113,6 @@ export default {
       if(!this.content && this.data.length <= 1){
         opt.arrows = false;
       }
-
       return opt;
     }
   },

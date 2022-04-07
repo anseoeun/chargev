@@ -1,7 +1,7 @@
 <template>
     <BtmLayer :visible="visible" @close="$emit('close')" class="pop-payment-detail">
       <template slot="content">
-        <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
+        <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" :key="key" class="slider-page">
           <template slot="content">
               <splide-slide>
                 <h2 class="tit-type1">상세 결제내역</h2>
@@ -41,14 +41,42 @@ export default {
       default: false  
     },
   },  
+  watch:{
+    visible(value){
+      console.log(value)
+      if(value){
+        this.options = {
+            perPage: 1,
+            perMove: 1,
+            start: 1  
+        }
+      }
+    }
+  },
   data(){
     return{
       options: {
         perPage: 1,
-        perMove: 1
+        perMove: 1,
+        start: 1
+        // breakpoints: {
+        //   640: {
+        //     destroy: true,
+        //   },
+        // }
       },
-      currentPage: 0,           
+      key:1,
+      currentPage: 0      
     }
+  },
+  mounted(){
+
+    // this.options = {
+    //     perPage: 1,
+    //     perMove: 1,
+    //     start: 2
+    // }
+    // this.key = 2        
   },
   methods:{
 
