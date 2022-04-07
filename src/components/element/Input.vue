@@ -52,7 +52,9 @@ export default {
     },    
     onFocus(e){
       document.querySelectorAll('.grident-bottom').forEach((el) => {
-          el.style.display = 'none';
+          if(!el.parentNode.parentNode.classList.contains('btm-layer')){
+            el.style.display = 'none';
+          }
       });
       document.querySelector('.footer').style.display = 'none';
       this.$emit('focus', e);
@@ -60,7 +62,7 @@ export default {
     onFocusOut(e){
       setTimeout(()=>{
           document.querySelectorAll('.grident-bottom').forEach((el) => {
-              el.style.display = 'block';
+              el.style.display = 'flex';
           });
           document.querySelector('.footer').style.display = 'block';
       }, 200)

@@ -1,0 +1,9 @@
+diff a/src/components/element/BtmLayer.vue b/src/components/element/BtmLayer.vue	(rejected hunks)
+@@ -4,6 +4,7 @@
+       class="btm-layer-wrap"
+       :class="{on:visible}"
+      >
++     <div class="dim"></div>
+       <div ref="layer" class="btm-layer" style="display:none">
+           <template>
+               <slot ref="content" name="content" />
