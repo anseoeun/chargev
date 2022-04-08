@@ -171,6 +171,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .i-favorite.on svg path:first-child {fill:#92FF44}
 .svg-prevent{content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0, 0, 0, 0);}
 
+/* color */
+.c-green{color:#8FFF44 !important;}
+
 /* tit-type */
 .tit-type1{font-size:rem(16);color:#8A8B8C;@include bold;text-align:center;}
 
@@ -234,6 +237,8 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .layoutDefault .slider-page,
 .layoutDefault .slider-page > .splide > .splide__track > .splide__list > .splide__slide{height:100vh;}
 .layoutDefault .slider-page > .splide > .splide__track > .splide__list > .splide__slide{padding:rem(110) rem(24) rem(220);}
+
+.slider-page > .splide > .splide__track > .splide__list{width:100%;}
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide.is-active{overflow:auto}
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide .parallel-box{transition: all 0.5s ease;-webkit-transition: all 0.5s ease;}
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide[prev] .parallel-box{transform: translateX(rem(60));}
@@ -269,7 +274,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 /* alarm */
 .alarm-wrap .tit-type1{margin:rem(32) 0;}
 // .alarm-wrap .tab-type1{width:calc(100% + rem(32));padding:0 rem(16);margin-left:rem(-16)}
-.alarm-wrap .tab-type1{padding:0 rem(16);}
+// .alarm-wrap .tab-type1{padding:0 rem(16);}
 .alarm-wrap .alarm-list{margin-top:rem(40);}
 .alarm-wrap .alarm-list ul li{position:relative;padding:rem(12) rem(28) rem(12) rem(40);font-size:rem(14);background:#2A2B2C;border-radius:rem(8);}
 .alarm-wrap .alarm-list ul li ~ li{margin-top:rem(16);}
@@ -401,7 +406,6 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 
 /* c-color */
 // .c-blue{color:#5D96F6 !important;}
-.c-green{color:#8FFF44 !important;}
 // .c-red{color:#FF4444 !important;}
 // .c-gray{color:#5A5B5C !important;}
 

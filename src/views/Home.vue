@@ -38,20 +38,18 @@ export default {
   data(){
     return {
         list: {
-            // 스플래시
-            'splash': '스플래시',
-
-            // 로그인
-            'login': '로그인',
-            'LoginMenu': '로그인메뉴',
-            'loginMenuCoper': '로그인메뉴(법인)',
-            'loginRuleList': '로그인약관',
-
-            // 알림
-            'alarm': '알림',
-
-            // 메인
-            'main': '메인',
+          // 스플래시
+          'splash': '스플래시',
+          // 로그인
+          'login': '로그인',
+          'join': '회원가입',          
+          'LoginMenu': '로그인메뉴',
+          'loginMenuCoper': '로그인메뉴(법인)',
+          'loginRuleList': '로그인약관',
+          // 메인
+          'main': '메인',
+          // 알림
+          'alarm': '알림',
         },      
         list2: {
 

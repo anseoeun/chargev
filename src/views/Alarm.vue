@@ -89,7 +89,8 @@ export default {
 
       options: {
         perPage: 1,
-        perMove: 1
+        perMove: 1,
+        destroy: true
       },
       currentPage: 0,      
     }

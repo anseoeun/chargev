@@ -7,9 +7,9 @@
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <div class="min-fix">
               <!-- 본인인증 -->
-              <SelfAuth :agency="agency" @agencyOpen="btmLayer.agency = true" @complete="currentPage = 1" />
+              <SelfAuth :form="form" @agencyOpen="btmLayer.agency = true" @complete="currentPage = 1" />
             </div>
-          </splide-slide>            
+          </splide-slide>
           <splide-slide>
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <!-- 결제정보 추가 -->
@@ -29,17 +29,17 @@
                     <div class="form-box">
                       <div class="row">
                         <div class="input">
-                            <input type="number" :oninput="maxLength(16)" placeholder="카드번호">
+                            <Input type="number" v-model="form.cardnum" maxlength="16" placeholder="카드번호" />
                         </div>
                       </div>
                       <div class="row">
                         <div class="input">
-                            <input type="number" :oninput="maxLength(4)" placeholder="유효기간">
+                            <Input type="number" v-model="form.maxdate" maxlength="4" placeholder="유효기간" />
                         </div>
                       </div>
                       <div class="row">
                         <div class="input">
-                            <input type="password" maxlength="2" placeholder="비밀번호 앞2자리">
+                            <Input type="password" v-model="form.password" maxlength="2" placeholder="비밀번호 앞2자리" />
                         </div>
                       </div>
                     </div>
@@ -93,33 +93,33 @@
                       <div class="form-box">
                         <div class="row">
                           <div class="input">
-                              <input type="text" placeholder="차량번호">
+                              <Input type="text" v-model="form.carnum" placeholder="차량번호" />
                           </div>
                         </div>
                         <div class="row">
                           <div class="input">
-                              <input type="text" placeholder="소유자명">
+                              <Input type="text" v-model="form.user" placeholder="소유자명" />
                           </div>
                         </div>
                         <template v-if="carIniputStatus === 'more'">
                           <div class="row">
                             <div class="input">
-                                <input type="text">
+                                <Input type="text" />
                             </div>
                           </div>
                           <div class="row">
                             <div class="input">
-                                <input type="text">
+                                <Input type="text" />
                             </div>
                           </div>
                           <div class="row">
                             <div class="input">
-                                <input type="text">
+                                <Input type="text" />
                             </div>
                           </div>
                           <div class="row">
                               <div class="input auto">
-                                  <input type="number" :oninput="maxLength(16)" placeholder="멤버십 카드 번호 입력">
+                                  <Input type="number" v-model="form.memcardnum" maxlength="16" placeholder="멤버십 카드 번호 입력" />
                               </div>
                               <div class="right"><button class="btn">간편인식</button></div>
                           </div>
@@ -195,7 +195,7 @@
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <div class="min-fix">
               <!-- pin설정 -->
-              <PinSetting @pinset="pinIniputStatus = 'completion'" />
+              <PinSetting :form="form" @pinset="pinIniputStatus = 'completion'" />
               </div>
               <div v-if="pinIniputStatus != 'completion'" class="info-text">
                 PIN코드를 입력해주세요.
@@ -229,10 +229,21 @@ export default {
       paymentIniputStatus: 'camera',
       carIniputStatus: 'basic',
       pinIniputStatus: '',
-      btmLayer:{
-        agency: false,
+      form:{
+        cardnum: '',
+        maxdate: '',
+        password: '',
+        carnum: '',
+        memcardnum: '',
+        user: '',
+        id: '',
+        pw: '',
+        agency: {},
+        tel: '',
+        auth: '',
+        pin: '',
+        pin2: '',
       },
-      agency: {},
       options: {
         perPage: 1,
         perMove: 1,
@@ -240,11 +251,15 @@ export default {
       },    
       currentPage: 0,  
       paging: new Array(6),
+
+      btmLayer:{
+        agency: false,
+      },      
     }
   },
   methods: {
     agencySelect(val){
-      this.agency = val
+      val ? this.form.agency = val : ''
       this.btmLayer.agency = false
     },
   }
