@@ -37,7 +37,7 @@ export default {
               setTimeout(()=>{
                 $(layer).slideDown(300);
               },300)
-              $(layer).find('.splide__slide').on('scroll', function(e){
+              $(layer).find('.splide__slide, .cont-croll').on('scroll', function(e){
                 e.stopPropagation(); 
                 let el = $(this)
                 el.addEventListener("touchstart", function(e){ e.stopPropagation() });

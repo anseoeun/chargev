@@ -42,6 +42,20 @@
                 <span class="end">24:00 </span>
               </div>
            </div>
+           <br>
+           <br>
+           <div class="price-slider">
+             <veeno 
+              :pipsy = "{ 
+                  mode: 'range', 
+                  density: 5000
+                }"
+                :tooltips="[{ to: (n) => n.toFixed(0) }]"
+                :handles="[249]" 
+                :range="{'min': 199, 'max': 420}"
+                :style="{'margin-bottom': '2rem'}"
+              />
+           </div>
          </div>
       </div>
     </div>

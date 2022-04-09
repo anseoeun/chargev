@@ -112,7 +112,7 @@ export default {
           .datum(this.dataset) 
           .attr("class", "line") 
           .attr("d", line) 
-          .attr('stroke', '#000')
+          .attr('stroke', '#fff')
           .attr('fill', 'none')
 
       let num = 0
@@ -123,7 +123,8 @@ export default {
       tick
         .selectAll('.tick text')
         .attr("y", "5")
-        .attr("color", "#000000");
+        .attr('fill', '#fff')
+        // .attr("color", "#000000");
 
       tick
         .selectAll('line')
@@ -143,13 +144,14 @@ export default {
       .attr('d', 'M21 17L15 23L9 17H3C1.89543 17 1 16.1046 1 15V3C1 1.89543 1.89543 1 3 1H27C28.1046 1 29 1.89543 29 3V15C29 16.1046 28.1046 17 27 17H21Z')
       .attr('stroke-width', '1')
       .attr('stroke', '#92FF44')
-      .attr('fill', '#fff')
+      // .attr('fill', '#fff')
       .attr("transform", "translate(" + (xScale(this.label[this.now]) - 15) + "," +  (yScale(this.dataset[this.now].y) - 25) + ")");
 
       svg.append("text").data(this.dataset)
-      .attr("transform", "translate(" + (xScale(this.label[this.now]) - 9.5) + "," +  (yScale(this.dataset[this.now].y) - 12)+ ")")
-      .attr('fill', '#5A5B5C')
-      .text(function() { return '지금'; });
+      .attr("transform", "translate(" + (xScale(this.label[this.now]) - 12) + "," +  (yScale(this.dataset[this.now].y) - 12.5)+ ")")
+      .attr('fill', '#fff')
+      .attr('style', 'font-size:9px')
+      .text(function() { return 'NOW'; });
     }
   }
 };

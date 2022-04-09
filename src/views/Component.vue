@@ -1,7 +1,96 @@
 <template>
   <div class="test">
-    테스트
-
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <Icon type="arr-right" />
+          <span class="payco">
+            <Icon type="payco" />
+          </span>
+         </router-link>
+      </div>
+      <br>
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <div class="t-wrap">
+            <div class="row">
+              <div class="cell">BMW 530e 
+                <div class="fr">
+                    <button  @click="checkIcon($event, 'complteChecked')">
+                      <Icon type="check" :class="{on: complteChecked}" />
+                      &nbsp;
+                      차량공유 등록 완료
+                    </button>
+                </div>
+              </div>
+            </div>
+            <div class="row"><div class="cell">02보6596</div></div>
+            <div class="row"><div class="cell">(삼성) 5361 48** **** 4151</div></div>
+          </div>
+         </router-link>
+      </div>
+      <br>
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <Icon type="arr-right" />
+          <div class="check">
+            <button @click="checkIcon">
+              <Icon type="check" />
+            </button>
+          </div>
+          <div class="t-wrap">
+            <div class="row"><div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div></div>
+            <div class="row"><div class="cell"><b class="price">9,010원</b> 충전포인트 결제</div></div>
+            <div class="row"><div class="cell">2021-11-02 15:05:02</div></div>
+          </div>
+         </router-link>
+      </div>
+      <br>
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <Icon type="arr-right" />
+          <div class="t-wrap">
+            <div class="row">
+              <div class="cell tit"><b>차지비</b></div>
+              <div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div>
+            </div>
+            <div class="row">
+              <div class="cell tit">
+                <b class="c-red">잔액부족<br>미결제</b>
+              </div>
+              <div class="cell">
+                <p><b class="price">9,010원</b> 충전포인트 결제</p>
+                <p>2021-11-02 15:05:02</p>
+              </div>
+            </div>
+          </div>
+         </router-link>
+      </div>
+      <br>
+      <div class="black-box">
+        <router-link to="/" class="box">
+          <Icon type="arr-right" />
+           <div class="check w-sm">
+            <button @click="checkIcon">
+              <Icon type="check" />
+            </button>
+          </div>
+          <div class="t-wrap">
+            <div class="row">
+              <div class="cell tit"><b>차지비</b></div>
+              <div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div>
+            </div>
+            <div class="row">
+              <div class="cell tit">
+                정상이용
+              </div>
+              <div class="cell">
+                <p><b class="price">9,010원</b> 충전포인트 결제</p>
+                <p>2021-11-02 15:05:02</p>
+              </div>
+            </div>
+          </div>
+         </router-link>
+      </div>
       <br>
       <br>
       <!-- transparent-box-wrap -->
@@ -63,7 +152,7 @@
         <div class="transparent-box">
           <div class="form-box">
             <div class="row">
-              <div class="input">
+              <div class="input"> 
                   <div class="inp-pin">
                     <div class="pin">
                         <input type="password" v-model="pin[0]" autocomplete="new-password" maxlength="1">
@@ -135,6 +224,31 @@
           <button class="btn-type1 st2">검색</button>
         </div>
       </div>
+
+      <!--  -->
+      <h2 class="tit-type1">기존 이용 충전소</h2>
+      <div class="charge-list">
+        <ul>
+          <li>
+            <div class="row">
+              <div class="celll">서울시 송파구<br />롯데월드타워 지하2층</div>
+              <div class="cell right">차지비</div>
+            </div>
+            <div class="row">
+              <div class="cell t-s">269 ~ 279 (kWh/원) </div>
+              <div class="cell right">1km 이내</div>
+            </div>
+            <div class="tag">
+              <span>혼잡함</span>
+              <span>할인중</span>
+            </div>
+            <div class="btn-box">
+              <button class="btn-type1 st2">충전하기<Icon type="charge" /></button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
   </div>
 </template>
 

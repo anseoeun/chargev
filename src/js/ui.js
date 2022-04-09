@@ -31,7 +31,7 @@ Vue.mixin({
     methods: {
       checkIcon(e, arr, i){
         e.stopPropagation();
-        e.preventDefault  ();
+        e.preventDefault();
         const el = e.currentTarget.querySelector('i')
         if(el.classList.contains('on')){
           if(Array.isArray(this[arr])) this.$set(this[arr], i, false)
@@ -41,8 +41,14 @@ Vue.mixin({
           else this[arr] = true
         }
       },
-      maxLength(max){
-        return 'if (this.value.length > '+ max +') this.value = this.value.slice(0, '+ max +')';
-      }      
+      arrAllCheck(arr, length){
+        let num = length;
+        for(let i=0;i<=num;i++){
+          this.$set(this[arr], i, true);
+        }
+      }
+      // maxLength(max){
+      //   return 'if (this.value.length > '+ max +') this.value = this.value.slice(0, '+ max +')';
+      // }      
     }
   })

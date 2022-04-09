@@ -50,6 +50,8 @@ export default {
           'main': '메인',
           // 알림
           'alarm': '알림',
+          // 충전소지도
+          'chargemap': '충전소지도',
         },      
         list2: {
 

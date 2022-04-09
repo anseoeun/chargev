@@ -17,11 +17,7 @@ const routes = [
   // 테스트
 	{ path: '/chart', component: () => import('@/views/Chart.vue') },
   // 테스트
-	{ path: '/time', meta: { layout: 'None' }, component: () => import('@/views/Time.vue') },
-  // 테스트
 	{ path: '/calendar', component: () => import('@/views/Calendar.vue')},
-  // 테스트
-	{ path: '/slider', meta: { layout: 'Default' }, component: () => import('@/views/Slider.vue')},
 
   // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
@@ -30,12 +26,12 @@ const routes = [
 	{ path: '/loginMenu', component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
-
   // 메인
   { path: '/main', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/Main.vue')},
-
-  // ------------ 알림---------------- //
+  // 알림
 	{ path: '/alarm', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Alarm.vue')},
+  // 충전소지도
+	{ path: '/chargemap', meta: {layout: 'Map', menu:'map' }, component: () => import('@/views/ChargeMap.vue')},
 
   // ------------ 맞춤충전---------------- //
 	{ path: '/customChargeSet', component: () => import('@/views/CustomChargeSet.vue')},
