@@ -3,7 +3,7 @@
     <div class="charger-install-wrap">
       <div class="charger-install-header">
         <h2 class="tit-type3">설치 요청 날짜 선택</h2>
-        <p class="text-type1">충전기 설치를 원하는 장소와 날짜를<br>선택 해주세요.</p>
+        <p class="text-type1">충전기 설치를 원하는 장소와 날짜를<br />선택 해주세요.</p>
       </div>
 
       <!-- 가입자정보 -->
@@ -73,15 +73,15 @@
               <div class="cell"><button>다음</button></div>
           </div>
           <div class="row">
-              <div class="cell">설치<br>시간대</div>
+              <div class="cell">설치<br />시간대</div>
               <div v-for="(item, name) in dateList" :key="name" class="cell tit" v-html="getDay(name)"></div>
           </div>
           <div class="row">
-              <div class="cell">09:00<br>~13:00</div>
+              <div class="cell">09:00<br />~13:00</div>
               <div v-for="(item, name) in dateList" :key="name" class="cell c-blue"><button :disabled="!item['09:00 ~ 13:00']" v-html="getTimeStatus(item['09:00 ~ 13:00'])" @click="setDateStatus(Object.keys(item)[0], name)"></button></div>
           </div>
           <div class="row">
-              <div class="cell">14:00<br>~17:00</div>
+              <div class="cell">14:00<br />~17:00</div>
               <div v-for="(item, name) in dateList" :key="name" class="cell c-blue"><button :disabled="!item['09:00 ~ 13:00']" v-html="getTimeStatus(item['14:00 ~ 17:00'])" @click="setDateStatus(Object.keys(item)[1], name)"></button></div>
           </div>
         </div>
@@ -188,31 +188,31 @@ export default {
       applyDateSlect: true,
       year: '2022',
       dateList: {
-          '2022.오늘<br>(목)' : {
+          '2022.오늘<br />(목)' : {
             '09:00 ~ 13:00' : false,
             '14:00 ~ 17:00' : false
           },
-          '2022.02.04<br>(금)' : {
+          '2022.02.04<br />(금)' : {
             '09:00 ~ 13:00' : false,
             '14:00 ~ 17:00' : false
           },
-          '2022.02.05<br>(토)' : {
+          '2022.02.05<br />(토)' : {
             '09:00 ~ 13:00' : false,
             '14:00 ~ 17:00' : false
           },
-          '2022.02.06<br>(일)' : {
+          '2022.02.06<br />(일)' : {
             '09:00 ~ 13:00' : false,
             '14:00 ~ 17:00' : false
           },
-          '2022.02.07<br>(월)' : {
+          '2022.02.07<br />(월)' : {
             '09:00 ~ 13:00' : true,
             '14:00 ~ 17:00' : true
           },
-          '2022.02.08<br>(화)' : {
+          '2022.02.08<br />(화)' : {
             '09:00 ~ 13:00' : true,
             '14:00 ~ 17:00' : true
           },
-          '2022.02.09<br>(수)' : {
+          '2022.02.09<br />(수)' : {
             '09:00 ~ 13:00' : true,
             '14:00 ~ 17:00' : true
           },
@@ -284,10 +284,10 @@ export default {
       return day.substring(5, 20)
     },
     getTimeStatus(status){  
-      return status ? '접수<br>가능' : '접수<br>마감'
+      return status ? '접수<br />가능' : '접수<br />마감'
     },
     setDateStatus(item, name){
-      this.applyDate = name.replace('<br>', '');
+      this.applyDate = name.replace('<br />', '');
       this.applyTime = item;
       this.applyDateInfo = true;
       this.applyDateSlect = false;      

@@ -36,34 +36,34 @@
                     <div class="cell"><button>다음주</button></div>
                 </div>
                 <div class="row">
-                    <div class="cell">설치<br>시간대</div>
-                    <div class="cell">오늘<br>(목)</div>
-                    <div class="cell">11.26<br>(금)</div>
-                    <div class="cell">11.27<br>(토)</div>
-                    <div class="cell">11.28<br>(일)</div>
-                    <div class="cell">11.29<br>(월)</div>
-                    <div class="cell">11.30<br>(화)</div>
-                    <div class="cell">11.31<br>(수)</div>
+                    <div class="cell">설치<br />시간대</div>
+                    <div class="cell">오늘<br />(목)</div>
+                    <div class="cell">11.26<br />(금)</div>
+                    <div class="cell">11.27<br />(토)</div>
+                    <div class="cell">11.28<br />(일)</div>
+                    <div class="cell">11.29<br />(월)</div>
+                    <div class="cell">11.30<br />(화)</div>
+                    <div class="cell">11.31<br />(수)</div>
                 </div>
                 <div class="row">
-                    <div class="cell">09:00<br>~13:00</div>
-                    <div class="cell"><button disabled>접수<br>마감</button></div>
-                    <div class="cell"><button disabled>접수<br>마감</button></div>
-                    <div class="cell"><button disabled>접수<br>마감</button></div>
-                    <div class="cell"><button disabled>접수<br>마감</button></div>
-                    <div class="cell"><button>접수<br>가능</button></div>
-                    <div class="cell"><button>접수<br>가능</button></div>
-                    <div class="cell"><button>접수<br>가능</button></div>
+                    <div class="cell">09:00<br />~13:00</div>
+                    <div class="cell"><button disabled>접수<br />마감</button></div>
+                    <div class="cell"><button disabled>접수<br />마감</button></div>
+                    <div class="cell"><button disabled>접수<br />마감</button></div>
+                    <div class="cell"><button disabled>접수<br />마감</button></div>
+                    <div class="cell"><button>접수<br />가능</button></div>
+                    <div class="cell"><button>접수<br />가능</button></div>
+                    <div class="cell"><button>접수<br />가능</button></div>
                 </div>
                 <div class="row">
-                    <div class="cell">14:00<br>~17:00</div>
-                    <div class="cell"><button disabled>접수<br>마감</button></div>
-                    <div class="cell"><button disabled>접수<br>마감</button></div>
-                    <div class="cell"><button disabled>접수<br>마감</button></div>
-                    <div class="cell"><button disabled>접수<br>마감</button></div>
-                    <div class="cell"><button>접수<br>가능</button></div>
-                    <div class="cell"><button>접수<br>가능</button></div>
-                    <div class="cell"><button>접수<br>가능</button></div>
+                    <div class="cell">14:00<br />~17:00</div>
+                    <div class="cell"><button disabled>접수<br />마감</button></div>
+                    <div class="cell"><button disabled>접수<br />마감</button></div>
+                    <div class="cell"><button disabled>접수<br />마감</button></div>
+                    <div class="cell"><button disabled>접수<br />마감</button></div>
+                    <div class="cell"><button>접수<br />가능</button></div>
+                    <div class="cell"><button>접수<br />가능</button></div>
+                    <div class="cell"><button>접수<br />가능</button></div>
                 </div>
             </div>
 

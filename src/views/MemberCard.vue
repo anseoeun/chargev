@@ -3,7 +3,7 @@
     <div class="member-card-wrap">
       <div class="member-card-header">
         <h2 class="tit-type3">멤버십카드 관리</h2>
-        <p class="text-type1">멤버십카드의 발급, 재발급, 배송현황을 <br>확인 가능합니다.</p>
+        <p class="text-type1">멤버십카드의 발급, 재발급, 배송현황을 <br />확인 가능합니다.</p>
       </div>
       <!-- 신청/설치 -->
       <div class="shadow-box">

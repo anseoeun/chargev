@@ -21,7 +21,7 @@
             <div class="img" :style="`background-image:url(${place.src})`"></div>
             <div class="desc">
               <strong class="tit">{{ place.type }}</strong>
-              <div class="txt">신청이 완료되었습니다.<br>설치업체에서 날짜를 확인중입니다.</div>
+              <div class="txt">신청이 완료되었습니다.<br />설치업체에서 날짜를 확인중입니다.</div>
             </div>
           </div>
         </div>

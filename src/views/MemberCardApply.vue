@@ -3,7 +3,7 @@
     <div class="member-card-wrap">
       <div class="member-card-header">
         <h2 class="tit-type3">멤버십 카드 신청</h2>
-        <p class="text-type1">멤버십 카드를 수령할 주소를 <br>입력해주세요.</p>
+        <p class="text-type1">멤버십 카드를 수령할 주소를 <br />입력해주세요.</p>
       </div>
 
       <!-- 주소입력 -->

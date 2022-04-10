@@ -8,7 +8,7 @@
           </span>
          </router-link>
       </div>
-      <br>
+      <br />
       <div class="black-box">
         <router-link to="/" class="box">
           <div class="t-wrap">
@@ -28,7 +28,7 @@
           </div>
          </router-link>
       </div>
-      <br>
+      <br />
       <div class="black-box">
         <router-link to="/" class="box">
           <Icon type="arr-right" />
@@ -44,7 +44,7 @@
           </div>
          </router-link>
       </div>
-      <br>
+      <br />
       <div class="black-box">
         <router-link to="/" class="box">
           <Icon type="arr-right" />
@@ -55,7 +55,7 @@
             </div>
             <div class="row">
               <div class="cell tit">
-                <b class="c-red">잔액부족<br>미결제</b>
+                <b class="c-red">잔액부족<br />미결제</b>
               </div>
               <div class="cell">
                 <p><b class="price">9,010원</b> 충전포인트 결제</p>
@@ -65,7 +65,7 @@
           </div>
          </router-link>
       </div>
-      <br>
+      <br />
       <div class="black-box">
         <router-link to="/" class="box">
           <Icon type="arr-right" />
@@ -91,8 +91,8 @@
           </div>
          </router-link>
       </div>
-      <br>
-      <br>
+      <br />
+      <br />
       <!-- transparent-box-wrap -->
       <div class="transparent-box-wrap">
         <strong class="tit">로그인</strong>
@@ -114,7 +114,7 @@
           </div>
         </div>
       </div>
-      <br>
+      <br />
       <div class="transparent-box-wrap">
         <strong class="tit">본인인증</strong>
         <div class="transparent-box">
@@ -223,6 +223,15 @@
         <div class="btn-box">
           <button class="btn-type1 st2">검색</button>
         </div>
+      </div>
+
+      <!--  -->
+      <h2 class="tit-type1">충전소</h2>
+      <div class="charge-place">
+        <p class="place-tit">서울시 송파구<br />롯데타워 지하2층</p>
+        <p class="txt">서울시 송파구 올림픽로 300</p>
+        <p class="txt">지하 2층 R5 구역</p>
+        <p class="txt">00:00 ~ 24:00</p>
       </div>
 
       <!--  -->

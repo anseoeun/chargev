@@ -1,26 +1,13 @@
 <template>
-  <div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <div class="charge-chart">
-      <div id="line-chart" style="width:311px"></div>
+      <div id="line-chart" style="width:311px;" :key="key"></div>
     </div>
-  </div>
 </template>
 
 <script>
 import * as d3 from "d3";
 export default {
-  components: {
-    // d3
-  },  
-  data() {
+  data(){
     return {
       dataset: [
         {y: 3.889786032225153},
@@ -51,8 +38,10 @@ export default {
       ],
       label: [],
       now: 7,
+      key:1
     };
   },
+
   mounted(){
     this.setLabel();
     this.drawChart();
@@ -70,20 +59,24 @@ export default {
       const chart = document.querySelector('#line-chart')
       chart.style.transform = 'scale('+ scale()+')'
       let win;
+
       function scale(){
         win = window.innerWidth
         let per;
         if(win <= 720){
           per = ((311 - (686 - win)) / 345 * 100).toFixed(2)
-          return per === 1 ? per + 1 : per * 0.01 + 1
+          per = per === 1 ? per + 1 : per * 0.01 + 1
+          chart.style.height = 90 + (90 * (per-1)) +'px'
+          return per
         }else{
           chart.style.width = 311 + ((window.innerWidth - (622 + 60)) / 2) +'px'
+          chart.style.height = 180 +'px'
           return per = 2
         }
       }
 
       let margin = {top: 30, right: 15, bottom: 10, left: 15}
-        , width = chart.offsetWidth - 30
+        , width = win <= 720 ? parseInt(chart.style.width) - window.innerWidth * 0.07 : parseInt(chart.style.width) - 63
         , height = 50; 
 
       let xScale = d3.scalePoint()
@@ -124,7 +117,6 @@ export default {
         .selectAll('.tick text')
         .attr("y", "5")
         .attr('fill', '#fff')
-        // .attr("color", "#000000");
 
       tick
         .selectAll('line')
@@ -144,7 +136,6 @@ export default {
       .attr('d', 'M21 17L15 23L9 17H3C1.89543 17 1 16.1046 1 15V3C1 1.89543 1.89543 1 3 1H27C28.1046 1 29 1.89543 29 3V15C29 16.1046 28.1046 17 27 17H21Z')
       .attr('stroke-width', '1')
       .attr('stroke', '#92FF44')
-      // .attr('fill', '#fff')
       .attr("transform", "translate(" + (xScale(this.label[this.now]) - 15) + "," +  (yScale(this.dataset[this.now].y) - 25) + ")");
 
       svg.append("text").data(this.dataset)
@@ -153,11 +144,6 @@ export default {
       .attr('style', 'font-size:9px')
       .text(function() { return 'NOW'; });
     }
-  }
-};
+  }  
+}
 </script>
-<style lang="scss">
-body{padding:30px;}
-  // #line-chart .tick:not(:nth-child(4n+1)) text{display:none;}
-#line-chart{transform-origin: 0 0;}
-</style>

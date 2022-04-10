@@ -3,7 +3,7 @@
     <div class="member-card-wrap">
       <div class="member-card-header">
         <h2 class="tit-type3">멤버십 카드 신청</h2>
-        <p class="text-type1">멤버십 카드 배송현황은 <br>아래와 같습니다.</p>
+        <p class="text-type1">멤버십 카드 배송현황은 <br />아래와 같습니다.</p>
       </div>
 
       <!-- 신청정보 -->

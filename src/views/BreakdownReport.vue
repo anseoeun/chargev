@@ -56,7 +56,7 @@
         <div v-if="brokenItem" class="grid-list">
             <div class="row">
                 <div class="tit">고장항목</div>
-                <div class="text" v-html="brokenItem.replace('<br>', ' ')"></div>
+                <div class="text" v-html="brokenItem.replace('<br />', ' ')"></div>
             </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ export default {
       },
       //고장항목
       brokenItem: '',
-      brokenItemList: ['화면불량', '충전카드<br>인식불가', '반응없음', '커넥터<br>분리 불가', '전원 OFF', '충전중단', '충전시작<br>불가', '통신장애', '기타'],
+      brokenItemList: ['화면불량', '충전카드<br />인식불가', '반응없음', '커넥터<br />분리 불가', '전원 OFF', '충전중단', '충전시작<br />불가', '통신장애', '기타'],
       photoNum: 0,
     }
   },

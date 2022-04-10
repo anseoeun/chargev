@@ -34,8 +34,8 @@
             <div class="filter-box">
               <div class="cell">
                 <div class="btn">
-                  <div><button>최저가</button></div>
-                  <div><button>전체선택</button></div>
+                  <div><button @click="price = 199">최저가</button></div>
+                  <div><button @click="price = 420">전체선택</button></div>
                 </div>
               </div>
               <div class="cell">
@@ -43,9 +43,10 @@
                   <veeno 
                     :pipsy = "{ mode: 'range', density: 5000 }"
                     :tooltips="[{ to: (n) => n.toFixed(0) }]"
-                    :handles="[249]" 
+                    :handles="price" 
                     :range="{'min': 199, 'max': 420}"
                     :style="{'margin-bottom': '2rem'}"
+                    :key="price"
                     />
                 </div>
               </div>
@@ -128,7 +129,8 @@ export default {
       position: [
         '실내',
         '실외'
-      ]
+      ],
+      price: 300
     }
   }
 }

@@ -3,7 +3,7 @@
     <div class="custom-charge-wrap">
       <div class="custom-charge-header">
         <h2 class="tit-type3">맞춤 충전</h2>
-        <p class="text-type1">시간을 설정하면<br>예약이 가능한 충전기를 확인할 수 있습니다.</p>
+        <p class="text-type1">시간을 설정하면<br />예약이 가능한 충전기를 확인할 수 있습니다.</p>
       </div>
       <div class="charge-place-info">
         <button class="btn-favorite"><Icon type="favorite" /></button>
@@ -42,8 +42,8 @@
                 <span class="end">24:00 </span>
               </div>
            </div>
-           <br>
-           <br>
+           <br />
+           <br />
            <div class="price-slider">
              <veeno 
               :pipsy = "{ 

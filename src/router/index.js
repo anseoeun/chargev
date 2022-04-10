@@ -19,6 +19,10 @@ const routes = [
   // 테스트
 	{ path: '/calendar', component: () => import('@/views/Calendar.vue')},
 
+
+    // 샘플
+	{ path: '/sample/carousel', component: () => import('@/views/sample/Carousel.vue') },
+
   // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
 	{ path: '/login', component: () => import('@/views/Login.vue')},

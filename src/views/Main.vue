@@ -66,7 +66,7 @@
                           <div class="t-wrap">
                             <div class="row">
                               <div class="cell tit"><b>차지비</b>
-                                <div v-if="item.status === 'error-type1'" class="c-green">잔액부족<br>미결제</div>
+                                <div v-if="item.status === 'error-type1'" class="c-green">잔액부족<br />미결제</div>
                                 <div v-if="item.status === 'normal'">정상이용</div>
                               </div>
                               <div class="cell">

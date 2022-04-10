@@ -25,6 +25,11 @@ export default {
         default: false
       },
     },
+    data(){
+      return{
+        isScrolling: 0
+      }
+    },
     watch: {
       visible(newVisible) {
         const layerwrap = this.$refs.layerwrap
@@ -37,11 +42,18 @@ export default {
               setTimeout(()=>{
                 $(layer).slideDown(300);
               },300)
-              $(layer).find('.splide__slide, .cont-croll').on('scroll', function(e){
-                e.stopPropagation(); 
-                let el = $(this)
-                el.addEventListener("touchstart", function(e){ e.stopPropagation() });
-                el.addEventListener("touchmove", function(e){ e.stopPropagation() });
+
+              let wrapper = layer.querySelector('.splide__slide') ? layer.querySelector('.splide__slide')
+                : layer.querySelector('.cont-scroll') ? layer.querySelector('.cont-scroll') : ''
+
+              wrapper.addEventListener("scroll", (e)=>{
+                if(e.target.scrollTop == 0){
+                  setTimeout(()=>{
+                    this.isScrolling = e.target.scrollTop;
+                  }, 100)
+                }else{
+                  this.isScrolling = e.target.scrollTop;
+                }
               });
 
               this.onClose()
@@ -65,6 +77,7 @@ export default {
         let flag = false        
 
         function touchMove(){
+            if(this.isScrolling != 0) return
             if($(layer).find('.splide.slider').hasClass('ing')) return;
 
             let e = window.event;
@@ -72,7 +85,7 @@ export default {
 
             moveY = Math.abs(menutop - parseInt(startY - touch.clientY));
 
-            if(moveY > 20) flag = true; 
+            if(moveY > 30) flag = true; 
             if(flag) e.stopPropagation();
  
             if(startY > touch.clientY) dir = 'plus'
@@ -114,7 +127,7 @@ export default {
         }
 
         layerwrap.addEventListener("touchstart", touchStart, true);
-        layerwrap.addEventListener("touchmove",touchMove, true);
+        layerwrap.addEventListener("touchmove",touchMove.bind(this), true);
         layerwrap.addEventListener("touchend",touchEnd.bind(this), true);
       },
       closeLayer(){

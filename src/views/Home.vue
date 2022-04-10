@@ -38,6 +38,8 @@ export default {
   data(){
     return {
         list: {
+          // 샘플
+          'sample/carousel': '샘플/슬라이드',
           // 스플래시
           'splash': '스플래시',
           // 로그인

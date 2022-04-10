@@ -13,7 +13,7 @@
         <div v-if="selectedRefun.text" class="grid-list">
             <div class="row">
                 <div class="tit">항목</div>
-                <div class="text" v-html="selectedRefun.text.replace('<br>', ' ')"></div>
+                <div class="text" v-html="selectedRefun.text.replace('<br />', ' ')"></div>
             </div>
         </div>
       </div>
@@ -172,7 +172,7 @@ export default {
         text: '',
         val: '',
       },
-      refundList: ['결제 후<br>미충전', '선불상품', '기타'],
+      refundList: ['결제 후<br />미충전', '선불상품', '기타'],
 
       //결제일 선택
       yearList: Array.from({length: 80}, (v, i) => i + (2048 - 70)),
@@ -239,7 +239,7 @@ export default {
         },
       ],
       refundReasonCase: '',
-      refundReasonList: ['차지비<br>사용안함', '실수로 구매', '기타'],
+      refundReasonList: ['차지비<br />사용안함', '실수로 구매', '기타'],
 
       //팝업
       alertPop: false,

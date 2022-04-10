@@ -5,15 +5,15 @@
       <Slider :options="options" :content="true" class="slider-page" :key="componentKey" @init="pageSliderInit" @onMove="pageSliderMove" @onMoved="pageSliderMoved">
         <template slot="content">
           <splide-slide>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
       <!-- <div class="x-scrolling-list">
         <ul class="event-list">
           <li v-for="(item, index) in eventList" :key="index">
@@ -32,14 +32,14 @@
       </div>             -->
             <Slider :options="options2" :content="true" class="expct">
               <template slot="content">
-                <splide-slide>가나달<br>가가나달가나달나다<br>가나다<br>가t나다</splide-slide>
-                <splide-slide>가나달2<br>가가나달가나달나다<br>가나다<br>가나다</splide-slide>
-                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
-                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
-                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
-                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
-                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
-                <splide-slide>가나달3<br>가나다<br>가나다<br>가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달<br />가가나달가나달나다<br />가나다<br />가t나다</splide-slide>
+                <splide-slide>가나달2<br />가가나달가나달나다<br />가나다<br />가나다</splide-slide>
+                <splide-slide>가나달3<br />가나다<br />가나다<br />가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br />가나다<br />가나다<br />가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br />가나다<br />가나다<br />가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br />가나다<br />가나다<br />가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br />가나다<br />가나다<br />가가나달가나달가나달나다</splide-slide>
+                <splide-slide>가나달3<br />가나다<br />가나다<br />가가나달가나달가나달나다</splide-slide>
               </template>
             </Slider>
             <div class="transparent-box-wrap">

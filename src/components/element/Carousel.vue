@@ -55,10 +55,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    thumbnail:{
-      type: Boolean,
-      default: false,
-    },
     page:{
       type: Number,
       default: 0,
@@ -68,9 +64,10 @@ export default {
       default: false,
     },
   },
-
+  
   data() {
     return {
+      key:0,
       currentPage: 0, 
       paging: [],
       prev: null,
@@ -126,7 +123,7 @@ export default {
         this.prev ? this.prev.setAttribute('prev', true) : null;
       }
       this.currentPage = index;
-      this.$emit('onMove', slider);
+      this.$emit('onMove', slider, index);
       this.$emit('update:page', index);
     },
     onMoved(slider, index){  
@@ -140,7 +137,7 @@ export default {
       setTimeout(()=>{
         this.$refs.slider.$el.classList.remove('ing');
       }, 200)
-      this.$emit('onMoved', slider);
+      this.$emit('onMoved', slider, index);
     },
     onDrag(){
       this.$refs.slider.$el.classList.add('ing');
