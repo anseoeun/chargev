@@ -1,13 +1,13 @@
 <template>
-    <BtmLayer :visible="visible" @close="$emit('close')" class="pop-charge">
+    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge">
       <template slot="content">
         <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page" @onMove="sliderMoved">
           <template slot="content">
               <splide-slide>
-                <ChargePlace :chargeType="['select']" @chargeSelect="currentPage = 1" />
+                <ChargePlace :chargeType="['select']" @select="currentPage = 1;timeSetType ='charge'" />
               </splide-slide>
               <splide-slide>
-                <ChargeTime :key="chargeTimeInit" />
+                <ChargeTime :timeSetType="timeSetType" :key="timeSetType" />
               </splide-slide>
           </template>
         </Carousel>
@@ -33,19 +33,19 @@ export default {
 
   data(){
     return{
+      timeSetType: '',      
       options: {
         perPage: 1,
         perMove: 1,
         start: 0
       },
-      chargeTimeInit: false,
       currentPage: 2
     }
   },
-  methods:{
-    sliderMoved(slider, index){
-      if(index === 1) this.chargeTimeInit = true
-    },
+  methods: {
+    sliderMoved(slier, index){
+      if(index == 1) this.timeSetType = 'charge'
+    }
   }
 }
 </script>

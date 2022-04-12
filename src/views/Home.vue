@@ -54,6 +54,12 @@ export default {
           'alarm': '알림',
           // 충전소지도
           'chargemap': '충전소지도',
+          // 충전소검색
+          'chargesearch': '충전소검색',
+          // 충전
+          'charge': '충전',
+          // 신청
+          'apply': '신청',
         },      
         list2: {
 

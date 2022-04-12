@@ -27,7 +27,8 @@ export default {
     },
     data(){
       return{
-        isScrolling: 0
+        scrollTop: 0,
+        isScrolling: false
       }
     },
     watch: {
@@ -49,10 +50,11 @@ export default {
               wrapper.addEventListener("scroll", (e)=>{
                 if(e.target.scrollTop == 0){
                   setTimeout(()=>{
-                    this.isScrolling = e.target.scrollTop;
+                    this.scrollTop = e.target.scrollTop;
                   }, 100)
                 }else{
-                  this.isScrolling = e.target.scrollTop;
+                  this.scrollTop = e.target.scrollTop;
+                  this.isScrolling = true
                 }
               });
 
@@ -77,7 +79,7 @@ export default {
         let flag = false        
 
         function touchMove(){
-            if(this.isScrolling != 0) return
+            if(this.isScrolling) return
             if($(layer).find('.splide.slider').hasClass('ing')) return;
 
             let e = window.event;
@@ -117,6 +119,9 @@ export default {
 
             $(layer).removeClass('ing');
             flag = false
+            setTimeout(()=>{
+              if(this.scrollTop == 0) this.isScrolling = false
+            }, 150)            
         }
 
         function touchStart(e){

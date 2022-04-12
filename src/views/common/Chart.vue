@@ -1,6 +1,6 @@
 <template>
     <div class="charge-chart">
-      <div id="line-chart" style="width:311px;" :key="key"></div>
+      <div id="line-chart" ref="linechart" style="width:311px;" :key="key"></div>
     </div>
 </template>
 
@@ -56,7 +56,9 @@ export default {
       }
     },
     drawChart(){
-      const chart = document.querySelector('#line-chart')
+      // const chart = document.querySelector('#line-chart')
+      const chart = this.$refs.linechart
+
       chart.style.transform = 'scale('+ scale()+')'
       let win;
 
@@ -94,13 +96,14 @@ export default {
           .y(function(d) { return yScale(d.y); }) 
           .curve(d3.curveMonotoneX)
 
-      let svg = d3.select("#line-chart").append("svg")
+      // let svg = d3.select("#line-chart").append("svg")
+      let svg = d3.select(chart).append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
           .attr("style", "font-size:10px")
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-        
+        console.log(svg)
       svg.append("path")
           .datum(this.dataset) 
           .attr("class", "line") 
@@ -132,13 +135,13 @@ export default {
 
       document.querySelector('.domain').remove()
 
-      svg.append("path").data(this.dataset)
+      svg.append("path").datum(this.dataset)
       .attr('d', 'M21 17L15 23L9 17H3C1.89543 17 1 16.1046 1 15V3C1 1.89543 1.89543 1 3 1H27C28.1046 1 29 1.89543 29 3V15C29 16.1046 28.1046 17 27 17H21Z')
       .attr('stroke-width', '1')
       .attr('stroke', '#92FF44')
       .attr("transform", "translate(" + (xScale(this.label[this.now]) - 15) + "," +  (yScale(this.dataset[this.now].y) - 25) + ")");
 
-      svg.append("text").data(this.dataset)
+      svg.append("text").datum(this.dataset)
       .attr("transform", "translate(" + (xScale(this.label[this.now]) - 12) + "," +  (yScale(this.dataset[this.now].y) - 12.5)+ ")")
       .attr('fill', '#fff')
       .attr('style', 'font-size:9px')

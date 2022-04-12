@@ -46,6 +46,9 @@ Vue.mixin({
         for(let i=0;i<=num;i++){
           this.$set(this[arr], i, true);
         }
+      },
+      fillZero(width, str){
+          return String(str).length >= width ? str : new Array(width - String(str).length + 1).join('0')+str;//남는 길이만큼 0으로 채움
       }
       // maxLength(max){
       //   return 'if (this.value.length > '+ max +') this.value = this.value.slice(0, '+ max +')';
