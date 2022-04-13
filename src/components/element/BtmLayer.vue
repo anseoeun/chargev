@@ -118,13 +118,15 @@ export default {
             }
 
             $(layer).removeClass('ing');
-            flag = false
+            flag = false;
+            startY= null
             setTimeout(()=>{
               if(this.scrollTop == 0) this.isScrolling = false
-            }, 150)            
+            }, 150)
         }
 
         function touchStart(e){
+          if(this.isScrolling) return
             let touch = e.touches[0];
             menutop = 0;
             startY = touch.clientY;

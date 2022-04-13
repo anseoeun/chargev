@@ -172,7 +172,7 @@ export default {
       },
       historyList: [
         {
-          addr:'서울시 송파구 롯데타워지하4층 완속#1',
+          addr:'서울시 송파구',
           status: 'normal',
           price:'9,010',
           method:'충전포인트',

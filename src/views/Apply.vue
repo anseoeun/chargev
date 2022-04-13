@@ -36,28 +36,52 @@
             </div>
           </splide-slide>
           <splide-slide>
-                          
+            <div class="charger-install-wrap">
+              <!-- 충전기 설치신청 -->
+              <h2 class="tit-type1">충전기 설치신청</h2>
+              <div class="btn-box">
+                  <button class="btn-type1 st2" @click="btmLayer.PopChargerApply = true">충전기 설치 신청</button>
+              </div>              
+              <!-- 충전기 설치신청 -->
+              <h2 class="tit-type1">충전기 설치신청</h2>
+              <div class="selected-place">
+                <div class="place-card">
+                  <div class="img" :style="`background-image:url(${place.src})`"></div>
+                  <div class="desc">
+                    <strong class="tit">{{ place.type }}</strong>
+                    <div class="txt">신청이 완료되었습니다.<br />설치업체에서 날짜를 확인중입니다.</div>
+                  </div>
+                </div>
+              </div>              
+              <div class="btn-box">
+                  <button class="btn-type1 st2">진행상황 확인</button>
+              </div>              
+            </div> 
           </splide-slide>
       </template>
     </Carousel>
 
     <!-- 주소 -->
     <PopAddr :visible="btmLayer.PopAddr" @close="btmLayer.PopAddr = false"/>
-    <!-- 충전소 -->
-    <PopCharge :visible="btmLayer.PopCharge" @close="btmLayer.PopCharge = false"/>
+    <!-- 충전기설치신청 -->
+    <PopChargerApply :visible="btmLayer.PopChargerApply" @close="btmLayer.PopChargerApply = false"/>
   </div>
 </template>
 
 <script>
 import PopAddr from '@/views/PopAddr'
-import PopCharge from '@/views/PopCharge'
+import PopChargerApply from '@/views/PopChargerApply'
 export default {
   components:{
     PopAddr,
-    PopCharge
+    PopChargerApply
   },
   data(){
     return{
+      place: {
+        type: '단독주택',
+        src: require('@/assets/images/temp-place.jpg'),
+      },
 
       options: {
         perPage: 1,
@@ -66,7 +90,7 @@ export default {
       currentPage: 0,
       btmLayer:{
         PopAddr: false,
-        PopCharge: false
+        PopChargerApply: false
       },      
     }
   },
