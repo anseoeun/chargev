@@ -115,14 +115,6 @@ export default {
             'memberCard': ['신청/설치관리', '멤버십카드 관리- 카드 없을때'],
             'memberCardList': ['신청/설치관리', '멤버십 카드 관리 - 카드있을때'],
             'memberCardApply': ['신청/설치관리', '멤버십 카드 신청'],
-            'memberCardDelivery': ['신청/설치관리', '멤버십 카드 신청 - 배송현황'],
-            'chargerInstallApplyList': ['신청/설치관리', '충전기 설치 신청'],
-            'chargerInstallApplyPlace': ['신청/설치관리', '설치 장소 선택'],
-            'chargerInstallApplyModel': ['신청/설치관리', '충전기 모델 선택'],
-            'ChargerInstallApplyDate': ['신청/설치관리', '설치 요청 날짜 선택'],
-
-
-            'calendar': ['캘린더', '캘린더'],
         },
     }
   }

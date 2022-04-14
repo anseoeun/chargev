@@ -16,10 +16,6 @@ const routes = [
 	{ path: '/test', component: () => import('@/views/Test.vue') },
   // 테스트
 	{ path: '/chart', component: () => import('@/views/Chart.vue') },
-  // 테스트
-	{ path: '/calendar', component: () => import('@/views/Calendar.vue')},
-
-
     // 샘플
 	{ path: '/sample/carousel', component: () => import('@/views/sample/Carousel.vue') },
 
@@ -42,6 +38,10 @@ const routes = [
 	{ path: '/charge', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Charge.vue')},
   // 신청
 	{ path: '/apply', meta: {layout: 'Default', menu:'apply' }, component: () => import('@/views/Apply.vue')},
+  // 더보기
+	{ path: '/more', meta: {layout: 'Default', menu:'more' }, component: () => import('@/views/More.vue')},
+
+
 
   // ------------ 맞춤충전---------------- //
 	{ path: '/customChargeSet', component: () => import('@/views/CustomChargeSet.vue')},
@@ -128,17 +128,6 @@ const routes = [
   { path: '/memberCardList', component: () => import('@/views/MemberCardList.vue')},
   // 멤버십 카드 신청
   { path: '/memberCardApply', component: () => import('@/views/MemberCardApply.vue')},
-  // 멤버십 카드 신청 - 배송현황
-  { path: '/memberCardDelivery', component: () => import('@/views/MemberCardDelivery.vue')},
-  // 충전기 설치 신청
-	{ path: '/chargerInstallApplyList', component: () => import('@/views/ChargerInstallApplyList.vue')},
-  // 설치 장소 선택
-	{ path: '/chargerInstallApplyPlace', component: () => import('@/views/ChargerInstallApplyPlace.vue')},
-  // 충전기 모델 선택
-	{ path: '/chargerInstallApplyModel', component: () => import('@/views/ChargerInstallApplyModel.vue')},
-  // 설치 요청 날짜 선택
-	{ path: '/chargerInstallApplyDate', component: () => import('@/views/ChargerInstallApplyDate.vue')},
-
 
 
 ]
