@@ -60,6 +60,8 @@ export default {
           'charge': '충전',
           // 신청
           'apply': '신청',
+          // 더보기
+          'more': '더보기',
         },      
         list2: {
 
