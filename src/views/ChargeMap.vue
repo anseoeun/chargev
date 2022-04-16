@@ -24,7 +24,7 @@
     <!-- 범례 -->
     <PopMapLegend :visible="btmLayer.PopMapLegend" @close="btmLayer.PopMapLegend = false"/>
     <!-- 충전소 -->
-    <PopCharge :visible="btmLayer.PopCharge" @close="btmLayer.PopCharge = false"/>
+    <PopChargeStation :visible="btmLayer.PopCharge" @close="btmLayer.PopCharge = false"/>
 
   </div>
 </template>
@@ -32,12 +32,12 @@
 <script>
 import PopMapFilter from '@/views/PopMapFilter'
 import PopMapLegend from '@/views/PopMapLegend'
-import PopCharge from '@/views/PopCharge'
+import PopChargeStation from '@/views/PopChargeStation'
 export default {
   components:{
     PopMapFilter,
     PopMapLegend,
-    PopCharge
+    PopChargeStation
   },
   data(){
     return{

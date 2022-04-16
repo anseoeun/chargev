@@ -3688,6 +3688,19 @@ i[class*=i-] .svg-prevent {
 
 .charge-time-wrap .charge-place {
   margin-top: 1.114rem;
+  text-align: center;
+}
+
+.charge-time-wrap .charge-place .place-tit {
+  font-size: 1.671rem;
+  font-weight: 700;
+}
+
+.charge-time-wrap .charge-place .txt {
+  margin-top: 1.114rem;
+  font-size: 0.975rem;
+  font-weight: 700;
+  color: #8A8B8C;
 }
 
 .charge-time-wrap .btn-box {

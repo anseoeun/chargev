@@ -413,7 +413,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 
 /* charge-time-wrap */
 .charge-time-wrap .tit-type1 ~ .tit-type1{margin-top:rem(64);}
-.charge-time-wrap .charge-place{margin-top:rem(16);}
+.charge-time-wrap .charge-place{margin-top:rem(16);text-align:center;}
+.charge-time-wrap .charge-place .place-tit{font-size:rem(24);@include bold;}
+.charge-time-wrap .charge-place .txt{margin-top:rem(16);font-size:rem(14);@include bold;color:#8A8B8C;}
 .charge-time-wrap .btn-box{margin-top:rem(50);}
 .charge-time-wrap .set-time{text-align:center;font-size:rem(16);margin-top:rem(16);}
 .time-slide{overflow:hidden;height:rem(50);font-size:rem(16);@include bold;}

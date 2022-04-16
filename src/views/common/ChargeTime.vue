@@ -1,7 +1,8 @@
 <template>
 <div class="charge-time-wrap">
     <!-- 충전기 -->
-    <h2 class="tit-type1">충전기</h2>
+    <h2 v-if="timeSetType === 'reserve'" class="tit-type1">예약하기</h2>
+    <h2 v-else-if="timeSetType === 'charge'" class="tit-type1">충전하기</h2>
     <div class="charge-place">
       <p class="place-tit">서울시 송파구<br />롯데타워 지하2층</p>
       <p class="txt">서울시 송파구 올림픽로 300</p>
