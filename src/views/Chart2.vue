@@ -186,7 +186,6 @@ let svg = d3.select("#line-chart").append("svg")
         rateY.push(sumY)
       }
       rateY = rateY.reverse()
-      console.log(rateY)
 
 
 // <polygon class="st0" points="7.86,0.5 14.62,0.5 11.24,4.39 7.86,8.28 4.48,4.39 1.1,0.5 "/>

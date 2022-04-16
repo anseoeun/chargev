@@ -1,42 +1,17 @@
 <template>
     <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge">
       <template slot="content">
-        <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page" @onMove="sliderMoved">
+        <button class="btn-layer-close" @click="$emit('close');"><Icon type="close" /></button>
+        <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
           <template slot="content">
               <splide-slide>
                 <div class="charge-search-wrap">
                     <h2 class="tit-type1">검색결과</h2>
-                    <div class="charge-list">
-                        <ul>
-                          <li v-for="(item, index) in chargeList" :key="index">
-                            <div class="row">
-                              <div class="cell" v-html="item.addr"></div>
-                              <div class="cell right">차지비</div>
-                            </div>
-                            <div class="row">
-                              <div class="cell t-s">{{ item.price }}</div>
-                              <div class="cell right">{{ item.km }}</div>
-                            </div>
-                            <div class="tag">
-                              <span v-for="(item, i) in item.tag" :key="i">{{ item }}</span>
-                            </div>
-                            <div class="btn-box">
-                              <button class="btn-type1 st2" @click="currentPage = 1">선택</button>
-                            </div>
-                          </li>
-                        </ul>
-                    </div>
+                    <ChargeSearchList
+                      :data="chargeList"
+                      @charge="btmLayer.PopCharge = true"
+                    />
                 </div>
-              </splide-slide>
-              <splide-slide>
-                <ChargePlace :chargeType="['charge', 'reserve']"
-                   @select="currentPage = 2;timeSetType ='charge'"
-                   @charge="currentPage = 2;timeSetType ='charge'"
-                   @reserve="currentPage = 2;timeSetType ='reserve'"
-                 />
-              </splide-slide>
-              <splide-slide>
-                <ChargeTime :timeSetType="timeSetType" :key="timeSetType" />
               </splide-slide>
           </template>
         </Carousel>
@@ -45,14 +20,11 @@
 </template>
 
 <script>
-import ChargePlace from '@/views/common/ChargePlace'
-import ChargeTime from '@/views/common/ChargeTime'
-
+import ChargeSearchList from '@/views/common/ChargeSearchList'
 export default {
   components:{
-    ChargePlace,
-    ChargeTime
-  },
+    ChargeSearchList
+  },  
   props: {
     visible: {
       type: Boolean,
@@ -62,53 +34,60 @@ export default {
 
   data(){
     return{
-       chargeList: [
+      chargeList: [
         {
           'addr': '서울시 송파구<br />롯데타워 지하2층',
-          'price': '269 ~ 279 (kWh/원) ',
-          'km': '1km 이내',
+          'addr2': '서울시 송파구 올림픽로 300<br />지하 2층 R5 구역',
+          'status': '충전가능',
+          'start': '269',
+          'end': '279',
+          'km': '100km',
           tag: [
             '혼잡함', '할인중'
           ],
         },
         {
           'addr': '서울시 송파구<br />롯데타워 지하2층',
-          'price': '269 ~ 279 (kWh/원) ',
-          'km': '1km 이내',
+          'addr2': '서울시 송파구 올림픽로 300<br />지하 2층 R5 구역',
+          'status': '충전가능',
+          'start': '269',
+          'end': '279',
+          'km': '100km',
           tag: [
             '혼잡함', '할인중'
           ],
         },
         {
           'addr': '서울시 송파구<br />롯데타워 지하2층',
-          'price': '269 ~ 279 (kWh/원) ',
-          'km': '1km 이내',
+          'addr2': '서울시 송파구 올림픽로 300<br />지하 2층 R5 구역',
+          'status': '충전가능',
+          'start': '269',
+          'end': '279',
+          'km': '100km',
           tag: [
             '혼잡함', '할인중'
           ],
         },
         {
           'addr': '서울시 송파구<br />롯데타워 지하2층',
-          'price': '269 ~ 279 (kWh/원) ',
-          'km': '1km 이내',
+          'addr2': '서울시 송파구 올림픽로 300<br />지하 2층 R5 구역',
+          'status': '충전가능',
+          'start': '269',
+          'end': '279',
+          'km': '100km',
           tag: [
             '혼잡함', '할인중'
           ],
         },
       ],
-      timeSetType: '',
+
       options: {
         perPage: 1,
         perMove: 1,
-        start: 0
+        destroy: true
       },
-      currentPage: 2
+      currentPage: 0,
     }
   },
-  methods:{
-    sliderMoved(slier, index){
-      if(index == 2 && this.timeSetType == '') this.timeSetType = 'charge'
-    }
-  }
 }
 </script>

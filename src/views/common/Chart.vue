@@ -103,7 +103,7 @@ export default {
           .attr("style", "font-size:10px")
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-        console.log(svg)
+          
       svg.append("path")
           .datum(this.dataset) 
           .attr("class", "line") 

@@ -2595,6 +2595,14 @@ input[type=text], input[type=password], input[type=number], textarea {
   line-height: 3.342rem;
 }
 
+.btn-type2 {
+  display: block;
+  height: 2.785rem;
+  font-size: 0.975rem;
+  font-weight: normal;
+  line-height: 2.785rem;
+}
+
 [class*=btn-type].st1 {
   color: #fff;
   background: #000;
@@ -2656,6 +2664,10 @@ i[class*=i-] .svg-prevent {
 /* color */
 .c-green {
   color: #8FFF44 !important;
+}
+
+.c-gray {
+  color: #8A8B8C !important;
 }
 
 /* tit-type */
@@ -2761,6 +2773,19 @@ i[class*=i-] .svg-prevent {
   background: rgba(0, 0, 0, 0);
 }
 
+.btm-layer-wrap .btm-layer .btn-layer-close {
+  position: absolute;
+  top: 1.044rem;
+  right: 1.044rem;
+  width: 3.482rem;
+  height: 3.482rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  z-index: 10;
+}
+
 .btm-layer-wrap .btm-layer:before {
   content: "";
   display: block;
@@ -2812,9 +2837,10 @@ i[class*=i-] .svg-prevent {
 }
 
 .btm-layer-wrap .btm-layer .cont-scroll {
+  overflow-y: auto;
   padding-bottom: 2.089rem !important;
   margin-bottom: 0;
-  max-height: calc(100vh - 1.95rem);
+  max-height: calc(100vh - 6.685rem);
 }
 
 .btm-layer-wrap .slider-page,
@@ -3120,6 +3146,25 @@ i[class*=i-] .svg-prevent {
 
 .charge-status .desc + .btn-type1 {
   margin-top: 2.228rem;
+}
+
+.btn-toggle-slide {
+  position: relative;
+  width: 100%;
+}
+
+.btn-toggle-slide .i-arr-bottom {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(0deg);
+  -webkit-transform: translateY(-50%) rotate(0deg);
+  transform-origin: 50% 50%;
+}
+
+.btn-toggle-slide.on .i-arr-bottom {
+  transform: translateY(-50%) rotate(-180deg);
+  -webkit-transform: translateY(-50%) rotate(-180deg);
 }
 
 /* ========================================
@@ -3554,38 +3599,86 @@ i[class*=i-] .svg-prevent {
   font-size: 0.975rem;
 }
 
-/* charge-place */
-.charge-place-wrap .tit-type1 + .charge-list {
-  margin-top: 2.089rem;
+/* charge-station */
+.charge-station .row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  font-weight: 700;
+  font-size: 0.975rem;
+  width: 100%;
 }
 
-.charge-place-wrap .tit-type1 + .charge-place {
-  margin-top: 1.114rem;
+.charge-station .row ~ .row {
+  margin-top: 0.557rem;
 }
 
-.charge-place-wrap .charge-chart {
-  margin-top: 0.696rem;
+.charge-station .row .cell ~ .cell {
+  margin-left: 0.557rem;
 }
 
-.charge-place-wrap .charge-chart + .tit-type1 {
-  margin-top: 2.089rem;
+.charge-station .row .cell.right {
+  margin-left: auto;
+  text-align: right;
 }
 
-.charge-place {
-  text-align: center;
+.charge-station .row .cell .status {
+  color: #8FFF44;
 }
 
-.charge-place .place-tit {
+.charge-station .row > .cell > * ~ * {
+  margin-top: 0.208rem;
+}
+
+.charge-station .place-tit {
   font-size: 1.671rem;
   font-weight: 700;
   line-height: 1.1em;
 }
 
-.charge-place .txt {
-  margin-top: 1.114rem;
-  color: #8A8B8C;
-  font-size: 0.975rem;
+.charge-station + .grid-info-list {
+  margin-top: 0.557rem;
+}
+
+.grid-info-list .row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
   font-weight: 700;
+  font-size: 0.975rem;
+  width: 100%;
+}
+
+.grid-info-list .row ~ .row {
+  margin-top: 0.557rem;
+}
+
+.grid-info-list .row .cell ~ .cell {
+  margin-left: 0.557rem;
+}
+
+.grid-info-list .row .cell.right {
+  margin-left: auto;
+  text-align: right;
+}
+
+.grid-info-list .row .cell.label {
+  color: #8A8B8C;
+}
+
+.grid-info-list .btn-map-pos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 2.507rem;
+  height: 2.507rem;
+  background: #2A2B2C;
+  border-radius: 0.278rem;
 }
 
 /* charge-time-wrap */
@@ -3638,12 +3731,18 @@ i[class*=i-] .svg-prevent {
 }
 
 /* charge-wrap */
-.charge-wrap .tit-type1 ~ .tit-type1 {
+.charge-wrap .tit-type1 ~ .tit-type1,
+.charge-wrap .tit-type1 ~ .btn-toggle-slide {
   margin-top: 2.228rem;
 }
 
-.charge-wrap .charge-list {
-  margin-top: 2.228rem;
+.charge-wrap .charge-status-text + .tit-type1,
+.charge-wrap .charge-status-text + .btn-toggle-slide {
+  margin-top: 4.457rem;
+}
+
+.charge-wrap .btn-toggle-slide {
+  margin-bottom: 1.114rem;
 }
 
 .charge-wrap .charge-status-text {
@@ -3664,9 +3763,25 @@ i[class*=i-] .svg-prevent {
   border: 1px solid #8FFF44;
 }
 
+/* charge-wrap */
+.charge-search-wrap .tit-type1 + .charge-list {
+  margin-top: 1.671rem;
+}
+
 /* charge-list */
 .charge-list li ~ li {
-  margin-top: 3.342rem;
+  margin-top: 1.253rem;
+}
+
+.charge-list li .link {
+  display: block;
+}
+
+.charge-list li > .row,
+.charge-list li .link > .row {
+  font-size: 1.114rem;
+  font-weight: 700;
+  align-items: stretch;
 }
 
 .charge-list .row {
@@ -3674,16 +3789,39 @@ i[class*=i-] .svg-prevent {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  font-size: 1.114rem;
+  align-items: flex-start;
 }
 
-.charge-list .row ~ .row {
-  margin-top: 0.557rem;
+.charge-list .row .cell ~ .cell {
+  margin-left: 0.557rem;
 }
 
-.charge-list .row .right {
+.charge-list .row .cell > * ~ * {
+  margin-top: 0.208rem;
+}
+
+.charge-list .row .cell.right {
   margin-left: auto;
   padding-left: 0.557rem;
+  text-align: right;
+}
+
+.charge-list .row .addr2 {
+  font-size: 0.975rem;
+  font-weight: 700;
+}
+
+.charge-list .row .status {
+  color: #8FFF44;
+}
+
+.charge-list .row .label {
+  color: #8A8B8C;
+}
+
+.charge-list .row .price {
+  font-weight: 500;
+  font-size: 0.975rem;
 }
 
 .charge-list .t-s {
@@ -3692,6 +3830,7 @@ i[class*=i-] .svg-prevent {
 
 .charge-list .tag {
   margin-top: 0.557rem;
+  font-weight: 500;
 }
 
 .charge-list .tag span {
@@ -3699,29 +3838,46 @@ i[class*=i-] .svg-prevent {
   border-radius: 0.139rem;
   min-width: 3.342rem;
   text-align: center;
-  padding: 0 0.557rem;
-  background: #000;
+  padding: 0 0.278rem;
+  background: #5A5B5C;
   height: 1.114rem;
-  line-height: 1.114rem;
+  line-height: 1.183rem;
   font-size: 0.835rem;
-  color: #CACBCC;
+  color: #fff;
 }
 
 .charge-list .tag span ~ span {
   margin-left: 0.417rem;
 }
 
-.charge-list .btn-type1 {
-  position: relative;
-  margin-top: 0.557rem;
+.charge-list .btn-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-left: 1.114rem !important;
 }
 
-.charge-list .btn-type1 i {
-  position: absolute;
-  top: 50%;
-  right: 0.696rem;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
+.charge-list .btn-menu .btn ~ .btn {
+  margin-left: 1.114rem;
+}
+
+.charge-list .btn {
+  height: 100%;
+  background: #2A2B2C;
+  border-radius: 0.278rem;
+  width: 2.228rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-direction: column;
+}
+
+.charge-list .btn span {
+  display: block;
+  margin-top: 0.348rem;
+  font-size: 0.696rem;
 }
 
 .charge-chart #line-chart {
@@ -3730,6 +3886,10 @@ i[class*=i-] .svg-prevent {
 
 .charge-chart #line-chart .tick text {
   letter-spacing: -0.05em;
+}
+
+.charge-chart + [class*=btn-type] {
+  margin-top: 2.228rem;
 }
 
 /* calendar */

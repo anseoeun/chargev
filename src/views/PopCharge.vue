@@ -1,29 +1,42 @@
 <template>
     <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge">
       <template slot="content">
-        <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page" @onMove="sliderMoved">
-          <template slot="content">
-              <splide-slide>
-                <ChargePlace :chargeType="['select']" @select="currentPage = 1;timeSetType ='charge'" />
-              </splide-slide>
-              <splide-slide>
-                <ChargeTime :timeSetType="timeSetType" :key="timeSetType" />
-              </splide-slide>
-          </template>
-        </Carousel>
+        <div class="cont-scroll">
+              <div class="charge-station">
+                <div class="row">
+                  <div class="cell">
+                    <p class="place-tit">서울시 송파구<br />롯데타워 지하2층</p>
+                  </div>
+                  <div class="cell right">
+                    <div class="company">차지비</div>
+                    <div class="status">충전가능</div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-info-list">
+                <div class="row">
+                  <div class="cell label">완속</div>
+                  <div class="cell">10/24</div>
+                </div>
+                <div class="row">
+                  <div class="cell label">급속</div>
+                  <div class="cell">1/2</div>
+                </div>
+              </div>
+            <!-- 차트 -->
+            <Chart />
+            <router-link to="/" class="btn-type2 st2">자세히보기</router-link>
+        </div>
       </template>
     </BtmLayer>
 </template>
 
 <script>
-import ChargePlace from '@/views/common/ChargePlace'
-import ChargeTime from '@/views/common/ChargeTime'
-
+import Chart from '@/views/common/Chart'
 export default {
   components:{
-    ChargePlace,
-    ChargeTime
-  },
+    Chart
+  },  
   props: {
     visible: {
       type: Boolean,

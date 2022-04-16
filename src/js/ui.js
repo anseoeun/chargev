@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import $ from 'jquery'
 
 Vue.mixin({
     data(){
@@ -49,6 +50,18 @@ Vue.mixin({
       },
       fillZero(width, str){
           return String(str).length >= width ? str : new Array(width - String(str).length + 1).join('0')+str;//남는 길이만큼 0으로 채움
+      },
+      toggleSlide(e, target){
+        let $btn = $(e.currentTarget);
+        let $cont = $(target)
+        
+        if($cont.is(':hidden')){
+            $cont.slideDown();
+            $btn.addClass('on');
+        }else{
+            $cont.slideUp();
+            $btn.removeClass('on');
+        }
       }
       // maxLength(max){
       //   return 'if (this.value.length > '+ max +') this.value = this.value.slice(0, '+ max +')';
