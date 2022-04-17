@@ -3,7 +3,7 @@
     <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
       <template slot="content">
           <splide-slide>
-            <div class="mypage-wrap">
+            <div class="more-wrap">
               <!-- 내정보 -->
               <h2 class="tit-type1">내정보</h2>
               <div class="my-info">

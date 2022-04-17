@@ -5,7 +5,7 @@
           <splide-slide>
             <div class="charge-wrap">
                 <h2 class="tit-type1">충전대기중</h2>
-                <div class="charge-status-text">충전중이 아닙니다.</div>
+                <div class="text-charge-status">충전중이 아닙니다.</div>
 
                 <!-- 인근 충전소 -->
                 <button class="btn-toggle-slide on" @click="toggleSlide($event, '#slide-around')">
@@ -61,14 +61,14 @@
                       </div>
                   </div>
                   <div class="btn-box">
-                      <button class="btn-type1 st2">검색</button>
+                      <button class="btn-type1 st2" @click="btmLayer.PopChargeTime = true">검색</button>
                   </div>
                 </div>
 
                 <!-- QR코드 인식 -->
                 <h2 class="tit-type1">QR코드 인식</h2>
                 <div class="qrcode">
-                  <div class="qr"></div>
+                  <div class="qr" @click="btmLayer.PopChargeTime = true"></div>
                 </div>
             </div>              
           </splide-slide>
@@ -77,20 +77,20 @@
 
     <!-- 충전소 리스트 -->
     <PopChargeSearch :visible="btmLayer.PopChargeSearch" @close="btmLayer.PopChargeSearch = false"/>
-    <!-- 충전소 -->
-    <PopCharge :visible="btmLayer.PopCharge" @close="btmLayer.PopCharge = false"/>
+    <!-- 충전시간 -->
+    <PopChargeTime :visible="btmLayer.PopChargeTime" timeSetType="charge" @close="btmLayer.PopChargeTime = false"/>    
   </div>
 </template>
 
 <script>
 import ChargeSearchList from '@/views/common/ChargeSearchList'
 import PopChargeSearch from '@/views/PopChargeSearch'
-import PopCharge from '@/views/PopCharge'
+import PopChargeTime from '@/views/PopChargeTime'
 export default {
   components:{
     ChargeSearchList,
     PopChargeSearch,
-    PopCharge
+    PopChargeTime
   },
   data(){
     return{
@@ -126,7 +126,7 @@ export default {
       currentPage: 0,
       btmLayer:{
         PopChargeSearch: false,
-        PopCharge: false
+        PopChargeTime: false        
       },      
     }
   },

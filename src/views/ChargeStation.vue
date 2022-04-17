@@ -42,9 +42,9 @@
                       <div class="cell">00:00 ~ 24:00</div>
                     </div>
                   </div>
+                  <!-- 차트 -->
+                  <Chart />                  
                 </div>
-                <!-- 차트 -->
-                <Chart />
 
                 <!-- 충전사업자 -->
                 <button class="btn-toggle-slide on" @click="toggleSlide($event, '#slide-buisnessman')">
@@ -64,34 +64,38 @@
                   </div>
                 </div>
 
-
-              <!-- 충전기 -->
-              <h2 class="tit-type1">충전기</h2>
-                <ChargeList 
-                  :data="chargeList"
-                  @charge="btmLayer.PopCharge = true;timeSetType = 'charge'"
-                  @reserve="btmLayer.PopCharge = true;timeSetType = 'reserve'"
-                />
+                <!-- 충전기 -->
+                <button class="btn-toggle-slide on" @click="toggleSlide($event, '#slide-charger')">
+                  <Icon type="arr-bottom" />
+                  <h2 class="tit-type1">충전기</h2>
+                </button>
+                <div id="slide-charger">
+                  <ChargeList 
+                    :data="chargeList"
+                    @charge="btmLayer.PopChargeTime = true;timeSetType = 'charge'"
+                    @reserve="btmLayer.PopChargeTime = true;timeSetType = 'reserve'"
+                  />
+                </div>
             </div>
           </splide-slide>
       </template>
     </Carousel>
 
 
-    <!-- 충전소 -->
-    <PopCharge :visible="btmLayer.PopCharge" :timeSetType="timeSetType" @close="btmLayer.PopCharge = false"/>
+    <!-- 충전시간 -->
+    <PopChargeTime :visible="btmLayer.PopChargeTime" :timeSetType="timeSetType" @close="btmLayer.PopChargeTime = false"/>
   </div>
 </template>
 
 <script>
 import Chart from '@/views/common/Chart'
 import ChargeList from '@/views/common/ChargeList'
-import PopCharge from '@/views/PopCharge'
+import PopChargeTime from '@/views/PopChargeTime'
 export default {
   components:{
     Chart,
     ChargeList,
-    PopCharge
+    PopChargeTime
   },
   data(){
     return{
@@ -136,8 +140,7 @@ export default {
       },
       currentPage: 0,
       btmLayer:{
-        PopChargeSearch: false,
-        PopCharge: false
+        PopChargeTime: false
       },      
     }
   },

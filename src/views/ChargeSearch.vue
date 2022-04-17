@@ -27,7 +27,6 @@
                 <div id="slide-use">
                   <ChargeSearchList
                     :data="chargeList"
-                    @charge="btmLayer.PopCharge = true"
                   />
                 </div>
 
@@ -39,7 +38,6 @@
                 <div id="slide-around">
                   <ChargeSearchList
                     :data="chargeList"
-                    @charge="btmLayer.PopCharge = true"
                   />
                 </div>
             </div>
@@ -49,20 +47,16 @@
 
     <!-- 충전소 리스트 -->
     <PopChargeSearch :visible="btmLayer.PopChargeSearch" @close="btmLayer.PopChargeSearch = false"/>
-    <!-- 충전소 -->
-    <PopCharge :visible="btmLayer.PopCharge" @close="btmLayer.PopCharge = false"/>
   </div>
 </template>
 
 <script>
 import ChargeSearchList from '@/views/common/ChargeSearchList'
 import PopChargeSearch from '@/views/PopChargeSearch'
-import PopCharge from '@/views/PopCharge'
 export default {
   components:{
     ChargeSearchList,
     PopChargeSearch,
-    PopCharge
   },
   data(){
     return{
@@ -99,7 +93,6 @@ export default {
       currentPage: 0,
       btmLayer:{
         PopChargeSearch: false,
-        PopCharge: false
       },      
     }
   },

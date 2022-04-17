@@ -5,11 +5,10 @@
         <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
           <template slot="content">
               <splide-slide>
-                <div class="charge-search-wrap">
+                <div class="charge-wrap">
                     <h2 class="tit-type1">검색결과</h2>
                     <ChargeSearchList
                       :data="chargeList"
-                      @charge="btmLayer.PopCharge = true"
                     />
                 </div>
               </splide-slide>

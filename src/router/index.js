@@ -38,6 +38,8 @@ const routes = [
 	{ path: '/chargesearch', meta: {layout: 'Default', menu:'map' }, component: () => import('@/views/ChargeSearch.vue')},
   // 충전
 	{ path: '/charge', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Charge.vue')},
+  // 충전중
+	{ path: '/charging', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Charging.vue')},
   // 신청
 	{ path: '/apply', meta: {layout: 'Default', menu:'apply' }, component: () => import('@/views/Apply.vue')},
   // 더보기

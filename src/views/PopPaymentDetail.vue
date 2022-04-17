@@ -23,20 +23,6 @@
                 </ul>
                 <button class="btn-type1 st2">결제수단 변경</button>
               </splide-slide>
-              <splide-slide>
-                임시추가페이지 <br />
-                <Input type="text" placeholder="ID(Email)" />                
-                <Input type="text" placeholder="ID(Email)" />                
-                <Input type="text" placeholder="ID(Email)" />                
-                임시추가페이지 <br />
-                임시추가페이지 <br />
-                임시추가페이지 <br />
-                임시추가페이지 <br />
-                임시추가페이지 <br />
-                임시추가페이지 <br />
-                임시추가페이지 <br />
-                임시추가페이지 <br />
-              </splide-slide>
           </template>
         </Carousel>
       </template>
@@ -58,7 +44,8 @@ export default {
       options: {
         perPage: 1,
         perMove: 1,
-        start: 0
+        start: 0,
+        destroy: true
       },
       currentPage: 0      
     }

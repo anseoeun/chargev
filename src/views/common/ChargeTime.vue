@@ -10,8 +10,8 @@
     <template v-if="timeSetType === 'reserve'">
       <!-- 충전시작시각 -->
       <h2 class="tit-type1">충전시작시각</h2>
-      <div class="charge-time">
-          <Carousel :data ="timeRangeList" :options="timeStartRangeOpt" class="time-slide" @onMoved="timeStartRangeMoved">
+      <div class="charge-time" :style="{opacity:opacity}">
+          <Carousel :data="timeRangeList" :options="timeStartRangeOpt" class="time-slide" @onMoved="timeStartRangeMoved">
             <template slot-scope="props">
               <button>{{ props.item }}</button> 
             </template>
@@ -19,8 +19,8 @@
       </div>
       <!-- 충전시작시각 -->
       <h2 class="tit-type1">충전종료시각</h2>
-      <div class="charge-time">
-          <Carousel :data ="timeRangeList" :options="timeEndRangeOpt" class="time-slide" @onMoved="timeEndRangeMoved">
+      <div class="charge-time" :style="{opacity:opacity}">
+          <Carousel :data="timeRangeList" :options="timeEndRangeOpt" class="time-slide" @onMoved="timeEndRangeMoved">
             <template slot-scope="props">
               <button>{{ props.item }}</button> 
             </template>
@@ -29,6 +29,9 @@
       <!-- 충전시간 -->
       <h2 class="tit-type1">충전시간</h2>
       <div class="set-time">30분</div>
+      <!-- 예상 결제금액 -->
+      <h2 class="tit-type1">예상 결제금액</h2>
+      <div class="set-time">4,000원</div>
 
       <div class="btn-box align-c">
         <router-link to="/" class="btn-type1 st2 inbl">충전 예약</router-link>
@@ -38,8 +41,13 @@
     <template v-else-if="timeSetType === 'charge'">
       <!-- 충전시간 -->
       <h2 class="tit-type1">충전시간</h2>
-      <div class="charge-time">
-          <Carousel :data ="timeList" :options="timeOpt" class="time-slide" @onMoved="timeMoved">
+      <div class="charge-time" :style="{opacity:opacity}">
+          <Carousel :data="timeHourList" :options="timeHourOpt" class="time-slide" @onMoved="timeHourMoved">
+            <template slot-scope="props">
+              <button>{{ props.item }}시간</button>
+            </template>
+          </Carousel>
+          <Carousel :data="timeMinList" :options="timeMinOpt" class="time-slide" @onMoved="timeMinMoved">
             <template slot-scope="props">
               <button>{{ props.item }}분</button>
             </template>
@@ -55,6 +63,10 @@
 <script>
 export default {
   props:{
+    opacity:{
+      type: Number,
+      default: 0
+    },
     timeSetType:{
       type: String,
       default: ''
@@ -62,7 +74,17 @@ export default {
   },
   data(){
     return {
-      timeOpt: {
+      timeHour: 0,
+      timeMin: 30,
+      timeStart:'09:00',
+      timeEnd:'11:10',      
+      timeHourOpt: {
+          perPage  : 3,
+          focus    : 'center',
+          trimSpace: false,
+          pagination: false,
+      },
+      timeMinOpt: {
           perPage  : 3,
           focus    : 'center',
           trimSpace: false,
@@ -82,20 +104,6 @@ export default {
           pagination: false,
           start: 0
       },
-      time:'30',
-      timeStart:'09:00',
-      timeEnd:'11:10',
-      timeList: [
-        '30',
-        '40',
-        '50',
-        '60',
-        '70',
-        '80',
-        '90',
-        '100',
-      ],
-      // timeRange:[]
     };
   },
   computed:{
@@ -112,11 +120,28 @@ export default {
         }
       }      
       return timeArr;
+    },
+    timeHourList(){
+      let timeArr = [];     
+      for(let i=0; i<=24; i++){
+        timeArr.push(i)
+      }
+      return timeArr;
+    },
+    timeMinList(){
+      let timeArr = [];     
+      for(let i=3; i<=10; i++){
+        timeArr.push(i*10)
+      }
+      return timeArr;
     }
   },
   methods:{
-    timeMoved(slider, index){
-      this.time = this.timeList[index]
+    timeHourMoved(slider, index){
+      this.timeHour = this.timeHourList[index]
+    },
+    timeMinMoved(slider, index){
+      this.timeMin = this.timeMinList[index]
     },
     timeStartRangeMoved(slider, index){
       this.timeStart = this.timeRangeList[index]

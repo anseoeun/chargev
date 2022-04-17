@@ -37,16 +37,7 @@ export default {
     data:{
       type : Array,
       default: ()=>[]
-    },
-    chargeType:{
-      type: Array,
-      default: ()=>[]
-    }    
-  },
-  data(){
-    return{
-
-    }
-  },
+    } 
+  }
 }
 </script>
