@@ -41,22 +41,26 @@ export default {
               $('body').css('overflow', 'hidden');
               $(layerwrap).slideDown(250);
               setTimeout(()=>{
-                $(layer).slideDown(300);
+                $(layer).slideDown(300, function(){
+                  this.$emit('opended')
+                }.bind(this));
               },300)
 
-              let wrapper = layer.querySelector('.splide__slide') ? layer.querySelector('.splide__slide')
-                : layer.querySelector('.cont-scroll') ? layer.querySelector('.cont-scroll') : ''
+              if(layer.querySelector('.splide__slide') || layer.querySelector('.cont-scroll')){
+                let wrapper = layer.querySelector('.splide__slide') ? layer.querySelector('.splide__slide')
+                  : layer.querySelector('.cont-scroll') ? layer.querySelector('.cont-scroll') : ''
 
-              wrapper.addEventListener("scroll", (e)=>{
-                if(e.target.scrollTop == 0){
-                  setTimeout(()=>{
+                wrapper.addEventListener("scroll", (e)=>{
+                  if(e.target.scrollTop <= 0){
+                    setTimeout(()=>{
+                      this.scrollTop = e.target.scrollTop;
+                    }, 100)
+                  }else{
                     this.scrollTop = e.target.scrollTop;
-                  }, 100)
-                }else{
-                  this.scrollTop = e.target.scrollTop;
-                  this.isScrolling = true
-                }
-              });
+                    this.isScrolling = true
+                  }
+                });
+              }
 
               this.onClose()
             }, 100)

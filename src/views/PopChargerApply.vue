@@ -111,14 +111,16 @@
                             </div>
                             <div class="row">
                                 <div class="tit">합계(VAT 포함)</div>
-                                <div class="text align-r"><b>1,870,000</b>원</div>
+                                <div class="text right">1,870,000원</div>
                             </div>
                         </div>
-                        <ul class="dash-indent-list">
-                            <li>- 표준공사 30m기준으로 초과시 m당 초과 비용  이 발생할 수 있습니다.</li>
-                            <li>- 여유 전력이 부족할 경우 전력 증설로 인한 한국 전력 표준 시설부담금이 발생할 수 있습니다.</li>
-                            <li>- 완속충전기 취득세가 부과될 수 있습니다.</li>
-                        </ul>
+                        <div class="gray-box">
+                          <ul class="dash-indent-list">
+                              <li>- 표준공사 30m기준으로 초과시 m당 초과 비용  이 발생할 수 있습니다.</li>
+                              <li>- 여유 전력이 부족할 경우 전력 증설로 인한 한국 전력 표준 시설부담금이 발생할 수 있습니다.</li>
+                              <li>- 완속충전기 취득세가 부과될 수 있습니다.</li>
+                          </ul>
+                        </div>
                     </div>
                     <!-- 개인정보 제3자 제공 동의 -->
                     <h2 class="tit-type1">개인정보 제3자 제공 동의</h2>
@@ -126,17 +128,42 @@
                         <div class="grid-list">
                             <div class="row">
                                 <div class="tit">
-                                    <Icon type="check" class="on" />
-                                    <span>개인정보 제3자 제공 동의</span>
+                                  <button  @click="checkIcon($event, 'ruleChecked')">
+                                    <Icon type="check" :class="{on: ruleChecked}" />개인정보 제3자 제공 동의
+                                  </button>
                                 </div>
                                 <div class="right">
-                                    <router-link to="/" class="btn-link">
-                                        <Icon type="arr-right" />
-                                    </router-link>
+                                    <button class="btn-toggle-slide" @click="toggleSlide($event, '#slide-rule')"><Icon type="arr-right" /></button>
                                 </div>
                             </div>
                         </div>
-                    </div>                   
+                        <div id="slide-rule" style="display:none">
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                          개인정보 제3자 제공 동의 <br />
+                        </div>
+                    </div>
                     <div class="btn-box">
                         <button class="btn-type1 st2">충전기 설치 신청</button>
                     </div>
@@ -169,6 +196,7 @@ export default {
         perMove:1,
         pagination:false,
       },
+
       //설치장소 선택
       placeList: [
         {
@@ -273,10 +301,6 @@ export default {
         {
           name : '부가세',
           price: '170,000'
-        },
-        {
-          name : '합계(VAT 포함)',
-          price: '1,870,000'
         }
       ],      
       //개인정보 제3자 제공 동의

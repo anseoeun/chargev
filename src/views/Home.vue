@@ -60,6 +60,8 @@ export default {
           'chargesearch': '충전소검색',
           // 충전
           'charge': '충전',
+          // 충전중
+          'charging': '충전중',
           // 신청
           'apply': '신청',
           // 더보기

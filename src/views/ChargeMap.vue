@@ -1,6 +1,7 @@
 <template>
   <div class="contents">
     <div class="map-wrap">
+      <!-- ※ 개발시 백그라운드 제거 -->
       <div class="map" :style="`background:url('${require('@/assets/images/temp-map.jpg')}') no-repeat 50% 50%;background-size:cover`"></div>
 
       <div class="map-menu">
