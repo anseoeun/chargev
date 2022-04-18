@@ -57,8 +57,6 @@ export default {
           'chargemap': '충전소지도',
           // 충전소
           'chargestation': '충전소',
-          // 충전소검색
-          'chargesearch': '충전소검색',
           // 충전
           'charge': '충전',
           // 충전중

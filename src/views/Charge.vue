@@ -76,7 +76,7 @@
     </Carousel>
 
     <!-- 충전소 리스트 -->
-    <PopChargeSearch :visible="btmLayer.PopChargeSearch" @close="btmLayer.PopChargeSearch = false"/>
+    <PopChargeSearchList :visible="btmLayer.PopChargeSearch" @close="btmLayer.PopChargeSearch = false"/>
     <!-- 충전시간 -->
     <PopChargeTime :visible="btmLayer.PopChargeTime" timeSetType="charge" @close="btmLayer.PopChargeTime = false"/>    
   </div>
@@ -84,12 +84,12 @@
 
 <script>
 import ChargeSearchList from '@/views/common/ChargeSearchList'
-import PopChargeSearch from '@/views/PopChargeSearch'
+import PopChargeSearchList from '@/views/PopChargeSearchList'
 import PopChargeTime from '@/views/PopChargeTime'
 export default {
   components:{
     ChargeSearchList,
-    PopChargeSearch,
+    PopChargeSearchList,
     PopChargeTime
   },
   data(){

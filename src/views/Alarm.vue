@@ -1,33 +1,27 @@
 <template>
-  <div class="contents">
+  <div class="contents page-wrap">
     <div class="alarm-wrap">
-      <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
-        <template slot="content">
-            <splide-slide>      
-              <h2 class="tit-type1">알림</h2>
-              
-              <div class="tab-type1">
-                <button @click="setAlarm('total')" :class="{on: alarmTit === '전체'}">전체</button>
-                <button @click="setAlarm('charge')" :class="{on: alarmTit === '충전'}">충전</button>
-                <button @click="setAlarm('notice')" :class="{on: alarmTit === '공지'}">공지</button>
-                <button @click="setAlarm('etc')" :class="{on: alarmTit === '기타'}">기타</button>
-              </div>
-              
-              <!-- 전체 알림 -->
-              <div class="alarm-list">
-                <ul>
-                  <li v-for="(item, index) in alarmList" :key="index">
-                    <Icon type="rect-check" />
-                    <div class="desc">
-                      <div class="date">{{ item.date }}</div>
-                      <p class="text">{{ item.text }}</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </splide-slide>
-        </template>
-      </Carousel>
+      <h2 class="tit-type1">알림</h2>
+      
+      <div class="tab-type1">
+        <button @click="setAlarm('total')" :class="{on: alarmTit === '전체'}">전체</button>
+        <button @click="setAlarm('charge')" :class="{on: alarmTit === '충전'}">충전</button>
+        <button @click="setAlarm('notice')" :class="{on: alarmTit === '공지'}">공지</button>
+        <button @click="setAlarm('etc')" :class="{on: alarmTit === '기타'}">기타</button>
+      </div>
+      
+      <!-- 전체 알림 -->
+      <div class="alarm-list">
+        <ul>
+          <li v-for="(item, index) in alarmList" :key="index">
+            <Icon type="rect-check" />
+            <div class="desc">
+              <div class="date">{{ item.date }}</div>
+              <p class="text">{{ item.text }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
    </div>
   </div>
 </template>
