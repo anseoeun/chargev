@@ -10,7 +10,6 @@ import Map from './Map';
 import None from './None';
 
 export default {
-    name: 'TheLayout',
     components: {
         Default,
         Map,

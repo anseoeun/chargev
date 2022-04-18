@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1 class="hidden">chargev</h1>
+    <h1 class="hidden">chargev</h1>    
     <Layout :layout="layout">
         <router-view />
     </Layout>

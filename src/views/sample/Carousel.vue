@@ -34,9 +34,9 @@ export default {
         perPage: 1,
         perMove: 1,
         arrows: false,
+        // destroy: true, 슬라이드 destroy
         // rewind: true, // 맨끝에서 처음으로 다시 돌아가기
         // pagination: false
-        //star :start index
       },
     }
   },

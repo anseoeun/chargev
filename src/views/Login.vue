@@ -171,7 +171,7 @@ export default {
       options: {
         perPage: 1,
         perMove: 1,
-        arrows: false
+        arrows: false,
       },
       currentPage: 0,
       paging: new Array(6),

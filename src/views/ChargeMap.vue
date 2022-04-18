@@ -42,8 +42,6 @@ export default {
   },
   data(){
     return{
-      
-
       options: {
         perPage: 1,
         perMove: 1,
@@ -56,12 +54,6 @@ export default {
         PopCharge: false,
       },
     }
-  },
-  created(){
-
-  },
-  methods: {
-    
   }
 }
 </script>

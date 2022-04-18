@@ -1,6 +1,7 @@
 module.exports = {
-    devServer: {
-      overlay: false
-    },
-    runtimeCompiler: true,
+  devServer: {
+    disableHostCheck: true,
+    overlay: false
+  },
+  runtimeCompiler: true,
 };

@@ -2,33 +2,6 @@ import Vue from 'vue'
 import $ from 'jquery'
 
 Vue.mixin({
-    data(){
-      return {
-        // headerTitle:'',
-        // title:'',
-      }
-    },
-    watch: {
-        // $route: {
-        //     immediate: true,
-        //     handler(to) {
-        //       if(to){
-        //         // console.log(this.titleData[to.path.split('/')[1]][0])
-        //        let path = this.titleData[to.path.split('/')[1]];
-        //         if(path && path.length > 0){
-        //             this.headerTitle = path[0]
-        //             this.title = path[1]
-        //         }
-        //       }
-        //     }
-        // },
-    },        
-    created(){
-      
-    },
-    mounted(){
-      
-    },
     methods: {
       checkIcon(e, arr, i){
         e.stopPropagation();
@@ -49,8 +22,8 @@ Vue.mixin({
         }
       },
       fillZero(width, str){
-          return String(str).length >= width ? str : new Array(width - String(str).length + 1).join('0')+str;//남는 길이만큼 0으로 채움
-      },
+        return String(str).length >= width ? str : new Array(width - String(str).length + 1).join('0')+str;
+      },      
       toggleSlide(e, target){
         let $btn = $(e.currentTarget);
         let $cont = $(target)
@@ -63,8 +36,5 @@ Vue.mixin({
             $btn.removeClass('on');
         }
       }
-      // maxLength(max){
-      //   return 'if (this.value.length > '+ max +') this.value = this.value.slice(0, '+ max +')';
-      // }      
     }
   })

@@ -3777,6 +3777,7 @@ i[class*=i-] .svg-prevent {
   margin-top: 1.671rem;
 }
 
+.charge-wrap .time-start-end + .btn-box,
 .charge-wrap .text-price + .btn-box {
   margin-top: 4.457rem;
 }
@@ -3866,7 +3867,7 @@ i[class*=i-] .svg-prevent {
   font-size: 1.392rem;
 }
 
-.charge-wrap .time-start-end + .btn-box,
+/* charge-list */
 .charge-list li ~ li {
   margin-top: 1.253rem;
 }
@@ -5536,9 +5537,5 @@ i[class*=i-] .svg-prevent {
 
 .custom-charge-wrap .reserve-time-set {
   margin: 1.741rem;
-}
-
-#line-chart .tick:not(:nth-child(4n+1)) text {
-  display: none;
 }
 /*# sourceMappingURL=style.css.map */

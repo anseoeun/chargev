@@ -150,3 +150,6 @@ export default {
   }  
 }
 </script>
+<style>
+  #line-chart .tick:not(:nth-child(4n+1)) text{display:none;}
+</style>
