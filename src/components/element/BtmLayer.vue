@@ -39,12 +39,12 @@ export default {
         if (newVisible) {
             setTimeout(()=>{
               $('body').css('overflow', 'hidden');
-              $(layerwrap).slideDown(250);
+              $(layerwrap).slideDown(150);
               setTimeout(()=>{
-                $(layer).slideDown(300, function(){
+                $(layer).slideDown(180, function(){
                   this.$emit('opended')
                 }.bind(this));
-              },300)
+              },180)
 
               if(layer.querySelector('.splide__slide') || layer.querySelector('.cont-scroll')){
                 let wrapper = layer.querySelector('.splide__slide') ? layer.querySelector('.splide__slide')
@@ -145,9 +145,9 @@ export default {
         const layerwrap = this.$refs.layerwrap
         const layer = this.$refs.layer
 
-        $(layerwrap).slideUp()
+        $(layerwrap).slideUp(200)
         $(layerwrap).fadeOut()
-        $(layer).slideUp(300, ()=>{
+        $(layer).slideUp(150, ()=>{
           $(layer).css('bottom', 0)
         })
         $('body').css('overflow', '');
