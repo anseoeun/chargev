@@ -12,10 +12,10 @@
       </div>
 
       <button class="mapindex" style="top:150px;left:180px;">
-        <Icon type="mapindex" />
+        <img :src="require('@/assets/images/mapindex-off.png')">
       </button>
-      <button class="mapindex" style="top:200px;left:220px;" @click="btmLayer.PopCharge = true">
-        <Icon type="mapindex-ing" />
+      <button class="mapindex on" style="top:200px;left:220px;" @click="btmLayer.PopCharge = true">
+        <img :src="require('@/assets/images/mapindex-on.png')">
       </button>
       <button class="btn-type2 st1 inbl" style="position:absolute;top:325px;left:200px;" @click="btmLayer.PopChargeSearch = true">
         총전소검색 버튼

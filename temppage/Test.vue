@@ -84,44 +84,7 @@ export default {
         autoWidth: true,
         perPage: 1,
       },        
-      paging: new Array(6),
-      eventList: [
-        {
-          bg: require('@/assets/images/temp-event.jpg'),
-          month: '1월',
-          day: '1~31',
-          title: '삼성 iD EV 카드 프로모션',
-          type: '충전요금 할인 카드',
-        },
-        {
-          bg: require('@/assets/images/temp-event.jpg'),
-          month: '1월',
-          day: '1~31',
-          title: '삼성 iD EV 카드 프로모션',
-          type: '충전요금 할인 카드',
-        },
-        {
-          bg: require('@/assets/images/temp-event.jpg'),
-          month: '1월',
-          day: '1~31',
-          title: '삼성 iD EV 카드 프로모션',
-          type: '충전요금 할인 카드',
-        },
-        {
-          bg: require('@/assets/images/temp-event.jpg'),
-          month: '1월',
-          day: '1~31',
-          title: '삼성 iD EV 카드 프로모션',
-          type: '충전요금 할인 카드',
-        },
-        {
-          bg: require('@/assets/images/temp-event.jpg'),
-          month: '1월',
-          day: '1~31',
-          title: '삼성 iD EV 카드 프로모션',
-          type: '충전요금 할인 카드',
-        },
-      ]      
+      paging: new Array(6),   
     }
   },
   mounted(){

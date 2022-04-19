@@ -1,18 +1,33 @@
 <template>
   <div class="contents">
     <div class="login-wrap">
-      <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page parallel-slider" @init="pageSliderInit" @onMove="pageSliderMove" @onMoved="pageSliderMoved">
+      <Carousel 
+        :options="options" 
+        :content="true" 
+        :customPaging="true" 
+        :page.sync="currentPage" 
+        :key="totalPage"
+        :tempPage="3"
+        class="slider-page" 
+        @init="pageSliderInit" 
+        @onMove="pageSliderMove" 
+        @onMoved="pageSliderMoved"
+      >
         <template slot="content">
           <splide-slide>
-            페이지1
-            <button class="btn-type1 st2" @click="currentPage = 1">2페이지로</button>
+            <div style="height:10rem;padding:1rem;background:red">
+              페이지1
+              <button class="btn-type1 st2" @click="currentPage = 1">2페이지로</button>
+            </div>
           </splide-slide>
           <splide-slide>
-            페이지2
-            <button class="btn-type1 st2" @click="currentPage = 2">3페이지로</button>
+            <div style="height:10rem;padding:1rem;background:gray">
+              페이지2
+              <button class="btn-type1 st2" @click="addPage(3);">3페이지추가 및 이동</button>
+            </div>
           </splide-slide>
-          <splide-slide>
-            페이지3
+          <splide-slide v-if="page3">
+            <div style="height:10rem;padding:1rem;background:green">페이지3</div>
           </splide-slide>
         </template>
       </Carousel>
@@ -30,6 +45,8 @@ export default {
     return{
       currentPage: 0,
       paging: new Array(6),
+      totalPage: 2,
+      page3: false,
       options: {
         perPage: 1,
         perMove: 1,
@@ -49,6 +66,14 @@ export default {
     },
     pageSliderMoved(slider){
       this.currentPage = slider.index
+    },
+    addPage(page){
+      this.page3 = true
+      this.options.start = this.currentPage;
+      this.totalPage = page;
+      setTimeout(()=>{
+        this.currentPage = 2;
+      }, 400)
     }
   }
 }

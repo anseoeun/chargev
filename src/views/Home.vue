@@ -63,6 +63,8 @@ export default {
           'charging': '충전중',
           // 신청
           'apply': '신청',       
+          // 더보기
+          'more': '더보기',       
       }
     }
   }

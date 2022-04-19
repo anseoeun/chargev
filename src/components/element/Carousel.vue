@@ -23,7 +23,7 @@
 
     <div v-if="customPaging" class="grident-bottom">
       <div class="custom-dotting">
-          <button v-for="(item, index) in paging" :key="index" :class="{on: currentPage === index}" @click="gotoPage(index)"></button>
+          <button v-for="(item, index) in tempPage || paging" :disabled="index >= paging.length" :key="index" :class="{on: currentPage === index}" @click="gotoPage(index)"></button>
       </div>
     </div>
   </div>
@@ -56,6 +56,10 @@ export default {
       default: false,
     },
     page:{
+      type: Number,
+      default: 0,
+    },
+    tempPage:{
       type: Number,
       default: 0,
     },

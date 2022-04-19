@@ -30,6 +30,8 @@ const routes = [
 	{ path: '/charging', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Charging.vue')},
   // 신청
 	{ path: '/apply', meta: {layout: 'Default', menu:'apply' }, component: () => import('@/views/Apply.vue')},
+  // 더보기
+	{ path: '/more', meta: {layout: 'Default', menu:'apply' }, component: () => import('@/views/More.vue')},
 ]
 
 for(let i=0;i<routes.length;i++){
