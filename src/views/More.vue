@@ -93,7 +93,7 @@
             <div v-if="currentTab === 'card'" class="credit-card-wrap">
                 <div class="card-wrap">
                     <ul class="list">
-                        <li v-for="(item, index) in cargePointList" :key="index">
+                        <li v-for="(item, index) in cardList" :key="index">
                             <div class="card3">
                                 <div class="bg" :style="`background-image:url(${item.src})`"></div>
                                 <Icon v-if="item.logo === 'bmw'" type="logo-bmw" />
@@ -108,14 +108,15 @@
                                 <div class="price">{{ item.price }}원</div>
                             </div>
                             <div class="btn-box">
-                                <router-link to="/" class="btn-type2 st2">결제내역 확인</router-link>
+                                <router-link to="/" class="btn-type1 st2">신용카드 삭제</router-link>
+                                <router-link to="/" class="btn-type1 st2">결제내역 확인</router-link>                    
                             </div>
                         </li>
                         <li>
                             <button class="card2">
                                 <div class="center">
                                     <Icon type="add-plus" />
-                                    <p class="txt">상품등록</p>
+                                    <p class="txt">신용카드 등록</p>
                                 </div>
                             </button>
                         </li>
@@ -175,6 +176,22 @@ export default {
               date: '2021. 07. 01 ~ 2022. 07. 01',
               price: '100,000',
           },
+      ],
+      cardList: [
+          {
+              src: require('@/assets/images/temp-card.jpg'),
+              logo: 'bmw',
+              text: ['20년', 'BMW', 'Charging'],
+              date: '2021. 07. 01 ~ 2022. 07. 01',
+              price: '360,000',
+          },
+          {
+              src: require('@/assets/images/temp-card.jpg'),
+              logo: 'chargev',
+              text: '모바일충전권',
+              date: '2021. 07. 01 ~ 2022. 07. 01',
+              price: '100,000',
+          }
       ],
 
       options: {
