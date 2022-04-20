@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-default">
+    <div :class="layoutClass">
         <Header />
         <slot />
         <Footer />
@@ -15,5 +15,10 @@ export default {
         Header,
         Footer,
     },
+    computed: {
+      layoutClass(){
+        return this.$root.$route.meta.layoutClass ? this.$root.$route.meta.layoutClass : 'layout-default'
+      },
+    },    
 }
 </script>
