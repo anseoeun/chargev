@@ -1,7 +1,8 @@
 
 import Vue from 'vue'
 
-/** 사용할 컴포넌트 파일 Import */
+import Input from './element/Input'
+Vue.component('Input', Input)
 import Icon from './element/Icon'
 Vue.component('Icon', Icon)
 import BtmLayer from './element/BtmLayer'
@@ -10,5 +11,5 @@ import SlideList from './element/SlideList'
 Vue.component('SlideList', SlideList)
 import Alert from './element/Alert'
 Vue.component('Alert', Alert)
-import Slider from './element/Slider'
-Vue.component('Slider', Slider)
+import Carousel from './element/Carousel'
+Vue.component('Carousel', Carousel)

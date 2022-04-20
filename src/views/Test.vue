@@ -1,212 +1,83 @@
 <template>
-  <div class="notice">
-    테스트
-
-<round-slider
-  v-model="sliderValue"
-  start-angle="315"
-  end-angle="+270"
-  line-cap="round"
-  radius="120"
-/>    
-
-<round-slider v-model="sliderValue"
-        editable-tooltip="false"
-        :tooltip-format="formatter"
-        min="0"
-        max="360"        
-        start-angle="90"
-        :radius="radius"
-        width="8"
-        range-color="url(#slider1_range_grad)"
-></round-slider>
-
-<svg height="0" width="0">
-      <defs>
-        <linearGradient
-          id="slider1_range_grad"
-          x1="0%"
-          y1="0%"
-          x2="100%"
-          y2="0%"
-        >
-          <stop
-            offset="0%"
-            style="stop-color: rgb(255, 255, 0); stop-opacity: 1"
-          />
-          <stop
-            offset="100%"
-            style="stop-color: rgb(255, 0, 0); stop-opacity: 1"
-          />
-        </linearGradient>
-      </defs>
-    </svg>
-
-      <!-- <round-slider
-        slider-type="range"
-        min="0"
-        max="24"
-        editable-tooltip="false"
-        v-model="sliderValue"
-        :tooltip-format="formatter"
-      ></round-slider> -->
-
-
-      <word-relay start-word="무지개"></word-relay>
-        <!-- <word-relay start-word="무지개"></word-relay>
-        <word-relay start-word="개나리"></word-relay> -->
-        
-      <BtmLayer :content="true">
-        <template slot="content">
+  <div class="contents">
+    <div class="login-wrap">
+      <button @click="currentPage = 2;options.start = 2">3페이지추가</button>
+          <Carousel :options="options" :content="true" class="slider-default" :key="currentPage">
+            <template slot="content">
+              <splide-slide>
+                <div style="height: 200px; background: red">가나다</div>
+              </splide-slide>
+              <splide-slide>
+                <div style="height: 200px; background: green">라마바</div>
+              </splide-slide>
+              <splide-slide v-if="currentPage === 2">
+                <div style="height: 200px; background: black">아자차</div>
+              </splide-slide>
+              <splide-slide v-if="false">
+                <div style="height: 200px; background: black">파하</div>
+              </splide-slide>
+            </template>
+          </Carousel>      
+    </div>
+    <BtmLayer :visible="btmLayer.agency" @close="btmLayer.agency = false">
+      <template slot="content">
           dfsf
-        </template>
-      </BtmLayer>
-
-      <div class="pin-setting">
-        <div class="pin-num">{{ pin[0] }}</div>
-        <div class="pin-num">{{ pin[1] }}</div>
-        <div class="pin-num">{{ pin[2] }}</div>
-        <div class="pin-num">{{ pin[3] }}</div>
-      </div>
-
-      <input type="number" v-model="pin" @change="setPin">
-
-
-      <div class="black-box">
-        <router-link to="/" class="box">
-          <Icon type="arr-right" />
-          <span class="payco">
-            <Icon type="payco" />
-          </span>
-         </router-link>
-      </div>
-      <br>
-      <div class="black-box">
-        <router-link to="/" class="box">
-          <div class="t-wrap">
-            <div class="row">
-              <div class="cell">BMW 530e 
-                <div class="fr">
-                    <button  @click="checkIcon($event, 'complteChecked')">
-                      <Icon type="check" :class="{on: complteChecked}" />
-                      &nbsp;
-                      차량공유 등록 완료
-                    </button>
-                </div>
-              </div>
-            </div>
-            <div class="row"><div class="cell">02보6596</div></div>
-            <div class="row"><div class="cell">(삼성) 5361 48** **** 4151</div></div>
-          </div>
-         </router-link>
-      </div>
-      <br>
-      <div class="black-box">
-        <router-link to="/" class="box">
-          <Icon type="arr-right" />
-          <div class="check">
-            <button @click="checkIcon">
-              <Icon type="check" />
-            </button>
-          </div>
-          <div class="t-wrap">
-            <div class="row"><div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div></div>
-            <div class="row"><div class="cell"><b class="price">9,010원</b> 충전포인트 결제</div></div>
-            <div class="row"><div class="cell">2021-11-02 15:05:02</div></div>
-          </div>
-         </router-link>
-      </div>
-      <br>
-      <div class="black-box">
-        <router-link to="/" class="box">
-          <Icon type="arr-right" />
-          <div class="t-wrap">
-            <div class="row">
-              <div class="cell tit"><b>차지비</b></div>
-              <div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div>
-            </div>
-            <div class="row">
-              <div class="cell tit">
-                <b class="c-red">잔액부족<br>미결제</b>
-              </div>
-              <div class="cell">
-                <p><b class="price">9,010원</b> 충전포인트 결제</p>
-                <p>2021-11-02 15:05:02</p>
-              </div>
-            </div>
-          </div>
-         </router-link>
-      </div>
-      <br>
-      <div class="black-box">
-        <router-link to="/" class="box">
-          <Icon type="arr-right" />
-           <div class="check w-sm">
-            <button @click="checkIcon">
-              <Icon type="check" />
-            </button>
-          </div>
-          <div class="t-wrap">
-            <div class="row">
-              <div class="cell tit"><b>차지비</b></div>
-              <div class="cell">서울시 송파구 롯데타워지하4층 완속#1</div>
-            </div>
-            <div class="row">
-              <div class="cell tit">
-                정상이용
-              </div>
-              <div class="cell">
-                <p><b class="price">9,010원</b> 충전포인트 결제</p>
-                <p>2021-11-02 15:05:02</p>
-              </div>
-            </div>
-          </div>
-         </router-link>
-      </div>
+      </template>
+    </BtmLayer>
   </div>
 </template>
 
 <script>
-var Child = {
-  props:{
-    startWord : {
-      type: String,
-      default: ''
-    }
-  },
-  template: '<div>{{ startWord }}</div>'
-}
-
-// import Vue from 'vue'
-import RoundSlider from 'vue-round-slider'
-
 
 export default {
-  name: 'Notice',
-  components: {
-    RoundSlider,
-    'word-relay': Child
-  },
-  data() {
-    return {
-      sliderValue: 60,
-      radius: 80,
-      complteChecked: true,
-      pin: '',
+  data(){
+    return{
+      btmLayer:{
+        agency: false,
+      },
+      currentPage: 0,
+      slider1: false,
+       componentKey: 2,
+      options: {
+        // rewind: true, // 맨끝에서 처음으로 다시 돌아가기
+        // width: 800,
+        perPage: 1,
+        perMove: 1,
+        // pagination: false,
+        // arrows: false,
+      },      
+      options2: {
+        focus    : 'center',
+        autoWidth: true,
+        perPage: 1,
+      },        
+      paging: new Array(6),
+    
     }
   },
   mounted(){
-    setTimeout(()=>{
-        this.radius = 180
-    }, 500)   
+    var el = document.querySelector('.expct')
+  el.addEventListener("touchstart", function(e){ e.stopPropagation() });
   },
   methods: {
-    formatter(e) {
-      return e.value + "분";
+    update(){
+      this.slider1 = true;
+      this.componentKey += 1;   
+      this.options.start = 1
+      // this.$forceUpdate();
     },
-    setPin(){
-
+    pageSliderInit(slider){
+      this.currentPage = slider.index
+    },
+    pageSliderMove(slider){
+      this.currentPage = slider.index
+    },
+    pageSliderMoved(slider){
+      this.currentPage = slider.index
+    },
+    gotoPage(index){
+      document.querySelector('.splide__pagination li:nth-child('+(index +  1)+') button').click()
     }
-  },
+  }
 }
 </script>

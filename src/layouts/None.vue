@@ -1,14 +1,5 @@
 <template>
-    <div>
+    <div class="layout-none">
         <slot />
     </div>
 </template>
-
-<script>
-
-export default {
-    name: 'None',
-    components: {
-    },
-}
-</script>
