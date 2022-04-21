@@ -17,7 +17,7 @@
       <button class="mapindex on" style="top:200px;left:220px;" @click="btmLayer.PopCharge = true">
         <img :src="require('@/assets/images/mapindex-on.png')">
       </button>
-      <button class="btn-type2 st1 inbl" style="position:absolute;top:325px;left:200px;" @click="btmLayer.PopChargeSearch = true">
+      <button class="btn-type2 st1 inbl" style="position:absolute;top:325px;left:200px;" @click="$root.$emit('PopChargeSearch')">
         총전소검색 버튼
       </button>
     
@@ -29,10 +29,6 @@
     <PopMapLegend :visible="btmLayer.PopMapLegend" @close="btmLayer.PopMapLegend = false"/>
     <!-- 충전소 -->
     <PopChargeStation :visible="btmLayer.PopCharge" @close="btmLayer.PopCharge = false"/>
-    <!-- 총전소검색 -->
-    <PopChargeSearch :visible="btmLayer.PopChargeSearch" @close="btmLayer.PopChargeSearch = false" @PopChargeSearchList="btmLayer.PopChargeSearchList = true"/>
-    <!-- 충전소 리스트 -->
-    <PopChargeSearchList :visible="btmLayer.PopChargeSearchList" @close="btmLayer.PopChargeSearchList = false"/>
   </div>
 </template>
 
@@ -40,15 +36,11 @@
 import PopMapFilter from '@/views/PopMapFilter'
 import PopMapLegend from '@/views/PopMapLegend'
 import PopChargeStation from '@/views/PopChargeStation'
-import PopChargeSearch from '@/views/PopChargeSearch'
-import PopChargeSearchList from '@/views/PopChargeSearchList'
 export default {
   components:{
     PopMapFilter,
     PopMapLegend,
     PopChargeStation,
-    PopChargeSearch,
-    PopChargeSearchList
   },
   data(){
     return{
@@ -62,8 +54,6 @@ export default {
         PopMapFilter: false,
         PopMapLegend: false,
         PopCharge: false,
-        PopChargeSearch: false,
-        PopChargeSearchList: false,
       },
     }
   }

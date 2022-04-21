@@ -6,13 +6,11 @@
 
 <script>
 import Default from './Default';
-import Map from './Map';
 import None from './None';
 
 export default {
     components: {
         Default,
-        Map,
         None,
     },
     props: {

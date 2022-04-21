@@ -22,6 +22,7 @@
                 </div>
             </splide-slide>          
             <splide-slide>
+              <h2 class="tit-type1">이용기록 </h2>
               <UsingHistory
                 @detailUsingHistory="btmLayer.popPaymentDetail = true"
                />

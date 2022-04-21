@@ -1,13 +1,20 @@
 <template>
-    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge">
+    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge max">
       <template slot="content">
         <button class="btn-layer-close" @click="$emit('close');"><Icon type="close" /></button>
             <div class="cont-scroll">
               <div class="charge-wrap">
                   <h2 class="tit-type1">검색결과</h2>
-                  <ChargeSearchList
-                    :data="chargeList"
-                  />
+                  <template v-if="chargeList.length > 0">
+                    <ChargeSearchList
+                      :data="chargeList"
+                    />
+                  </template>
+                  <template v-else>
+                    <div class="no-result">
+                      검색 결과가 없습니다.
+                    </div>
+                  </template>
               </div>
             </div>
       </template>

@@ -1,5 +1,5 @@
 <template>
-    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge">
+    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge max">
       <template slot="content">
         <button class="btn-layer-close" @click="$emit('close');"><Icon type="close" /></button>
           <div class="cont-scroll">
@@ -10,7 +10,7 @@
                   <div class="form-box">
                       <div class="row">
                       <div class="input">
-                          <input type="text" placeholder="충전소 명 또는 주소 입력">
+                          <Input type="text" placeholder="충전소 명 또는 주소 입력" />
                       </div>
                       </div>
                   </div>

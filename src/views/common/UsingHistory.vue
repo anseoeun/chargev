@@ -1,6 +1,5 @@
 <template>
     <div class="using-history">
-        <h2 class="tit-type1">이용기록 </h2>
         <div class="calendar">
           <!-- year -->
           <Carousel :data ="year" :options="yearOpt" class="year-slide">

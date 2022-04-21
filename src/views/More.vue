@@ -3,7 +3,7 @@
     <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
       <template slot="content">
           <splide-slide>
-            <div class="more-wrap">
+            <div class="mypage-wrap">
               <!-- 내정보 -->
               <h2 class="tit-type1">내정보</h2>
               <div class="my-info">
@@ -58,7 +58,7 @@
                 <button @click="currentTab = 'card'" :class="{on: currentTab === 'card'}">신용카드</button>
                 <button @click="currentTab = 'payment'" :class="{on: currentTab === 'payment'}">간편결제</button>
             </div>
-            <div v-if="currentTab === 'point'" class="charge-point-wrap">
+            <div v-if="currentTab === 'point'" class="charge-list-wrap charge-point-wrap">
                 <div class="card-wrap">
                     <ul class="list">
                         <li v-for="(item, index) in cargePointList" :key="index">
@@ -76,11 +76,11 @@
                                 <div class="price">{{ item.price }}원</div>
                             </div>
                             <div class="btn-box">
-                                <router-link to="/" class="btn-type2 st2">결제내역 확인</router-link>
+                                <button class="btn-type2 st2" @click="btmLayer.PopPaymentList = true">결제내역 확인</button>
                             </div>
                         </li>
                         <li>
-                            <button class="card2">
+                            <button class="card2" @click="btmLayer.PopCouponRegist = true">
                                 <div class="center">
                                     <Icon type="add-plus" />
                                     <p class="txt">상품등록</p>
@@ -90,30 +90,33 @@
                     </ul>
               </div>
             </div>
-            <div v-if="currentTab === 'card'" class="credit-card-wrap">
+            <div v-if="currentTab === 'card'" class="charge-list-wrap credit-card-wrap">
                 <div class="card-wrap">
                     <ul class="list">
                         <li v-for="(item, index) in cardList" :key="index">
                             <div class="card3">
                                 <div class="bg" :style="`background-image:url(${item.src})`"></div>
-                                <Icon v-if="item.logo === 'bmw'" type="logo-bmw" />
-                                <Icon v-if="item.logo === 'chargev'" type="chargev4" />
-                                <div class="main-txt">
-                                    <div v-if="Array.isArray(item.text)" class="space-text">
-                                        <span v-for="(txt, i) in item.text" :key="i">{{ txt }}</span>
+                                <div class="card-info">
+                                    <div class="card-date">{{ item.date }}</div>
+                                    <div class="card-num">
+                                        <button  @click="checkIcon($event, 'cardChecked', index)">
+                                            <Icon type="check" :class="{on: cardChecked[index]}" />
+                                        </button>
+                                        <span>{{ item.company }}</span>
+                                        <span>{{ item.num[0] }}</span>
+                                        <span>{{ item.num[1] }}</span>
+                                        <span>{{ item.num[2] }}</span>
+                                        <span>{{ item.num[3] }}</span>
                                     </div>
-                                    <template v-else>{{ item.text }}</template>
                                 </div>
-                                <div class="date">{{ item.date }}</div>
-                                <div class="price">{{ item.price }}원</div>
                             </div>
                             <div class="btn-box">
-                                <router-link to="/" class="btn-type1 st2">신용카드 삭제</router-link>
-                                <router-link to="/" class="btn-type1 st2">결제내역 확인</router-link>                    
+                                <button class="btn-type1 st2">신용카드 삭제</button>
+                                <button class="btn-type1 st2" @click="btmLayer.PopPaymentList = true">결제내역 확인</button>
                             </div>
                         </li>
                         <li>
-                            <button class="card2">
+                            <button class="card2" @click="btmLayer.PopPaymentAdd = true">
                                 <div class="center">
                                     <Icon type="add-plus" />
                                     <p class="txt">신용카드 등록</p>
@@ -123,28 +126,43 @@
                     </ul>
               </div>
             </div>
-            <div v-if="currentTab === 'payment'" class="simple-payment-wrap">
-
+            <div v-if="currentTab === 'payment'" class="charge-list-wrap simple-payment-wrap">
+                <div class="card-wrap">
+                    <ul class="list">
+                        <li v-for="(item, index) in paymentCardList" :key="index">
+                            <div class="card4">
+                                <div class="center">
+                                    <Icon v-if="item.logo === 'payco'" type="payco" />
+                                    <Icon v-if="item.logo === 'chargev'" type="chargev4" />
+                                    <p class="txt">등록하기</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+              </div>
             </div>
-            
           </splide-slide>
       </template>
     </Carousel>
 
-    <!-- 주소 -->
-    <PopAddr :visible="btmLayer.PopAddr" @close="btmLayer.PopAddr = false"/>
-    <!-- 충전기설치신청 -->
-    <PopChargerApply :visible="btmLayer.PopChargerApply" @close="btmLayer.PopChargerApply = false"/>
+    <!-- 모바일 충전권 / 쿠폰 등록 -->
+    <PopCouponRegist :visible="btmLayer.PopCouponRegist" @close="btmLayer.PopCouponRegist = false"/>
+    <!-- 결제수단별 이용기록 -->
+    <PopPaymentList :visible="btmLayer.PopPaymentList" @close="btmLayer.PopPaymentList = false"/>
+    <!-- 결제정보 추가 -->
+    <PopPaymentAdd :visible="btmLayer.PopPaymentAdd" @close="btmLayer.PopPaymentAdd = false"/>
   </div>
 </template>
 
 <script>
-import PopAddr from '@/views/PopAddr'
-import PopChargerApply from '@/views/PopChargerApply'
+import PopPaymentList from '@/views/PopPaymentList'
+import PopCouponRegist from '@/views/PopCouponRegist'
+import PopPaymentAdd from '@/views/PopPaymentAdd'
 export default {
   components:{
-    PopAddr,
-    PopChargerApply
+    PopPaymentList,
+    PopCouponRegist,
+    PopPaymentAdd
   },
   data(){
     return{
@@ -177,20 +195,27 @@ export default {
               price: '100,000',
           },
       ],
+      cardChecked: [],
       cardList: [
           {
               src: require('@/assets/images/temp-card.jpg'),
-              logo: 'bmw',
-              text: ['20년', 'BMW', 'Charging'],
-              date: '2021. 07. 01 ~ 2022. 07. 01',
-              price: '360,000',
+              date: '02/24',
+              company: '삼성',
+              num: ['5361', '48**', '****', '4151'],
           },
           {
               src: require('@/assets/images/temp-card.jpg'),
-              logo: 'chargev',
-              text: '모바일충전권',
-              date: '2021. 07. 01 ~ 2022. 07. 01',
-              price: '100,000',
+              date: '02/24',
+              company: '삼성',
+              num: ['5361', '48**', '****', '4151'],
+          },
+      ],
+      paymentCardList: [
+          {
+              logo: 'payco'
+          },
+          {
+              logo: 'chargev'
           }
       ],
 
@@ -200,8 +225,9 @@ export default {
       },
       currentPage: 0,
       btmLayer:{
-        PopAddr: false,
-        PopChargerApply: false
+        PopPaymentList: false,
+        PopCouponRegist: false,
+        PopPaymentAdd: false,
       },      
     }
   },
