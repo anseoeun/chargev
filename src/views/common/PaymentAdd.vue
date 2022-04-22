@@ -5,7 +5,7 @@
         <template v-if="paymentIniputStatus == 'camera'">
             <div class="camera-box"></div>
             <div class="btn-wrap">
-                <button class="btn-type1 st2" @click="paymentIniputStatus = 'form'">직접입력</button>
+                <button class="btn-type1 st2" @click="paymentIniputStatus = 'form';$emit('status', paymentIniputStatus)">직접입력</button>
             </div>
         </template>
         <!-- 직접입력 -->
@@ -29,11 +29,11 @@
                 </div>
             </div>
             <div class="btn-box">
-                <button class="btn-type1 st1" @click="paymentIniputStatus = 'completion'">확인</button>
+                <button class="btn-type1 st1" @click="paymentIniputStatus = 'completion';$emit('status', paymentIniputStatus)">확인</button>
             </div>
             </div>
             <div class="btn-wrap">
-                <button class="btn-type1 st2" @click="paymentIniputStatus = 'camera'">카메라 인식</button>
+                <button class="btn-type1 st2" @click="paymentIniputStatus = 'camera';$emit('status', paymentIniputStatus)">카메라 인식</button>
             </div>
         </template>
         <!-- 완료 -->

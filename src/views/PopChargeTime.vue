@@ -1,14 +1,14 @@
 <template>
     <BtmLayer :visible="visible" @close="close" class="pop-charge" @opended="opended">
       <template slot="content">
-        <button class="btn-layer-close" @click="$emit('close');"><Icon type="close" /></button>      
+        <button class="btn-layer-close" @click="close"><Icon type="close" /></button>      
         <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
           <template slot="content">
               <splide-slide>
                 <ChargeTime :timeSetType="timeSetType" :opacity="opacity" :key="opacity" />
               </splide-slide>
           </template>
-        </Carousel>          
+        </Carousel>
       </template>
     </BtmLayer>
 </template>

@@ -69,6 +69,7 @@ export default {
       this.$emit('blur', e);
     },   
     maxLength(max){
+      if(!max) return;
       return 'if (this.value.length > '+ max +') this.value = this.value.slice(0, '+ max +')';
     }  
   }
