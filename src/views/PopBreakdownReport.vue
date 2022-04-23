@@ -25,7 +25,7 @@
                     </div>
                     <!-- 고장항목 -->
                     <h2 class="tit-type1">고장항목</h2>
-                    <ul class="breakdown-list">
+                    <ul class="grid-menu-list">
                         <li v-for="(item, index) in breakdownList" :key="index"><button v-html="item" @click="breakdownItem = item.replace('<br />', ' ');currentPage = 2"></button></li>
                     </ul>
 
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="btn-box">
-                                <button class="btn-type1 st2">문의사항 등록하기</button>
+                                <button class="btn-type1 st2" @click="$emit('qnaRegistCompleted')">문의사항 등록하기</button>
                             </div>
                         </div>
                     </template>

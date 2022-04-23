@@ -175,14 +175,28 @@
                   <h3 class="tit-type2">차지비 서비스</h3>
                   <ul class="qna-list">
                       <li v-for="(item, index) in qnaServiceList" :key="index">
-                          <button @click="popQna('service'+index);">{{ item }}</button>
+                          <button @click="popQna('service'+(index + 1));">{{ item }}</button>
                       </li>
                   </ul>
                   <!-- 모바일카드/멤버십카드 -->
                   <h3 class="tit-type2">모바일카드/멤버십카드</h3>
                   <ul class="qna-list">
                       <li v-for="(item, index) in qnaCardList" :key="index">
-                          <button @click="popQna('card'+index);">{{ item }}</button>
+                          <button @click="popQna('card'+(index + 1));">{{ item }}</button>
+                      </li>
+                  </ul>
+                  <!-- 완성차 프로모션 -->
+                  <h3 class="tit-type2">완성차 프로모션</h3>
+                  <ul class="qna-list">
+                      <li v-for="(item, index) in carPromoList" :key="index">
+                          <button @click="popQna('carpromo'+(index + 1));">{{ item }}</button>
+                      </li>
+                  </ul>
+                  <!-- 기타 -->
+                  <h3 class="tit-type2">기타</h3>
+                  <ul class="qna-list">
+                      <li v-for="(item, index) in etcList" :key="index">
+                          <button @click="popQna('etc'+(index + 1));">{{ item }}</button>
                       </li>
                   </ul>
               </div>
@@ -199,17 +213,36 @@
     <!-- 차량정보 -->
     <PopCarInfoAdd :visible="btmLayer.PopCarInfoAdd" @close="btmLayer.PopCarInfoAdd = false"/>
     <!-- 문의내역리스트 -->
-    <PopQnaList 
-     :visible="btmLayer.PopQnaList"
-     :gbn="qnaGbn"
-     @close="btmLayer.PopQnaList = false"/>
+    <PopQnaList :visible="btmLayer.PopQnaList" :gbn.sync="qnaGbn" @close="btmLayer.PopQnaList = false"
+        @chargerBreakdownApply="btmLayer.PopBreakdownReport = true;"
+        @creditCardInfoChange="btmLayer.PopQnaList = false;currentPage = 1"
+        @qnaRegistCompleted="alertPopColpleted = true"
+    />
     <!-- 충전기 고장신고 -->
-    <PopBreakdownReport :visible="btmLayer.PopBreakdownReport" @close="btmLayer.PopBreakdownReport = false"/>     
+    <PopBreakdownReport :visible="btmLayer.PopBreakdownReport" @close="btmLayer.PopBreakdownReport = false"
+        @qnaRegistCompleted="alertPopColpleted = true"
+    />     
     <!-- 환불항목 -->
-    <PopRefund :visible="btmLayer.PopRefund" @close="btmLayer.PopRefund = false" @detailUsingHistory="aaa"/>
+    <PopRefund :visible="btmLayer.PopRefund" @close="btmLayer.PopRefund = false" 
+        @detailUsingHistory="btmLayer.PopPaymentDetail = true"
+        @qnaRegistCompleted="alertPopColpleted = true"
+     />
     <!-- 상세 결제내역 -->
-    <PopPaymentDetail :visible="btmLayer.popPaymentDetail" @close="btmLayer.popPaymentDetail = false"/>
+    <PopPaymentDetail :visible="btmLayer.PopPaymentDetail" @close="btmLayer.PopPaymentDetail = false"/>
+    <!-- 완성차 멤버십카드 -->
+    <PopCarMembershipCard :visible="btmLayer.PopCarMembershipCard" @close="btmLayer.PopCarMembershipCard = false"
+        @qnaRegistCompleted="alertPopColpleted = true"    
+     />     
 
+
+    <!-- 팝업 -->
+    <Alert :is-open="alertPopColpleted" @close="alertPopColpleted = false">      
+        <template slot="header">문의가 등록되었습니다.</template>
+        <template slot="body">
+          고객센터에서 확인 후 답변드리도록 하겠습니다.<br />
+          차지비 서비스 이용에 감사드립니다.
+        </template>
+    </Alert>     
   </div>
 </template>
 
@@ -222,6 +255,7 @@ import PopQnaList from '@/views/PopQnaList'
 import PopBreakdownReport from '@/views/PopBreakdownReport'
 import PopRefund from '@/views/PopRefund'
 import PopPaymentDetail from '@/views/PopPaymentDetail'
+import PopCarMembershipCard from '@/views/PopCarMembershipCard'
 export default {
   components:{
     PopPaymentList,
@@ -231,7 +265,8 @@ export default {
     PopQnaList,
     PopBreakdownReport,
     PopRefund,
-    PopPaymentDetail
+    PopPaymentDetail,
+    PopCarMembershipCard
   },
   data(){
     return{
@@ -327,6 +362,15 @@ export default {
           '멤버십카드 재발급',
           '멤버십카드 인증불가',
       ],
+      carPromoList: [
+          '완성차 프로모션',
+          '완성차 멤버쉽카드',
+      ],
+      etcList: [
+          '비회원 충전',
+          '기타문의',
+          '회원탈퇴',
+      ],
       qnaGbn: '',
 
       options: {
@@ -334,6 +378,8 @@ export default {
         perMove: 1,
       },
       currentPage: 0,
+
+      alertPopColpleted: false,
       btmLayer:{
         PopPaymentList: false,
         PopCouponRegist: false,
@@ -343,45 +389,23 @@ export default {
         PopBreakdownReport: false,
         PopRefund: false,
         PopPaymentDetail: false,
+        PopCarMembershipCard: false,
       },      
     }
   },
   methods:{
-      aaa(){
-          console.log('s')
-          this.btmLayer.popPaymentDetail = true
-      },
     popQna(index){
-        switch (index) {
-         case 'service0':
+        this.qnaGbn = index;
+
+        if(index === 'service5'){
+          this.btmLayer.PopBreakdownReport = true;
+        }else if(index === 'service6'){
+          this.btmLayer.PopRefund = true;
+        }else if(index === 'carpromo2'){
+          this.btmLayer.PopCarMembershipCard = true;
+        }else{
             this.btmLayer.PopQnaList = true;
-            this.qnaGbn = 'cargerUseMethod'
-            break;
-        case 'service1':
-            this.btmLayer.PopQnaList = true;
-            this.qnaGbn = 'cargerInstallApply'
-            break;
-        case 'service2':
-            this.btmLayer.PopQnaList = true;
-            this.qnaGbn = 'cargerSortGuide'
-            break;
-        case 'service3':
-            this.btmLayer.PopQnaList = true;
-            this.qnaGbn = 'phevGuide'
-            break;
-        case 'service4':
-            this.btmLayer.PopBreakdownReport = true;
-            break;
-        case 'service5':
-            this.btmLayer.PopRefund = true;
-            break;
-        case 'service7':
-            this.btmLayer.PopQnaList = true;
-            this.qnaGbn = 'roamingGuide'
-            break;
-        default:
-            break;
-      }
+        }
     }
   }
 }

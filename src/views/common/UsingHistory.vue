@@ -37,7 +37,7 @@
         </div>
         <ul class="history-list">
           <li v-for="(item, index) in historyList" :key="index">
-            <button class="box" :class="{on: item.checked}" @click="$emit('detailUsingHistory')">
+            <button class="box" :class="{on: item.checked}" @click="item.checked = true;$emit('detailUsingHistory')">
               <Icon type="arr-right" />
               <div class="t-wrap">
                 <div class="row">
@@ -110,7 +110,7 @@ export default {
           price:'9,010',
           method:'충전포인트',
           date:'2021-11-03 02:55:23',
-          checked: true
+          checked: true,
         },
         {
           addr:'서울시 송파구 롯데타워지하4층 완속#1',
@@ -118,6 +118,7 @@ export default {
           price:'13,450',
           method:'신용카드',
           date:'2021-11-02 15:05:02',
+          checked: false,
         },
         {
           addr:'서울시 송파구 롯데타워지하4층 완속#1',
@@ -125,6 +126,7 @@ export default {
           price:'9,010',
           method:'충전포인트',
           date:'2021-11-03 02:55:23',
+          checked: false,
         },
         {
           addr:'서울시 송파구 롯데타워지하4층 완속#1',
@@ -132,6 +134,7 @@ export default {
           price:'13,450',
           method:'신용카드',
           date:'2021-11-02 15:05:02',
+          checked: false,
         },
       ],
     }
