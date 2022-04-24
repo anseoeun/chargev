@@ -54,7 +54,7 @@
                 </div>
               </div>              
               <div class="btn-box">
-                  <button class="btn-type1 st2">진행상황 확인</button>
+                  <button class="btn-type1 st2" @click="btmLayer.PopProgressCheck = true">진행상황 확인</button>
               </div>              
             </div> 
           </splide-slide>
@@ -65,16 +65,19 @@
     <PopAddr :visible="btmLayer.PopAddr" @close="btmLayer.PopAddr = false"/>
     <!-- 충전기설치신청 -->
     <PopChargerApply :visible="btmLayer.PopChargerApply" @close="btmLayer.PopChargerApply = false"/>
+    <PopProgressCheck :visible="btmLayer.PopProgressCheck" @close="btmLayer.PopProgressCheck = false"/>
   </div>
 </template>
 
 <script>
 import PopAddr from '@/views/PopAddr'
 import PopChargerApply from '@/views/PopChargerApply'
+import PopProgressCheck from '@/views/PopProgressCheck'
 export default {
   components:{
     PopAddr,
-    PopChargerApply
+    PopChargerApply,
+    PopProgressCheck
   },
   data(){
     return{
@@ -90,7 +93,8 @@ export default {
       currentPage: 0,
       btmLayer:{
         PopAddr: false,
-        PopChargerApply: false
+        PopChargerApply: false,
+        PopProgressCheck: false
       },      
     }
   },

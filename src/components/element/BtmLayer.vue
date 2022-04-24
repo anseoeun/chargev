@@ -83,10 +83,10 @@ export default {
         let flag = false        
 
         function touchMove(){
-            if(this.isScrolling) return
+          let e = window.event;
+            if(e.target != layerwrap && this.isScrolling) return
             if($(layer).find('.splide.slider').hasClass('ing')) return;
 
-            let e = window.event;
             let touch = e.touches[0];
 
             moveY = Math.abs(menutop - parseInt(startY - touch.clientY));

@@ -11,7 +11,7 @@
                     <div class="space-text"><span>BMW</span><span>530e</span></div>
                     02보6596
                   </div>
-                  <button class="btn-type1 st2">충전차량 설정</button>
+                  <router-link to="/" class="btn-type1 st2">충전차량 설정</router-link>
 
                   <!-- 충전포인트 -->
                   <h2 class="tit-type1">충전포인트</h2>
@@ -20,7 +20,35 @@
                   </div>
                   <button class="btn-type1 st2">상세확인</button>
                 </div>
-            </splide-slide>          
+            </splide-slide>
+            <splide-slide>
+                <div class="charge-status">
+                  <!-- 충전차량 -->
+                  <h2 class="tit-type1">충전차량</h2>
+                  <div class="desc">
+                    <div class="card-wrap">
+                      <div class="card5 on">
+                          <Icon type="logo-bmw2" class="company-logo" />
+                          <div class="car-info"><p class="space-txt"><span>BMW</span><span>530e</span></p><p>02보6596</p></div>
+                          <div class="number align-c">1010-0101-1234-1234</div>
+                      </div>
+                    </div>
+                  </div>
+                  <router-link to="/" class="btn-type1 st2">충전차량 설정</router-link>
+
+                  <!-- 충전포인트 -->
+                  <h2 class="tit-type1">충전포인트</h2>
+                  <div class="desc">
+                    <div class="card-wrap">
+                      <div class="card-point">
+                        <Icon type="chargev5" />
+                        <p class="price">총 360,000원</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn-type1 st2">상세확인</button>
+                </div>
+            </splide-slide>            
             <splide-slide>
               <h2 class="tit-type1">이용기록 </h2>
               <UsingHistory

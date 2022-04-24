@@ -146,7 +146,7 @@
                                 <p class="txt">차량추가</p>
                             </div>
                         </button>
-                    </li>                        
+                    </li>
                     <li v-for="(item, index) in carList" :key="index">
                         <div class="card5" :class="{on: item.selected}">
                             <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
@@ -169,37 +169,79 @@
             </div>
           </splide-slide>
           <splide-slide>
-              <div class="qna-wrap">
-                  <h2 class="tit-type1">문의하기</h2>
-                  <!-- 차지비 서비스 -->
-                  <h3 class="tit-type2">차지비 서비스</h3>
-                  <ul class="qna-list">
-                      <li v-for="(item, index) in qnaServiceList" :key="index">
-                          <button @click="popQna('service'+(index + 1));">{{ item }}</button>
-                      </li>
-                  </ul>
-                  <!-- 모바일카드/멤버십카드 -->
-                  <h3 class="tit-type2">모바일카드/멤버십카드</h3>
-                  <ul class="qna-list">
-                      <li v-for="(item, index) in qnaCardList" :key="index">
-                          <button @click="popQna('card'+(index + 1));">{{ item }}</button>
-                      </li>
-                  </ul>
-                  <!-- 완성차 프로모션 -->
-                  <h3 class="tit-type2">완성차 프로모션</h3>
-                  <ul class="qna-list">
-                      <li v-for="(item, index) in carPromoList" :key="index">
-                          <button @click="popQna('carpromo'+(index + 1));">{{ item }}</button>
-                      </li>
-                  </ul>
-                  <!-- 기타 -->
-                  <h3 class="tit-type2">기타</h3>
-                  <ul class="qna-list">
-                      <li v-for="(item, index) in etcList" :key="index">
-                          <button @click="popQna('etc'+(index + 1));">{{ item }}</button>
-                      </li>
-                  </ul>
-              </div>
+            <div class="qna-wrap">
+                <h2 class="tit-type1">문의하기</h2>
+                <!-- 차지비 서비스 -->
+                <h3 class="tit-type2">차지비 서비스</h3>
+                <ul class="qna-menu-list">
+                    <li v-for="(item, index) in qnaServiceList" :key="index">
+                        <button @click="popQna('service'+(index + 1));">{{ item }}</button>
+                    </li>
+                </ul>
+                <!-- 모바일카드/멤버십카드 -->
+                <h3 class="tit-type2">모바일카드/멤버십카드</h3>
+                <ul class="qna-menu-list">
+                    <li v-for="(item, index) in qnaCardList" :key="index">
+                        <button @click="popQna('card'+(index + 1));">{{ item }}</button>
+                    </li>
+                </ul>
+                <!-- 완성차 프로모션 -->
+                <h3 class="tit-type2">완성차 프로모션</h3>
+                <ul class="qna-menu-list">
+                    <li v-for="(item, index) in carPromoList" :key="index">
+                        <button @click="popQna('carpromo'+(index + 1));">{{ item }}</button>
+                    </li>
+                </ul>
+                <!-- 기타 -->
+                <h3 class="tit-type2">기타</h3>
+                <ul class="qna-menu-list">
+                    <li v-for="(item, index) in etcList" :key="index">
+                        <button @click="popQna('etc'+(index + 1));">{{ item }}</button>
+                    </li>
+                </ul>
+            </div>
+          </splide-slide>
+          <splide-slide>
+           <div class="qna-wrap">
+               <h2 class="tit-type1">문의내역</h2>
+               <ul v-if="qnaList.length > 0" class="link-box-list">
+                   <li v-for="(item, index) in qnaList" :key="index">
+                       <button class="box" @click="btmLayer.PopQnaDetail = true">
+                           <Icon type="arr-right" />
+                           <p class="info">
+                               <span class="date">{{ item.date }}</span>
+                               <span class="status" :class="{end: item.status == 'end'}">
+                                   {{ item.status == 'ing' ? '답변대기중' : '답변완료' }}
+                               </span>
+                           </p>
+                           <p class="sort">{{ item.sort }}</p>
+                       </button>
+                   </li>
+               </ul>
+               <p v-else class="no-result">문의 내역이 없습니다.</p>
+           </div>
+          </splide-slide>
+          <splide-slide>
+            <div class="rule-wrap">
+               <h2 class="tit-type1">약관 및 정책</h2>
+               <ul class="link-box-list">
+                   <li v-for="(item, index) in ruleList" :key="index">
+                       <button class="box" @click="popRule('rule'+(index + 1));">
+                           <Icon type="arr-right" />
+                           <p class="tit">{{ item }}</p>
+                       </button>
+                   </li>
+               </ul>
+               <h2 class="tit-type1">앱 정보</h2>
+               <ul class="link-box-list">
+                   <li>
+                       <button class="box">
+                           <Icon type="arr-right" />
+                           <p class="tit">앱 정보</p>
+                       </button>
+                   </li>
+               </ul>               
+            </div>
           </splide-slide>
       </template>
     </Carousel>
@@ -233,6 +275,10 @@
     <PopCarMembershipCard :visible="btmLayer.PopCarMembershipCard" @close="btmLayer.PopCarMembershipCard = false"
         @qnaRegistCompleted="alertPopColpleted = true"    
      />     
+    <!-- 문의상세 -->
+    <PopQnaDetail :visible="btmLayer.PopQnaDetail" @close="btmLayer.PopQnaDetail = false"/>
+    <!-- 약관리스트 -->
+    <PopRuleList :visible="btmLayer.PopRuleList" :gbn.sync="ruleGbn" @close="btmLayer.PopRuleList = false" />
 
 
     <!-- 팝업 -->
@@ -256,6 +302,8 @@ import PopBreakdownReport from '@/views/PopBreakdownReport'
 import PopRefund from '@/views/PopRefund'
 import PopPaymentDetail from '@/views/PopPaymentDetail'
 import PopCarMembershipCard from '@/views/PopCarMembershipCard'
+import PopQnaDetail from '@/views/PopQnaDetail'
+import PopRuleList from '@/views/PopRuleList'
 export default {
   components:{
     PopPaymentList,
@@ -266,7 +314,9 @@ export default {
     PopBreakdownReport,
     PopRefund,
     PopPaymentDetail,
-    PopCarMembershipCard
+    PopCarMembershipCard,
+    PopQnaDetail,
+    PopRuleList
   },
   data(){
     return{
@@ -344,7 +394,7 @@ export default {
               selected: false,
           },
       ],
-      //문의내역
+      //문의하기
       qnaServiceList: [
           '충전기 사용방법',
           '충전기 설치신청',
@@ -372,6 +422,32 @@ export default {
           '회원탈퇴',
       ],
       qnaGbn: '',
+      // 문의내역
+      qnaList:[
+          {
+              date:'2021- 01-02-03',
+              status:'ing',
+              sort:'환불 문의',
+          },
+          {
+              date:'2021- 01-02-03',
+              status:'ing',
+              sort:'기타문의',
+          },
+          {
+              date:'2021- 01-02-03',
+              status:'end',
+              sort:'충전기 고장신고',
+          },
+      ],
+      // 약관 및 정책
+      ruleGbn: '',
+      ruleList: [
+        '서비스 이용 약관',
+        '개인정보 처리방침',
+        '위치기반서비스 이용 약관',
+        '휴대폰본인확인서비스'
+      ],
 
       options: {
         perPage: 1,
@@ -390,6 +466,8 @@ export default {
         PopRefund: false,
         PopPaymentDetail: false,
         PopCarMembershipCard: false,
+        PopQnaDetail: false,
+        PopRuleList: false,
       },      
     }
   },
@@ -406,6 +484,10 @@ export default {
         }else{
             this.btmLayer.PopQnaList = true;
         }
+    },
+    popRule(index){
+        this.ruleGbn = index;
+        this.btmLayer.PopRuleList = true;
     }
   }
 }
