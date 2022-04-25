@@ -1,5 +1,5 @@
 <template>
-    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge">
+    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge no-dim">
       <template slot="content">
         <div class="cont-scroll">
               <div class="charge-station">

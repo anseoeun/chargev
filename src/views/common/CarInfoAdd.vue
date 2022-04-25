@@ -1,6 +1,6 @@
 <template>
     <div class="transparent-box-wrap">
-        <strong class="tit">차량 추가</strong>
+        <strong class="tit">{{ title }}</strong>
         <div class="transparent-box parallel-box">
             <template v-if="carIniputStatus != 'completion'">
                 <div class="form-box">
@@ -71,6 +71,12 @@
 <script>
 
 export default {
+ props:{
+    title:{
+        type: String,
+        default: '차량 추가'
+    },
+ },
   data(){
     return{
       form:{

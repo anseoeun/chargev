@@ -1,5 +1,5 @@
 <template>
-    <BtmLayer :visible="visible" @close="$emit('close')" class="pop-legend">
+    <BtmLayer :visible="visible" @close="$emit('close')" class="pop-legend no-dim">
       <template slot="content">
         <div class="cont-scroll">
           <div class="layer-hdader">

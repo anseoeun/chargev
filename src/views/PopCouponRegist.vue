@@ -2,11 +2,17 @@
     <BtmLayer :visible="visible" @close="$emit('close');" class="pop-coupon-regist max">
       <template slot="content">
           <div class="cont-scroll">
-             <div class="v-center">
+            <div class="coupon-regist-wrap">
+                <template v-if="!mobileShow && !couponShow">
+                    <h2 class="tit-type1">등록구분</h2>
+                    <div class="btn-box">
+                        <button class="btn-type1 st2" @click="mobileShow = true">모바일충전권</button>
+                        <button class="btn-type1 st2" @click="couponShow = true">쿠폰</button>
+                    </div>
+                </template>
                  <!-- 모바일 충전권 -->
-                 <div class="retist-wrap">
-                     <button v-if="!mobileShow" class="btn-type1 st2" @click="mobileShow = true">모바일충전권</button>
-                     <div v-else class="form-box-wrap">
+                 <div v-if="mobileShow" class="retist-wrap">
+                     <div class="form-box-wrap">
                         <h2 class="tit-type1">모바일 충전권</h2>
                         <div class="form-box">
                             <div class="row">
@@ -21,9 +27,8 @@
                      </div>
                  </div>
                  <!-- 쿠폰 -->
-                 <div class="retist-wrap">
-                     <button v-if="!couponShow" class="btn-type1 st2" @click="couponShow = true">쿠폰</button>
-                     <div v-else class="form-box-wrap">
+                 <div v-if="couponShow" class="retist-wrap">
+                     <div class="form-box-wrap">
                         <h2 class="tit-type1">쿠폰</h2>
                         <div class="form-box">
                             <div class="row">
@@ -37,7 +42,7 @@
                         </div>
                      </div>
                  </div>
-             </div>
+            </div>
           </div>
       </template>
     </BtmLayer>

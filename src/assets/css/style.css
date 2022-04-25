@@ -2820,6 +2820,20 @@ i[class*=i-] .svg-prevent {
   z-index: 100;
 }
 
+.btm-layer-wrap.no-dim {
+  height: auto;
+  background: none;
+}
+
+.btm-layer-wrap.no-dim .btm-layer {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.btm-layer-wrap.no-dim .btm-layer:before {
+  display: none;
+}
+
 .btm-layer-wrap .dim {
   display: none;
   position: absolute;
@@ -2840,7 +2854,7 @@ i[class*=i-] .svg-prevent {
   width: 100%;
   max-height: 100%;
   overflow: hidden;
-  border-radius: 1.039rem 1.039rem 0 0x;
+  border-radius: 1.039rem 1.039rem 0 0;
   padding: 0;
   background: rgba(0, 0, 0, 0);
 }
@@ -4469,6 +4483,7 @@ i[class*=i-] .svg-prevent {
   border: 1px solid #737373;
   text-align: right;
   color: #a0a0a0;
+  text-shadow: 0 0 1.299rem rgba(255, 255, 255, 0.7);
 }
 
 .card-wrap .card5 .center {
@@ -4928,6 +4943,14 @@ i[class*=i-] .svg-prevent {
   margin-bottom: 1.039rem;
 }
 
+.coupon-regist-wrap .tit-type1 {
+  margin-bottom: 1.039rem;
+}
+
+.coupon-regist-wrap .btn-box [class*=btn-type] ~ [class*=btn-type] {
+  margin-top: 1.039rem;
+}
+
 /* qna-wrap */
 .qna-wrap .tit-type1 {
   margin-bottom: 1.039rem;
@@ -5264,7 +5287,7 @@ i[class*=i-] .svg-prevent {
   border-radius: 0.129rem;
 }
 
-/*  */
+/* photo-upload */
 .tit-type1 + .photo-upload {
   margin-top: 0.909rem;
 }

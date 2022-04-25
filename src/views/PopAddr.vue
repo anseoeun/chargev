@@ -1,13 +1,9 @@
 <template>
     <BtmLayer :visible="visible" @close="$emit('close');" class="pop-addr max">
       <template slot="content">
-        <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
-          <template slot="content">
-              <splide-slide>
-                <AddrSearch />
-              </splide-slide>
-          </template>
-        </Carousel>
+        <div class="cont-scroll">
+          <AddrSearch />
+        </div>
       </template>
     </BtmLayer>
 </template>
@@ -24,16 +20,5 @@ export default {
       default: false  
     },
   },  
-
-  data(){
-    return{
-      options: {
-        perPage: 1,
-        perMove: 1,
-        destroy: true,
-      },
-      currentPage: 0
-    }
-  },
 }
 </script>

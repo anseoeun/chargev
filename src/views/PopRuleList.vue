@@ -498,14 +498,8 @@ export default {
     }
   },  
   computed:{
-    gbnSet:{
-      get () {
-        return this.gbn;
-      },
-      set (val) {
-        this.$emit('update:gbn', val);
-        return val;
-      }
+    gbnSet(){
+      return this.gbn;
     }
   },  
   data(){
