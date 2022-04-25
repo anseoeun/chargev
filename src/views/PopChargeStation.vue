@@ -47,12 +47,6 @@ export default {
   data(){
     return{
       timeSetType: '',      
-      options: {
-        perPage: 1,
-        perMove: 1,
-        start: 0
-      },
-      currentPage: 2
     }
   },
   methods: {

@@ -753,6 +753,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .charge-price-guide-wrap .logo-everon{width:rem(56);height:rem(10);}
 .charge-price-guide-wrap .logo-joyev{width:rem(51);height:rem(24);}
 .charge-price-guide-wrap .card-list{margin-top:rem(16);}
+/* car-info-add-wrap */
+.car-info-add-wrap .tit-type1{margin-bottom:rem(16);}
+.car-info-add-wrap .btn-box [class*=btn-type] ~ [class*=btn-type]{margin-top:rem(16);}
 /* card-list */
 .card-list li ~ li{margin-left:rem(48);}
 .card-list li .card{display:block;}

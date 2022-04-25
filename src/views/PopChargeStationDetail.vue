@@ -1,8 +1,7 @@
 <template>
-  <div class="contents">
-    <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
+    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charge">
       <template slot="content">
-          <splide-slide>
+        <div class="cont-scroll">
             <div class="charge-wrap">
                 <!-- 충전소 -->
                 <button class="btn-toggle-slide on" @click="toggleSlide($event, '#slide-station')">
@@ -72,31 +71,31 @@
                 <div id="slide-charger">
                   <ChargeList 
                     :data="chargeList"
-                    @charge="btmLayer.PopChargeTime = true;timeSetType = 'charge'"
-                    @reserve="btmLayer.PopChargeTime = true;timeSetType = 'reserve'"
+                    @charge="$emit('PopChargeTimeCharge');"
+                    @reserve="$emit('PopChargeTimeReserve');"
                   />
                 </div>
             </div>
-          </splide-slide>
+        </div>
       </template>
-    </Carousel>
-
-
-    <!-- 충전시간 -->
-    <PopChargeTime :visible="btmLayer.PopChargeTime" :timeSetType="timeSetType" @close="btmLayer.PopChargeTime = false"/>
-  </div>
+    </BtmLayer>
 </template>
 
 <script>
 import Chart from '@/views/common/Chart'
 import ChargeList from '@/views/common/ChargeList'
-import PopChargeTime from '@/views/PopChargeTime'
 export default {
   components:{
     Chart,
-    ChargeList,
-    PopChargeTime
-  },
+    ChargeList
+  },  
+  props: {
+    visible: {
+      type: Boolean,
+      default: false  
+    },
+  },  
+
   data(){
     return{
       chargeList: [
@@ -132,17 +131,7 @@ export default {
         },
       ],
       timeSetType:'',
-      
-      options: {
-        perPage: 1,
-        perMove: 1,
-        destroy: true
-      },
-      currentPage: 0,
-      btmLayer:{
-        PopChargeTime: false
-      },      
     }
-  },
+  }
 }
 </script>

@@ -66,12 +66,12 @@ export default {
         win = window.innerWidth
         let per;
         if(win <= 720){
-          per = ((311 - (686 - win)) / 345 * 100).toFixed(2)
+          per = ((326 - (686 - win)) / 345 * 100).toFixed(2)
           per = per === 1 ? per + 1 : per * 0.01 + 1
           chart.style.height = 90 + (90 * (per-1)) +'px'
           return per
         }else{
-          chart.style.width = 311 + ((window.innerWidth - (622 + 60)) / 2) +'px'
+          chart.style.width = 326 + ((window.innerWidth - (622 + 60)) / 2) +'px'
           chart.style.height = 180 +'px'
           return per = 2
         }

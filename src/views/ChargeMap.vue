@@ -20,6 +20,9 @@
       <button class="btn-type2 st1 inbl" style="position:absolute;top:325px;left:200px;" @click="$root.$emit('PopChargeSearch')">
         총전소검색 버튼
       </button>
+      <button class="btn-type2 st1 inbl" style="position:absolute;top:425px;left:150px;" @click="btmLayer.PopChargeStationDetail = true">
+        총전소 상세 검색 버튼
+      </button>
     
     </div>
 
@@ -29,6 +32,13 @@
     <PopMapLegend :visible="btmLayer.PopMapLegend" @close="btmLayer.PopMapLegend = false"/>
     <!-- 충전소 -->
     <PopChargeStation :visible="btmLayer.PopCharge" @close="btmLayer.PopCharge = false"/>
+    <!-- 충전소 -->
+    <PopChargeStationDetail :visible="btmLayer.PopChargeStationDetail" @close="btmLayer.PopChargeStationDetail = false"
+      @PopChargeTimeCharge="btmLayer.PopChargeTime = true;timeSetType = 'charge'"
+      @PopChargeTimeReserve="btmLayer.PopChargeTime = true;timeSetType = 'reserve'"
+    />
+    <!-- 충전시간 -->
+    <PopChargeTime :visible="btmLayer.PopChargeTime" :timeSetType="timeSetType" @close="btmLayer.PopChargeTime = false"/>    
   </div>
 </template>
 
@@ -36,14 +46,19 @@
 import PopMapFilter from '@/views/PopMapFilter'
 import PopMapLegend from '@/views/PopMapLegend'
 import PopChargeStation from '@/views/PopChargeStation'
+import PopChargeStationDetail from '@/views/PopChargeStationDetail'
+import PopChargeTime from '@/views/PopChargeTime'
 export default {
   components:{
     PopMapFilter,
     PopMapLegend,
     PopChargeStation,
+    PopChargeStationDetail,
+    PopChargeTime
   },
   data(){
     return{
+      timeSetType:'',
       options: {
         perPage: 1,
         perMove: 1,
@@ -54,6 +69,8 @@ export default {
         PopMapFilter: false,
         PopMapLegend: false,
         PopCharge: false,
+        PopChargeStationDetail: false,
+        PopChargeTime: false,
       },
     }
   }

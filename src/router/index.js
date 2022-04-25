@@ -22,8 +22,6 @@ const routes = [
 	{ path: '/alarm', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Alarm.vue')},
   // 충전소지도
 	{ path: '/chargemap', meta: {layout: 'Default', menu:'map', layoutClass:"layout-map" }, component: () => import('@/views/ChargeMap.vue')},
-  // 충전소
-	{ path: '/chargestation', meta: {layout: 'Default', menu:'map' }, component: () => import('@/views/ChargeStation.vue')},
   // 충전
 	{ path: '/charge', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Charge.vue')},
   // 충전중

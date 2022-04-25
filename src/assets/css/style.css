@@ -5553,6 +5553,15 @@ i[class*=i-] .svg-prevent {
   margin-top: 1.039rem;
 }
 
+/* car-info-add-wrap */
+.car-info-add-wrap .tit-type1 {
+  margin-bottom: 1.039rem;
+}
+
+.car-info-add-wrap .btn-box [class*=btn-type] ~ [class*=btn-type] {
+  margin-top: 1.039rem;
+}
+
 /* card-list */
 .card-list li ~ li {
   margin-left: 3.119rem;
