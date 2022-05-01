@@ -59,35 +59,34 @@
                 <button @click="currentTab = 'payment'" :class="{on: currentTab === 'payment'}">간편결제</button>
             </div>
             <div class="charge-list-wrap">
-                <div class="card-wrap">
-                    <ul v-if="currentTab === 'point'" class="list">
-                        <li v-for="(item, index) in cargePointList" :key="index">
-                            <div class="card2">
-                                <div class="bg" :style="`background-image:url(${item.src})`"></div>
-                                <Icon v-if="item.company === 'bmw'" type="logo-bmw" />
-                                <Icon v-if="item.company === 'chargev'" type="chargev4" />
-                                <div class="main-txt">
-                                    <div v-if="Array.isArray(item.text)" class="space-text">
-                                        <span v-for="(txt, i) in item.text" :key="i">{{ txt }}</span>
+                <div class="card-wrap slide-list" id="slider">
+                    <Carousel v-if="currentTab === 'point'" :content="true" :options="cardSliderOpt">
+                        <template slot="content">
+                            <splide-slide v-for="(item, index) in cargePointList" :key="index">
+                                <div class="card2">
+                                    <div class="bg" :style="`background-image:url(${item.src})`"></div>
+                                    <Icon v-if="item.company === 'bmw'" type="logo-bmw" />
+                                    <Icon v-if="item.company === 'chargev'" type="chargev4" />
+                                    <div class="main-txt">
+                                        <div v-if="Array.isArray(item.text)" class="space-text">
+                                            <span v-for="(txt, i) in item.text" :key="i">{{ txt }}</span>
+                                        </div>
+                                        <template v-else>{{ item.text }}</template>
                                     </div>
-                                    <template v-else>{{ item.text }}</template>
+                                    <div class="date">{{ item.date }}</div>
+                                    <div class="price">{{ item.price }}원</div>
                                 </div>
-                                <div class="date">{{ item.date }}</div>
-                                <div class="price">{{ item.price }}원</div>
-                            </div>
-                            <div class="btn-box">
-                                <button class="btn-type2 st2" @click="btmLayer.PopPaymentList = true">결제내역 확인</button>
-                            </div>
-                        </li>
-                        <li>
-                            <button class="card2" @click="btmLayer.PopCouponRegist = true">
-                                <div class="center">
-                                    <Icon type="add-plus" />
-                                    <p class="txt">상품등록</p>
-                                </div>
-                            </button>
-                        </li>
-                    </ul>
+                            </splide-slide>
+                            <splide-slide>
+                                <button class="card2" @click="btmLayer.PopCouponRegist = true">
+                                    <div class="center">
+                                        <Icon type="add-plus" />
+                                        <p class="txt">상품등록</p>
+                                    </div>
+                                </button>
+                            </splide-slide>
+                        </template>
+                    </Carousel>
                     <ul v-if="currentTab === 'card'" class="list">
                         <li v-for="(item, index) in cardList" :key="index">
                             <div class="card3" :class="{on: item.selected}">
@@ -132,6 +131,51 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="up-contnt">
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
+                up-contnt <br>
             </div>
           </splide-slide>
           <splide-slide>
@@ -293,6 +337,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import PopPaymentList from '@/views/PopPaymentList'
 import PopCouponRegist from '@/views/PopCouponRegist'
 import PopPaymentAdd from '@/views/PopPaymentAdd'
@@ -326,6 +371,11 @@ export default {
       pushChecked: false,
       eventChecked: false,
 
+      cardSliderOpt: {
+        autoWidth: true,
+        perMove:1,
+        pagination:false,
+      },
       // 충전포인트
       currentTab: 'point',
       cargePointList: [
@@ -470,6 +520,15 @@ export default {
         PopRuleList: false,
       },      
     }
+  },
+  mounted(){
+      $('.up-contnt').on('click', function(){
+          if($('#slider').is(':hidden')){
+              $('#slider').slideDown();
+          }else{
+              $('#slider').slideUp();
+          }
+      });
   },
   methods:{
     popQna(index){

@@ -2163,6 +2163,14 @@ h1.hidden {
   padding-top: 0 !important;
 }
 
+.layout-map .header .btn .i-search svg path {
+  stroke: #000;
+}
+
+.layout-map .header .btn .i-alarm svg path {
+  fill: #000;
+}
+
 .layout-map .header,
 .layout-map .footer {
   background: none;
@@ -2172,9 +2180,39 @@ h1.hidden {
   fill: #000;
 }
 
+.layout-map .footer i svg {
+  filter: drop-shadow(0.129rem 0.259rem 0.129rem rgba(0, 0, 0, 0.7));
+}
+
 .layout-map .footer .i-foot-home svg path {
   stroke: #000;
   fill: none;
+}
+
+.layout-map .footer .footer-menu .menu.on .icon .i-foot-home svg path {
+  stroke: #000;
+}
+
+.layout-map .footer .footer-menu .menu.on .icon .i-foot-map svg path {
+  fill: #000;
+}
+
+.layout-map .footer .footer-menu .menu.on .icon .i-foot-charge svg path {
+  fill: #000;
+}
+
+.layout-map .footer .footer-menu .menu.on .icon .i-foot-apply svg path {
+  fill: #000;
+}
+
+.layout-map .footer .footer-menu .menu.on .icon .i-foot-more svg path {
+  stroke: #000;
+}
+
+.layout-map .footer .footer-menu .menu.on .txt {
+  color: #000;
+  text-shadow: 0 0.259rem 0.259rem rgba(0, 0, 0, 0.5);
+  font-weight: 700;
 }
 
 /* header */
@@ -2186,7 +2224,7 @@ h1.hidden {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  height: 7.149rem;
+  height: 3.25rem;
   width: 100%;
   z-index: 10;
   background: linear-gradient(180deg, #000000 73.52%, rgba(0, 0, 0, 0) 100%);
@@ -2210,7 +2248,7 @@ h1.hidden {
 
 .header .status {
   display: inline-block;
-  height: 2.989rem;
+  height: 3.25rem;
   padding: 0 1.039rem;
   display: flex;
   align-items: center;
@@ -2294,10 +2332,6 @@ h1.hidden {
   flex-direction: row;
   font-size: 0.909rem;
   font-weight: 700;
-}
-
-.header .btn.on svg path {
-  fill: #fff;
 }
 
 /* footer */
@@ -3122,7 +3156,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .layout-default .slider-page > .splide > .splide__track > .splide__list > .splide__slide {
-  padding: 9.749rem 1.559rem 14.299rem;
+  padding: 4.225rem 1.559rem 8.45rem;
 }
 
 /* slider-page */
@@ -3131,7 +3165,8 @@ i[class*=i-] .svg-prevent {
 }
 
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide.is-active {
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide[prev] .parallel-box {
@@ -3182,7 +3217,7 @@ i[class*=i-] .svg-prevent {
   bottom: 5.199rem;
   left: 0;
   width: 100%;
-  height: 8.06rem;
+  height: 1.559rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3573,6 +3608,10 @@ i[class*=i-] .svg-prevent {
 .map-wrap .map-menu button {
   width: 3.899rem;
   height: 3.899rem;
+}
+
+.map-wrap .map-menu i svg {
+  filter: drop-shadow(0.129rem 0.259rem 0.129rem rgba(0, 0, 0, 0.7));
 }
 
 .map-wrap .mapindex {
@@ -4360,8 +4399,8 @@ i[class*=i-] .svg-prevent {
 
 .card-wrap .card2 {
   position: relative;
-  width: 22.229rem;
-  height: 14.04rem;
+  width: 19.11rem;
+  height: 12.61rem;
   padding: 1.17rem 1.299rem 1.299rem;
   position: relative;
   margin: 0 auto;
@@ -4581,6 +4620,23 @@ i[class*=i-] .svg-prevent {
 
 .card-wrap .list li ~ li {
   margin-top: 2.599rem;
+}
+
+.card-wrap.slide-list {
+  width: 100vw;
+  margin-left: -1.56rem;
+}
+
+.card-wrap.slide-list li ~ li {
+  padding-left: 1.039rem;
+}
+
+.card-wrap.slide-list li:first-child {
+  padding-left: 3.119rem;
+}
+
+.card-wrap.slide-list li:last-child {
+  padding-right: 3.119rem;
 }
 
 /* car-manage-wrap */
