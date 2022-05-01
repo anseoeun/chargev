@@ -45,6 +45,7 @@ export default {
           'splash': '스플래시',
           // 로그인
           'login': '로그인',
+          'login2': '로그인-기존사용자',
           'join': '회원가입',          
           'LoginMenu': '로그인메뉴',
           'loginMenuCoper': '로그인메뉴(법인)',

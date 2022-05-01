@@ -131,10 +131,15 @@
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <div class="min-fix">
               <!-- pin설정 -->
-              <PinSetting :form="form" />
-            </div>
-            <div class="info-text">
-              보안을 위한 PIN을 설정합니다.
+              <div class="info-text">
+                <PinSetting :form="form" @pinSetting="pinSet = true" />
+              </div>
+              <div v-if="!pinSet" class="info-text">
+                보안을 위한 PIN을 설정합니다.
+              </div>
+              <div v-else class="info-text">
+                확인을 위해 한 번 더 입력해 주세요.
+              </div>
             </div>
           </splide-slide>
         </template>
@@ -168,6 +173,8 @@ export default {
         pin: '',
         pin2: '',
       },
+      pinSet: false,
+
       options: {
         perPage: 1,
         perMove: 1,

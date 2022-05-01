@@ -12,6 +12,7 @@ const routes = [
   // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
 	{ path: '/login', component: () => import('@/views/Login.vue')},
+	{ path: '/login2', component: () => import('@/views/Login2.vue')},
 	{ path: '/join', component: () => import('@/views/Join.vue')},
 	{ path: '/loginMenu', component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},

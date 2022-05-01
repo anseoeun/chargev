@@ -19,6 +19,7 @@
     <button class="btn-type1 st2" @click="btmLayer.PopAddr = true">슬라이드 없는 팝업열기</button>
     <button class="btn-type1 st2" @click="btmLayer.PopMapLegend = true">Dim 없는 팝업열기</button>
     <button class="btn-type1 st2" @click="btmLayer.PopChargeSearchList = true">닫기버튼 있는 팝업열기</button>
+    <button class="btn-type1 st2" @click="btmLayer.PopChargeSearchList2 = true">중간 팝업열기</button>
 
     <!-- 팝업 -->
     <Alert :is-open="alertPop" @close="alertPop = false">      
@@ -36,6 +37,8 @@
     <PopMapLegend :visible="btmLayer.PopMapLegend" @close="btmLayer.PopMapLegend = false"/>    
     <!-- 닫기버튼 있는 팝업열기 -->
     <PopChargeSearchList :visible="btmLayer.PopChargeSearchList" @close="btmLayer.PopChargeSearchList = false"/>
+    <!-- 중간 팝업열기 -->
+    <PopChargeSearchList2 :visible="btmLayer.PopChargeSearchList2" @close="btmLayer.PopChargeSearchList2 = false"/>
   </div>
 </template>
 <script>
@@ -43,12 +46,14 @@ import PopCarMembershipCard from '@/views/PopCarMembershipCard'
 import PopAddr from '@/views/PopAddr'
 import PopMapLegend from '@/views/PopMapLegend'
 import PopChargeSearchList from '@/views/PopChargeSearchList'
+import PopChargeSearchList2 from '@/views/PopChargeSearchList2'
 export default {
     components:{
       PopCarMembershipCard,
       PopAddr,
       PopMapLegend,
-      PopChargeSearchList
+      PopChargeSearchList,
+      PopChargeSearchList2
     },  
     data(){
       return{
@@ -58,6 +63,7 @@ export default {
           PopAddr: false,
           PopMapLegend: false,
           PopChargeSearchList: false,
+          PopChargeSearchList2: false,
         }
       }
     }

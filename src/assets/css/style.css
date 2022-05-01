@@ -2872,6 +2872,19 @@ i[class*=i-] .svg-prevent {
   z-index: 10;
 }
 
+.btm-layer-wrap .btm-layer .btn-layer-half {
+  position: absolute;
+  top: 0.974rem;
+  right: 0.974rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  z-index: 10;
+}
+
 .btm-layer-wrap .btm-layer:before {
   content: "";
   display: block;
