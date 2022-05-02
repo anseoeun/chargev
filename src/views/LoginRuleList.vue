@@ -1,5 +1,6 @@
 <template>
   <div class="contents">
+    <button class="back"><Icon type="back" /></button>    
     <div class="login-rule-list-wrap">
       <div class="logo-chargev"><Icon type="chargev" /></div>
 

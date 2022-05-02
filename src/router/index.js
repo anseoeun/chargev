@@ -12,9 +12,10 @@ const routes = [
   // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
 	{ path: '/login', component: () => import('@/views/Login.vue')},
-	{ path: '/login2', component: () => import('@/views/Login2.vue')},
+	{ path: '/LoginPin', component: () => import('@/views/LoginPin.vue')},
 	{ path: '/join', component: () => import('@/views/Join.vue')},
 	{ path: '/loginMenu', component: () => import('@/views/LoginMenu.vue')},
+	{ path: '/LoginMenu2', component: () => import('@/views/LoginMenu2.vue')},
 	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
   // 메인

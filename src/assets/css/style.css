@@ -2154,11 +2154,37 @@ h1.hidden {
   padding: 9.749rem 1.559rem 6.5rem;
 }
 
-/* layout */
+/* layout - none */
 .layout-none .grident-bottom {
   bottom: 0;
+  flex-direction: column;
+  height: auto;
+  background: none;
 }
 
+.layout-none .grident-bottom:after {
+  content: "";
+  display: block;
+  height: 5.199rem;
+  background: #000;
+  width: 100%;
+}
+
+.layout-none .grident-bottom .custom-dotting {
+  height: 1.559rem;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 26.04%);
+}
+
+.layout-none .back {
+  position: absolute;
+  top: 0.649rem;
+  left: 0.649rem;
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+/* layout - map */
 .layout-map .contents {
   padding-top: 0 !important;
 }
@@ -2443,10 +2469,6 @@ h1.hidden {
 .login-menu-wrap .logo-chargev {
   padding-top: 7.799rem;
   text-align: center;
-}
-
-.login-menu-wrap .menu-list {
-  margin-top: 9.749rem;
 }
 
 .login-menu-wrap .menu-list li ~ li {
@@ -2838,8 +2860,8 @@ i[class*=i-] .svg-prevent {
   padding: 0 0.649rem;
 }
 
-.tab-type1 + .charge-list-wrap {
-  margin-top: 1.559rem;
+.tab-type1 + .card-wrap {
+  margin-top: 0.649rem;
 }
 
 /* btm-layer */
@@ -3167,6 +3189,10 @@ i[class*=i-] .svg-prevent {
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide.is-active {
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.slider-page > .splide > .splide__track > .splide__list > .splide__slide.no-scroll {
+  overflow-y: hidden;
 }
 
 .slider-page > .splide > .splide__track > .splide__list > .splide__slide[prev] .parallel-box {
@@ -3540,10 +3566,6 @@ i[class*=i-] .svg-prevent {
 
 .history-list .t-wrap .row .price {
   margin-right: 0.194rem;
-}
-
-.calendar ~ .history-list {
-  margin-top: 1.949rem;
 }
 
 /* pop-payment-detail */
@@ -4401,7 +4423,7 @@ i[class*=i-] .svg-prevent {
   position: relative;
   width: 19.11rem;
   height: 12.61rem;
-  padding: 1.17rem 1.299rem 1.299rem;
+  padding: 1.17rem 0.779rem 0.974rem;
   position: relative;
   margin: 0 auto;
   flex-direction: column;
@@ -4440,28 +4462,29 @@ i[class*=i-] .svg-prevent {
 
 .card-wrap .card2 .main-txt {
   position: relative;
-  padding-top: 2.599rem;
+  padding-top: 1.43rem;
   font-size: 1.299rem;
 }
 
 .card-wrap .card2 .date {
   position: relative;
-  padding-top: 1.299rem;
+  padding-top: 0.974rem;
   font-size: 0.909rem;
 }
 
 .card-wrap .card2 .price {
   position: absolute;
-  bottom: 1.299rem;
-  right: 1.299rem;
+  bottom: 0.974rem;
+  right: 0.974rem;
   font-size: 1.559rem;
 }
 
 .card-wrap .card3 {
   position: relative;
   margin: 0 auto;
-  width: 22.229rem;
-  height: 14.04rem;
+  width: 19.11rem;
+  height: 12.61rem;
+  padding: 1.559rem;
   overflow: hidden;
   border-radius: 1.039rem;
   border: 1px solid #fff;
@@ -4471,28 +4494,13 @@ i[class*=i-] .svg-prevent {
   border: 1px solid #6AB84E;
 }
 
-.card-wrap .card3 .bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
-
 .card-wrap .card3 .card-info {
-  position: absolute;
-  bottom: 2.145rem;
-  left: 2.599rem;
   font-size: 0.974rem;
-  color: #5A5B5C;
 }
 
 .card-wrap .card3 .card-info .card-num {
   position: relative;
-  margin-top: 0.324rem;
+  margin-top: 0.519rem;
 }
 
 .card-wrap .card3 .card-info .card-num .i-check {
@@ -4505,11 +4513,71 @@ i[class*=i-] .svg-prevent {
   margin-left: 0.324rem;
 }
 
+.card-wrap .card3 .card-info .card-date {
+  margin-top: 0.519rem;
+}
+
+.card-wrap .card3 .btn-box-inner {
+  margin-top: 0.974rem;
+}
+
+.card-wrap .card3 .btn-box-inner .btn {
+  position: relative;
+  height: 1.559rem;
+  background: #2A2B2C;
+  width: 100%;
+  text-align: center;
+  line-height: 1.559rem;
+  font-size: 0.909rem;
+}
+
+.card-wrap .card3 .btn-box-inner .btn .i-delete {
+  position: absolute;
+  top: 50%;
+  right: 0.324rem;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+.card-wrap .card3 .btn-box-inner .btn .btn-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 1.559rem;
+}
+
+.card-wrap .card3 .btn-box-inner .btn .btn-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 1.559rem;
+}
+
+.card-wrap .card3 .btn-box-inner .btn .btn-left i,
+.card-wrap .card3 .btn-box-inner .btn .btn-right i {
+  width: 0.454rem;
+  height: 0.974rem;
+}
+
+.card-wrap .card3 .btn-box-inner .btn ~ .btn {
+  margin-top: 0.519rem;
+}
+
 .card-wrap .card4 {
   position: relative;
   margin: 0 auto;
-  width: 22.229rem;
-  height: 14.04rem;
+  width: 19.11rem;
+  height: 12.61rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4622,20 +4690,20 @@ i[class*=i-] .svg-prevent {
   margin-top: 2.599rem;
 }
 
-.card-wrap.slide-list {
+.card-wrap .slide-list {
   width: 100vw;
   margin-left: -1.56rem;
 }
 
-.card-wrap.slide-list li ~ li {
+.card-wrap .slide-list li ~ li {
   padding-left: 1.039rem;
 }
 
-.card-wrap.slide-list li:first-child {
+.card-wrap .slide-list li:first-child {
   padding-left: 3.119rem;
 }
 
-.card-wrap.slide-list li:last-child {
+.card-wrap .slide-list li:last-child {
   padding-right: 3.119rem;
 }
 
@@ -4656,6 +4724,66 @@ i[class*=i-] .svg-prevent {
   position: relative;
   top: -0.13rem;
   margin-left: 0.259rem;
+}
+
+/* up-content */
+.up-content .hide-area {
+  overflow-x: visible !important;
+}
+
+.up-content .up-area:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1.95rem;
+  left: 0;
+  width: 100%;
+  height: 1.949rem;
+  background: #2A2B2C;
+}
+
+.up-content .up-area {
+  position: relative;
+  margin-top: 2.079rem;
+  background: #2A2B2C;
+  border-radius: 1.039rem 1.039rem 0 0;
+  padding: 1.039rem;
+}
+
+.up-content .up-area .btn-up,
+.up-content .up-area .btn-close {
+  height: 2.599rem;
+  width: 2.599rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  top: 0.324rem;
+  right: 0.324rem;
+}
+
+.up-content.up .up-area {
+  position: relative;
+  margin-top: 0;
+  max-height: calc(100vh - 4.225rem);
+}
+
+.up-content.up .up-area .history-list {
+  height: calc(100vh - 29.25rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.charge-list-wrap.up-content .hide-area {
+  width: 100vw;
+  padding: 0 1.559rem;
+  margin-left: -1.56rem;
+}
+
+.charge-list-wrap.up-content .up-area {
+  width: 100vw;
+  margin-left: -1.56rem;
 }
 
 /* addr */

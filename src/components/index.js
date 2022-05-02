@@ -11,3 +11,5 @@ import Alert from './element/Alert'
 Vue.component('Alert', Alert)
 import Carousel from './element/Carousel'
 Vue.component('Carousel', Carousel)
+import UpContent from './element/UpContent'
+Vue.component('UpContent', UpContent)
