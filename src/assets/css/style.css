@@ -4245,6 +4245,7 @@ i[class*=i-] .svg-prevent {
   color: #8A8B8C;
   font-size: 0.649rem;
   text-align: center;
+  letter-spacing: -0.03em;
 }
 
 .calendar .date-slide .on .date-day {
@@ -4773,6 +4774,11 @@ i[class*=i-] .svg-prevent {
   height: calc(100vh - 29.25rem);
   overflow-y: auto;
   overflow-x: hidden;
+  margin-top: 0.649rem;
+}
+
+.up-content.up .up-area .history-list .box:not(.on) {
+  background: #5A5B5C;
 }
 
 .charge-list-wrap.up-content .hide-area {
