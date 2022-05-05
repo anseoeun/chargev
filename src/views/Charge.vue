@@ -18,6 +18,17 @@
                     @charge="btmLayer.PopCharge = true"
                   />
                 </div>
+                <!-- 즐겨찾기 -->
+                <button class="btn-toggle-slide on" @click="toggleSlide($event, '#slide-favorites')">
+                  <Icon type="arr-bottom" />
+                  <h2 class="tit-type1">즐겨찾기</h2>
+                </button>
+                <div id="slide-favorites">
+                  <ChargeSearchList
+                    :data="chargeList"
+                    @charge="btmLayer.PopCharge = true"
+                  />
+                </div>
             </div>              
           </splide-slide>
           <splide-slide>

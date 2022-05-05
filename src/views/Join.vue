@@ -15,6 +15,7 @@
             <!-- 결제정보 추가 -->
             <div class="min-fix">
               <PaymentAdd
+                completeType="list"
                 @confirm="paymentAddConfirm"
                 @status="(val)=>{paymentIniputStatus = val}"                
                />
@@ -33,6 +34,8 @@
             <!-- 차량 추가 -->
             <div class="min-fix">
               <CarInfoAdd
+                :corper="true"
+                completeType="list"
                 @confirm="carInfoAddConfirm"
                 @status="(val)=>{carIniputStatus = val}"
                />
@@ -51,24 +54,37 @@
           <splide-slide>
             <div class="logo-chargev"><Icon type="chargev" /></div>
             <div class="min-fix">
-              <div class="transparent-box-wrap">
-                <strong class="tit">상품 확인</strong>
-                <div class="transparent-box parallel-box">
-                  <div class="info-box">
-                      <div class="row">
-                        <div class="space-text"><span>BMW</span><span>Charging</span></div>
-                        <div class="right"><b>상세정보</b></div>
-                      </div>
-                      <div class="row">
-                        250,000원
-                      </div>
-                      <div class="row">
-                        2021-07-01 ~ 2022-07-01 
-                      </div>
-                  </div>
-                  <div class="btn-box">
-                    <button class="btn-type1 st1" @click="currentPage = 4">확인</button>
-                  </div>
+              <div class="card-wrap">
+                <h2 class="tit-type1 c-white">상품 확인</h2>
+                <Carousel class="slide-list" :content="true" :options="cardSliderOpt">
+                      <template slot="content">
+                          <splide-slide v-for="(item, index) in cargePointList" :key="index">
+                              <div class="card2">
+                                  <div class="bg" :style="`background-image:url(${item.src})`"></div>
+                                  <Icon v-if="item.company === 'bmw'" type="logo-bmw" />
+                                  <Icon v-if="item.company === 'chargev'" type="chargev4" />
+                                  <div class="main-txt">
+                                      <div v-if="Array.isArray(item.text)" class="space-text">
+                                          <span v-for="(txt, i) in item.text" :key="i">{{ txt }}</span>
+                                      </div>
+                                      <template v-else>{{ item.text }}</template>
+                                  </div>
+                                  <div class="date">{{ item.date }}</div>
+                                  <div class="price">{{ item.price }}원</div>
+                              </div>
+                          </splide-slide>
+                          <splide-slide>
+                              <button class="card2" @click="btmLayer.PopCouponRegist = true">
+                                  <div class="center">
+                                      <Icon type="add-plus" />
+                                      <p class="txt">충전포인트 추가</p>
+                                  </div>
+                              </button>
+                          </splide-slide>
+                      </template>
+                  </Carousel>
+                <div class="btn-box">
+                  <button class="btn-type1 st2" @click="currentPage = 4">확인</button>
                 </div>
               </div>
             </div>
@@ -138,6 +154,35 @@ export default {
       },    
       currentPage: 0,  
       paging: new Array(6),
+
+      cardSliderOpt: {
+        autoWidth: true,
+        perMove:1,
+        pagination:false,
+      },   
+    // 상품확인
+      cargePointList: [
+          {
+              src: require('@/assets/images/temp-place.jpg'),
+              company: 'bmw',
+              text: ['20년', 'BMW', 'Charging'],
+              date: '2021. 07. 01 ~ 2022. 07. 01',
+              price: '360,000',
+          },
+          {
+              src: require('@/assets/images/temp-place.jpg'),
+              company: 'chargev',
+              text: '모바일충전권',
+              date: '2021. 07. 01 ~ 2022. 07. 01',
+              price: '100,000',
+          },
+          {
+              company: 'chargev',
+              text: '이벤트 쿠폰',
+              date: '2021. 07. 01 ~ 2022. 07. 01',
+              price: '100,000',
+          },
+      ],    
 
       btmLayer:{
         agency: false,

@@ -25,7 +25,7 @@
                       <div class="cell label">주소</div>
                       <div class="cell">서울시 송파구 올림픽로 300<br />지하 2층 R5 구역</div>
                       <div class="cell right">
-                        <router-link to="/" class="btn-map-pos"><Icon type="map-pos" /></router-link>
+                        <button class="btn-map-pos"><Icon type="map-pos2" /></button>
                       </div>
                     </div>
                     <div class="row">

@@ -56,12 +56,12 @@
             <UpContent class="charge-list-wrap">
                 <template slot="hide">
                     <div class="tab-type1 center">
-                        <button @click="currentTab = 'point'" :class="{on: currentTab === 'point'}">충전포인트</button>
-                        <button @click="currentTab = 'card'" :class="{on: currentTab === 'card'}">신용카드</button>
+                        <button @click="currentTab = 'point';cardSliderOpt.start = 0" :class="{on: currentTab === 'point'}">충전포인트</button>
+                        <button @click="currentTab = 'card';cardSliderOpt.start = 0" :class="{on: currentTab === 'card'}">신용카드</button>
                         <button @click="currentTab = 'payment'" :class="{on: currentTab === 'payment'}">간편결제</button>
                     </div>
                     <div class="card-wrap">
-                        <Carousel v-if="currentTab === 'point'" class="slide-list" :content="true" :options="cardSliderOpt">
+                        <Carousel v-if="currentTab === 'point'" class="slide-list" :content="true" :options="cardSliderOpt" :key="currentTab">
                             <template slot="content">
                                 <splide-slide v-for="(item, index) in cargePointList" :key="index">
                                     <div class="card2">
@@ -82,36 +82,36 @@
                                     <button class="card2" @click="btmLayer.PopCouponRegist = true">
                                         <div class="center">
                                             <Icon type="add-plus" />
-                                            <p class="txt">상품등록</p>
+                                            <p class="txt">충전포인트 추가</p>
                                         </div>
                                     </button>
                                 </splide-slide>
                             </template>
                         </Carousel>
-                        <Carousel v-if="currentTab === 'card'" class="slide-list" :content="true" :options="cardSliderOpt">
+                        <Carousel v-if="currentTab === 'card'" class="slide-list" :content="true" :options="cardSliderOpt" :key="currentTab">
                             <template slot="content">
                                 <splide-slide v-for="(item, index) in cardList" :key="index">
                                     <div class="card3" :class="{on: item.selected}">
-                                    <div class="card-info">
-                                        <div class="card-name">{{ item.name }}</div>
-                                        <div class="card-num">
-                                            <span>{{ item.company }}</span>
-                                            <span>{{ item.num[0] }}</span>
-                                            <span>{{ item.num[1] }}</span>
-                                            <span>{{ item.num[2] }}</span>
-                                            <span>{{ item.num[3] }}</span>
+                                        <div class="card-info">
+                                            <div class="card-name">{{ item.name }}</div>
+                                            <div class="card-num">
+                                                <span>{{ item.company }}</span>
+                                                <span>{{ item.num[0] }}</span>
+                                                <span>{{ item.num[1] }}</span>
+                                                <span>{{ item.num[2] }}</span>
+                                                <span>{{ item.num[3] }}</span>
+                                            </div>
+                                            <div class="card-date">{{ item.date }}</div>
                                         </div>
-                                        <div class="card-date">{{ item.date }}</div>
-                                    </div>
-                                    <div class="btn-box-inner">
-                                        <button class="btn">카드삭제 <Icon type="delete" /></button>
-                                        <div class="btn btn-order">
-                                            <button class="btn-left"><Icon type="arr-left" /></button>
-                                            결제순서변경
-                                            <button class="btn-right"><Icon type="arr-right" /></button>
+                                        <div class="btn-box-inner">
+                                            <button class="btn">카드삭제 <Icon type="delete" /></button>
+                                            <div class="btn btn-order">
+                                                <button class="btn-left"><Icon type="arr-left" /></button>
+                                                결제순서변경
+                                                <button class="btn-right"><Icon type="arr-right" /></button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </splide-slide>
                                 <splide-slide>
                                     <button class="card3" @click="btmLayer.PopPaymentAdd = true">
@@ -140,44 +140,57 @@
                     <!-- 결제수단별 이용기록 -->
                     <h2 class="tit-type1">결제수단별 이용기록</h2>
                     <UsingHistory
-                        @detailUsingHistory="btmLayer.popPaymentDetail = true"
+                        @detailUsingHistory="$set(btmLayer, 'popPaymentDetail', true);"
                     />
                 </template>
             </UpContent>
           </splide-slide>
-          <splide-slide>
-            <div class="car-manage-wrap">
-                <h2 class="tit-type1">차량관리</h2>
-                <div class="card-wrap">
-                <ul class="list">
-                    <li>
-                        <button class="card5" @click="btmLayer.PopCarInfoAdd = true">
-                            <div class="center">
-                                <Icon type="add-plus" />
-                                <p class="txt">차량추가</p>
-                            </div>
-                        </button>
-                    </li>
-                    <li v-for="(item, index) in carList" :key="index">
-                        <div class="card5" :class="{on: item.selected}">
-                            <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
-                            <Icon v-if="item.company === 'chargev'" type="chargev4" class="company-logo" />
-                            <div class="car-info">
-                                <p class="space-txt"><span>{{ item.carInfo[0] }}</span><span>{{ item.carInfo[1] }}</span></p>
-                                <p>{{ item.carInfo[2] }}</p>
-                            </div>
-                            <div class="key">{{ item.key }}</div>
-                            <div class="number">{{ item.num }}</div>
+          <splide-slide class="no-scroll">
+              <UpContent class="charge-list-wrap">
+                  <template slot="hide">
+                    <div class="car-manage-wrap">
+                        <h2 class="tit-type1">충전차량</h2>
+                        <div class="card-wrap">
+                            <Carousel class="slide-list" :content="true" :options="carSliderOpt">
+                                <template slot="content">
+                                    <splide-slide v-for="(item, index) in carList" :key="index">
+                                        <div class="card5" :class="{on: item.selected}">
+                                            <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
+                                            <Icon v-if="item.company === 'benz'" type="logo-benz" :src="require('@/assets/images/logo/logo-me.png')" class="company-logo" />
+                                            <div class="car-info">
+                                                <p class="space-txt"><span>{{ item.carInfo[0] }}</span><span>{{ item.carInfo[1] }}</span></p>
+                                                <p>{{ item.carInfo[2] }}</p>
+                                            </div>
+                                            <div class="number">{{ item.num }}</div>
+                                            <div class="btn-box-inner">
+                                                <button class="btn-type1 st2" @click="$set(item, 'selected', !item.selected)">
+                                                    <template v-if="item.selected">충전차량<Icon type="check" class="on" /></template>
+                                                    <template v-else>충전차량으로 설정</template>
+                                                </button>
+                                            </div> 
+                                        </div>
+                                    </splide-slide>
+                                    <splide-slide>
+                                        <button class="card5" @click="btmLayer.PopCarInfoAdd = true">
+                                            <div class="center">
+                                                <Icon type="add-plus" />
+                                                <p class="txt">차량추가</p>
+                                            </div>
+                                        </button>
+                                    </splide-slide>
+                                </template>
+                            </Carousel>
                         </div>
-                        <div class="btn-box">
-                            <button v-if="item.share" class="btn-type1 st2">차량공유 해제</button>
-                            <button class="btn-type1 st2" :class="{full: !item.share}" @click="btmLayer.PopPaymentList = true">결제내역 확인</button>
-                            <button class="btn-type1 st2 full" @click="$set(item, 'selected', !item.selected)">충전차량 선택<Icon v-if="item.selected" type="check" class="on" /></button>
-                        </div>                                
-                    </li>
-                </ul>                
-                </div>
-            </div>
+                    </div>
+                  </template>
+                  <template slot="up">
+                    <!-- 결제수단별 이용기록 -->
+                    <h2 class="tit-type1">결제수단별 이용기록</h2>
+                    <UsingHistory
+                        @detailUsingHistory="$set(btmLayer, 'popPaymentDetail', true);"
+                    />
+                </template>
+            </UpContent>
           </splide-slide>
           <splide-slide>
             <div class="qna-wrap">
@@ -281,7 +294,7 @@
         @qnaRegistCompleted="alertPopColpleted = true"
      />
     <!-- 상세 결제내역 -->
-    <PopPaymentDetail :visible="btmLayer.PopPaymentDetail" @close="btmLayer.PopPaymentDetail = false"/>
+    <PopPaymentDetail :visible="btmLayer.popPaymentDetail" @close="btmLayer.popPaymentDetail = false"/>
     <!-- 완성차 멤버십카드 -->
     <PopCarMembershipCard :visible="btmLayer.PopCarMembershipCard" @close="btmLayer.PopCarMembershipCard = false"
         @qnaRegistCompleted="alertPopColpleted = true"    
@@ -344,6 +357,7 @@ export default {
         perMove:1,
         pagination:false,
       },
+
       // 충전포인트
       currentTab: 'point',
       cargePointList: [
@@ -392,20 +406,22 @@ export default {
           }
       ],
       // 차량관리
+      carSliderOpt: {
+        autoWidth: true,
+        perMove:1,
+        pagination:false,
+      },      
       carList: [
           {
               company: 'bmw',
-              key: 'A62S-ZB9Q',
               carInfo: ['BMW', '530e', '02보6596'],
-              num: '1010-0101-1234-1234',
+              num: '9999-9999-9999-9999',
               selected: true,
           },
           {
-              company: 'chargev',
-              key: '김김김에게 공유중',
+              company: 'benz',
               carInfo: ['BMW', '530e', '02보6596'],
               num: '1010-0101-1234-1234',
-              share: true,
               selected: false,
           },
       ],
