@@ -2,8 +2,8 @@
   <div class="contents">
     <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
       <template slot="content">
-          <splide-slide>
-            <div class="charge-wrap">
+          <splide-slide class="v-center2">
+            <div class="charge-wrap v-center-scroll">
                 <h2 class="tit-type1">잔여충전시간</h2>
                 <div class="text-remind-time">3시간 45분</div>
 
@@ -20,8 +20,8 @@
                 </div>                   
             </div>              
           </splide-slide>
-          <splide-slide>
-            <div class="charge-wrap">
+          <splide-slide class="v-center2">
+            <div class="charge-wrap v-center-scroll">
                 <h2 class="tit-type1">충전시간</h2>
                 <div class="text-remind-time">2시간 40분</div>
 

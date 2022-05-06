@@ -4,7 +4,7 @@
           <div class="cont-scroll">
             <div class="coupon-regist-wrap">
                 <template v-if="!mobileShow && !couponShow">
-                    <h2 class="tit-type1">등록구분</h2>
+                    <h2 class="tit-type1 c-white">등록구분</h2>
                     <div class="btn-box">
                         <button class="btn-type1 st2" @click="mobileShow = true">모바일충전권</button>
                         <button class="btn-type1 st2" @click="couponShow = true">쿠폰</button>
@@ -13,7 +13,7 @@
                  <!-- 모바일 충전권 -->
                  <div v-if="mobileShow" class="retist-wrap">
                      <div class="form-box-wrap">
-                        <h2 class="tit-type1">모바일 충전권</h2>
+                        <h2 class="tit-type1 c-white">모바일 충전권</h2>
                         <div class="form-box">
                             <div class="row">
                                 <div class="input">
@@ -29,7 +29,7 @@
                  <!-- 쿠폰 -->
                  <div v-if="couponShow" class="retist-wrap">
                      <div class="form-box-wrap">
-                        <h2 class="tit-type1">쿠폰</h2>
+                        <h2 class="tit-type1 c-white">쿠폰</h2>
                         <div class="form-box">
                             <div class="row">
                                 <div class="input">
