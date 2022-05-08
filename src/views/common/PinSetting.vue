@@ -1,6 +1,6 @@
 <template>
     <div v-if="!pinSet" class="form-box-wrap">
-      <strong class="tit">PIN 설정</strong>
+      <strong class="tit">PIN 입력</strong>
       <div class="form-box">
       <div class="row">
           <div class="input">
@@ -21,7 +21,7 @@
       </div> -->
     </div>
     <div v-else-if="pinSet" class="form-box-wrap">
-      <strong class="tit">PIN 확인</strong>
+      <strong class="tit">PIN 재입력</strong>
       <div class="form-box">
       <div class="row">
           <div class="input">
@@ -54,7 +54,7 @@ export default {
     form: {
       type: Object,
       default: ()=>{}
-    },    
+    },
   },  
   data(){
     return{

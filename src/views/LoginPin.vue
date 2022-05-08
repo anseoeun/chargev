@@ -19,11 +19,6 @@ export default {
   data(){
     return{
       form:{
-        id: '',
-        pw: '',
-        agency: {},
-        tel: '',
-        auth: '',
         pin: '',
         pin2: '',
       },

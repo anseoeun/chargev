@@ -16,7 +16,7 @@
                </div>
 
                <div class="btn-wrap">
-                 <button class="btn-type1 st1" @click="$emit('close')">확인</button>
+                 <button v-if="confirm" class="btn-type1 st1" @click="$emit('close')">확인</button>
                  <slot name="btn" />
                </div>
           </div>
@@ -32,6 +32,10 @@ export default {
       default: false
     },
     isDim:{
+      type: Boolean,
+      default: true
+    },
+    confirm:{
       type: Boolean,
       default: true
     },

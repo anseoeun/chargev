@@ -1,44 +1,44 @@
 <template>
     <div class="form-box-wrap">
         <h2 class="tit-type1 c-white">{{ title }}</h2>
-        <template v-if="carIniputStatus == 'basic'">
+        <template v-if="carIniputStatus == 'basic' || carIniputStatus == 'more'">
             <div class="form-box">
-            <div class="row">
-                <div class="input">
-                    <Input type="text" v-model="form.carnum" placeholder="차량번호" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="input">
-                    <Input type="text" v-model="form.user" placeholder="소유자명" />
-                </div>
-            </div>
-            <template v-if="carIniputStatus === 'more'">
                 <div class="row">
                     <div class="input">
-                        <Input type="text" />
+                        <Input type="text" v-model="form.carnum" placeholder="차량번호" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="input">
-                        <Input type="text" />
+                        <Input type="text" v-model="form.user" placeholder="소유자명" />
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input">
-                        <Input type="text" />
+                <template v-if="carIniputStatus === 'more'">
+                    <div class="row">
+                        <div class="input">
+                            <Input type="text" />
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input auto">
-                        <Input type="number" v-model="form.memcardnum" maxlength="16" placeholder="멤버십 카드 번호 입력" />
+                    <div class="row">
+                        <div class="input">
+                            <Input type="text" />
+                        </div>
                     </div>
-                    <div v-if="simpleRecognition" class="right"><button class="btn">간편인식</button></div>
-                </div>
-            </template>
+                    <div class="row">
+                        <div class="input">
+                            <Input type="text" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input auto">
+                            <Input type="number" v-model="form.memcardnum" maxlength="16" placeholder="멤버십 카드 번호 입력" />
+                        </div>
+                        <div v-if="simpleRecognition" class="right"><button class="btn">간편인식</button></div>
+                    </div>
+                </template>
             </div>
             <div class="btn-box">
-                <button v-if="carIniputStatus == 'basic'" class="btn-type1 st2"  @click="carIniputStatus = 'more';$emit('status', carIniputStatus)">찾기</button>
+                <button v-if="carIniputStatus == 'basic'" class="btn-type1 st2"  @click="carIniputStatus = 'more';title='신규등록';$emit('status', carIniputStatus)">찾기</button>
                 <button v-else class="btn-type1 st2" @click="carIniputStatus = 'completion';$emit('status', carIniputStatus)">확인</button>
                 <button v-if="corper" class="btn-type1 st2" @click="carIniputStatus = 'corperCarRegist';$emit('status', carIniputStatus)">법인차 등록</button>
             </div>

@@ -41,6 +41,7 @@ export default {
           //샘플
           'sample/carousel': '샘플/슬라이드',
           'sample/component': '샘플/컴포넌트',
+          'sample/alert': '생체인식사용 팝업',
           // 스플래시
           'splash': '스플래시',
           // 로그인
@@ -48,7 +49,7 @@ export default {
           'LoginPin': '로그인-기존사용자',
           'join': '회원가입',          
           'LoginMenu': '로그인메뉴',
-          'LoginMenu2': '로그인메뉴2',
+          'LoginMenuMember': '로그인메뉴 멤버',
           'loginMenuCoper': '로그인메뉴(법인)',
           'loginRuleList': '로그인약관',
           // 메인

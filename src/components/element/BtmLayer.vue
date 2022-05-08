@@ -43,6 +43,7 @@ export default {
               setTimeout(()=>{
                 $(layer).slideDown(180, function(){
                   this.$emit('opended')
+                  $(layer).find('.cont-scroll').scrollTop(0);
                 }.bind(this));
               },180)
 

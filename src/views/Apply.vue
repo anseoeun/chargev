@@ -2,40 +2,179 @@
   <div class="contents">
     <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
       <template slot="content">
-          <splide-slide>
-            <div class="apply-wrap">
-              <!-- 멤버십카드 -->
-              <h2 class="tit-type1">멤버십카드</h2>
-              <div class="card-wrap">
-                  <div class="card">
-                      <Icon type="chargev2" />
-                      <div class="number">
-                          <div class="space-text"><span>02보</span><span>6596</span></div>
-                      </div>
+          <splide-slide class="no-scroll">
+            <UpContent class="apply-wrap">
+                <template slot="hide">              
+                  <div class="card-wrap">
+                    <h2 class="tit-type1">멤버십카드</h2>
+                    <Carousel class="slide-list" :content="true" :options="cardSliderOpt">
+                        <template slot="content">
+                            <splide-slide v-for="(item, index) in cardList" :key="index">
+                                <div class="card" :class="{on: item.selected}">
+                                    <div class="logo">
+                                      <Icon type="chargev6" />
+                                    </div>
+                                    <div class="grid-list">
+                                        <div class="row">
+                                            <div class="tit">멤버십카드</div>
+                                            <div class="text card-num">
+                                              <span>{{ item.num[0] }}</span> -
+                                              <span>{{ item.num[1] }}</span> -
+                                              <span>{{ item.num[2] }}</span> -
+                                              <span>{{ item.num[3] }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="tit">연동차량</div>
+                                            <div class="text">{{ item.car }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="tit">연동상품</div>
+                                            <div class="text">{{ item.product }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="btn-box-inner">
+                                        <button class="btn">멤버십카드 재발급</button>
+                                    </div>
+                                </div>
+                            </splide-slide>
+                            <splide-slide>
+                                <button class="card" @click="btmLayer.PopAddr = true">
+                                    <div class="center">
+                                        <Icon type="add-plus" />
+                                        <p class="txt">멤버십카드 발급</p>
+                                    </div>
+                                </button>
+                            </splide-slide>
+                        </template>
+                    </Carousel>
                   </div>
-                  <div class="info"><span class="name">멤버십카드</span><span class="num">1955-1231-1231-1231</span></div>
-                  <div class="btn-box">
-                      <router-link to="/" class="btn-type1 st2">멤버십카드 재발급</router-link>
-                      <router-link to="/" class="btn-type1 st2">배송현황 확인</router-link>                    
+                </template>
+                <template slot="up">
+                  <h2 class="tit-type1 c-white">발급 이력</h2>
+                  <div class="scroll-area">
+                    <ul class="history-list2">
+                      <li v-for="(item, index) in issueList" :key="index">
+                        <div class="box" :class="{on:item.selected}">
+                          <div class="txt-status">
+                            <template v-if="item.status == 'complete'">수령완료</template>
+                            <template v-if="item.status == 'ing'">배송중</template>
+                            <template v-if="item.status == 'start'">발송완료</template>
+                          </div>
+                          <div class="grid-list">
+                            <div v-if="item.status=='complete'" class="row">
+                              <div class="tit">수령자</div>
+                              <div class="text">{{ item.recipient }}</div>
+                            </div>
+                            <div class="row">
+                              <template v-if="item.status=='complete' || item.status=='ing'">
+                                <div class="tit">집배원</div>
+                                <div class="text">{{ item.mailman }}</div>
+                              </template>
+                              <template v-if="item.status=='start'">
+                                <div class="tit">발송처</div>
+                                <div class="text">{{ item.mailman }}</div>
+                              </template>
+                            </div>
+                            <div class="row">
+                              <template v-if="item.status=='complete'">
+                                <div class="tit">도착일</div>
+                                <div class="text">{{ item.date }}</div>
+                              </template>
+                              <template v-if="item.status=='ing'">
+                                <div class="tit">에상<br />도착일</div>
+                                <div class="text">{{ item.date }}</div>
+                              </template>
+                              <template v-if="item.status=='start'">
+                                <div class="tit">발송일</div>
+                                <div class="text">{{ item.date }}</div>
+                              </template>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
-              </div>
-              <!-- 멤버십카드 -->
-              <h2 class="tit-type1">멤버십카드</h2>
-              <div class="card-wrap">
-                  <div class="card">
-                      <Icon type="chargev3" />
-                      <div class="number">
-                          <div class="space-text"><span>01가</span><span>6596</span></div>
-                      </div>
-                  </div>
-                  <div class="info"><span class="name">모바일카드</span><span class="num">1955-1231-1231-1231</span></div>
-                  <div class="btn-box">
-                      <button class="btn-type1 st2" @click="btmLayer.PopAddr = true">멤버십카드 발급</button>
-                  </div>
-              </div>
-            </div>
+                </template>
+            </UpContent>
           </splide-slide>
-          <splide-slide>
+          <splide-slide class="no-scroll">
+            <UpContent class="apply-wrap">
+                <template slot="hide">
+                  <div class="card-wrap">
+                    <h2 class="tit-type1">충전기 설치신청</h2>
+                    <Carousel class="slide-list" :content="true" :options="cardSliderOpt">
+                        <template slot="content">
+                            <splide-slide v-for="(item, index) in applyList" :key="index">
+                                <div class="place-card">
+                                  <div class="img" :style="`background-image:url(${item.src})`"></div>
+                                  <div class="desc">
+                                    <strong class="tit">{{ item.type }}</strong>
+                                    <div v-if="item.status == 'complate'" class="txt">신청이 완료되었습니다.</div>
+                                  </div>
+                                </div>
+                            </splide-slide>
+                            <splide-slide>
+                                <button class="card" @click="btmLayer.PopChargerApply = true">
+                                    <div class="center">
+                                        <Icon type="add-plus" />
+                                        <p class="txt">설치신청 추가</p>
+                                    </div>
+                                </button>
+                            </splide-slide>
+                        </template>
+                    </Carousel>
+                  </div>
+                </template>
+                <template slot="up">
+                  <h2 class="tit-type1 c-white">진행상황</h2>
+                  <div class="scroll-area">
+                    <ul class="history-list2">
+                      <li v-for="(item, index) in  statusList" :key="index">
+                        <div class="box" :class="{on:item.selected}">
+                          <div class="txt-status">
+                            <template v-if="item.status == 'complete'">설치 완료</template>
+                            <template v-if="item.status == 'ing'">공사중</template>
+                            <template v-if="item.status == 'start'">결제완료</template>
+                            <template v-if="item.status == 'apply'">설치신청완료</template>
+                          </div>
+                          <div class="grid-list">
+                            <div class="row">
+                              <template v-if="item.status=='complete' || item.status=='start' || item.status=='apply'">
+                                <div class="tit">완료일</div>
+                                <div class="text">{{ item.date }}</div>
+                              </template>
+                              <template v-if="item.status=='img'">
+                                <div class="tit">예정일</div>
+                                <div class="text">{{ item.date }}</div>
+                              </template>
+                            </div>
+                            <div class="row">
+                              <div class="tit">상태</div>
+                              <div class="text">
+                                <template v-if="item.status=='complete'">설치가 완료되었습니다.</template>
+                                <template v-if="item.status=='ing'">공사 진행중입니다.</template>
+                                <template v-if="item.status=='start'">결제가 완료되었습니다.</template>
+                                <template v-if="item.status=='apply'">신청이 완료되어 요청하신 날짜에 방문이 가능한지 확인 중이며, 상담사가 연락할 예정입니다.</template>
+                              </div>
+                            </div>
+                            <div v-if="item.status=='apply'" class="row">
+                              <div class="tit">설치주소</div>
+                              <div class="text">{{ item.addr }}</div>
+                            </div>
+                            <div v-if="item.status=='apply'" class="row">
+                              <div class="tit">실사<br />요청일</div>
+                              <div class="text">{{ item.visitDate }}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </template>
+            </UpContent>
+          </splide-slide>
+          <splide-slide class="no-scroll">
             <div class="charger-install-wrap">
               <!-- 충전기 설치신청 -->
               <h2 class="tit-type1">충전기 설치신청</h2>
@@ -44,15 +183,7 @@
               </div>              
               <!-- 충전기 설치신청 -->
               <h2 class="tit-type1">충전기 설치신청</h2>
-              <div class="selected-place">
-                <div class="place-card">
-                  <div class="img" :style="`background-image:url(${place.src})`"></div>
-                  <div class="desc">
-                    <strong class="tit">{{ place.type }}</strong>
-                    <div class="txt">신청이 완료되었습니다.<br />설치업체에서 날짜를 확인중입니다.</div>
-                  </div>
-                </div>
-              </div>              
+                            
               <div class="btn-box">
                   <button class="btn-type1 st2" @click="btmLayer.PopProgressCheck = true">진행상황 확인</button>
               </div>              
@@ -65,26 +196,127 @@
     <PopAddr :visible="btmLayer.PopAddr" @close="btmLayer.PopAddr = false"/>
     <!-- 충전기설치신청 -->
     <PopChargerApply :visible="btmLayer.PopChargerApply" @close="btmLayer.PopChargerApply = false"/>
-    <PopProgressCheck :visible="btmLayer.PopProgressCheck" @close="btmLayer.PopProgressCheck = false"/>
   </div>
 </template>
 
 <script>
 import PopAddr from '@/views/PopAddr'
 import PopChargerApply from '@/views/PopChargerApply'
-import PopProgressCheck from '@/views/PopProgressCheck'
 export default {
   components:{
     PopAddr,
     PopChargerApply,
-    PopProgressCheck
   },
   data(){
     return{
-      place: {
-        type: '단독주택',
-        src: require('@/assets/images/temp-place.jpg'),
+      applyList: [
+        {
+          type: '단독주택',
+          src: require('@/assets/images/temp-place.jpg'),
+          status: 'complate'
+        }
+      ],
+
+      // 멤버십카드
+      cardSliderOpt: {
+        autoWidth: true,
+        perMove:1,
+        pagination:false,
       },
+      cardList: [
+          {
+              num: ['0000', '0000', '0000', '0000'],
+              car: '01가 5678',
+              product: '상품상품',
+              selected: true
+          },
+          {
+              num: ['1010', '0101', '1234', '5678'],
+              car: '01가 5678',
+              product: '-'
+          },
+      ],
+      // 발급 이력
+      issueList: [  
+        {
+          status: 'complete',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+          selected: true,
+        },
+        {
+          status: 'ing',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'start',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'complete',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'ing',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'start',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'complete',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'ing',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'start',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+      ],
+      // 진행상황
+      statusList: [  
+        {
+          status: 'complete',
+          date: '2022-05-03',
+          selected: true,
+        },
+        {
+          status: 'ing',
+          date: '2022-05-03',
+        },
+        {
+          status: 'start',
+          date: '2022-05-03',
+        },
+        {
+          status: 'apply',
+          date: '2022-05-03',
+          addr: '서울시 송파구 올림픽로 300',
+          visitDate: '2022-02-24',
+          selected: true,
+        },
+      ],
 
       options: {
         perPage: 1,
@@ -94,7 +326,6 @@ export default {
       btmLayer:{
         PopAddr: false,
         PopChargerApply: false,
-        PopProgressCheck: false
       },      
     }
   },

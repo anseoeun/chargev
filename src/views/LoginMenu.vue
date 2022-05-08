@@ -1,8 +1,13 @@
 <template>
   <div class="contents">
+    <button v-if="user === 'member' || user === 'coper'" class="back"><Icon type="back" /></button>         
     <div class="login-menu-wrap">
       <div class="logo-chargev"><Icon type="chargev" /></div>
-        <ul v-if="user === 'coper'" class="menu-list v-center">
+        <ul v-if="user === 'member'" class="menu-list v-center">
+          <li><button class="btn-type1 st2">회원전환 미완료 고객</button></li>
+          <li><button class="btn-type1 st2">회원전환 완료 고객</button></li>
+        </ul>      
+        <ul v-else-if="user === 'coper'" class="menu-list v-center">
           <li><button class="btn-type1 st2">개인회원가입</button></li>
           <li><button class="btn-type1 st2" @click="alertPop = true">법인회원가입</button></li>
         </ul>
@@ -35,7 +40,7 @@ export default {
     computed: {
       user(){
         return this.$root.$route.meta.user
-      },
+      }
     }
 };
 </script>

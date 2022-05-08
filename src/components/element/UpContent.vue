@@ -3,9 +3,9 @@
       <div class="hide-area" ref="hide">
           <slot ref="hide" name="hide" />
       </div>
-      <div class="up-area">
+      <div v-if="upHide" class="up-area">
         <button v-if="status === 'down'" class="btn-up" @click="contentUp"><Icon type="arr-top"/></button>
-        <button v-if="status === 'up'" class="btn-close" @click="contentUp"><Icon type="close"/></button>
+        <button v-if="status === 'up'" class="btn-close" @click="contentUp"><Icon type="close-white"/></button>
         <slot ref="up" name="up" />
       </div>
     </div>
@@ -15,7 +15,10 @@
 import $ from 'jquery'
 export default {
     props: {
-
+      upHide: {
+        type: Boolean,
+        default: true
+      }
     },
     data(){
       return{
@@ -28,12 +31,10 @@ export default {
           $(this.$refs.hide).slideUp();
           this.status = 'up';
           $('body').css('overflow', 'hidden');
-          // $('.slider-page > .splide > .splide__track > .splide__list > .splide__slide').css('overflow', 'hidden');
         }else{
           $(this.$refs.hide).slideDown();
           this.status = 'down';
           $('body').css('overflow', '');
-          // $('.slider-page > .splide > .splide__track > .splide__list > .splide__slide').css('overflow', '');
         }
       }
     }

@@ -30,7 +30,7 @@
                             <template slot-scope="props">
                                 <button class="place-card" @click="currentPage = 2">
                                     <div class="img" :style="`background-image:url(${props.item.src})`"></div>
-                                    <div class="desc">
+                                    <div class="desc type2">
                                         <strong class="tit">{{ props.item.title }}</strong>
                                         <div class="price">{{ props.item.price }}</div>
                                         <div class="item">{{ props.item.item }}</div>
@@ -41,12 +41,14 @@
                     </div>
                     <!-- 추가비용 안내 -->
                     <h2 class="tit-type1">추가비용 안내</h2>    
-                    <ul class="dash-indent-list">
-                        <li>- 표준공사 30m기준<br />(초과시 m당 초과 비용 발생)</li>
-                        <li>- 스탠드형 설치시 20만원 추가 부담금 발생</li>
-                        <li>- 한국전력 표준 시설부담금 별도(발생 시)</li>
-                        <li>- 완속충전기 취득세(지방세) 발생 가능</li>
-                    </ul>
+                    <div class="gray-box">
+                      <ul class="dash-indent-list">
+                          <li>- 표준공사 30m기준<br />(초과시 m당 초과 비용 발생)</li>
+                          <li>- 스탠드형 설치시 20만원 추가 부담금 발생</li>
+                          <li>- 한국전력 표준 시설부담금 별도(발생 시)</li>
+                          <li>- 완속충전기 취득세(지방세) 발생 가능</li>
+                      </ul>
+                    </div>
                 </div>
               </splide-slide>
               <splide-slide>

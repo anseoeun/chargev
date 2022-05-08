@@ -6,54 +6,73 @@
             <div class="mypage-wrap">
               <!-- 내정보 -->
               <h2 class="tit-type1">내정보</h2>
-              <div class="my-info">
-                  <p>이상욱</p>
-                  <p>1989.08.24</p>
-                  <p>010-9467-4694</p>
+              <div class="my-info-box">
+                  <div class="grid-list">
+                      <div class="row">
+                          <div class="tit">가입자</div>
+                          <div class="text">이상욱</div>
+                      </div>
+                      <div class="row">
+                          <div class="tit">생년월일</div>
+                          <div class="text">1989.08.24</div>
+                      </div>
+                      <div class="row">
+                          <div class="tit">전화번호</div>
+                          <div class="text">010-9467-3693</div>
+                      </div>
+                      <div class="row">
+                          <div class="tit">회원등급</div>
+                          <div class="text">GOLD</div>
+                      </div>
+                  </div>
               </div>
-
-              <!-- 등급 -->
-              <h2 class="tit-type1">등급</h2>
-              <div class="grade">GOLD</div>
 
               <!-- 보안설정 -->
               <h2 class="tit-type1">보안설정</h2>
-              <ul class="setting-check-list">
-                  <li>
-                    <button  @click="checkIcon($event, 'pinChecked')">
-                        <Icon type="check" :class="{on: pinChecked}" />
-                        <span class="txt">PIN</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button  @click="checkIcon($event, 'bodyChecked')">
-                        <Icon type="check" :class="{on: bodyChecked}" />
-                        <span class="txt">생체인증</span>
-                    </button>
-                  </li>
-              </ul>
+              <div class="my-info-box">
+                  <div class="grid-list">
+                      <div class="row">
+                          <div class="tit">PIN</div>
+                          <div class="text right">
+                              <button class="btn" @click="btmLayer.PopPin = true">재설정</button>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="tit">생체인증</div>
+                          <div class="text">사용중 </div>
+                          <div class="text right">
+                              <button class="btn">사용안하기</button>
+                              <button class="btn">재설정</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
               <!-- 권한설정 -->
               <h2 class="tit-type1">권한설정</h2>
-              <ul class="setting-check-list">
-                  <li>
-                    <button  @click="checkIcon($event, 'pushChecked')">
-                        <Icon type="check" :class="{on: pushChecked}" />
-                        <span class="txt">푸시 알림</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button  @click="checkIcon($event, 'eventChecked')">
-                        <Icon type="check" :class="{on: eventChecked}" />
-                        <span class="txt">프로모션/이벤트 알림</span>
-                    </button>
-                  </li>
-              </ul>
+              <div class="my-info-box">
+                  <div class="grid-list">
+                      <div class="row">
+                          <div class="tit">푸시알림</div>
+                          <div class="text">허용</div>
+                          <div class="text right">
+                              <button class="btn">안받기</button>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="tit">이벤트알림</div>
+                          <div class="text">허용</div>
+                          <div class="text right">
+                              <button class="btn">안받기</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
             </div>
           </splide-slide>
           <splide-slide class="no-scroll">
-            <UpContent class="charge-list-wrap">
+            <UpContent class="charge-list-wrap"  :upHide="currentTab == 'payment' ? false : true">
                 <template slot="hide">
                     <div class="tab-type1 center">
                         <button @click="currentTab = 'point';cardSliderOpt.start = 0" :class="{on: currentTab === 'point'}">충전포인트</button>
@@ -64,7 +83,7 @@
                         <Carousel v-if="currentTab === 'point'" class="slide-list" :content="true" :options="cardSliderOpt" :key="currentTab">
                             <template slot="content">
                                 <splide-slide v-for="(item, index) in cargePointList" :key="index">
-                                    <div class="card2">
+                                    <div class="card2" :class="{on: item.selected}">
                                         <div class="bg" :style="`background-image:url(${item.src})`"></div>
                                         <Icon v-if="item.company === 'bmw'" type="logo-bmw" />
                                         <Icon v-if="item.company === 'chargev'" type="chargev4" />
@@ -138,7 +157,7 @@
                 </template>
                 <template slot="up">
                     <!-- 결제수단별 이용기록 -->
-                    <h2 class="tit-type1">결제수단별 이용기록</h2>
+                    <h2 class="tit-type1 c-white">결제수단별 이용기록</h2>
                     <UsingHistory
                         @detailUsingHistory="$set(btmLayer, 'popPaymentDetail', true);"
                     />
@@ -184,13 +203,16 @@
                     </div>
                   </template>
                   <template slot="up">
-                    <!-- 결제수단별 이용기록 -->
-                    <h2 class="tit-type1">결제수단별 이용기록</h2>
+                    <!-- 차량별 이용 기록 -->
+                    <h2 class="tit-type1">차량별 이용 기록</h2>
                     <UsingHistory
                         @detailUsingHistory="$set(btmLayer, 'popPaymentDetail', true);"
                     />
                 </template>
             </UpContent>
+          </splide-slide>
+          <splide-slide class="no-scroll">
+              <button class="btn-type1 st2" @click="btmLayer.PopCaseAdd = true">유형선택 추가 팝업</button>
           </splide-slide>
           <splide-slide>
             <div class="qna-wrap">
@@ -271,13 +293,15 @@
     </Carousel>
 
     <!-- 모바일 충전권 / 쿠폰 등록 -->
+    <PopPin :visible="btmLayer.PopPin" @close="btmLayer.PopPin = false"/>
+    <!-- 모바일 충전권 / 쿠폰 등록 -->
     <PopCouponRegist :visible="btmLayer.PopCouponRegist" @close="btmLayer.PopCouponRegist = false"/>
-    <!-- 결제수단별 이용기록 -->
-    <!-- <PopPaymentList :visible="btmLayer.PopPaymentList" @close="btmLayer.PopPaymentList = false"/> -->
     <!-- 결제정보 추가 -->
     <PopPaymentAdd :visible="btmLayer.PopPaymentAdd" @close="btmLayer.PopPaymentAdd = false"/>
     <!-- 차량정보 -->
     <PopCarInfoAdd :visible="btmLayer.PopCarInfoAdd" @close="btmLayer.PopCarInfoAdd = false"/>
+    <!-- 유형선택 -->
+    <PopCaseAdd :visible="btmLayer.PopCaseAdd" @close="btmLayer.PopCaseAdd = false"/>
     <!-- 문의내역리스트 -->
     <PopQnaList :visible="btmLayer.PopQnaList" :gbn.sync="qnaGbn" @close="btmLayer.PopQnaList = false"
         @chargerBreakdownApply="btmLayer.PopBreakdownReport = true;"
@@ -317,11 +341,12 @@
 </template>
 
 <script>
-// import PopPaymentList from '@/views/PopPaymentList'
+import PopPin from '@/views/PopPin'
 import UsingHistory from '@/views/common/UsingHistory'
 import PopCouponRegist from '@/views/PopCouponRegist'
 import PopPaymentAdd from '@/views/PopPaymentAdd'
 import PopCarInfoAdd from '@/views/PopCarInfoAdd'
+import PopCaseAdd from '@/views/PopCaseAdd'
 import PopQnaList from '@/views/PopQnaList'
 import PopBreakdownReport from '@/views/PopBreakdownReport'
 import PopRefund from '@/views/PopRefund'
@@ -331,11 +356,12 @@ import PopQnaDetail from '@/views/PopQnaDetail'
 import PopRuleList from '@/views/PopRuleList'
 export default {
   components:{
-    // PopPaymentList,
+    PopPin,
     UsingHistory,
     PopCouponRegist,
     PopPaymentAdd,
     PopCarInfoAdd,
+    PopCaseAdd,
     PopQnaList,
     PopBreakdownReport,
     PopRefund,
@@ -346,12 +372,6 @@ export default {
   },
   data(){
     return{
-     // 내정보
-      pinChecked: false,
-      bodyChecked: false,
-      pushChecked: false,
-      eventChecked: false,
-
       cardSliderOpt: {
         autoWidth: true,
         perMove:1,
@@ -367,6 +387,7 @@ export default {
               text: ['20년', 'BMW', 'Charging'],
               date: '2021. 07. 01 ~ 2022. 07. 01',
               price: '360,000',
+              selected: true,
           },
           {
               src: require('@/assets/images/temp-place.jpg'),
@@ -488,10 +509,11 @@ export default {
 
       alertPopColpleted: false,
       btmLayer:{
-        // PopPaymentList: false,
+        PopPin: false,
         PopCouponRegist: false,
         PopPaymentAdd: false,
         PopCarInfoAdd: false,
+        PopCaseAdd: false,
         PopQnaList: false,
         PopBreakdownReport: false,
         PopRefund: false,

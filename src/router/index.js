@@ -8,14 +8,15 @@ const routes = [
   { path: '/', meta: { layout: 'None' }, component: () => import('@/views/Home.vue')  },
   { path: '/sample/carousel', meta: { layout: 'None' }, component: () => import('@/views/sample/Carousel.vue')  },
   { path: '/sample/component', meta: { layout: 'None' }, component: () => import('@/views/sample/Component.vue')  },
+  { path: '/sample/alert', meta: { layout: 'None' }, component: () => import('@/views/sample/Alert.vue')  },
 
   // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
 	{ path: '/login', component: () => import('@/views/Login.vue')},
 	{ path: '/LoginPin', component: () => import('@/views/LoginPin.vue')},
 	{ path: '/join', component: () => import('@/views/Join.vue')},
-	{ path: '/loginMenu', component: () => import('@/views/LoginMenu.vue')},
-	{ path: '/LoginMenu2', component: () => import('@/views/LoginMenu2.vue')},
+	{ path: '/loginMenu', meta: {back:false }, component: () => import('@/views/LoginMenu.vue')},
+	{ path: '/LoginMenuMember', meta:{user:'member'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
   // 메인

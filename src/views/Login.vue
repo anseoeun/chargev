@@ -1,5 +1,6 @@
 <template>
   <div class="contents">
+    <button class="back"><Icon type="back" /></button>        
     <div class="login-wrap">
       <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page parallel-slider">
         <template slot="content">

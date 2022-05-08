@@ -41,14 +41,6 @@
                                     </div> 
                                 </div>
                             </splide-slide>
-                            <splide-slide>
-                                <button class="card5" @click="btmLayer.PopCarInfoAdd = true">
-                                    <div class="center">
-                                        <Icon type="add-plus" />
-                                        <p class="txt">차량추가</p>
-                                    </div>
-                                </button>
-                            </splide-slide>
                         </template>
                     </Carousel>
                 </div>                  

@@ -67,6 +67,13 @@
                       </template>
                     </template>
 
+                    <!-- 기타 -->
+                    <template v-if="refundItem === '기타'">
+                        <div class="btn-box">
+                          <button class="btn-type1 st2" @click="$emit('qnaRegistCompleted')">문의사항 등록하기</button>
+                        </div>
+                    </template>
+
                 </div>
               </splide-slide>
           </template>
