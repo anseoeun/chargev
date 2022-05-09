@@ -261,7 +261,6 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 /* form-box-wrap */
 .form-box-wrap .tit{display:block;margin-bottom:rem(16);@include bold;text-align:center;}
 .form-box-wrap .tit-type1{margin-bottom:rem(16);}
-// .form-box-wrap .btn-wrap{width:rem(294);margin:0 auto;margin-top:rem(16);}
 .form-box-wrap .camera-box{width:rem(294);height:rem(194);margin:0 auto;border:rem(2) solid #92FF44;background: #000;border-radius:rem(8);}
 .form-box-wrap .btn-box{margin-top:rem(16);}
 .form-box-wrap .btn-box [class*=btn-type] ~ [class*=btn-type]{margin-top:rem(16);}
