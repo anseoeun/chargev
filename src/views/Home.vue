@@ -19,10 +19,13 @@
     </thead>
     <tbody>
       <tr v-for="(value, name, index) in list" :key="index">
-        <td>{{ index + 1 }}</td>
-        <td>{{ value }}</td>
-        <td><router-link :to="'/'+name">{{ '/'+name }}</router-link></td>
-        <td></td>
+        <td v-if="name == ''" colspan="4"></td>
+        <template v-else>
+          <td>{{ index + 1 }}</td>
+          <td>{{ value }}</td>
+          <td><router-link :to="'/'+name">{{ '/'+name }}</router-link></td>
+          <td></td>
+        </template>
       </tr>
     </tbody>
   </table>
@@ -41,6 +44,13 @@ export default {
           //샘플
           'sample/carousel': '샘플/슬라이드',
           'sample/component': '샘플/컴포넌트',
+          'sample/form': '샘플/폼요소',
+          'sample/tab': '샘플/탭',
+          'sample/toggleslide': '샘플/토글슬라이드',
+          'sample/card': '샘플/카드',
+          'sample/list': '샘플/리스트',
+          '': '',
+
           'sample/alert': '생체인식사용 팝업',
           // 스플래시
           'splash': '스플래시',

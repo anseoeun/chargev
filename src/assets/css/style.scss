@@ -144,7 +144,11 @@ input[type=text], input[type=password], input[type=number], textarea{
 .inp-pin .pin input{flex:1;text-align:center;}
 .inp-pin .pin input ~ input{margin-left:rem(16);}
 .inp-pin > input{position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity: 0;}
-
+.inp-file{position:relative;display: flex; align-items: center; justify-content: flex-start; flex-direction: row;}
+[class*=inp-] .input{flex:1;}
+[class*=inp-].inp-file input[type=file]{position:absolute;top:0;left:0;width:100%;height:100%;opacity: 0;}
+[class*=inp-] .btn{display:inline-block;padding:0 rem(8);line-height:rem(32);height:rem(32);@include bold;font-size:rem(14);border-radius:rem(2);background:#2A2B2C;}
+[class*=inp-] .right{margin-left:rem(16);}
 /* align */
 .align-l{text-align:left !important;}
 .align-c{text-align:center !important;}
@@ -162,13 +166,14 @@ input[type=text], input[type=password], input[type=number], textarea{
   [class*=btn-type]{text-align:center;white-space:nowrap;border-radius:rem(4);width:100%;}
   [class*=btn-type]:disabled{background: #A3A9A4 !important;border-color: #A3A9A4 !important;} 
   [class*=btn-type] i{margin-right:rem(3);}
-  [class*=btn-type].inbl{display:inline-block;width:auto;text-align:center;}
+  [class*=btn-type].inbl{display:inline-block;width:auto;text-align:center;padding:0 rem(8);}
   [class*=btn-type1].inbl{min-width: rem(138);padding:0 rem(20);}
   [class*=btn-type].btn-type2.inbl{padding:0 rem(8);}
 
   @each $name, $h, $fs, $content in 
   (btn-type1, rem(48), rem(14)),
   (btn-type2, rem(40), rem(14)),
+  (btn-type3, rem(37), rem(14)),
   {
     @include btn-type($name, $h, $fs);
   }
@@ -274,8 +279,6 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .form-box .row .input{flex:1;}
 .form-box .row .right{margin-left:rem(16);}
 .form-box .row .input{flex:1;}
-.form-box .row.inp-file{position:relative;}
-.form-box .row.inp-file input[type=file]{position:absolute;top:0;left:0;width:100%;height:100%;opacity: 0;}
 .form-box .btn{display:inline-block;padding:0 rem(8);line-height:rem(32);height:rem(32);@include bold;font-size:rem(14);border-radius:rem(2);background:#2A2B2C;}
 .form-box .btn-box{margin-top:rem(16);}
 .form-box .info-box{background:#2A2B2C;border-radius:rem(4);padding:rem(16);}
@@ -327,10 +330,10 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 =========================================== */
 /* alarm */
 .alarm-wrap .tab-type1{margin-top:rem(40);}
-.alarm-wrap .alarm-list{margin-top:rem(40);}
-.alarm-wrap .alarm-list ul li{position:relative;padding:rem(12) rem(28) rem(12) rem(40);font-size:rem(14);background:#2A2B2C;border-radius:rem(8);}
-.alarm-wrap .alarm-list ul li ~ li{margin-top:rem(16);}
-.alarm-wrap .alarm-list ul li > i{position:absolute;top:50%;left:rem(16);transform:translateY(-50%);-webkit-transform:translateY(-50%);}
+.tab-type1 + .alarm-list{margin-top:rem(40);}
+.alarm-list ul li{position:relative;padding:rem(12) rem(28) rem(12) rem(40);font-size:rem(14);background:#2A2B2C;border-radius:rem(8);}
+.alarm-list ul li ~ li{margin-top:rem(16);}
+.alarm-list ul li > i{position:absolute;top:50%;left:rem(16);transform:translateY(-50%);-webkit-transform:translateY(-50%);}
 /* splash */
 .splash-wrap{height:100vh;@include flex(center);}
 .reveal { position: relative; display: flex; color: #6ee1f5; font-family: "Raleway", sans-serif; text-transform: uppercase; white-space: pre; }
@@ -403,8 +406,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .map-filter .filter-box .btn > div ~ div{margin-top:rem(16);}
 .map-filter .filter-box .btn ~ .btn{margin-top:rem(16);}
 .map-filter .filter-box .btn button{height:rem(32);line-height:rem(32);border-radius:rem(2);padding:0 rem(8);background:#2A2B2C;}
-.map-filter .chk-list li ~ li{margin-top:rem(10);}
-.map-filter .chk-list li i{margin-right:rem(18);}
+/* chk-list */
+.chk-list li ~ li{margin-top:rem(10);}
+.chk-list li i{margin-right:rem(18);}
 /* map-legend */
 .map-legend{@include flex;font-size:rem(14);padding:rem(20) 0 rem(10);}
 .map-legend .cell{flex: 1;text-align:center;}
@@ -678,7 +682,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .place-list .splide__list li:last-child{padding-right:rem(24);} 
 .place-list .splide__list li ~ li{padding-left:rem(16);}
 /* place-card */
-.place-card{position:relative;display:block;width:rem(294);height:rem(194);border-radius:rem(8);overflow:hidden;}
+.place-card{position:relative;display:block;width:rem(294);height:rem(194);margin:0 auto;border-radius:rem(8);overflow:hidden;}
 .place-card .img{height:100%;width:100%;background-size:cover;background-position:50% 50%;background-repeat:no-repeat;}
 .place-card .desc{position:absolute;bottom:0;left:0;width:100%;padding:rem(16);min-height:rem(56);background: rgba(42, 43, 44, 0.5);;text-align:left;}
 .place-card .desc .tit{display:block;font-size:rem(24);@include bold;}
@@ -716,13 +720,14 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .mypage-wrap{font-size:rem(24);text-align:center;}
 .mypage-wrap .tit-type1{margin-bottom:rem(16);}
 .mypage-wrap .tit-type1 ~ .tit-type1{margin-top:rem(32);}
-.mypage-wrap .my-info-box{padding:rem(16);border: 1px solid #FFFFFF; border-radius: rem(16);}
-.mypage-wrap .my-info-box .grid-list .row{padding:0 0;}
-.mypage-wrap .my-info-box .grid-list .row ~ .row{margin-top:rem(16);}
-.mypage-wrap .my-info-box .grid-list .tit{min-width:rem(84);font-size:rem(14);}
-.mypage-wrap .my-info-box .grid-list .text{font-size:rem(14);@include bold;}
-.mypage-wrap .my-info-box .grid-list .btn{background: #2A2B2C; border-radius: rem(4);font-size:rem(10);padding:0 rem(8);height:rem(22);line-height:rem(22);}
-.mypage-wrap .my-info-box .grid-list .btn + .btn{margin-left:rem(8);}
+/* my-info-box */
+.my-info-box{padding:rem(16);border: 1px solid #FFFFFF; border-radius: rem(16);}
+.my-info-box .grid-list .row{padding:0 0;}
+.my-info-box .grid-list .row ~ .row{margin-top:rem(16);}
+.my-info-box .grid-list .tit{min-width:rem(84);font-size:rem(14);}
+.my-info-box .grid-list .text{font-size:rem(14);@include bold;}
+.my-info-box .grid-list .btn{background: #2A2B2C; border-radius: rem(4);font-size:rem(10);padding:0 rem(8);height:rem(22);line-height:rem(22);}
+.my-info-box .grid-list .btn + .btn{margin-left:rem(8);}
 /* pop-coupon-regist */
 .pop-coupon-regist .retist-wrap ~ .retist-wrap{margin-top:rem(64);}
 .pop-coupon-regist .retist-wrap .tit-type1{margin-bottom:rem(16);}

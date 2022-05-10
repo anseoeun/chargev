@@ -8,6 +8,11 @@ const routes = [
   { path: '/', meta: { layout: 'None' }, component: () => import('@/views/Home.vue')  },
   { path: '/sample/carousel', meta: { layout: 'None' }, component: () => import('@/views/sample/Carousel.vue')  },
   { path: '/sample/component', meta: { layout: 'None' }, component: () => import('@/views/sample/Component.vue')  },
+  { path: '/sample/form', meta: { layout: 'None' }, component: () => import('@/views/sample/Form.vue')  },
+  { path: '/sample/tab', meta: { layout: 'None' }, component: () => import('@/views/sample/Tab.vue')  },
+  { path: '/sample/toggleslide', meta: { layout: 'None' }, component: () => import('@/views/sample/Toggleslide.vue')  },
+  { path: '/sample/card', meta: { layout: 'None' }, component: () => import('@/views/sample/Card.vue')  },
+  { path: '/sample/list', meta: { layout: 'None' }, component: () => import('@/views/sample/List.vue')  },
   { path: '/sample/alert', meta: { layout: 'None' }, component: () => import('@/views/sample/Alert.vue')  },
 
   // 로그인
