@@ -2600,6 +2600,42 @@ input[type=text], input[type=password], input[type=number], textarea {
   opacity: 0;
 }
 
+.inp-file {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+[class*=inp-] .input {
+  flex: 1;
+}
+
+[class*=inp-].inp-file input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+[class*=inp-] .btn {
+  display: inline-block;
+  padding: 0 0.519rem;
+  line-height: 2.079rem;
+  height: 2.079rem;
+  font-weight: 700;
+  font-size: 0.909rem;
+  border-radius: 0.129rem;
+  background: #2A2B2C;
+}
+
+[class*=inp-] .right {
+  margin-left: 1.039rem;
+}
+
 /* align */
 .align-l {
   text-align: left !important;
@@ -2675,6 +2711,7 @@ input[type=text], input[type=password], input[type=number], textarea {
   display: inline-block;
   width: auto;
   text-align: center;
+  padding: 0 0.519rem;
 }
 
 [class*=btn-type1].inbl {
@@ -2700,6 +2737,14 @@ input[type=text], input[type=password], input[type=number], textarea {
   font-size: 0.909rem;
   font-weight: normal;
   line-height: 2.599rem;
+}
+
+.btn-type3 {
+  display: block;
+  height: 2.405rem;
+  font-size: 0.909rem;
+  font-weight: normal;
+  line-height: 2.405rem;
 }
 
 [class*=btn-type].st1 {
@@ -3217,19 +3262,6 @@ i[class*=i-] .svg-prevent {
   flex: 1;
 }
 
-.form-box .row.inp-file {
-  position: relative;
-}
-
-.form-box .row.inp-file input[type=file] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-
 .form-box .btn {
   display: inline-block;
   padding: 0 0.519rem;
@@ -3444,11 +3476,11 @@ i[class*=i-] .svg-prevent {
   margin-top: 2.599rem;
 }
 
-.alarm-wrap .alarm-list {
+.tab-type1 + .alarm-list {
   margin-top: 2.599rem;
 }
 
-.alarm-wrap .alarm-list ul li {
+.alarm-list ul li {
   position: relative;
   padding: 0.779rem 1.819rem 0.779rem 2.599rem;
   font-size: 0.909rem;
@@ -3456,11 +3488,11 @@ i[class*=i-] .svg-prevent {
   border-radius: 0.519rem;
 }
 
-.alarm-wrap .alarm-list ul li ~ li {
+.alarm-list ul li ~ li {
   margin-top: 1.039rem;
 }
 
-.alarm-wrap .alarm-list ul li > i {
+.alarm-list ul li > i {
   position: absolute;
   top: 50%;
   left: 1.039rem;
@@ -3844,11 +3876,12 @@ i[class*=i-] .svg-prevent {
   background: #2A2B2C;
 }
 
-.map-filter .chk-list li ~ li {
+/* chk-list */
+.chk-list li ~ li {
   margin-top: 0.649rem;
 }
 
-.map-filter .chk-list li i {
+.chk-list li i {
   margin-right: 1.17rem;
 }
 
@@ -5259,6 +5292,7 @@ i[class*=i-] .svg-prevent {
   display: block;
   width: 19.11rem;
   height: 12.61rem;
+  margin: 0 auto;
   border-radius: 0.519rem;
   overflow: hidden;
 }
@@ -5456,31 +5490,32 @@ i[class*=i-] .svg-prevent {
   margin-top: 2.079rem;
 }
 
-.mypage-wrap .my-info-box {
+/* my-info-box */
+.my-info-box {
   padding: 1.039rem;
   border: 1px solid #FFFFFF;
   border-radius: 1.039rem;
 }
 
-.mypage-wrap .my-info-box .grid-list .row {
+.my-info-box .grid-list .row {
   padding: 0 0;
 }
 
-.mypage-wrap .my-info-box .grid-list .row ~ .row {
+.my-info-box .grid-list .row ~ .row {
   margin-top: 1.039rem;
 }
 
-.mypage-wrap .my-info-box .grid-list .tit {
+.my-info-box .grid-list .tit {
   min-width: 5.459rem;
   font-size: 0.909rem;
 }
 
-.mypage-wrap .my-info-box .grid-list .text {
+.my-info-box .grid-list .text {
   font-size: 0.909rem;
   font-weight: 700;
 }
 
-.mypage-wrap .my-info-box .grid-list .btn {
+.my-info-box .grid-list .btn {
   background: #2A2B2C;
   border-radius: 0.259rem;
   font-size: 0.649rem;
@@ -5489,7 +5524,7 @@ i[class*=i-] .svg-prevent {
   line-height: 1.43rem;
 }
 
-.mypage-wrap .my-info-box .grid-list .btn + .btn {
+.my-info-box .grid-list .btn + .btn {
   margin-left: 0.519rem;
 }
 
