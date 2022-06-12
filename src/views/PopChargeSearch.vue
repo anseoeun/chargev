@@ -18,22 +18,34 @@
                       <button class="btn-type1 st2" @click="$emit('PopChargeSearchList')">검색</button>
                   </div>
                 </div>
-                <!-- 기존 이용 충전소 -->
+                <!-- 기존 이용이력 -->
                 <button class="btn-toggle-slide on" @click="toggleSlide($event, '#slide-use')">
                   <Icon type="arr-bottom" />
-                  <h2 class="tit-type1">기존 이용 충전소</h2>
+                  <h2 class="tit-type1">기존 이용이력</h2>
                 </button>
                 <div id="slide-use">
                   <ChargeSearchList
                     :data="chargeList"
                   />
                 </div>
+                
                 <!-- 인근 충전소 -->
                 <button class="btn-toggle-slide on" @click="toggleSlide($event, '#slide-around')">
                   <Icon type="arr-bottom" />
                   <h2 class="tit-type1">인근 충전소</h2>
                 </button>
                 <div id="slide-around">
+                  <ChargeSearchList
+                    :data="chargeList"
+                  />
+                </div>
+
+                <!-- 즐겨찾기 -->
+                <button class="btn-toggle-slide on" @click="toggleSlide($event, '#slide-favorite')">
+                  <Icon type="arr-bottom" />
+                  <h2 class="tit-type1">즐겨찾기</h2>
+                </button>
+                <div id="slide-favorite">
                   <ChargeSearchList
                     :data="chargeList"
                   />

@@ -5,7 +5,7 @@
        <div class="cont-scroll">
           <h2 class="tit-type1">상세 결제내역</h2>
           <div class="payment-desc">
-              <Icon type="chargev2" />
+              <Icon type="chargev" />
               <p class="addr">서울시 송파구 롯데타워지하4층 완속#1</p>
               <div class="number">2008082001</div>
               <div class="total">9,010원</div>

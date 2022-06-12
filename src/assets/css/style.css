@@ -2010,19 +2010,25 @@
  -------------------------- */
 @font-face {
   font-family: "Gotham";
-  src: url("~@/assets/fonts/Gotham-Bold.woff") format("woff"), url("~@/assets/fonts/Gotham-Bold.ttf") format("truetype");
+  src: url("~@/assets/fonts/Montserrat-Bold.woff") format("woff"), url("~@/assets/fonts/Montserrat-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Gotham";
-  src: url("~@/assets/fonts/Gotham-Medium.woff") format("woff"), url("~@/assets/fonts/Gotham-Medium.ttf") format("truetype");
+  src: url("~@/assets/fonts/Montserrat-SemiBold.woff") format("woff"), url("~@/assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("~@/assets/fonts/Montserrat-Medium.woff") format("woff"), url("~@/assets/fonts/Montserrat-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Gotham";
-  src: url("~@/assets/fonts/Gotham-Light.woff") format("woff"), url("~@/assets/fonts/Gotham-Light.ttf") format("truetype");
+  src: url("~@/assets/fonts/Montserrat-Regular.woff") format("woff"), url("~@/assets/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -2061,7 +2067,7 @@ body {
   word-break: keep-all;
   word-wrap: break-word;
   color: #fff;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 dl, ul, ol, menu, li {
@@ -2278,7 +2284,7 @@ h1.hidden {
 
 .header .status {
   display: inline-block;
-  height: 3.25rem;
+  height: 3.119rem;
   padding: 0 1.039rem;
   display: flex;
   align-items: center;
@@ -2290,14 +2296,31 @@ h1.hidden {
   color: #8A8B8C;
 }
 
-.header .status .bar {
+.header .status .bar-wrap {
+  position: relative;
   display: inline-block;
+  margin-right: 0.389rem;
+  margin-top: -0.065rem;
+}
+
+.header .status .bar {
+  display: block;
   width: 2.209rem;
-  height: 1.17rem;
-  margin-right: 0.519rem;
+  height: 1.039rem;
   border-radius: 0.259rem;
   background: #fff;
   position: relative;
+}
+
+.header .status .txt {
+  position: absolute;
+  bottom: -1.04rem;
+  left: 50%;
+  display: block;
+  font-size: 0.649rem;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .header .status .bar > span {
@@ -2305,9 +2328,9 @@ h1.hidden {
   top: 0.129rem;
   left: 0.129rem;
   width: 0.909rem;
-  height: 0.909rem;
+  height: 0.779rem;
   border-radius: 0.129rem;
-  background: #8A8B8C;
+  background: #2A2B2C;
   transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
@@ -2317,12 +2340,17 @@ h1.hidden {
   margin-left: 0.519rem;
 }
 
+.header .status .charging i {
+  position: relative;
+  top: -0.13rem;
+}
+
 .header .status .charging {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .header .status.on {
@@ -2332,6 +2360,22 @@ h1.hidden {
 .header .status.on .bar > span {
   left: 1.17rem;
   background: #8FFF44;
+}
+
+.header .alarm-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+.header .alarm-wrap .num {
+  position: absolute;
+  top: 0.064rem;
+  right: 0;
+  font-size: 0.649rem;
+  color: #000;
+  font-weight: 400;
+  width: 0.845rem;
+  text-align: center;
 }
 
 .header .left {
@@ -2655,10 +2699,6 @@ input[type=text], input[type=password], input[type=number], textarea {
 }
 
 .regular {
-  font-weight: 500;
-}
-
-.thin {
   font-weight: 400;
 }
 
@@ -2716,11 +2756,15 @@ input[type=text], input[type=password], input[type=number], textarea {
 
 [class*=btn-type1].inbl {
   min-width: 8.969rem;
-  padding: 0 1.299rem;
+  padding: 0 1.039rem;
 }
 
 [class*=btn-type].btn-type2.inbl {
   padding: 0 0.519rem;
+}
+
+[class*=btn-type]:focus {
+  box-shadow: inset 0 0 0.324rem #407c1d;
 }
 
 .btn-type1 {
@@ -2729,6 +2773,7 @@ input[type=text], input[type=password], input[type=number], textarea {
   font-size: 0.909rem;
   font-weight: normal;
   line-height: 3.119rem;
+  padding: 0 1.039rem;
 }
 
 .btn-type2 {
@@ -2737,6 +2782,7 @@ input[type=text], input[type=password], input[type=number], textarea {
   font-size: 0.909rem;
   font-weight: normal;
   line-height: 2.599rem;
+  padding: 0 1.039rem;
 }
 
 .btn-type3 {
@@ -2745,6 +2791,7 @@ input[type=text], input[type=password], input[type=number], textarea {
   font-size: 0.909rem;
   font-weight: normal;
   line-height: 2.405rem;
+  padding: 0 1.039rem;
 }
 
 [class*=btn-type].st1 {
@@ -2831,7 +2878,7 @@ i[class*=i-] .svg-prevent {
 /* tit-type */
 .tit-type1 {
   font-size: 1.039rem;
-  color: #8A8B8C;
+  color: #fff;
   font-weight: 700;
   text-align: center;
 }
@@ -2888,39 +2935,18 @@ i[class*=i-] .svg-prevent {
 /* tab-type */
 .tab-type1 {
   white-space: nowrap;
-  overflow-x: auto;
-}
-.tab-type1::-webkit-scrollbar {
-  -webkit-appearance: none;
-  display: none;
-}
-.tab-type1::-webkit-scrollbar:vertical {
-  width: 0.324rem;
-}
-.tab-type1::-webkit-scrollbar:horizontal {
-  height: 0.324rem;
-}
-.tab-type1::-webkit-scrollbar-thumb {
-  border-radius: 0.649rem;
-  background: rgba(0, 0, 0, 0.2);
-}
-.tab-type1::-webkit-scrollbar-corner {
-  background: rgba(0, 0, 0, 0.05);
-}
-.tab-type1::-webkit-scrollbar-track {
-  border-radius: 0.649rem;
-  background: rgba(0, 0, 0, 0.05);
-}
-.tab-type1::-webkit-scrollbar-track-piece {
-  background: rgba(0, 0, 0, 0.05);
-  width: 0.389rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .tab-type1 button {
+  position: relative;
   flex: 1;
-  height: 1.559rem;
+  height: 1.625rem;
+  padding-bottom: 0.649rem;
   min-width: 4.159rem;
-  font-size: 1.039rem;
+  font-size: 0.909rem;
   color: #8A8B8C;
   font-weight: 700;
 }
@@ -2931,6 +2957,17 @@ i[class*=i-] .svg-prevent {
 
 .tab-type1 button.on {
   color: #fff;
+}
+
+.tab-type1 button.on:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.129rem;
+  background: #8FFF44;
 }
 
 .tab-type1.center {
@@ -3120,7 +3157,8 @@ i[class*=i-] .svg-prevent {
 }
 
 .btm-layer-wrap .btm-layer .tit-type1 {
-  color: #8A8B8C;
+  color: #fff;
+  letter-spacing: 0.2em;
 }
 
 .btm-layer-wrap .btm-layer.ing,
@@ -3354,11 +3392,10 @@ i[class*=i-] .svg-prevent {
 
 .custom-dotting > span,
 .custom-dotting > button {
-  width: 0.649rem;
-  height: 0.649rem;
-  margin: 0 0.324rem;
-  border-radius: 100%;
-  background: #CACBCC;
+  width: 2.079rem;
+  height: 0.129rem;
+  margin: 0 0.519rem;
+  background: #fff;
 }
 
 .custom-dotting > button.on {
@@ -3473,19 +3510,24 @@ i[class*=i-] .svg-prevent {
 =========================================== */
 /* alarm */
 .alarm-wrap .tab-type1 {
-  margin-top: 2.599rem;
+  margin-top: 1.17rem;
 }
 
 .tab-type1 + .alarm-list {
-  margin-top: 2.599rem;
+  margin-top: 1.17rem;
 }
 
 .alarm-list ul li {
   position: relative;
-  padding: 0.779rem 1.819rem 0.779rem 2.599rem;
+  padding: 0.779rem 3.25rem 0.779rem 3.574rem;
   font-size: 0.909rem;
-  background: #2A2B2C;
+  background: #5A5B5C;
   border-radius: 0.519rem;
+  letter-spacing: 0.1em;
+}
+
+.alarm-list ul li .text {
+  margin-top: 0.194rem;
 }
 
 .alarm-list ul li ~ li {
@@ -3495,7 +3537,15 @@ i[class*=i-] .svg-prevent {
 .alarm-list ul li > i {
   position: absolute;
   top: 50%;
-  left: 1.039rem;
+  left: 1.234rem;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+.alarm-list ul li .del {
+  position: absolute;
+  top: 50%;
+  right: 1.299rem;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
 }
@@ -3620,7 +3670,7 @@ i[class*=i-] .svg-prevent {
   position: relative;
   display: block;
   width: 100%;
-  padding: 0.519rem;
+  padding: 0.715rem 1.039rem;
   background: #2A2B2C;
   border-radius: 0.259rem;
   font-size: 0.909rem;
@@ -3664,44 +3714,44 @@ i[class*=i-] .svg-prevent {
 
 .history-list .t-wrap {
   flex: 1;
-  display: table;
+  padding-right: 1.625rem;
 }
 
 .history-list .t-wrap .row {
-  display: table-row;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
-.history-list .t-wrap .row .cell {
-  display: table-cell;
-  padding: 0.324rem 0;
+.history-list .t-wrap .row ~ .row {
+  margin-top: 0.324rem;
 }
 
-.history-list .t-wrap .row:first-child .cell {
-  padding-top: 0;
+.history-list .t-wrap .row .cell.auto {
+  flex: 1;
 }
 
-.history-list .t-wrap .row:last-child .cell {
-  padding-bottom: 0;
+.history-list .t-wrap .row .cell.right {
+  margin-left: auto;
 }
 
 .history-list .t-wrap .row .cell ~ .cell {
   padding-left: 0.389rem;
 }
 
-.history-list .t-wrap .row .cell.tit {
-  white-space: nowrap;
-}
-
-.history-list .t-wrap .row .cell p ~ p {
-  margin-top: 0.649rem;
-}
-
-.history-list .t-wrap .row .cell:last-child {
-  padding-right: 1.625rem;
+.history-list .t-wrap .row .cell .tit {
+  font-weight: 700;
+  display: block;
 }
 
 .history-list .t-wrap .row .price {
   margin-right: 0.194rem;
+  font-size: 1.039rem;
+  letter-spacing: 0.2em;
+}
+
+.history-list .t-wrap .row .time {
+  font-size: 0.779rem;
 }
 
 /* history-list2 */
@@ -3765,7 +3815,8 @@ i[class*=i-] .svg-prevent {
 
 .pop-payment-detail .payment-desc .total {
   text-align: right;
-  font-size: 1.299rem;
+  font-size: 1.039rem;
+  letter-spacing: 0.1em;
 }
 
 .pop-payment-detail .btn-type1 {
@@ -4163,6 +4214,10 @@ i[class*=i-] .svg-prevent {
   margin-top: 4.159rem;
 }
 
+.charge-wrap .btn-wrap + .charge-list {
+  margin-top: 1.039rem;
+}
+
 /* charge-wrap */
 .charge-wrap .btn-toggle-slide:not(:first-child) {
   margin-top: 2.209rem;
@@ -4283,7 +4338,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .charge-list .row .cell > * ~ * {
-  margin-top: 0.194rem;
+  margin-top: 0.129rem;
 }
 
 .charge-list .row .cell.right {
@@ -4292,13 +4347,30 @@ i[class*=i-] .svg-prevent {
   text-align: right;
 }
 
+.charge-list .row .addr {
+  font-size: 1.039rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
 .charge-list .row .addr2 {
   font-size: 0.909rem;
+  color: #8A8B8C;
+  letter-spacing: 0.1em;
+}
+
+.charge-list .row .right {
+  font-size: 1.039rem;
   font-weight: 700;
+  letter-spacing: 0.2em;
 }
 
 .charge-list .row .status {
   color: #8FFF44;
+}
+
+.charge-list .row .distance {
+  letter-spacing: 0.1em;
 }
 
 .charge-list .row .label {
@@ -4306,8 +4378,9 @@ i[class*=i-] .svg-prevent {
 }
 
 .charge-list .row .price {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.909rem;
+  letter-spacing: 0.1em;
 }
 
 .charge-list .t-s {
@@ -4315,20 +4388,21 @@ i[class*=i-] .svg-prevent {
 }
 
 .charge-list .tag {
-  margin-top: 0.519rem;
-  font-weight: 500;
+  margin-top: 0.324rem;
+  font-weight: 400;
 }
 
 .charge-list .tag span {
   display: inline-block;
+  padding: 0.129rem 0.519rem;
   border-radius: 0.129rem;
   min-width: 3.119rem;
   text-align: center;
   padding: 0 0.259rem;
-  background: #5A5B5C;
+  background: #2A2B2C;
   height: 1.039rem;
   line-height: 1.104rem;
-  font-size: 0.779rem;
+  font-size: 0.649rem;
   color: #fff;
 }
 
@@ -4380,6 +4454,11 @@ i[class*=i-] .svg-prevent {
 }
 
 /* calendar */
+.using-history .calendar {
+  width: calc(100% + 3.119rem);
+  margin-left: -1.56rem;
+}
+
 .calendar {
   margin-top: 0.779rem;
 }
@@ -4389,7 +4468,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .calendar .splide__slide {
-  padding: 0.779rem 0.389rem;
+  padding: 0.194rem 0.389rem;
 }
 
 .calendar .splide__slide {
@@ -4411,15 +4490,15 @@ i[class*=i-] .svg-prevent {
 }
 
 .calendar .year-slide .splide__slide button {
-  width: 4.81rem;
+  width: 100%;
   text-align: center;
-  font-size: 1.299rem;
+  font-size: 0.909rem;
 }
 
 .calendar .month-slide .splide__slide button {
-  width: 3.119rem;
+  width: 100%;
   text-align: center;
-  font-size: 1.299rem;
+  font-size: 0.909rem;
 }
 
 .calendar .date-slide .splide__slide button {
@@ -4437,7 +4516,7 @@ i[class*=i-] .svg-prevent {
 
 .calendar .date-slide .date-day .date {
   color: #fff;
-  margin-top: 0.845rem;
+  margin-top: 0.324rem;
 }
 
 .calendar .date-slide .account {
@@ -4457,13 +4536,17 @@ i[class*=i-] .svg-prevent {
   color: #000;
 }
 
+.calendar + .history-list {
+  margin-top: 1.039rem;
+}
+
 /* notice-wrap */
 .notice-wrap .tit-type1 {
   margin-bottom: 1.039rem;
 }
 
 .notice-wrap .tit-type1 ~ .tit-type1 {
-  margin-top: 4.159rem;
+  margin-top: 2.275rem;
 }
 
 .notice-wrap .noti-list {
@@ -4487,6 +4570,7 @@ i[class*=i-] .svg-prevent {
   display: block;
   width: 19.499rem;
   text-align: left;
+  font-size: 0.909rem;
 }
 
 .notice-wrap .noti-list .noti .img {
@@ -4502,7 +4586,7 @@ i[class*=i-] .svg-prevent {
 .notice-wrap .noti-list .noti .cate {
   margin-bottom: 1.039rem;
   padding-bottom: 0.519rem;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   color: #CACBCC;
   font-weight: 700;
 }
@@ -4531,6 +4615,14 @@ i[class*=i-] .svg-prevent {
 
 .notice-detail-wrap .tit-type2 {
   margin-bottom: 1.039rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: #CACBCC;
+}
+
+.notice-detail-wrap .time {
+  margin: 1.039rem 0;
+  color: #8A8B8C;
+  font-size: 0.779rem;
 }
 
 .notice-detail-wrap .img {
@@ -4882,7 +4974,6 @@ i[class*=i-] .svg-prevent {
   border-radius: 1.039rem;
   border: 1px solid #fff;
   text-align: right;
-  text-shadow: 0 0 1.299rem rgba(255, 255, 255, 0.7);
 }
 
 .card-wrap .card5 .center {
@@ -4902,7 +4993,6 @@ i[class*=i-] .svg-prevent {
 .card-wrap .card5 .number {
   margin-top: 1.039rem;
   font-size: 1.43rem;
-  font-weight: 700;
 }
 
 .card-wrap .card5 .company-logo {
@@ -4921,6 +5011,7 @@ i[class*=i-] .svg-prevent {
   font-size: 1.559rem;
   font-weight: 700;
   padding-top: 2.275rem;
+  letter-spacing: 0.2em;
 }
 
 .card-wrap .card5 .btn-box-inner {
@@ -5778,7 +5869,7 @@ i[class*=i-] .svg-prevent {
 
 .charger-info .row .number {
   font-size: 0.909rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .charger-info .row .right {
@@ -6232,7 +6323,7 @@ i[class*=i-] .svg-prevent {
   width: 21.06rem;
   max-width: 90%;
   box-shadow: 0 0.064rem 0.129rem rgba(40, 41, 61, 0.04), 0 0.194rem 0.389rem rgba(96, 97, 112, 0.16);
-  border-radius: 0.194rem;
+  border-radius: 0.519rem;
   background: #fff;
 }
 
@@ -6244,8 +6335,9 @@ i[class*=i-] .svg-prevent {
   margin-bottom: 1.039rem;
   text-align: center;
   font-weight: 700;
-  font-size: 1.364rem;
+  font-size: 1.559rem;
   color: #000;
+  letter-spacing: 0.2em;
 }
 
 .alert-popup .popup .pop-body .alert-txt {

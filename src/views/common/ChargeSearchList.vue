@@ -8,7 +8,6 @@
                 <div class="addr" v-html="item.addr"></div>
                 <div class="addr2">
                   <div class="row">
-                    <div class="cell label">주소</div>
                     <div class="cell" v-html="item.addr2"></div>
                   </div>
                 </div>
@@ -18,8 +17,8 @@
               </div>
               <div class="cell right">
                 <div class="company">차지비</div>
-                <div class="status t-s">{{ item.status }}</div>
-                <div>{{ item.km }}</div>
+                <div class="status">{{ item.status }}</div>
+                <div class="distance">{{ item.km }}</div>
               </div>
             </div>
             <div class="tag">

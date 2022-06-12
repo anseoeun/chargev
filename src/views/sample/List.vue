@@ -69,7 +69,7 @@
                 <div class="cell">
                   <p>{{ item.product }}</p>
                   <p><b class="price">{{ item.price }}</b>원</p>
-                  <p class="thin">{{ item.date }}</p>
+                  <p class="regular">{{ item.date }}</p>
                 </div>
               </div>
             </div>
@@ -146,7 +146,8 @@
       <div class="alarm-list">
         <ul>
           <li v-for="(item, index) in alarmList" :key="index">
-            <Icon type="rect-check" />
+            <Icon :type="`alarm-${item.status}`" />
+            <button class="del"><Icon type="delete" /></button>
             <div class="desc">
               <div class="date">{{ item.date }}</div>
               <p class="text">{{ item.text }}</p>
@@ -292,12 +293,34 @@ export default {
 
         alarmList: [
           {
+            status: 'noti',
             date: '2021-01-01 01:02:03',
             text: '1대1문의 답변이 등록되었습니다.'
           },
           {
+            status: 'noti',          
             date: '2021-01-01 01:02:03',
-            text: '월간 충전리포트 확인'
+            text: '앱 업데이트 안내'
+          },
+          {
+            status: 'warning',
+            date: '2021-01-01 01:02:03',
+            text: '미결제 건이 있습니다.'
+          },
+          {
+            status: 'fail',
+            date: '2021-01-01 01:02:03',
+            text: '충전 시작을 실패하였습니다.'
+          },
+          {
+            status: 'check',
+            date: '2021-01-01 01:02:03',
+            text: '충전이 종료되었습니다.'
+          },
+          {
+            status: 'check',
+            date: '2021-01-01 01:02:03',
+            text: '충전이 시작되었습니다.'
           },
         ],        
           

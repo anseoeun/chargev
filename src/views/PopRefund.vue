@@ -41,7 +41,7 @@
                                 <div class="cell">
                                   <p>{{ item.product }}</p>
                                   <p><b class="price">{{ item.price }}</b>원</p>
-                                  <p class="thin">{{ item.date }}</p>
+                                  <p class="regular">{{ item.date }}</p>
                                 </div>
                               </div>
                             </div>

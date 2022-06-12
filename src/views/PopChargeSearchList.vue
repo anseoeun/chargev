@@ -6,6 +6,9 @@
               <div class="charge-wrap">
                   <h2 class="tit-type1">검색결과</h2>
                   <template v-if="chargeList.length > 0">
+                    <div class="btn-wrap">
+                      <button class="btn-type1 st2">지도에서 보기</button>
+                    </div>
                     <ChargeSearchList
                       :data="chargeList"
                     />

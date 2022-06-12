@@ -41,14 +41,23 @@
               <Icon type="arr-right" />
               <div class="t-wrap">
                 <div class="row">
-                  <div class="cell tit"><b>차지비</b>
-                    <div v-if="item.status === 'error-type1'" class="c-green">잔액부족<br />미결제</div>
+                  <div class="cell auto"><b class="tit">{{ item.company }}</b>
+                  </div>
+                  <div class="cell right">
+                    <div v-if="item.status === 'error-type1'" class="c-green">잔액부족 미결제</div>
                     <div v-if="item.status === 'normal'">정상이용</div>
                   </div>
-                  <div class="cell">
-                    <p>{{ item.addr }}</p>
-                    <p><b class="price">{{ item.price }}원</b> {{ item.method }} 결제</p>
-                    <p class="thin">{{ item.date }}</p>
+                </div>
+                <div class="row">
+                  <div class="cell auto"><p>{{ item.addr }}</p></div>
+                </div>
+                <div class="row">
+                  <div class="cell auto">
+                    <p class="payment">{{ item.method }} 결제</p>
+                    <p class="time">{{ item.date }}</p>
+                  </div>
+                  <div class="cell right">
+                    <b class="price">{{ item.price }}원</b> 
                   </div>
                 </div>
               </div>
@@ -97,7 +106,7 @@ export default {
         start: 7
       },
       monthOpt: {
-        perPage: 6,
+        perPage: 9,
       },
       dateOpt: {
         perPage: 7,
@@ -105,6 +114,7 @@ export default {
       },
       historyList: [
         {
+          company: '한국전기차충전서비스',
           addr:'서울시 송파구',
           status: 'normal',
           price:'9,010',
@@ -113,6 +123,7 @@ export default {
           checked: true,
         },
         {
+          company: '차지비',
           addr:'서울시 송파구 롯데타워지하4층 완속#1',
           status: 'error-type1',
           price:'13,450',
@@ -121,6 +132,7 @@ export default {
           checked: false,
         },
         {
+          company: '한국전기차충전서비스',          
           addr:'서울시 송파구 롯데타워지하4층 완속#1',
           status: 'normal',
           price:'9,010',
@@ -129,6 +141,7 @@ export default {
           checked: false,
         },
         {
+          company: '한국전기차충전서비스',          
           addr:'서울시 송파구 롯데타워지하4층 완속#1',
           status: 'error-type1',
           price:'13,450',
@@ -145,6 +158,7 @@ export default {
           checked: false,
         },
         {
+          company: '한국전기차충전서비스',          
           addr:'서울시 송파구 롯데타워지하4층 완속#1',
           status: 'normal',
           price:'9,010',
@@ -153,6 +167,7 @@ export default {
           checked: false,
         },
         {
+          company: '한국전기차충전서비스',          
           addr:'서울시 송파구 롯데타워지하4층 완속#1',
           status: 'error-type1',
           price:'13,450',

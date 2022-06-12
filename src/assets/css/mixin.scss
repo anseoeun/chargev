@@ -189,13 +189,17 @@ $size: 28px;
   line-height:#{$lh}em;height:#{$lh * $num}em;
 }
 
-//font-light
-@mixin thin {
-  font-weight: 400;
-}
 //font-regular
 @mixin regular {
+  font-weight: 400;
+}
+//font-medium
+@mixin medium {
   font-weight: 500;
+}
+//font-semibold
+@mixin semibold {
+  font-weight: 600;
 }
 //font-bold
 @mixin bold {
