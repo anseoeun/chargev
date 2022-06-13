@@ -10,15 +10,16 @@
                 <div class="kwh-text">
                   <b>15.6kWh</b>
                   <p>CHARGED</p>
+                  <p>충전 개시 대기중</p>
                 </div>
 
-                <h2 class="tit-type1">예상 결제금액</h2>
+                <h2 class="tit-type1">현재 충전예상금액</h2>
                 <div class="text-price">6,520원</div>
 
                 <div class="btn-box align-c">
-                  <router-link to="/" class="btn-type1 st2 inbl">충전 종료</router-link>
-                </div>                   
-            </div>              
+                  <router-link to="/" class="btn-type1 st2">충전종료</router-link>
+                </div>
+            </div>
           </splide-slide>
           <splide-slide class="v-center2">
             <div class="charge-wrap v-center-scroll">
@@ -47,8 +48,8 @@
                 </div>
 
                 <div class="btn-box align-c">
-                  <router-link to="/" class="btn-type1 st2 inbl">충전 종료</router-link>
-                </div>                      
+                  <router-link to="/" class="btn-type1 st2">충전종료</router-link>
+                </div>
             </div>
           </splide-slide>
       </template>

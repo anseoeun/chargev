@@ -1,13 +1,9 @@
 <template>
-    <BtmLayer :visible="visible" @close="$emit('close')" class="pop-payment-detail no-dim">
+    <BtmLayer :visible="visible" @close="$emit('close')" class="pop-map-filter no-dim">
       <template slot="content">
+        <button class="btn-layer-close" @click="$emit('close');"><Icon type="close" /></button>        
         <div class="cont-scroll">
-          <div class="layer-hdader">
-            <div class="back-tit">
-              <button class="layer-back" @click="$emit('close')"><Icon type="arr-left" /></button>
-              검색조건
-            </div>
-          </div>
+          <h2 class="tit-type1">검색조건</h2>
           <!-- map-filter -->
           <div class="map-filter">
             <!-- 회원카드 -->
@@ -44,6 +40,7 @@
                     :pipsy = "{ mode: 'range', density: 5000 }"
                     :tooltips="[{ to: (n) => n.toFixed(0) }]"
                     :handles="price" 
+                    :connect="[true, false]"
                     :range="{'min': 199, 'max': 420}"
                     :style="{'margin-bottom': '2rem'}"
                     :key="price"

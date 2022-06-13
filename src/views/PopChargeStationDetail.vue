@@ -22,10 +22,12 @@
                   </div>
                   <div class="grid-info-list">
                     <div class="row">
-                      <div class="cell label">주소</div>
                       <div class="cell">서울시 송파구 올림픽로 300<br />지하 2층 R5 구역</div>
                       <div class="cell right">
-                        <button class="btn-map-pos"><Icon type="map-pos2" /></button>
+                        <div class="btn-menu-wrap">
+                          <button class="btn-menu"><Icon type="map-pos2" /></button>
+                          <button class="btn-menu"><Icon type="map-favorite" /></button>
+                        </div>
                       </div>
                     </div>
                     <div class="row">

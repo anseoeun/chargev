@@ -2052,6 +2052,7 @@
   font-family: inherit;
   color: inherit;
   font-weight: inherit;
+  letter-spacing: 0.1em;
 }
 
 *:before, *:after {
@@ -2199,11 +2200,15 @@ h1.hidden {
   top: 1.949rem;
 }
 
+.layout-map .header .btn .i-qr svg path {
+  fill: #000;
+}
+
 .layout-map .header .btn .i-search svg path {
   stroke: #000;
 }
 
-.layout-map .header .btn .i-alarm svg path {
+.layout-map .header .btn [class*=i-alarm] svg path:first-child {
   fill: #000;
 }
 
@@ -2247,8 +2252,6 @@ h1.hidden {
 
 .layout-map .footer .footer-menu .menu.on .txt {
   color: #000;
-  text-shadow: 0 0.259rem 0.259rem rgba(0, 0, 0, 0.5);
-  font-weight: 700;
 }
 
 /* header */
@@ -2881,6 +2884,7 @@ i[class*=i-] .svg-prevent {
   color: #fff;
   font-weight: 700;
   text-align: center;
+  letter-spacing: 0.2em;
 }
 
 .tit-type2 {
@@ -3040,7 +3044,7 @@ i[class*=i-] .svg-prevent {
 
 .btm-layer-wrap .btm-layer .btn-layer-close {
   position: absolute;
-  top: 0.974rem;
+  top: 0.845rem;
   right: 0.974rem;
   width: 3.25rem;
   height: 3.25rem;
@@ -3062,22 +3066,6 @@ i[class*=i-] .svg-prevent {
   justify-content: center;
   flex-direction: row;
   z-index: 10;
-}
-
-.btm-layer-wrap .btm-layer .layer-hdader .back-tit {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-}
-
-.btm-layer-wrap .btm-layer .layer-hdader .layer-back {
-  padding: 0.649rem;
-}
-
-.btm-layer-wrap .btm-layer .layer-hdader .layer-back i {
-  position: relative;
-  top: -0.13rem;
 }
 
 .btm-layer-wrap .btm-layer .splide__list {
@@ -3523,7 +3511,6 @@ i[class*=i-] .svg-prevent {
   font-size: 0.909rem;
   background: #5A5B5C;
   border-radius: 0.519rem;
-  letter-spacing: 0.1em;
 }
 
 .alarm-list ul li .text {
@@ -3784,18 +3771,19 @@ i[class*=i-] .svg-prevent {
 }
 
 .history-list2 li .box .grid-list .row ~ .row {
-  margin-top: 0.389rem;
+  margin-top: 0.194rem;
 }
 
 .history-list2 li .box .txt-status {
   margin-bottom: 0.519rem;
-  font-size: 1.17rem;
+  font-size: 1.039rem;
   font-weight: 700;
+  letter-spacing: 0.2em;
 }
 
 .history-list2 li .box.on {
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
 }
 
 /* pop-payment-detail */
@@ -3816,7 +3804,6 @@ i[class*=i-] .svg-prevent {
 .pop-payment-detail .payment-desc .total {
   text-align: right;
   font-size: 1.039rem;
-  letter-spacing: 0.1em;
 }
 
 .pop-payment-detail .btn-type1 {
@@ -3871,14 +3858,14 @@ i[class*=i-] .svg-prevent {
   position: absolute;
 }
 
-.map-wrap .mapindex img {
+.mapindex img {
   width: 1.819rem;
   height: 2.469rem;
 }
 
 /* map-filter */
 .map-filter {
-  padding-top: 2.925rem;
+  padding-top: 2.275rem;
 }
 
 .map-filter .tit-type1 {
@@ -3944,6 +3931,8 @@ i[class*=i-] .svg-prevent {
   flex-direction: row;
   font-size: 0.909rem;
   padding: 1.299rem 0 0.649rem;
+  width: 16.25rem;
+  margin: 0 auto;
 }
 
 .map-legend .cell {
@@ -3974,7 +3963,7 @@ i[class*=i-] .svg-prevent {
 
 .price-slider .noUi-horizontal {
   height: 0.259rem;
-  border-radius: 0;
+  border-radius: 0.259rem;
   border: none;
   background: #fff;
   box-shadow: none;
@@ -3992,7 +3981,7 @@ i[class*=i-] .svg-prevent {
   top: -0.65rem;
   height: 1.559rem;
   border: 0.129rem solid #fff;
-  border-radius: 0.259rem;
+  border-radius: 1.559rem;
   background: #000;
   box-shadow: none;
 }
@@ -4014,6 +4003,11 @@ i[class*=i-] .svg-prevent {
 .price-slider .noUi-horizontal .noUi-value {
   color: #fff;
   font-size: 0.909rem;
+}
+
+.price-slider .noUi-horizontal .noUi-connect {
+  height: 0.259rem;
+  background: #8FFF44;
 }
 
 /* charge-station */
@@ -4043,6 +4037,16 @@ i[class*=i-] .svg-prevent {
 
 .charge-station .row .cell .status {
   color: #8FFF44;
+  font-weight: 700;
+  font-size: 1.039rem;
+  letter-spacing: 0.2em;
+}
+
+.charge-station .row .cell .company {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.039rem;
+  letter-spacing: 0.2em;
 }
 
 .charge-station .row > .cell > * ~ * {
@@ -4056,7 +4060,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .charge-station + .grid-info-list {
-  margin-top: 0.519rem;
+  margin-top: 1.039rem;
 }
 
 /* grid-info-list */
@@ -4066,13 +4070,16 @@ i[class*=i-] .svg-prevent {
   justify-content: flex-start;
   flex-direction: row;
   align-items: flex-start;
-  font-weight: 700;
   font-size: 0.909rem;
   width: 100%;
 }
 
 .grid-info-list .row ~ .row {
   margin-top: 0.519rem;
+}
+
+.grid-info-list .row .cell {
+  position: relative;
 }
 
 .grid-info-list .row .cell ~ .cell {
@@ -4088,7 +4095,13 @@ i[class*=i-] .svg-prevent {
   color: #8A8B8C;
 }
 
-.grid-info-list .btn-map-pos {
+.grid-info-list .btn-menu-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.grid-info-list .btn-menu {
   width: 2.34rem;
   height: 2.34rem;
   display: flex;
@@ -4101,9 +4114,17 @@ i[class*=i-] .svg-prevent {
   border-radius: 0.259rem;
 }
 
+.grid-info-list .btn-menu ~ .btn-menu {
+  margin-top: 0.519rem;
+}
+
 /* charge-time-wrap */
 .charge-time-wrap .tit-type1 ~ .tit-type1 {
   margin-top: 2.079rem;
+}
+
+.charge-time-wrap .tit-type1 ~ .tit-type1.mgt2 {
+  margin-top: 4.159rem;
 }
 
 .charge-time-wrap .charge-place {
@@ -4155,7 +4176,6 @@ i[class*=i-] .svg-prevent {
   overflow: hidden;
   height: 3.25rem;
   font-size: 1.039rem;
-  font-weight: 700;
 }
 
 .time-slide button {
@@ -4224,14 +4244,18 @@ i[class*=i-] .svg-prevent {
 }
 
 .charge-wrap .btn-toggle-slide {
-  margin-bottom: 1.039rem;
+  margin-bottom: 2.209rem;
 }
 
 .charge-wrap .text-charge-status {
-  margin-top: 1.039rem;
-  font-size: 1.559rem;
+  height: 9.36rem;
+  font-size: 1.039rem;
   font-weight: 700;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.2em;
 }
 
 .charge-wrap .qrcode {
@@ -4267,6 +4291,7 @@ i[class*=i-] .svg-prevent {
   margin-top: 0.649rem;
   color: #8A8B8C;
   font-size: 1.039rem;
+  font-weight: 700;
 }
 
 .charge-wrap .text-price {
@@ -4292,7 +4317,6 @@ i[class*=i-] .svg-prevent {
   display: block;
   font-weight: 700;
   font-size: 1.039rem;
-  color: #8A8B8C;
 }
 
 .charge-wrap .time-start-end .cell .time {
@@ -4321,7 +4345,6 @@ i[class*=i-] .svg-prevent {
 .charge-list li > .row,
 .charge-list li .link > .row {
   font-size: 1.039rem;
-  font-weight: 700;
   align-items: stretch;
 }
 
@@ -4356,21 +4379,12 @@ i[class*=i-] .svg-prevent {
 .charge-list .row .addr2 {
   font-size: 0.909rem;
   color: #8A8B8C;
-  letter-spacing: 0.1em;
-}
-
-.charge-list .row .right {
-  font-size: 1.039rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
 }
 
 .charge-list .row .status {
   color: #8FFF44;
-}
-
-.charge-list .row .distance {
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-size: 1.039rem;
 }
 
 .charge-list .row .label {
@@ -4380,7 +4394,11 @@ i[class*=i-] .svg-prevent {
 .charge-list .row .price {
   font-weight: 400;
   font-size: 0.909rem;
-  letter-spacing: 0.1em;
+}
+
+.charge-list .row .number {
+  font-size: 1.039rem;
+  font-weight: 700;
 }
 
 .charge-list .t-s {
@@ -4419,7 +4437,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .charge-list .btn-menu .btn ~ .btn {
-  margin-left: 1.039rem;
+  margin-left: 0.519rem;
 }
 
 .charge-list .btn {
@@ -4697,10 +4715,11 @@ i[class*=i-] .svg-prevent {
 }
 
 .card-wrap [class*=card] .center p {
-  margin-top: 1.299rem;
+  margin-top: 2.599rem;
   font-weight: 700;
   color: #fff;
   font-size: 1.039rem;
+  letter-spacing: 0.2em;
 }
 
 .card-wrap .tit-type1 {
@@ -4718,6 +4737,8 @@ i[class*=i-] .svg-prevent {
 }
 
 .card-wrap .card {
+  display: flex;
+  flex-direction: column;
   position: relative;
   margin: 0 auto;
   width: 19.11rem;
@@ -4738,12 +4759,17 @@ i[class*=i-] .svg-prevent {
   margin-bottom: 1.039rem;
 }
 
+.card-wrap .card .grid-list {
+  margin-top: auto;
+}
+
 .card-wrap .card .grid-list .row {
   padding: 0 0;
+  align-items: flex-start;
 }
 
 .card-wrap .card .grid-list .row ~ .row {
-  margin-top: 0.909rem;
+  margin-top: 1.039rem;
 }
 
 .card-wrap .card .grid-list .tit {
@@ -4758,14 +4784,10 @@ i[class*=i-] .svg-prevent {
 }
 
 .card-wrap .card .grid-list .card-num {
-  letter-spacing: -0.1em;
+  letter-spacing: 0;
 }
 
 .card-wrap .card .btn-box-inner {
-  position: absolute;
-  bottom: 1.43rem;
-  left: 1.039rem;
-  right: 1.039rem;
   margin-top: 0.974rem;
 }
 
@@ -5228,6 +5250,10 @@ i[class*=i-] .svg-prevent {
   margin-left: -1.56rem;
 }
 
+.apply-wrap.up-content .up-area .title-type1 button {
+  width: 100%;
+}
+
 /* addr */
 .tit-type1 + .addr-list {
   margin-top: 1.039rem;
@@ -5283,6 +5309,10 @@ i[class*=i-] .svg-prevent {
 
 .charger-install-wrap .dash-indent-list li {
   letter-spacing: -0.01em;
+}
+
+.charger-install-wrap .dash-indent-list li ~ li {
+  margin-top: 0.194rem;
 }
 
 .charger-install-wrap .dash-indent-list + .tit-type1 {
@@ -5344,6 +5374,14 @@ i[class*=i-] .svg-prevent {
 }
 
 /* rule-agree */
+.rule-agree {
+  font-size: 0.909rem;
+}
+
+.rule-agree pre {
+  white-space: pre-line;
+}
+
 .rule-agree .btn-toggle-slide {
   display: flex;
   align-items: center;
@@ -5357,6 +5395,10 @@ i[class*=i-] .svg-prevent {
 .rule-agree .btn-toggle-slide.on .i-arr-right {
   transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
+}
+
+.rule-agree .grid-list > .row .tit {
+  font-size: 0.909rem;
 }
 
 /* place-list */
@@ -5396,20 +5438,39 @@ i[class*=i-] .svg-prevent {
   background-repeat: no-repeat;
 }
 
+.place-card .tag {
+  position: absolute;
+  top: 1.104rem;
+  left: 1.17rem;
+  display: inline-flex;
+  width: 44px;
+  height: 22px;
+  font-size: 0.649rem;
+  background: #000000;
+  border-radius: 4px;
+  padding: 2px 8px 0;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
 .place-card .desc {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 1.039rem;
-  min-height: 3.639rem;
+  min-height: 5.72rem;
   background: rgba(42, 43, 44, 0.5);
   text-align: left;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .place-card .desc .tit {
   display: block;
-  font-size: 1.559rem;
+  font-size: 1.299rem;
   font-weight: 700;
 }
 
@@ -5444,7 +5505,6 @@ i[class*=i-] .svg-prevent {
 .select-date {
   overflow: hidden;
   border-radius: 0.519rem;
-  font-size: 0.779rem;
   background: #2A2B2C;
   border-radius: 0.519rem;
 }
@@ -5467,6 +5527,7 @@ i[class*=i-] .svg-prevent {
   height: 2.599rem;
   text-align: right;
   text-align: center;
+  font-size: 0.649rem;
 }
 
 .select-date > .row .cell:first-child {
@@ -5474,7 +5535,27 @@ i[class*=i-] .svg-prevent {
 }
 
 .select-date > .row .cell.tit {
-  font-size: 0.649rem;
+  font-size: 0.779rem;
+}
+
+.select-date > .row .cell.prev,
+.select-date > .row .cell.next {
+  font-size: 1.039rem;
+  font-weight: 700;
+}
+
+.select-date > .row .cell.prev i,
+.select-date > .row .cell.next i {
+  position: relative;
+  top: -0.065rem;
+}
+
+.select-date > .row .cell.prev i {
+  margin-right: 0.974rem;
+}
+
+.select-date > .row .cell.next i {
+  margin-left: 0.974rem;
 }
 
 .select-date > .row .cell button {
@@ -5491,11 +5572,15 @@ i[class*=i-] .svg-prevent {
 }
 
 .select-date > .row button[disabled] {
-  color: #5A5B5C;
+  color: #8A8B8C;
+}
+
+.select-date > .row button[disabled] i {
+  opacity: 0.5;
 }
 
 .select-date > .row-header button[disabled] {
-  color: #5A5B5C;
+  color: #8A8B8C;
 }
 
 .select-date > .row .cell:first-child {

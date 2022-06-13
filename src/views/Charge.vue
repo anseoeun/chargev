@@ -4,7 +4,6 @@
       <template slot="content">
           <splide-slide>
             <div class="charge-wrap">
-                <h2 class="tit-type1">충전대기중</h2>
                 <div class="text-charge-status">충전중이 아닙니다.</div>
 
                 <!-- 인근 충전소 -->

@@ -18,9 +18,10 @@
             </template>
           </Carousel>
       </div>
-      <!-- 충전시간 -->
-      <h2 class="tit-type1">충전시간</h2>
-      <div class="charge-time" :style="{opacity:opacity}">
+      <!-- 최대 충전가능시간 -->
+      <h2 class="tit-type1">최대 충전가능시간</h2>
+      <div class="set-time c-green bold">12시간</div>            
+      <!-- <div class="charge-time" :style="{opacity:opacity}">
           <Carousel :data="timeHourList" :options="timeHourOpt" class="time-slide" @onMoved="timeHourMoved">
             <template slot-scope="props">
               <button>{{ props.item }}시간</button>
@@ -31,12 +32,9 @@
               <button>{{ props.item }}분</button>
             </template>
           </Carousel>
-      </div>
-      <div class="btn-box align-c">
-        <button class="btn-type1 st2 inbl">최대시간 설정</button>
-      </div>      
+      </div> -->
 
-      <!-- 충전시간 -->
+      <!-- 종료예상시간 -->
       <h2 class="tit-type1">종료예상시간</h2>
       <div class="set-time">09:20</div>
       <!-- 예상 결제금액 -->
@@ -44,14 +42,15 @@
       <div class="set-time">4,000원</div>
 
       <div class="btn-box align-c">
-        <router-link to="/" class="btn-type1 st2 inbl">충전 예약</router-link>
+        <router-link to="/" class="btn-type1 st2">예약하기</router-link>
       </div>      
     </template>
     
     <template v-else-if="timeSetType === 'charge'">
       <!-- 충전시간 -->
-      <h2 class="tit-type1">충전시간</h2>
-      <div class="charge-time" :style="{opacity:opacity}">
+      <h2 class="tit-type1">최대 충전가능시간</h2>
+      <div class="set-time c-green bold">11시간 20분</div>      
+      <!-- <div class="charge-time" :style="{opacity:opacity}">
           <Carousel :data="timeHourList" :options="timeHourOpt" class="time-slide" @onMoved="timeHourMoved">
             <template slot-scope="props">
               <button>{{ props.item }}시간</button>
@@ -62,16 +61,15 @@
               <button>{{ props.item }}분</button>
             </template>
           </Carousel>
-      </div>
-      <div class="btn-box align-c">
-        <button class="btn-type1 st2 inbl">최대시간 설정</button>
-      </div>      
+      </div> -->
+
       
       <!-- 예상 결제금액 -->
-      <h2 class="tit-type1">예상 결제금액</h2>
-      <div class="set-time">4,000원</div>
+      <h2 class="tit-type1 mgt2">단가</h2>
+      <div class="set-time">190원/kWh</div>
+      
       <div class="btn-box align-c">
-        <router-link to="/" class="btn-type1 st2 inbl">충전 시작</router-link>
+        <router-link to="/" class="btn-type1 st2">충전 시작</router-link>
       </div>
     </template>
 </div>

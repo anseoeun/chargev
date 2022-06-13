@@ -29,9 +29,9 @@
                         <Carousel :data ="placeList2" :options="placeSlideOpt">
                             <template slot-scope="props">
                                 <button class="place-card" @click="currentPage = 2">
+                                    <span class="tag">{{ props.item.title }}</span>
                                     <div class="img" :style="`background-image:url(${props.item.src})`"></div>
                                     <div class="desc type2">
-                                        <strong class="tit">{{ props.item.title }}</strong>
                                         <div class="price">{{ props.item.price }}</div>
                                         <div class="item">{{ props.item.item }}</div>
                                     </div>
@@ -59,22 +59,22 @@
                     <h2 class="tit-type1">실사 방문 요청일 선택</h2>
                     <div class="select-date">
                       <div class="row row-header">
-                          <div class="cell"><button disabled>이전</button></div>
-                          <div class="cell">시간대 선택</div>
-                          <div class="cell"><button>다음</button></div>
+                          <div class="cell prev"><button disabled><Icon type="cal-prev" />이전</button></div>
+                          <div class="cell tit bold">시간대 선택</div>
+                          <div class="cell next"><button>다음<Icon type="cal-next" /></button></div>
                       </div>
                       <div class="row">
-                          <div class="cell">설치<br>시간대</div>
-                          <div v-for="(item, name) in dateList" :key="name" class="cell tit" v-html="getDay(name)"></div>
+                          <div class="cell tit">설치<br>시간대</div>
+                          <div v-for="(item, name) in dateList" :key="name" class="cell time" v-html="getDay(name)"></div>
                       </div>
                       <div class="row">
-                          <div class="cell">09:00<br>~13:00</div>
+                          <div class="cell tit">오전</div>
                           <div v-for="(item, name) in dateList" :key="name" class="cell">
                               <button :disabled="!item['09:00 ~ 13:00']" v-html="getTimeStatus(item['09:00 ~ 13:00'])" @click="currentPage = 4"></button>
                           </div>
                       </div>
                       <div class="row">
-                          <div class="cell">14:00<br>~17:00</div>
+                          <div class="cell tit">오후</div>
                           <div v-for="(item, name) in dateList" :key="name" class="cell">
                               <button :disabled="!item['09:00 ~ 13:00']" v-html="getTimeStatus(item['14:00 ~ 17:00'])" @click="currentPage = 4"></button>
                           </div>
@@ -140,30 +140,32 @@
                             </div>
                         </div>
                         <div id="slide-rule" style="display:none">
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
-                          개인정보 제3자 제공 동의 <br />
+                          <pre>
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                            개인정보 제3자 제공 동의
+                          </pre>
                         </div>
                     </div>
                     <div class="btn-box">
@@ -320,7 +322,7 @@ export default {
       return day.substring(5, 20)
     },
     getTimeStatus(status){  
-      return status ? '접수<br>가능' : '접수<br>마감'
+      return status ? '가능' : '접수<br>마감'
     },  
   }
 }

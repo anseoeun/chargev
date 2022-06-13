@@ -18,8 +18,8 @@
                 <div class="t-s">{{ item.etc }}</div>
             </div>
             <div class="cell btn-menu">
-              <button class="btn" @click="$emit('charge')"><Icon type="charge" /><span>충전</span></button>
               <button class="btn" @click="$emit('reserve')"><Icon type="clock" /><span>예약</span></button>
+              <button class="btn" @click="$emit('charge')"><Icon type="charge-half" /><span>충전</span></button>
             </div>
           </div>
         </li>

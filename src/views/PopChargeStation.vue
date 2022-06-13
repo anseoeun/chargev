@@ -15,6 +15,14 @@
               </div>
               <div class="grid-info-list">
                 <div class="row">
+                  <div class="cell right">
+                      <div class="btn-menu-wrap">
+                        <button class="btn-menu"><Icon type="map-pos2" /></button>
+                        <button class="btn-menu"><Icon type="map-favorite" /></button>
+                      </div>
+                  </div>
+                </div>                
+                <div class="row">
                   <div class="cell label">완속</div>
                   <div class="cell">10/24</div>
                 </div>
@@ -22,10 +30,14 @@
                   <div class="cell label">급속</div>
                   <div class="cell">1/2</div>
                 </div>
+                <div class="row">
+                  <div class="cell label">운영시간</div>
+                  <div class="cell">00:00 ~ 24:00</div>
+                </div>
               </div>
             <!-- 차트 -->
             <Chart />
-            <router-link to="/" class="btn-type2 st2">자세히보기</router-link>
+            <router-link to="/" class="btn-type1 st2">자세히보기</router-link>
         </div>
       </template>
     </BtmLayer>

@@ -6,6 +6,7 @@
       <div v-if="upHide" class="up-area">
         <button v-if="status === 'down'" class="btn-up" @click="contentUp"><Icon type="arr-top"/></button>
         <button v-if="status === 'up'" class="btn-close" @click="contentUp"><Icon type="close-white"/></button>
+        <h2 class="tit-type1 c-white"><button @click="contentUp"><slot ref="tit" name="tit" /></button></h2>
         <slot ref="up" name="up" />
       </div>
     </div>

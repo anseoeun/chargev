@@ -6,13 +6,13 @@
             <UpContent class="apply-wrap">
                 <template slot="hide">              
                   <div class="card-wrap">
-                    <h2 class="tit-type1">멤버십카드</h2>
+                    <h2 class="tit-type1">충전카드</h2>
                     <Carousel class="slide-list" :content="true" :options="cardSliderOpt">
                         <template slot="content">
                             <splide-slide v-for="(item, index) in cardList" :key="index">
                                 <div class="card" :class="{on: item.selected}">
                                     <div class="logo">
-                                      <Icon type="chargev6" />
+                                      <Icon type="chargev" />
                                     </div>
                                     <div class="grid-list">
                                         <div class="row">
@@ -28,30 +28,18 @@
                                             <div class="tit">연동차량</div>
                                             <div class="text">{{ item.car }}</div>
                                         </div>
-                                        <div class="row">
-                                            <div class="tit">연동상품</div>
-                                            <div class="text">{{ item.product }}</div>
-                                        </div>
                                     </div>
                                     <div class="btn-box-inner">
-                                        <button class="btn">멤버십카드 재발급</button>
+                                        <button class="btn" @click="btmLayer.PopAddr = true">멤버십카드 재발급</button>
                                     </div>
                                 </div>
-                            </splide-slide>
-                            <splide-slide>
-                                <button class="card" @click="btmLayer.PopAddr = true">
-                                    <div class="center">
-                                        <Icon type="add-plus" />
-                                        <p class="txt">멤버십카드 발급</p>
-                                    </div>
-                                </button>
                             </splide-slide>
                         </template>
                     </Carousel>
                   </div>
                 </template>
+                <template slot="tit">발급 이력</template>
                 <template slot="up">
-                  <h2 class="tit-type1 c-white">발급 이력</h2>
                   <div class="scroll-area">
                     <ul class="history-list2">
                       <li v-for="(item, index) in issueList" :key="index">
@@ -110,7 +98,7 @@
                                   <div class="img" :style="`background-image:url(${item.src})`"></div>
                                   <div class="desc">
                                     <strong class="tit">{{ item.type }}</strong>
-                                    <div v-if="item.status == 'complate'" class="txt">신청이 완료되었습니다.</div>
+                                    <!-- <div v-if="item.status == 'complate'" class="txt">신청이 완료되었습니다.</div> -->
                                   </div>
                                 </div>
                             </splide-slide>
@@ -126,8 +114,8 @@
                     </Carousel>
                   </div>
                 </template>
+                <template slot="tit">진행상황</template>                
                 <template slot="up">
-                  <h2 class="tit-type1 c-white">진행상황</h2>
                   <div class="scroll-area">
                     <ul class="history-list2">
                       <li v-for="(item, index) in  statusList" :key="index">
@@ -173,21 +161,6 @@
                   </div>
                 </template>
             </UpContent>
-          </splide-slide>
-          <splide-slide class="no-scroll">
-            <div class="charger-install-wrap">
-              <!-- 충전기 설치신청 -->
-              <h2 class="tit-type1">충전기 설치신청</h2>
-              <div class="btn-box">
-                  <button class="btn-type1 st2" @click="btmLayer.PopChargerApply = true">충전기 설치 신청</button>
-              </div>              
-              <!-- 충전기 설치신청 -->
-              <h2 class="tit-type1">충전기 설치신청</h2>
-                            
-              <div class="btn-box">
-                  <button class="btn-type1 st2" @click="btmLayer.PopProgressCheck = true">진행상황 확인</button>
-              </div>              
-            </div> 
           </splide-slide>
       </template>
     </Carousel>
