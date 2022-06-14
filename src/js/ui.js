@@ -14,6 +14,7 @@ Vue.mixin({
           if(Array.isArray(this[arr]))  this.$set(this[arr], i, true)
           else this[arr] = true
         }
+        console.log(this[arr])
       },
       arrAllCheck(arr, length){
         let num = length;

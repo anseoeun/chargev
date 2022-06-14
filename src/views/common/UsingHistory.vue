@@ -37,7 +37,12 @@
         </div>
         <ul class="history-list">
           <li v-for="(item, index) in historyList" :key="index">
-            <button class="box" :class="{on: item.checked}" @click="item.checked = true;$emit('detailUsingHistory')">
+              <button @click="checkIcon($event, 'listChecked', index)">
+                <Icon type="check" :class="{on: listChecked[index]}" />
+                {{ index }}
+                {{ listChecked }}
+              </button>            
+            <button class="box" :class="{on: item.checked}" @click="item.checked = true;$emit('detailUsingHistory');">
               <Icon type="arr-right" />
               <div class="t-wrap">
                 <div class="row">
@@ -176,6 +181,11 @@ export default {
           checked: false,
         },
       ],
+    }
+  },
+  computed: {
+    listChecked(){
+        return new Array(10).fill(false)
     }
   },
   created(){
