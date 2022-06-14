@@ -10,8 +10,10 @@
                     <Input type="password" v-model="form.pin[1]" autocomplete="new-password" maxlength="1" />
                     <Input type="password" v-model="form.pin[2]" autocomplete="new-password" maxlength="1" />
                     <Input type="password" v-model="form.pin[3]" autocomplete="new-password" maxlength="1" />
+                    <Input type="password" v-model="form.pin[4]" autocomplete="new-password" maxlength="1" />
+                    <Input type="password" v-model="form.pin[5]" autocomplete="new-password" maxlength="1" />
                 </div>
-                <Input type="number" v-model="form.pin" @focus="initPinFocus" maxlength="4" />
+                <Input type="number" v-model="form.pin" @focus="initPinFocus" maxlength="6" />
               </div>
           </div>
       </div>
@@ -31,8 +33,10 @@
                     <Input type="password" v-model="form.pin2[1]" autocomplete="new-password" maxlength="1" />
                     <Input type="password" v-model="form.pin2[2]" autocomplete="new-password" maxlength="1" />
                     <Input type="password" v-model="form.pin2[3]" autocomplete="new-password" maxlength="1" />
+                    <Input type="password" v-model="form.pin2[4]" autocomplete="new-password" maxlength="1" />
+                    <Input type="password" v-model="form.pin2[5]" autocomplete="new-password" maxlength="1" />
                 </div>
-                <Input type="number" v-model="form.pin2" @focus="initPinFocus('check')" maxlength="4" />
+                <Input type="number" v-model="form.pin2" @focus="initPinFocus('check')" maxlength="6" />
               </div>
           </div>
       </div>
@@ -72,7 +76,7 @@ export default {
     initPinFocus(type){
       let pin = this.form.pin
       if(type === 'check') pin = this.form.pin2
-      if(pin.length >= 4){
+      if(pin.length >= 6){
         if(type === 'check') this.form.pin2 = ''
         else this.form.pin = ''
       }

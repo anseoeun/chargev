@@ -2,7 +2,7 @@
     <div class="charge-list">
       <ul>
         <li v-for="(item, index) in data" :key="index">
-          <router-link to="/" class="link">
+          <button class="link" @click="$emit('selected')">
             <div class="row">
               <div class="cell">
                 <div class="addr" v-html="item.addr"></div>
@@ -24,7 +24,7 @@
             <div class="tag">
               <span v-for="(item, i) in item.tag" :key="i">{{ item }}</span>
             </div>
-          </router-link>
+          </button>
         </li>
       </ul>
     </div>

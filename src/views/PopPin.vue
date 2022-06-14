@@ -1,5 +1,5 @@
 <template>
-    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-coupon-regist max">
+    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-pin-setting max">
       <template slot="content">
         <div class="cont-scroll">
             <!-- pin설정 -->

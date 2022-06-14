@@ -19,10 +19,31 @@
                       <div class="row">
                           <div class="tit">전화번호</div>
                           <div class="text">010-9467-3693</div>
+                          <div class="text right">
+                              <button class="btn">다시인증</button>
+                          </div>
                       </div>
                       <div class="row">
                           <div class="tit">회원등급</div>
                           <div class="text">GOLD</div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- 선택정보 -->
+              <h2 class="tit-type1">선택정보</h2>
+              <div class="my-info-box">
+                  <div class="grid-list">
+                      <div class="row">
+                          <div class="tit">주소</div>
+                          <div class="text">서울시 송파구 올림픽로 300</div>
+                      </div>
+                      <div class="row">
+                          <div class="tit">상세주소</div>
+                          <div class="text">30층 3045호 </div>
+                          <div class="text right">
+                              <button class="btn" @click="btmLayer.PopAddr = true">변경하기</button>
+                          </div>
                       </div>
                   </div>
               </div>
@@ -84,7 +105,7 @@
                             <template slot="content">
                                 <splide-slide v-for="(item, index) in cargePointList" :key="index">
                                     <div class="card2" :class="{on: item.selected}">
-                                        <div class="bg" :style="`background-image:url(${item.src})`"></div>
+                                        <!-- <div class="bg" :style="`background-image:url(${item.src})`"></div> -->
                                         <Icon v-if="item.company === 'bmw'" type="logo-bmw" />
                                         <Icon v-if="item.company === 'chargev'" type="chargev4" />
                                         <div class="main-txt">
@@ -112,23 +133,21 @@
                                 <splide-slide v-for="(item, index) in cardList" :key="index">
                                     <div class="card3" :class="{on: item.selected}">
                                         <div class="card-info">
-                                            <div class="card-name">{{ item.name }}</div>
+                                            <div class="card-name">{{ item.company }}카드</div>
                                             <div class="card-num">
-                                                <span>{{ item.company }}</span>
                                                 <span>{{ item.num[0] }}</span>
                                                 <span>{{ item.num[1] }}</span>
                                                 <span>{{ item.num[2] }}</span>
                                                 <span>{{ item.num[3] }}</span>
                                             </div>
-                                            <div class="card-date">{{ item.date }}</div>
                                         </div>
                                         <div class="btn-box-inner">
-                                            <button class="btn">카드삭제 <Icon type="delete" /></button>
                                             <div class="btn btn-order">
                                                 <button class="btn-left"><Icon type="arr-left" /></button>
                                                 결제순서변경
                                                 <button class="btn-right"><Icon type="arr-right" /></button>
                                             </div>
+                                            <button class="btn">카드삭제 <Icon type="delete" /></button>
                                         </div>
                                     </div>
                                 </splide-slide>
@@ -144,20 +163,18 @@
                         </Carousel>
                         <ul v-if="currentTab === 'payment'" class="list">
                             <li v-for="(item, index) in paymentCardList" :key="index">
-                                <div class="card4">
+                                <button class="card3" @click="btmLayer.PopBlumembersAdd = true">
                                     <div class="center">
-                                        <Icon v-if="item.logo === 'payco'" type="payco" />
-                                        <Icon v-if="item.logo === 'chargev'" type="chargev4" />
-                                        <p class="txt">등록하기</p>
+                                        <Icon type="add-plus" />
+                                        <p class="txt">블루멤버스 계정연동</p>
                                     </div>
-                                </div>
+                                </button>
                             </li>
                         </ul>
                     </div>
                 </template>
+                <template slot="tit">결제수단별 이용기록</template>
                 <template slot="up">
-                    <!-- 결제수단별 이용기록 -->
-                    <h2 class="tit-type1 c-white">결제수단별 이용기록</h2>
                     <UsingHistory
                         @detailUsingHistory="$set(btmLayer, 'popPaymentDetail', true);"
                     />
@@ -174,13 +191,20 @@
                                 <template slot="content">
                                     <splide-slide v-for="(item, index) in carList" :key="index">
                                         <div class="card5" :class="{on: item.selected}">
-                                            <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
-                                            <Icon v-if="item.company === 'benz'" type="logo-benz" :src="require('@/assets/images/logo/logo-me.png')" class="company-logo" />
-                                            <div class="car-info">
-                                                <p class="space-txt"><span>{{ item.carInfo[0] }}</span><span>{{ item.carInfo[1] }}</span></p>
-                                                <p>{{ item.carInfo[2] }}</p>
+                                            <div class="car-info-wrap">
+                                                <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
+                                                <Icon v-if="item.company === 'benz'" type="logo-benz" :src="require('@/assets/images/logo/logo-me.png')" class="company-logo" />
+                                                <div class="car-info">
+                                                    <p class="space-txt"><span>{{ item.carInfo[0] }}</span><span>{{ item.carInfo[1] }}</span></p>
+                                                    <p>{{ item.carInfo[2] }}</p>
+                                                </div>
                                             </div>
-                                            <div class="number">{{ item.num }}</div>
+                                            <div class="number">
+                                                <span>{{ item.num[0] }}</span> -
+                                                <span>{{ item.num[1] }}</span> -
+                                                <span>{{ item.num[2] }}</span> -
+                                                <span>{{ item.num[3] }}</span>
+                                            </div>
                                             <div class="btn-box-inner">
                                                 <button class="btn-type1 st2" @click="$set(item, 'selected', !item.selected)">
                                                     <template v-if="item.selected">충전차량<Icon type="check" class="on" /></template>
@@ -292,12 +316,17 @@
       </template>
     </Carousel>
 
+
+    <!-- 주소 -->
+    <PopAddr :visible="btmLayer.PopAddr" @close="btmLayer.PopAddr = false"/>
     <!-- 모바일 충전권 / 쿠폰 등록 -->
     <PopPin :visible="btmLayer.PopPin" @close="btmLayer.PopPin = false"/>
     <!-- 모바일 충전권 / 쿠폰 등록 -->
     <PopCouponRegist :visible="btmLayer.PopCouponRegist" @close="btmLayer.PopCouponRegist = false"/>
     <!-- 결제정보 추가 -->
     <PopPaymentAdd :visible="btmLayer.PopPaymentAdd" @close="btmLayer.PopPaymentAdd = false"/>
+    <!-- 블루멤버스 계정연동 -->
+    <PopBlumembersAdd :visible="btmLayer.PopBlumembersAdd" @close="btmLayer.PopBlumembersAdd = false"/>
     <!-- 차량정보 -->
     <PopCarInfoAdd :visible="btmLayer.PopCarInfoAdd" @close="btmLayer.PopCarInfoAdd = false"/>
     <!-- 유형선택 -->
@@ -311,6 +340,7 @@
     <!-- 충전기 고장신고 -->
     <PopBreakdownReport :visible="btmLayer.PopBreakdownReport" @close="btmLayer.PopBreakdownReport = false"
         @qnaRegistCompleted="alertPopColpleted = true"
+        @inquiryRegistCompleted="alertPopColpleted = true"
     />     
     <!-- 환불항목 -->
     <PopRefund :visible="btmLayer.PopRefund" @close="btmLayer.PopRefund = false" 
@@ -330,7 +360,7 @@
 
 
     <!-- 팝업 -->
-    <Alert :is-open="alertPopColpleted" @close="alertPopColpleted = false">      
+    <Alert :is-open="alertPopColpleted" @close="alertPopColpleted = false" class="header-title-size2">
         <template slot="header">문의가 등록되었습니다.</template>
         <template slot="body">
           고객센터에서 확인 후 답변드리도록 하겠습니다.<br />
@@ -341,10 +371,12 @@
 </template>
 
 <script>
+import PopAddr from '@/views/PopAddr'
 import PopPin from '@/views/PopPin'
 import UsingHistory from '@/views/common/UsingHistory'
 import PopCouponRegist from '@/views/PopCouponRegist'
 import PopPaymentAdd from '@/views/PopPaymentAdd'
+import PopBlumembersAdd from '@/views/PopBlumembersAdd'
 import PopCarInfoAdd from '@/views/PopCarInfoAdd'
 import PopCaseAdd from '@/views/PopCaseAdd'
 import PopQnaList from '@/views/PopQnaList'
@@ -356,10 +388,12 @@ import PopQnaDetail from '@/views/PopQnaDetail'
 import PopRuleList from '@/views/PopRuleList'
 export default {
   components:{
+    PopAddr,
     PopPin,
     UsingHistory,
     PopCouponRegist,
     PopPaymentAdd,
+    PopBlumembersAdd,
     PopCarInfoAdd,
     PopCaseAdd,
     PopQnaList,
@@ -406,18 +440,16 @@ export default {
       // 신용카드
       cardList: [
           {
-              name: '결제카드 1',
               date: '02/24',
               company: '삼성',
-              num: ['5361', '48**', '****', '4151'],
+              num: ['****', '****', '****', '4151'],
               selected: true,
           },
           {
-              name: '결제카드 2',
               date: '02/24',
               company: '삼성',
-              num: ['5361', '48**', '****', '4151'],
-              selected: true,
+              num: ['****', '****', '****', '4151'],
+              selected: false,
           },
       ],
       // 간편결제
@@ -436,13 +468,13 @@ export default {
           {
               company: 'bmw',
               carInfo: ['BMW', '530e', '02보6596'],
-              num: '9999-9999-9999-9999',
+              num: ['9999', '9999', '9999', '9999'],
               selected: true,
           },
           {
               company: 'benz',
               carInfo: ['BMW', '530e', '02보6596'],
-              num: '1010-0101-1234-1234',
+              num: ['9999', '9999', '9999', '9999'],
               selected: false,
           },
       ],
@@ -509,9 +541,11 @@ export default {
 
       alertPopColpleted: false,
       btmLayer:{
+        PopAddr: false,
         PopPin: false,
         PopCouponRegist: false,
         PopPaymentAdd: false,
+        PopBlumembersAdd: false,
         PopCarInfoAdd: false,
         PopCaseAdd: false,
         PopQnaList: false,

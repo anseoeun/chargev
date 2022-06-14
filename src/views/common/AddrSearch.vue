@@ -42,32 +42,22 @@
         </template>
 
         <template v-if="addrListShow">
-            <!-- 충전기 선택 -->
-            <h2 class="tit-type1">충전기 선택</h2>
-            <ul class="charger-list">
-                <li v-for="(item, index) in chargerList" :key="index">
-                    <div class="charger-info">
-                        <div class="row">
-                            <div class="cell addr" v-html="item.addr"></div>
-                            <div class="cell right company">{{ item.company }}</div>
-                        </div>
-                        <div class="row">
-                            <div class="cell number">{{ item.number }}</div>
-                            <div class="cell right status">{{ item.status }}</div>
-                        </div>
-                    </div>
-                    <div class="btn-box">
-                        <button class="btn-type2 st2" @click="$emit('selected')">선택</button>
-                    </div>
-                </li>
-            </ul>
+            <!-- 충전소 선택 -->
+            <h2 class="tit-type1">충전소 선택</h2>
+            <ChargeSearchList
+            :data="chargeList"
+            @selected="$emit('selected')"
+            />            
         </template>
     </div>
 </template>
 
 <script>
-
+import ChargeSearchList from '@/views/common/ChargeSearchList'
 export default {
+  components:{
+    ChargeSearchList
+  },      
   props:{
       searchType: {
           type: String,
@@ -88,19 +78,29 @@ export default {
           '강원도 평창군 올림픽로 300 강원도 평창군 올림픽로 300',
           '서울시 송파구 올림픽로 300',
       ],
-      chargerList: [
-          {
-              addr:'서울시 송파구<br />롯데월드타워 지하2층 #1',
-              company: '차지비',
-              number: '20041010201',
-              status: '완속',
-          },
-          {
-              addr:'서울시 송파구<br />롯데월드타워 지하2층 #1',
-              company: '차지비',
-              number: '20041010201',
-              status: '급속',
-          },
+       chargeList: [
+        {
+          'addr': '서울시 송파구<br />롯데타워 지하2층',
+          'addr2': '서울시 송파구 올림픽로 300<br />지하 2층 R5 구역',
+          'status': '충전가능',
+          'start': '269',
+          'end': '279',
+          'km': '100km',
+          tag: [
+            '혼잡함', '할인중'
+          ],
+        },
+        {
+          'addr': '서울시 송파구<br />롯데타워 지하2층',
+          'addr2': '서울시 송파구 올림픽로 300<br />지하 2층 R5 구역',
+          'status': '충전가능',
+          'start': '269',
+          'end': '279',
+          'km': '100km',
+          tag: [
+            '혼잡함', '할인중'
+          ],
+        },
       ],
 
       options: {

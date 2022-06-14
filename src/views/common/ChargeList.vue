@@ -12,12 +12,17 @@
                   <span v-for="(item, i) in item.tag" :key="i">{{ item }}</span>
                 </div>
             </div>
-            <div class="cell right">
-                <div class="status">{{ item.status }}</div>
-                <div class="t-s">{{ item.speed }}</div>
-                <div class="t-s">{{ item.etc }}</div>
+            <div class="cell right f-col-box">
+                <div v-if="type != 'breakdown'" class="status">{{ item.status }}</div>
+                <div class="bottom">
+                  <div class="t-s">{{ item.speed }}</div>
+                  <div class="t-s">{{ item.etc }}</div>
+                </div>
             </div>
-            <div class="cell btn-menu">
+            <div v-if="type === 'breakdown'" class="cell btn-menu">
+              <button class="btn" @click="$emit('selected')"><span>선택</span></button>
+            </div>
+            <div v-else class="cell btn-menu">
               <button class="btn" @click="$emit('reserve')"><Icon type="clock" /><span>예약</span></button>
               <button class="btn" @click="$emit('charge')"><Icon type="charge-half" /><span>충전</span></button>
             </div>
@@ -33,7 +38,11 @@ export default {
     data:{
       type : Array,
       default: ()=>[]
-    }  
+    },
+    type: {
+      type : String,
+      default: ''
+    }
   },
   data(){
     return{
