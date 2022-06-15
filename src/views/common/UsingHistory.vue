@@ -35,15 +35,14 @@
             </template>
           </Carousel>
         </div>
+  
         <ul class="history-list">
           <li v-for="(item, index) in historyList" :key="index">
-              <button @click="checkIcon($event, 'listChecked', index)">
+            <button class="box" :class="{on: item.checked}" @click="$emit('detailUsingHistory');">
+              <button v-if="checkType" class="btn-check" @click="checkIcon($event, 'listChecked', index)">
                 <Icon type="check" :class="{on: listChecked[index]}" />
-                {{ index }}
-                {{ listChecked }}
-              </button>            
-            <button class="box" :class="{on: item.checked}" @click="item.checked = true;$emit('detailUsingHistory');">
-              <Icon type="arr-right" />
+              </button>
+              <Icon v-else type="arr-right" />
               <div class="t-wrap">
                 <div class="row">
                   <div class="cell auto"><b class="tit">{{ item.company }}</b>
@@ -68,13 +67,19 @@
               </div>
             </button>
           </li>
-        </ul>
+        </ul>      
     </div>
 </template>
 
 <script>
 
 export default {
+  props: {
+    checkType: {
+      type: Boolean,
+      default: false,
+    }
+  },
   data(){
     return{
       year: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
@@ -117,6 +122,7 @@ export default {
         perPage: 7,
         perMove:1
       },
+      listChecked: [],
       historyList: [
         {
           company: '한국전기차충전서비스',
@@ -181,11 +187,6 @@ export default {
           checked: false,
         },
       ],
-    }
-  },
-  computed: {
-    listChecked(){
-        return new Array(10).fill(false)
     }
   },
   created(){

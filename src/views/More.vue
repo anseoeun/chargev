@@ -276,12 +276,12 @@
                <h2 class="tit-type1">문의내역</h2>
                <ul v-if="qnaList.length > 0" class="link-box-list">
                    <li v-for="(item, index) in qnaList" :key="index">
-                       <button class="box" @click="btmLayer.PopQnaDetail = true">
+                       <button class="box" :class="{end: item.status == 'end'}" @click="btmLayer.PopQnaDetail = true">
                            <Icon type="arr-right" />
                            <p class="info">
                                <span class="date">{{ item.date }}</span>
-                               <span class="status" :class="{end: item.status == 'end'}">
-                                   {{ item.status == 'ing' ? '답변대기중' : '답변완료' }}
+                               <span class="status">
+                                   {{ item.status == 'ing' ? '문의중' : '답변완료' }}
                                </span>
                            </p>
                            <p class="sort">{{ item.sort }}</p>
@@ -348,7 +348,7 @@
         @qnaRegistCompleted="alertPopColpleted = true"
      />
     <!-- 상세 결제내역 -->
-    <PopPaymentDetail :visible="btmLayer.popPaymentDetail" @close="btmLayer.popPaymentDetail = false"/>
+    <PopPaymentDetail :visible="btmLayer.PopPaymentDetail" @close="btmLayer.PopPaymentDetail = false"/>
     <!-- 완성차 멤버십카드 -->
     <PopCarMembershipCard :visible="btmLayer.PopCarMembershipCard" @close="btmLayer.PopCarMembershipCard = false"
         @qnaRegistCompleted="alertPopColpleted = true"    
@@ -357,15 +357,15 @@
     <PopQnaDetail :visible="btmLayer.PopQnaDetail" @close="btmLayer.PopQnaDetail = false"/>
     <!-- 약관리스트 -->
     <PopRuleList :visible="btmLayer.PopRuleList" :gbn.sync="ruleGbn" @close="btmLayer.PopRuleList = false" />
-
-
+    
+    
     <!-- 팝업 -->
     <Alert :is-open="alertPopColpleted" @close="alertPopColpleted = false" class="header-title-size2">
         <template slot="header">문의가 등록되었습니다.</template>
         <template slot="body">
           고객센터에서 확인 후 답변드리도록 하겠습니다.<br />
           차지비 서비스 이용에 감사드립니다.
-        </template>
+        </template> 
     </Alert>     
   </div>
 </template>
@@ -509,17 +509,17 @@ export default {
       // 문의내역
       qnaList:[
           {
-              date:'2021- 01-02-03',
+              date:'2021-01-02-03',
               status:'ing',
-              sort:'환불 문의',
+              sort:'환불문의',
           },
           {
-              date:'2021- 01-02-03',
+              date:'2021-01-02-03',
               status:'ing',
               sort:'기타문의',
           },
           {
-              date:'2021- 01-02-03',
+              date:'2021-01-02-03',
               status:'end',
               sort:'충전기 고장신고',
           },

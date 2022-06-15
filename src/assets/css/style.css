@@ -3687,6 +3687,20 @@ i[class*=i-] .svg-prevent {
   font-weight: 700;
 }
 
+.history-list .btn-check {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  right: 0;
+  width: 2.925rem;
+  height: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .history-list .i-arr-right {
   position: absolute;
   top: 50%;
@@ -5843,12 +5857,19 @@ i[class*=i-] .svg-prevent {
 .link-box-list .box {
   position: relative;
   width: 100%;
-  padding: 1.17rem 1.039rem;
+  padding: 1.17rem 3.639rem 1.17rem 1.039rem;
   padding-right: 3.25rem;
   font-size: 0.909rem;
   background: #2A2B2C;
   border-radius: 0.259rem;
   text-align: left;
+}
+
+.link-box-list .box .info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
 }
 
 .link-box-list .box .tit {
@@ -5868,11 +5889,11 @@ i[class*=i-] .svg-prevent {
 }
 
 .link-box-list .box .status {
-  margin-left: 1.039rem;
+  margin-left: auto;
 }
 
-.link-box-list .box .status.end {
-  color: #8A8B8C;
+.link-box-list .box.end {
+  background: #000;
 }
 
 /* qns-content */
@@ -6127,6 +6148,11 @@ i[class*=i-] .svg-prevent {
 /* refund-wrap */
 .refund-wrap .tit-type1 {
   margin-bottom: 1.039rem;
+  margin-top: 2.079rem;
+}
+
+.refund-wrap .tit-type1:first-child {
+  margin-top: 0;
 }
 
 .refund-wrap .item-selected-text {
@@ -6134,20 +6160,12 @@ i[class*=i-] .svg-prevent {
   text-align: center;
 }
 
-.refund-wrap .item-selected-text + .tit-type1 {
-  margin-top: 2.079rem;
-}
-
-.refund-wrap .item-selected-text + .btn-box {
-  margin-top: 3.899rem;
-}
-
 .refund-wrap .history-list + .tit-type1 {
   margin-top: 2.079rem;
 }
 
-.refund-wrap .using-history + .btn-box {
-  margin-top: 3.899rem;
+.refund-wrap .btn-box {
+  margin-top: 2.079rem;
 }
 
 /* charge-price-guide-wrap */
@@ -6161,7 +6179,6 @@ i[class*=i-] .svg-prevent {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  padding: 0 0.974rem;
   font-size: 0.909rem;
 }
 
@@ -6199,10 +6216,7 @@ i[class*=i-] .svg-prevent {
   flex-direction: column;
   min-height: 3.119rem;
   padding: 0.649rem 0.324rem;
-}
-
-.charge-price-guide-wrap .price-info ul li > * p ~ p {
-  margin-top: 0.324rem;
+  justify-content: space-between;
 }
 
 .charge-price-guide-wrap .price-info ul li .logo {
@@ -6214,7 +6228,8 @@ i[class*=i-] .svg-prevent {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  min-height: 1.949rem;
+  min-height: 2.145rem;
+  padding: 0.194rem 0;
 }
 
 .charge-price-guide-wrap .price-info ul li .company {
@@ -6228,12 +6243,14 @@ i[class*=i-] .svg-prevent {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  min-height: 1.69rem;
+  min-height: 2.145rem;
   text-align: center;
+  line-height: 1rem;
+  align-items: center;
 }
 
-.charge-price-guide-wrap .price-info ul li .company p ~ p {
-  margin-top: 0.259rem;
+.charge-price-guide-wrap .price-info ul li .company p br {
+  line-height: 1rem;
 }
 
 .charge-price-guide-wrap .price-info ul li .info {
@@ -6249,6 +6266,7 @@ i[class*=i-] .svg-prevent {
   flex-direction: row;
   min-height: 1.69rem;
   text-align: center;
+  letter-spacing: 0;
 }
 
 .charge-price-guide-wrap .price-info ul li .info p ~ p {
@@ -6316,18 +6334,18 @@ i[class*=i-] .svg-prevent {
 }
 
 .charge-price-guide-wrap .logo-tardis {
-  width: 2.729rem;
-  height: 1.039rem;
+  width: 4.094rem;
+  height: auto;
 }
 
 .charge-price-guide-wrap .logo-kevit {
-  width: 2.989rem;
-  height: 1.039rem;
+  width: 4.094rem;
+  height: auto;
 }
 
 .charge-price-guide-wrap .logo-kevcs {
-  width: 2.34rem;
-  height: 1.039rem;
+  width: 3.639rem;
+  height: auto;
 }
 
 .charge-price-guide-wrap .logo-cus {

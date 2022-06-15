@@ -366,6 +366,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .history-list .box{position:relative;display:block;width:100%;padding:rem(11) rem(16);background:#2A2B2C;border-radius:rem(4);font-size:rem(14);text-align:left;}
 .history-list .box.on{background:#fff;color:#000;}
 .history-list .box b{@include bold;}
+.history-list .btn-check {@include posCenter(y);right:0;width:rem(45);height:rem(100%);display:flex;flex-direction: column;justify-content:center;align-items:center;}
 .history-list .i-arr-right {@include posCenter(y);right:rem(16);}
 .history-list .check {@include flex(center);width:rem(40);padding-right:rem(8);}
 .history-list .check.w-sm{width:rem(20);}
@@ -797,12 +798,13 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .qna-menu-list li button{padding:rem(6) 0;width:100%;text-align:left;}
 /* link-box-list */
 .link-box-list li ~ li{margin-top:rem(16);}
-.link-box-list .box{position:relative;width:100%;padding:rem(18) rem(16);padding-right:rem(50);font-size:rem(14);background:#2A2B2C;border-radius:rem(4);text-align:left;}
+.link-box-list .box{position:relative;width:100%;padding:rem(18) rem(56) rem(18) rem(16);padding-right:rem(50);font-size:rem(14);background:#2A2B2C;border-radius:rem(4);text-align:left;}
+.link-box-list .box .info{@include flex;}
 .link-box-list .box .tit{font-size:rem(14);}
 .link-box-list .box .i-arr-right{position:absolute;top:50%;right:rem(26);transform:translateY(-50%);-webkit-transform:translateY(-50%);}
 .link-box-list .box p ~ p{margin-top:rem(8);}
-.link-box-list .box .status{margin-left:rem(16);}
-.link-box-list .box .status.end{color:#8A8B8C;}
+.link-box-list .box .status{margin-left:auto;}
+.link-box-list .box.end{background:#000;}
 /* qns-content */
 .qna-detail .box{width:calc(100% - rem(46));padding:rem(24) rem(12);background:#fff;}
 .qna-detail .box ~ .box{margin-top:rem(24);}
@@ -858,28 +860,26 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .photo-upload .btn-upload{position:relative;margin-top:rem(14);}
 .photo-upload .btn-upload input{position:absolute;top:0;left:0;opacity: 0;width:100%;height:100%;}
 /* refund-wrap */
-.refund-wrap .tit-type1{margin-bottom:rem(16);}
+.refund-wrap .tit-type1{margin-bottom:rem(16);margin-top:rem(32);}
+.refund-wrap .tit-type1:first-child{margin-top:0;}
 .refund-wrap .item-selected-text{font-size:rem(16);text-align:center;}
-.refund-wrap .item-selected-text + .tit-type1{margin-top:rem(32);}
-.refund-wrap .item-selected-text + .btn-box{margin-top:rem(60);}
 .refund-wrap .history-list + .tit-type1{margin-top:rem(32);}
-.refund-wrap .using-history + .btn-box{margin-top:rem(60);}
+.refund-wrap .btn-box{margin-top:rem(32);}
 /* charge-price-guide-wrap */
 .charge-price-guide-wrap .tit-type2{margin-bottom:rem(16);margin-top:rem(30);}
-.charge-price-guide-wrap .guide-info{@include flex;padding:0 rem(15);font-size:rem(14);}
+.charge-price-guide-wrap .guide-info{@include flex;font-size:rem(14);}
 .charge-price-guide-wrap .guide-info .right{margin-left:auto;}
 .charge-price-guide-wrap .price-info{background:#000;color:#5A5B5C;border:1px solid rgba(0, 0, 0, 0.5);}
 .charge-price-guide-wrap .price-info ul li{@include flex;background:#fff;border-radius:rem(8);font-size:rem(12);align-items: stretch;letter-spacing: -0.05em;}
 .charge-price-guide-wrap .price-info ul li ~ li{margin-top:rem(16);}
-.charge-price-guide-wrap .price-info ul li > * {@include flex(center);flex-direction:column;min-height: rem(48);padding:rem(10) rem(5);}
-.charge-price-guide-wrap .price-info ul li > * p ~ p {margin-top:rem(5);}
+.charge-price-guide-wrap .price-info ul li > * {@include flex(center);flex-direction:column;min-height: rem(48);padding:rem(10) rem(5);justify-content: space-between;}
 .charge-price-guide-wrap .price-info ul li .logo{width:rem(80);}
-.charge-price-guide-wrap .price-info ul li .logo .img{@include flex(center);min-height:rem(30);}
+.charge-price-guide-wrap .price-info ul li .logo .img{@include flex(center);min-height:rem(33);padding:rem(3) 0;}
 .charge-price-guide-wrap .price-info ul li .company{width:39%;box-shadow: inset 1px 0 rem(4) rgba(0, 0, 0, 0.25);letter-spacing: -0.05em;}
-.charge-price-guide-wrap .price-info ul li .company p{@include flex;min-height:rem(26);text-align:center;}
-.charge-price-guide-wrap .price-info ul li .company p ~ p{margin-top:rem(4);}
+.charge-price-guide-wrap .price-info ul li .company p{@include flex;min-height:rem(33);text-align:center;line-height:1rem;align-items: center;}
+.charge-price-guide-wrap .price-info ul li .company p br{line-height:1rem;}
 .charge-price-guide-wrap .price-info ul li .info{flex:1;box-shadow: inset 1px 0 rem(4) rgba(0, 0, 0, 0.25);letter-spacing: -0.05em;}
-.charge-price-guide-wrap .price-info ul li .info p{@include flex;min-height:rem(26);text-align:center;}
+.charge-price-guide-wrap .price-info ul li .info p{@include flex;min-height:rem(26);text-align:center;letter-spacing: 0;}
 .charge-price-guide-wrap .price-info ul li .info p ~ p{margin-top:rem(4);}
 .charge-price-guide-wrap .logo-chargev{width:rem(64);height:rem(6);} 
 .charge-price-guide-wrap .logo-jeju{width:rem(38);height:rem(15);}
@@ -893,9 +893,9 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .charge-price-guide-wrap .logo-evolt{width:rem(46);height:rem(16);}
 .charge-price-guide-wrap .logo-evz{width:rem(14);height:rem(16);}
 .charge-price-guide-wrap .logo-klin{width:rem(52);height:rem(16);}
-.charge-price-guide-wrap .logo-tardis{width:rem(42);height:rem(16);}
-.charge-price-guide-wrap .logo-kevit{width:rem(46);height:rem(16);}
-.charge-price-guide-wrap .logo-kevcs{width:rem(36);height:rem(16);}
+.charge-price-guide-wrap .logo-tardis{width:rem(63);height:auto;}
+.charge-price-guide-wrap .logo-kevit{width:rem(63);height:auto;}
+.charge-price-guide-wrap .logo-kevcs{width:rem(56);height:auto;}
 .charge-price-guide-wrap .logo-cus{width:rem(27);height:rem(16);}
 .charge-price-guide-wrap .logo-ev{width:rem(38);height:rem(13);}
 .charge-price-guide-wrap .logo-gntel{width:rem(38);height:rem(11);}
