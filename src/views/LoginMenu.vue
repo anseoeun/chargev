@@ -12,7 +12,7 @@
           <li><button class="btn-type1 st2" @click="alertPop = true">법인회원가입</button></li>
         </ul>
         <ul v-else class="menu-list v-center">
-          <li><button class="btn-type1 st2">로그인</button></li>
+          <li><button class="btn-type1 st2" @click="alertTelPop = true">로그인</button></li>
           <li><button class="btn-type1 st2">회원가입</button></li>
           <li><button class="btn-type1 st2">둘러보기</button></li>
         </ul>
@@ -26,7 +26,17 @@
           가입이 가능합니다.<br />
           홈페이지 주소: www.chargev.co.kr
         </template>
-    </Alert>        
+    </Alert>   
+
+    <!-- 팝업 -->
+    <Alert :is-open="alertTelPop" @close="alertTelPop = false">      
+        <template slot="header">전화번호 인증 안내</template>
+        <template slot="body">
+          차지비 신규앱 최초 로그인 시<br />
+          전화번호 인증을 1회 진행합니다.<br />
+          약관 동의 후 회원 정보를 확인해주세요.
+        </template>
+    </Alert>            
   </div>
 </template>
 <script>
@@ -35,6 +45,7 @@ export default {
       return{
         //팝업
         alertPop: false,   
+        alertTelPop: false,
       }
     },
     computed: {

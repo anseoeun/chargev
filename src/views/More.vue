@@ -235,9 +235,6 @@
                 </template>
             </UpContent>
           </splide-slide>
-          <splide-slide class="no-scroll">
-              <button class="btn-type1 st2" @click="btmLayer.PopCaseAdd = true">유형선택 추가 팝업</button>
-          </splide-slide>
           <splide-slide>
             <div class="qna-wrap">
                 <h2 class="tit-type1">문의하기</h2>
@@ -329,8 +326,7 @@
     <PopBlumembersAdd :visible="btmLayer.PopBlumembersAdd" @close="btmLayer.PopBlumembersAdd = false"/>
     <!-- 차량정보 -->
     <PopCarInfoAdd :visible="btmLayer.PopCarInfoAdd" @close="btmLayer.PopCarInfoAdd = false"/>
-    <!-- 유형선택 -->
-    <PopCaseAdd :visible="btmLayer.PopCaseAdd" @close="btmLayer.PopCaseAdd = false"/>
+
     <!-- 문의내역리스트 -->
     <PopQnaList :visible="btmLayer.PopQnaList" :gbn.sync="qnaGbn" @close="btmLayer.PopQnaList = false"
         @chargerBreakdownApply="btmLayer.PopBreakdownReport = true;"
@@ -378,7 +374,6 @@ import PopCouponRegist from '@/views/PopCouponRegist'
 import PopPaymentAdd from '@/views/PopPaymentAdd'
 import PopBlumembersAdd from '@/views/PopBlumembersAdd'
 import PopCarInfoAdd from '@/views/PopCarInfoAdd'
-import PopCaseAdd from '@/views/PopCaseAdd'
 import PopQnaList from '@/views/PopQnaList'
 import PopBreakdownReport from '@/views/PopBreakdownReport'
 import PopRefund from '@/views/PopRefund'
@@ -395,7 +390,6 @@ export default {
     PopPaymentAdd,
     PopBlumembersAdd,
     PopCarInfoAdd,
-    PopCaseAdd,
     PopQnaList,
     PopBreakdownReport,
     PopRefund,
@@ -547,7 +541,6 @@ export default {
         PopPaymentAdd: false,
         PopBlumembersAdd: false,
         PopCarInfoAdd: false,
-        PopCaseAdd: false,
         PopQnaList: false,
         PopBreakdownReport: false,
         PopRefund: false,

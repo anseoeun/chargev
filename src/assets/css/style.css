@@ -2492,6 +2492,10 @@ h1.hidden {
   login
 *********************************/
 /* login-wrap */
+.login-wrap {
+  padding: 0 1.559rem 3.25rem;
+}
+
 .login-wrap .logo-chargev {
   padding-top: 3.899rem;
   text-align: center;
@@ -2499,13 +2503,14 @@ h1.hidden {
 }
 
 .login-wrap .min-fix {
-  min-height: 20.799rem;
+  min-height: 22.099rem;
 }
 
 .login-wrap .info-text {
   font-size: 0.909rem;
   margin-top: 1.949rem;
   text-align: center;
+  line-height: 1.6;
 }
 
 .login-wrap .slider-page > .splide > .splide__track > .splide__list > .splide__slide {
@@ -2515,11 +2520,11 @@ h1.hidden {
 
 /* login-menu-wrap */
 .login-menu-wrap {
-  padding: 0 1.625rem 3.25rem;
+  padding: 0 1.559rem 3.25rem;
 }
 
 .login-menu-wrap .logo-chargev {
-  padding-top: 7.799rem;
+  padding-top: 3.899rem;
   text-align: center;
 }
 
@@ -2541,7 +2546,7 @@ h1.hidden {
 }
 
 .login-rule-list-wrap .logo-chargev {
-  padding-top: 7.799rem;
+  padding-top: 3.899rem;
   text-align: center;
 }
 
@@ -2594,7 +2599,6 @@ input[type=text], input[type=password], input[type=number], textarea {
   outline: none;
   color: #fff;
   background: none;
-  font-weight: 700;
   -ms-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
@@ -2612,7 +2616,6 @@ input[type=text], input[type=password], input[type=number], textarea {
   -webkit-transform: translateY(-50%);
   right: 0;
   color: #CACBCC;
-  font-weight: 700;
 }
 
 .inp-pin {
@@ -3437,7 +3440,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .grid-list-menu > .row ~ .row {
-  margin-top: 1.43rem;
+  margin-top: 1.494rem;
 }
 
 .grid-list-menu > .row .check .txt {
@@ -5899,7 +5902,7 @@ i[class*=i-] .svg-prevent {
 /* qns-content */
 .qna-detail .box {
   width: calc(100% - 2.989rem);
-  padding: 1.559rem 0.779rem;
+  padding: 1.559rem 1.039rem;
   background: #fff;
 }
 
@@ -5908,11 +5911,16 @@ i[class*=i-] .svg-prevent {
 }
 
 .qna-detail .box .tit {
-  font-size: 1.17rem;
-  color: #000;
+  font-size: 1.039rem;
+  color: #5A5B5C;
   font-weight: 700;
   display: block;
   margin-bottom: 1.039rem;
+}
+
+.qna-detail .box .photo {
+  border-radius: 0.519rem;
+  overflow: hidden;
 }
 
 .qna-detail .box.question {
@@ -5926,55 +5934,25 @@ i[class*=i-] .svg-prevent {
 
 .qna-detail .box .label {
   color: #8A8B8C;
-  font-size: 0.909rem;
-  font-weight: 700;
+  font-size: 0.779rem;
 }
 
-.qna-detail .box .txt {
-  color: #000;
-  font-size: 0.909rem;
+.qna-detail .box .row-wrap .row ~ .row {
+  margin-top: 0.649rem;
 }
 
-.qna-detail .box .qna-qustion {
-  display: table;
-  width: 100%;
-}
-
-.qna-detail .box .qna-qustion .row {
-  display: table-row;
-}
-
-.qna-detail .box .qna-qustion .row .cell {
-  display: table-cell;
-  padding: 0.259rem;
-}
-
-.qna-detail .box .qna-qustion .row:first-child .cell {
+.qna-detail .box .row-wrap .row:first-child .cell {
   padding-top: 0;
 }
 
-.qna-detail .box .qna-qustion .row .cell.label {
+.qna-detail .box .row-wrap .row .cell.label {
   white-space: nowrap;
 }
 
-.qna-detail .box .qna-qustion .row .cell:first-child {
-  padding-left: 0;
-}
-
-.qna-detail .box .qna-qustion .row .cell:last-child {
-  padding-right: 0;
-}
-
-.qna-detail .box .qna-answer .txt {
-  margin-top: 1.559rem;
-}
-
-.qna-detail .box .qna-answer .txt {
-  margin-top: 1.559rem;
-}
-
-.qna-detail .box .photo-list li img {
-  height: 3.054rem;
+.qna-detail .box .row-wrap .row .cell.txt {
+  margin-top: 0.194rem;
+  color: #5A5B5C;
+  font-size: 0.909rem;
 }
 
 .qna-detail .box .photo-list li ~ li {

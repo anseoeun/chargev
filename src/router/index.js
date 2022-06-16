@@ -18,12 +18,14 @@ const routes = [
   // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
 	{ path: '/login', component: () => import('@/views/Login.vue')},
-	{ path: '/LoginPin', component: () => import('@/views/LoginPin.vue')},
-	{ path: '/join', component: () => import('@/views/Join.vue')},
 	{ path: '/loginMenu', meta: {back:false }, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/LoginMenuMember', meta:{user:'member'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
+	{ path: '/selfAuth', component: () => import('@/views/SelfAuth.vue')},
+
+	{ path: '/LoginPin', component: () => import('@/views/LoginPin.vue')},
+	{ path: '/join', component: () => import('@/views/Join.vue')},
   // 메인
   { path: '/main', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/Main.vue')},
   // 알림

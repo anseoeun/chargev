@@ -80,9 +80,10 @@ export default {
   },
   methods: {
     setAllCheck(){
-      let num = this.ruleChecked.length;
+      let num = this.ruleChecked.length - 1;
+      let check = !this.ruleChecked.includes(false) ? false : true
       for(let i=0;i<=num;i++){
-        this.$set(this.ruleChecked, i, true);
+        this.$set(this.ruleChecked, i, check);
       }
     },
   }

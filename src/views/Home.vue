@@ -54,14 +54,18 @@ export default {
           'sample/alert': '생체인식사용 팝업',
           // 스플래시
           'splash': '스플래시',
+
           // 로그인
           'login': '로그인',
-          'LoginPin': '로그인-기존사용자',
-          'join': '회원가입',          
-          'LoginMenu': '로그인메뉴',
+          'LoginMenu': '로그인메뉴',          
           'LoginMenuMember': '로그인메뉴 멤버',
           'loginMenuCoper': '로그인메뉴(법인)',
           'loginRuleList': '로그인약관',
+          'SelfAuth': '본인인증',
+
+          'LoginPin': '로그인-기존사용자',
+          'join': '회원가입',        
+
           // 메인
           'main': '메인',
           // 알림

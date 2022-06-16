@@ -11,9 +11,12 @@
           </div>
       </div>
       <div class="row">
-          <div class="input">
+          <div class="input auto">
               <Input type="number" v-model="form.tel" placeholder="전화번호" maxlength="11" />
           </div>
+          <div class="right">
+            <button class="btn" @click="setForm = true">인증번호 발송</button>
+          </div>          
       </div>
       <div class="row">
           <div class="input inp-certify">
@@ -23,8 +26,8 @@
       </div>
     </div>
     <div class="btn-box">
-        <button v-if="!setForm" class="btn-type1 st2" @click="setForm = true">인증번호 발송</button>
-        <button v-else class="btn-type1 st2" @click="$emit('complete')">확인</button>
+        <button class="btn-type1 st2" @click="$emit('complete')">확인</button>
+        <button class="btn-type1 st2">인증값 찾기</button>
     </div>
 </div>
 </template>
