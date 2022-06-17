@@ -62,6 +62,7 @@ export default {
           'loginMenuCoper': '로그인메뉴(법인)',
           'loginRuleList': '로그인약관',
           'SelfAuth': '본인인증',
+          'CarAuth': '차량인증',
 
           'LoginPin': '로그인-기존사용자',
           'join': '회원가입',        

@@ -103,6 +103,7 @@ h1.hidden{  border: 0 !important; clip: rect(1px, 1px, 1px, 1px) !important; -we
 .login-wrap .min-fix{min-height:rem(340);}
 .login-wrap .info-text{font-size:rem(14);margin-top:rem(30);text-align:center;line-height:1.6;}
 .login-wrap .slider-page > .splide > .splide__track > .splide__list > .splide__slide{padding:0 rem(24);padding-bottom:rem(200);}
+.login-wrap .btn-box [class*=btn-type] ~ [class*=btn-type]{margin-top:rem(16);}
 /* login-menu-wrap */
 .login-menu-wrap{padding:0 rem(24) rem(50);}
 .login-menu-wrap .logo-chargev{padding-top:rem(60);text-align:center;}
@@ -634,9 +635,11 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .card-wrap .card5 .car-info p ~ p{margin-top:rem(8);}
 .card-wrap .card5 .number{margin-top:rem(16);font-size:rem(22);letter-spacing: 0;display:flex;justify-content: space-between;}
 .card-wrap .card5 .number span{letter-spacing: 0;}
+.card-wrap .card5 .text{font-size:rem(16);text-align:left;}
+.card-wrap .card5 .text ~ .text{margin-top:rem(16);}
 // .card-wrap .card5 .company-logo{position:absolute;top:rem(16);left:rem(16);}
 .card-wrap .card5 .add-car-txt{font-size:rem(16) !important;margin-top:0 !important;}
-.card-wrap .card5 .point-price{text-align: center;font-size:rem(24);@include bold;padding-top:rem(35);letter-spacing: 0.2em;}
+.card-wrap .card5 .point-price{text-align: center;font-size:rem(24);@include bold;letter-spacing: 0.2em;@include flex(center);}
 .card-wrap .card5 .btn-box-inner{margin-top:rem(15);}
 .card-wrap .card5 .btn-box-inner .btn-type1{position:relative;}
 .card-wrap .card5 .btn-box-inner .btn-type1 .i-check{position:absolute;top:50%;right:rem(18);transform:translateY(-50%);-webkit-transform:translateY(-50%);}
@@ -653,6 +656,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .card-wrap .slide-list li ~ li{padding-left:rem(16);}
 .card-wrap .slide-list li:first-child{padding-left:rem(48);}
 .card-wrap .slide-list li:last-child{padding-right:rem(48);}
+.card-wrap + .btn-box{margin-top:rem(16);}
 /* car-manage-wrap */
 .car-manage-wrap .tit-type1 + .card-wrap{margin-top:rem(16);}
 .car-manage-wrap .card-wrap .btn-box{margin-top:rem(12s);}

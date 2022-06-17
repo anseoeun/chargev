@@ -23,6 +23,7 @@ const routes = [
 	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
 	{ path: '/selfAuth', component: () => import('@/views/SelfAuth.vue')},
+	{ path: '/carAuth', component: () => import('@/views/CarAuth.vue')},
 
 	{ path: '/LoginPin', component: () => import('@/views/LoginPin.vue')},
 	{ path: '/join', component: () => import('@/views/Join.vue')},

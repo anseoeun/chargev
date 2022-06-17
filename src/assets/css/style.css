@@ -2518,6 +2518,10 @@ h1.hidden {
   padding-bottom: 13rem;
 }
 
+.login-wrap .btn-box [class*=btn-type] ~ [class*=btn-type] {
+  margin-top: 1.039rem;
+}
+
 /* login-menu-wrap */
 .login-menu-wrap {
   padding: 0 1.559rem 3.25rem;
@@ -5079,6 +5083,15 @@ i[class*=i-] .svg-prevent {
   letter-spacing: 0;
 }
 
+.card-wrap .card5 .text {
+  font-size: 1.039rem;
+  text-align: left;
+}
+
+.card-wrap .card5 .text ~ .text {
+  margin-top: 1.039rem;
+}
+
 .card-wrap .card5 .add-car-txt {
   font-size: 1.039rem !important;
   margin-top: 0 !important;
@@ -5088,8 +5101,11 @@ i[class*=i-] .svg-prevent {
   text-align: center;
   font-size: 1.559rem;
   font-weight: 700;
-  padding-top: 2.275rem;
   letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .card-wrap .card5 .btn-box-inner {
@@ -5179,6 +5195,10 @@ i[class*=i-] .svg-prevent {
 
 .card-wrap .slide-list li:last-child {
   padding-right: 3.119rem;
+}
+
+.card-wrap + .btn-box {
+  margin-top: 1.039rem;
 }
 
 /* car-manage-wrap */
