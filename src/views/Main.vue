@@ -63,7 +63,7 @@
                   <h2 class="tit-type1">충전포인트</h2>
                   <div class="card5">
                       <div class="point-price">
-                        총<span>360,000</span>원
+                        총&nbsp;<span>360,000</span>원
                       </div>
                       <div class="btn-box-inner">
                           <button class="btn-type1 st2">상세확인</button>

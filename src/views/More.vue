@@ -93,12 +93,12 @@
             </div>
           </splide-slide>
           <splide-slide class="no-scroll">
-            <UpContent class="charge-list-wrap"  :upHide="currentTab == 'payment' ? false : true">
+            <UpContent class="charge-list-wrap">
                 <template slot="hide">
                     <div class="tab-type1 center">
                         <button @click="currentTab = 'point';cardSliderOpt.start = 0" :class="{on: currentTab === 'point'}">충전포인트</button>
                         <button @click="currentTab = 'card';cardSliderOpt.start = 0" :class="{on: currentTab === 'card'}">신용카드</button>
-                        <button @click="currentTab = 'payment'" :class="{on: currentTab === 'payment'}">간편결제</button>
+                        <button @click="currentTab = 'payment'" :class="{on: currentTab === 'payment'}">기타결제수단</button>
                     </div>
                     <div class="card-wrap">
                         <Carousel v-if="currentTab === 'point'" class="slide-list" :content="true" :options="cardSliderOpt" :key="currentTab">
@@ -226,9 +226,8 @@
                         </div>
                     </div>
                   </template>
+                  <template slot="tit">차량별 이용 기록</template>
                   <template slot="up">
-                    <!-- 차량별 이용 기록 -->
-                    <h2 class="tit-type1">차량별 이용 기록</h2>
                     <UsingHistory
                         @detailUsingHistory="$set(btmLayer, 'popPaymentDetail', true);"
                     />

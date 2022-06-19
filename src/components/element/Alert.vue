@@ -5,6 +5,7 @@
     class="alert-popup">
       <div class="dim" v-if="isDim"></div>
       <div class="popup">
+        <button v-if="close" class="btn-close" @click="$emit('close');"><Icon type="close" /></button>        
           <div v-if="$slots.header" class="pop-header">
               <div class="pop-tit">
                 <slot name="header" />
@@ -36,6 +37,10 @@ export default {
       default: true
     },
     confirm:{
+      type: Boolean,
+      default: true
+    },
+    close:{
       type: Boolean,
       default: true
     },

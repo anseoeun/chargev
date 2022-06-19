@@ -1,5 +1,5 @@
 <template>
-    <BtmLayer :visible="visible" @close="close" class="pop-charge" @opended="opended">
+    <BtmLayer :visible="visible" @close="close" class="pop-charge max" @opended="opended">
       <template slot="content">
         <button class="btn-layer-close" @click="close"><Icon type="close" /></button>      
         <div class="cont-scroll">

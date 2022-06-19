@@ -1,7 +1,7 @@
 <template>
     <div class="form-box-wrap">
         <h2 class="tit-type1 c-white">{{ title }}</h2>
-        <template v-if="carIniputStatus == 'basic'">
+        <template v-if="carIniputStatus == 'regist-person'">
             <div class="form-box">
                 <div class="row">
                     <div class="input">
@@ -15,14 +15,61 @@
                 </div>
             </div>
             <div class="btn-box">
-                <button  class="btn-type1 st2"  @click="carIniputStatus = 'completion';title='차량등록';">찾기</button>
-                <button class="btn-type1 st2">공유키 사용(법인차량 등록)</button>
+                <button  class="btn-type1 st2"  @click="setStatus('completion');title='차량등록';">찾기</button>
+                <button class="btn-type1 st2" @click="inconsistencyPop = true">찾기(소유자명 불일치)</button>
+                <button class="btn-type1 st2" @click="setStatus('regist-shareKey')">공유키 사용(법인차량 등록)</button>
+            </div>
+        </template>
+
+        <template v-if="carIniputStatus == 'regist-coper'">
+          <div class="form-box-wrap">
+            <div class="form-box">
+              <div class="row">
+                  <div class="input auto">
+                      <Input type="text" v-model="form.carnum" placeholder="차량번호" />
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="input auto">
+                      <Input type="text" v-model="form.name" placeholder="소유자명(대표자)" />
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="input auto">
+                      <Input type="text" v-model="form.coperNum" placeholder="법인등록번호" />
+                  </div>
+              </div>
+            </div>
+            <div class="btn-box">
+                <button class="btn-type1 st2" @click="status = 'completion'">찾기</button>
+                <button class="btn-type1 st2" @click="copeerCheckPop = true">찾기(법인명 확인필요)</button>
+            </div>
+          </div>
+        </template>
+
+        <template v-if="carIniputStatus == 'regist-shareKey'">
+            <div class="form-box-wrap">
+                <div class="form-box">
+                <div class="row">
+                    <div class="input auto">
+                        <Input type="text" v-model="form.shareKey" placeholder="공유키 입력" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input auto">
+                        <Input type="text" v-model="form.coperName" placeholder="법인명 입력" />
+                    </div>
+                </div>
+                </div>
+                <div class="btn-box">
+                    <button class="btn-type1 st2" @click="setStatus('completion')">찾기</button>
+                </div>
             </div>
         </template>
 
         <template v-if="carIniputStatus == 'completion'">
             <div class="card-wrap">
-                <div class="card5" :class="{on: chargeSelected}">
+                <div class="card5">
                     <div class="car-info-wrap">
                         <Icon type="logo-bmw2" class="company-logo" />
                         <div class="car-info">
@@ -33,109 +80,26 @@
                 </div>
             </div>
             <div class="btn-box">
-                <button class="btn-type1 st2" @click="carIniputStatus = 'cardRegist'">카드등록</button>
+                <button class="btn-type1 st2" @click="$emit('cardRegist')">카드등록</button>
             </div>
         </template>
 
-        <template v-if="carIniputStatus == 'cardRegist'">
-            <div class="form-box">
-                <div class="row">
-                    <div class="input">
-                        <Input type="text" v-model="form.memcardnum" placeholder="멤버십카드번호" />
-                    </div>
-                </div>
-            </div>
-            <div class="btn-box">
-                <button class="btn-type1 st2" @click="confirm;">멤버십카드 등록</button>
-                <button class="btn-type1 st2" @click="confirm;">멤버십카드 없음</button>
-            </div>
-        </template>        
-
-        <!-- <template v-if="carIniputStatus == 'completion' && completeType == 'list'">
-            <div class="card-wrap">
-                <Carousel class="slide-list" :content="true" :options="carSliderOpt">
-                    <template slot="content">
-                        <splide-slide v-for="(item, index) in carList" :key="index">
-                            <div class="card5" :class="{on: item.selected}">
-                                <div class="car-info-wrap">
-                                    <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
-                                    <Icon v-if="item.company === 'benz'" type="logo-benz" :src="require('@/assets/images/logo/logo-me.png')" class="company-logo" />
-                                    <div class="car-info">
-                                        <p class="space-txt"><span>{{ item.carInfo[0] }}</span><span>{{ item.carInfo[1] }}</span></p>
-                                        <p>{{ item.carInfo[2] }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </splide-slide>
-                        <splide-slide>
-                            <button class="card5" @click="btmLayer.PopCarInfoAdd = true">
-                                <div class="center">
-                                    <Icon type="add-plus" />
-                                    <p class="txt">차량추가</p>
-                                </div>
-                            </button>
-                        </splide-slide>
-                    </template>
-                </Carousel>
-                <div class="btn-box">
-                    <button class="btn-type1 st2" @click="confirm">확인</button>
-                </div>
-            </div>
-        </template> -->
-
-        <!-- <template v-if="carIniputStatus == 'corperCarRegist'">
-            <div class="form-box"> 
-                <div class="row">
-                    <div class="input">
-                        <Input type="number" v-model="form.key" placeholder="공유키 8자리 입력" maxlength="8" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input">
-                        <Input type="number" v-model="form.tel" placeholder="전화번호" />
-                    </div>
-                </div>
-                <div class="row inp-file">
-                    <input type="file" @change="handleFileChange($event)" />
-                    <div class="input">
-                        <Input type="text" v-model="form.file" placeholder="사업자등록증" />
-                    </div>
-                    <div class="right">
-                        <button class="btn">첨부하기</button>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-box">
-                <button class="btn-type1 st2" @click="carIniputStatus = 'corperCarRegist2';$emit('status', carIniputStatus)">등록하기</button>
-            </div>
-        </template>         -->
-
-        <!-- <template v-if="carIniputStatus == 'corperCarRegist2'">
-            <div class="form-box"> 
-                <div class="row">
-                    <div class="input">
-                        <Input type="number" v-model="form.key" placeholder="공유키 8자리 입력" maxlength="8" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input">
-                        <Input type="number" v-model="form.tel" placeholder="기존 소유자 명 입력" />
-                    </div>
-                </div>
-                <div class="row inp-file">
-                    <input type="file" @change="handleFileChange($event)" />
-                    <div class="input">
-                        <Input type="text" v-model="form.file" placeholder="가족관계증명서" />
-                    </div>
-                    <div class="right">
-                        <button class="btn">첨부하기</button>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-box">
-                <button class="btn-type1 st2" >등록하기</button>
-            </div>
-        </template>         -->
+        <!-- 팝업 -->
+        <Alert :is-open="inconsistencyPop" @close="inconsistencyPop = false" :close="true" class="header-title-size2">
+            <template slot="header">소유자명 불일치</template>
+            <template slot="body">
+            소유자가 일치하지 않습니다.
+            <br />차량정보 등록은 실 소유자만 가능합니다.
+            </template>
+        </Alert>
+        <Alert :is-open="copeerCheckPop" @close="copeerCheckPop = false" :close="true" class="header-title-size2">      
+            <template slot="header">법인명 확인필요</template>
+            <template slot="body">
+                법인명이 일치하지 않습니다.
+                <br />자동차등록증상의 법인명을
+                <br />정확하게 입력바랍니다.  ex) (주)차지비
+            </template>
+        </Alert>        
     </div>
 </template>
 
@@ -145,40 +109,18 @@ export default {
  props:{
     title:{
         type: String,
-        default: '차량 등록'
-    },
-    simpleRecognition:{
-        type: Boolean,
-        default: false
-    },
-    corper:{
-        type: Boolean,
-        default: false
-    },
-    completeType:{
-        type: String,
-        default: ''
-    },
+        default: '차량등록'
+    }
  },
   data(){
     return{
+      carIniputStatus: 'regist-person',
       form:{
         carnum: '',
         user: '',
-        memcardnum: '',
-        key: '',
-        tel: '',
-        file: ''
+        shareKey: '',
+        coperNum: '',
       },
-      carIniputStatus: 'basic',
-      chargeSelected: false,
-
-      // 차량관리
-      carSliderOpt: {
-        autoWidth: true,
-        perMove:1,
-        pagination:false,
-      },      
       carList: [
           {
               company: 'bmw',
@@ -193,16 +135,15 @@ export default {
               selected: false,
           },
       ],      
+      inconsistencyPop: false,
+      copeerCheckPop: false
     }
   },
-  methods: {
-      confirm(){
-          this.$emit('confirm', this.form);
-      },
-      handleFileChange(e){
-          this.$set(this.form, 'file', e.target.value)
-        //  this.form.file= e.target.value
-      }
+  methods:{
+    setStatus(status){
+        this.carIniputStatus = status;
+        this.$emit('status', status);
+    }
   }
 }
 </script>

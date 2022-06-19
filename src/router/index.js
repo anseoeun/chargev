@@ -34,9 +34,13 @@ const routes = [
   // 메인
   { path: '/main', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/Main.vue')},
   // 알림
-	{ path: '/alarm', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Alarm.vue')},
+	{ path: '/alarm', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/Alarm.vue')},
+  // 충전소
+	{ path: '/chargeStation', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/ChargeStation.vue')},
   // 충전소지도
 	{ path: '/chargemap', meta: {layout: 'Default', menu:'map', layoutClass:"layout-map" }, component: () => import('@/views/ChargeMap.vue')},
+  // 충전소검색
+	{ path: '/chargeSearch', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/ChargeSearch.vue')},
   // 충전
 	{ path: '/charge', meta: {layout: 'Default', menu:'charge' }, component: () => import('@/views/Charge.vue')},
   // 충전중

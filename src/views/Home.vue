@@ -79,8 +79,12 @@ export default {
           'main': '메인',
           // 알림
           'alarm': '알림',
+          // 충전소검색
+          'chargeSearch': '충전소검색',
           // 충전소지도
           'chargemap': '충전소지도',
+          // 충전소
+          'chargeStation': '충전소',
           // 충전
           'charge': '충전',
           // 충전중

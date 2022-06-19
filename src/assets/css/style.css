@@ -2887,6 +2887,10 @@ i[class*=i-] .svg-prevent {
   background: rgba(0, 0, 0, 0);
 }
 
+.i-map-favorite.on svg path:first-child {
+  fill: #92FF44;
+}
+
 /* color */
 .c-white {
   color: #fff !important;
@@ -2947,6 +2951,10 @@ i[class*=i-] .svg-prevent {
   justify-content: center;
   flex-direction: row;
   margin: 2.079rem auto;
+}
+
+.space-txt span ~ span {
+  margin-left: 0.519rem;
 }
 
 /* list */
@@ -3519,6 +3527,10 @@ i[class*=i-] .svg-prevent {
   -webkit-transform: translateY(-50%) rotate(-180deg);
 }
 
+.form-box-wrap + .btn-toggle-slide {
+  margin-top: 2.209rem !important;
+}
+
 /* ========================================
   content
 =========================================== */
@@ -3811,7 +3823,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .history-list2 li .box .grid-list .row ~ .row {
-  margin-top: 0.194rem;
+  margin-top: 0.324rem;
 }
 
 .history-list2 li .box .txt-status {
@@ -4003,7 +4015,11 @@ i[class*=i-] .svg-prevent {
 
 /* price-slider */
 .price-slider {
-  padding: 2.275rem 0.649rem 0;
+  padding: 2.275rem 0 0;
+}
+
+html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
+  right: -0.78rem !important;
 }
 
 .price-slider .noUi-horizontal {
@@ -4019,6 +4035,7 @@ i[class*=i-] .svg-prevent {
   border: none;
   color: #fff;
   font-size: 0.909rem;
+  padding: 0 0 0.129rem 0;
 }
 
 .price-slider .noUi-horizontal .noUi-handle {
@@ -4039,6 +4056,8 @@ i[class*=i-] .svg-prevent {
 .price-slider .noUi-horizontal .noUi-pips-horizontal {
   height: 1.949rem;
   padding: 0;
+  margin-top: 0.194rem;
+  width: 100%;
 }
 
 .price-slider .noUi-horizontal .noUi-marker-horizontal.noUi-marker-large {
@@ -4051,7 +4070,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .price-slider .noUi-horizontal .noUi-connect {
-  height: 0.259rem;
+  height: 0.454rem;
   background: #8FFF44;
 }
 
@@ -4279,13 +4298,18 @@ i[class*=i-] .svg-prevent {
   margin-top: 1.039rem;
 }
 
-/* charge-wrap */
-.charge-wrap .btn-toggle-slide:not(:first-child) {
-  margin-top: 2.209rem;
+.charge-wrap .btn-box > [class*=btn-type] ~ [class*=btn-type] {
+  margin-top: 1.039rem;
 }
 
-.charge-wrap .btn-toggle-slide {
-  margin-bottom: 2.209rem;
+/* charge-wrap */
+.charge-wrap .btn-toggle-slide:not(:first-child) {
+  margin-top: 1.299rem;
+}
+
+.charge-wrap .btn-toggle-slide + div {
+  padding-top: 1.17rem;
+  padding-bottom: 0.779rem;
 }
 
 .charge-wrap .text-charge-status {
@@ -4558,18 +4582,21 @@ i[class*=i-] .svg-prevent {
   width: 100%;
   text-align: center;
   font-size: 0.909rem;
+  white-space: nowrap;
 }
 
 .calendar .month-slide .splide__slide button {
   width: 100%;
   text-align: center;
   font-size: 0.909rem;
+  white-space: nowrap;
 }
 
 .calendar .date-slide .splide__slide button {
   width: 2.599rem;
   text-align: center;
   font-size: 1.039rem;
+  white-space: nowrap;
 }
 
 .calendar .date-slide .date-day {
@@ -4600,6 +4627,10 @@ i[class*=i-] .svg-prevent {
 
 .calendar .date-slide .on .date-day .date {
   color: #000;
+}
+
+.calendar .date-slide .on .account {
+  color: #fff;
 }
 
 .calendar + .history-list {
@@ -4685,7 +4716,7 @@ i[class*=i-] .svg-prevent {
   color: #CACBCC;
 }
 
-.notice-detail-wrap .time {
+.notice-detail-wrap .date {
   margin: 1.039rem 0;
   color: #8A8B8C;
   font-size: 0.779rem;
@@ -4697,12 +4728,6 @@ i[class*=i-] .svg-prevent {
 
 .notice-detail-wrap .img img {
   max-width: 100%;
-}
-
-.notice-detail-wrap .date {
-  margin-top: 1.039rem;
-  font-size: 0.779rem;
-  color: #8A8B8C;
 }
 
 /* apply-wrap */
@@ -4998,25 +5023,25 @@ i[class*=i-] .svg-prevent {
 .card-wrap .card3 .btn-box-inner .btn .btn-left {
   position: absolute;
   top: 0;
-  left: 1.039rem;
+  left: 0;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  width: 1.559rem;
+  width: 3.25rem;
 }
 
 .card-wrap .card3 .btn-box-inner .btn .btn-right {
   position: absolute;
   top: 0;
-  right: 1.039rem;
+  right: 0;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  width: 1.559rem;
+  width: 3.25rem;
 }
 
 .card-wrap .card3 .btn-box-inner .btn .btn-left i,
@@ -5079,6 +5104,10 @@ i[class*=i-] .svg-prevent {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.card-wrap .card5 .car-info {
+  font-size: 1.17rem;
 }
 
 .card-wrap .card5 .car-info p ~ p {

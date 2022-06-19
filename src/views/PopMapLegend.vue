@@ -7,11 +7,11 @@
           <!-- map-legend -->
           <div class="map-legend">
             <div class="cell">
-              <div class="mapindex"><img :src="require('@/assets/images/mapindex-off.png')"></div>
+              <div class="mapindex"><img :src="require('@/assets/images/mapindex-on.png')"></div>
               <div class="txt">이용가능</div>
             </div>
             <div class="cell">
-              <div class="mapindex"><img :src="require('@/assets/images/mapindex-on.png')"></div>
+              <div class="mapindex"><img :src="require('@/assets/images/mapindex-off.png')"></div>
               <div class="txt">이용불가</div>
             </div>
           </div>

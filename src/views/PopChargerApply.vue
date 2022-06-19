@@ -169,7 +169,7 @@
                         </div>
                     </div>
                     <div class="btn-box">
-                        <button class="btn-type1 st2">충전기 설치 신청</button>
+                        <button class="btn-type1 st2">확인</button>
                     </div>
 
                 </div>
@@ -233,19 +233,19 @@ export default {
         {
           title: '모델A',
           price: '1,500,000',
-          item: '설치비, vat포함',
+          item: '설치비, VAT포함',
           src: require('@/assets/images/temp-place.jpg'),
         },
         {
           title: '모델B',
           price: '1,500,000',
-          item: '설치비, vat포함',          
+          item: '설치비, VAT포함',          
           src: require('@/assets/images/temp-place.jpg'),
         },
         {
           title: '모델C',
           price: '1,500,000',
-          item: '설치비, vat포함',          
+          item: '설치비, VAT포함',          
           src: require('@/assets/images/temp-place.jpg'),
         },
       ],

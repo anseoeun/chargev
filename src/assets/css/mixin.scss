@@ -191,19 +191,19 @@ $size: 28px;
 
 //font-regular
 @mixin regular {
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 //font-medium
 @mixin medium {
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 //font-semibold
 @mixin semibold {
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 //font-bold
 @mixin bold {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 

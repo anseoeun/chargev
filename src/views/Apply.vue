@@ -70,7 +70,7 @@
                                 <div class="text">{{ item.date }}</div>
                               </template>
                               <template v-if="item.status=='ing'">
-                                <div class="tit">에상<br />도착일</div>
+                                <div class="tit">예상<br />도착일</div>
                                 <div class="text">{{ item.date }}</div>
                               </template>
                               <template v-if="item.status=='start'">
@@ -106,7 +106,7 @@
                                 <button class="card" @click="btmLayer.PopChargerApply = true">
                                     <div class="center">
                                         <Icon type="add-plus" />
-                                        <p class="txt">설치신청 추가</p>
+                                        <p class="txt">충전기 추가 설치신청</p>
                                     </div>
                                 </button>
                             </splide-slide>

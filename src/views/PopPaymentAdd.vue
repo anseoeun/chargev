@@ -4,6 +4,7 @@
           <div class="cont-scroll">
               <PaymentAdd
                 @confirm="paymentAddConfirm"
+                completeType="type2"
                />
           </div>
       </template>

@@ -49,6 +49,7 @@
 
                 <div class="btn-box align-c">
                   <router-link to="/" class="btn-type1 st2">충전종료</router-link>
+                  <router-link to="/" class="btn-type1 st2">예약취소</router-link>
                 </div>
             </div>
           </splide-slide>

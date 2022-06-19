@@ -27,7 +27,7 @@
                 </div>
                 <div class="row">
                     <div class="input">
-                        <Input type="password" v-model="form.password" maxlength="2" placeholder="비밀번호 앞2자리" />
+                        <Input type="number" v-model="form.password" maxlength="2" placeholder="비밀번호 앞2자리" />
                     </div>
                 </div>
             </div>
@@ -35,58 +35,74 @@
                 <button class="btn-type1 st2" @click="paymentIniputStatus = 'completion';$emit('status', paymentIniputStatus)">확인</button>
             </div>
         </template>
-        <!-- 완료 -->
-        <template v-if="paymentIniputStatus == 'completion' && completeType != 'list'">
-            <div class="card-wrap">
-                <div class="card3">
-                    <div class="card-info">
-                        <div class="card-name">삼성카드</div>
-                        <div class="card-num">
-                            <span>****</span>
-                            <span>****</span>
-                            <span>****</span>
-                            <span>4151</span>
+        <!-- 완료-->
+        <template v-if="paymentIniputStatus == 'completion'">
+            <template v-if="completeType==='type2'">
+                <div class="card-wrap">
+                    <div class="card3">
+                        <div class="card-info">
+                            <div class="card-name">{{ cardList[0].company }}카드</div>
+                            <div class="card-num">
+                                <span>{{ cardList[0].num[0] }}</span>
+                                <span>{{ cardList[0].num[1] }}</span>
+                                <span>{{ cardList[0].num[2] }}</span>
+                                <span>{{ cardList[0].num[3] }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="btn-box">
                     <button class="btn-type1 st2" @click="confirm">확인</button>
-                </div>
-            </div>
-        </template>
-        <!-- 완료 리스트형-->
-        <template v-if="paymentIniputStatus == 'completion' && completeType == 'list'">
-            <div class="card-wrap">            
-                <Carousel class="slide-list" :content="true" :options="cardSliderOpt">
-                    <template slot="content">
-                        <splide-slide v-for="(item, index) in cardList" :key="index">
-                            <div class="card3" :class="{on: item.selected}">
-                                <div class="card-info">
-                                    <div class="card-name">{{ item.company }}카드</div>
-                                    <div class="card-num">
-                                        <span>{{ item.num[0] }}</span>
-                                        <span>{{ item.num[1] }}</span>
-                                        <span>{{ item.num[2] }}</span>
-                                        <span>{{ item.num[3] }}</span>
+                </div>                
+            </template>
+            <template v-else>
+                <div class="card-wrap">
+                    <Carousel class="slide-list" :content="true" :options="cardSliderOpt">
+                        <template slot="content">
+                            <splide-slide v-for="(item, index) in cardList" :key="index">
+                                <div class="card3" :class="{on: item.selected}">
+                                    <div class="card-info">
+                                        <div class="card-name">{{ item.company }}카드</div>
+                                        <div class="card-num">
+                                            <span>{{ item.num[0] }}</span>
+                                            <span>{{ item.num[1] }}</span>
+                                            <span>{{ item.num[2] }}</span>
+                                            <span>{{ item.num[3] }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="btn-box-inner">
+                                        <div class="btn btn-order">
+                                            <button class="btn-left"><Icon type="arr-left" /></button>
+                                            결제순서변경
+                                            <button class="btn-right"><Icon type="arr-right" /></button>
+                                        </div>
+                                        <button class="btn">카드삭제 <Icon type="delete" /></button>
                                     </div>
                                 </div>
-                            </div>
-                        </splide-slide>
-                        <splide-slide>
-                            <button class="card3">
-                                <div class="center">
-                                    <Icon type="add-plus" />
-                                    <p class="txt">카드추가</p>
-                                </div>
-                            </button>
-                        </splide-slide>
-                    </template>
-                </Carousel>
-
+                            </splide-slide>
+                            <splide-slide>
+                                <button class="card3">
+                                    <div class="center">
+                                        <Icon type="add-plus" />
+                                        <p class="txt">카드추가</p>
+                                    </div>
+                                </button>
+                            </splide-slide>
+                            <splide-slide>
+                                <button class="card4">
+                                    <div class="center">
+                                        <Icon type="payco" />
+                                        <p class="txt">등록하기</p>
+                                    </div>
+                                </button>
+                            </splide-slide>
+                        </template>
+                    </Carousel>
+                </div>
                 <div class="btn-box">
                     <button class="btn-type1 st2" @click="confirm">확인</button>
                 </div>
-            </div>
+            </template>
         </template>
     </div>
 </template>

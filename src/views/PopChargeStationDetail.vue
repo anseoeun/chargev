@@ -26,7 +26,7 @@
                       <div class="cell right">
                         <div class="btn-menu-wrap">
                           <button class="btn-menu"><Icon type="map-pos2" /></button>
-                          <button class="btn-menu"><Icon type="map-favorite" /></button>
+                          <button class="btn-menu" @click="checkIcon($event, 'favoriteChecked')"><Icon type="map-favorite" :class="{on: favoriteChecked}" /></button>
                         </div>
                       </div>
                     </div>
@@ -133,6 +133,7 @@ export default {
         },
       ],
       timeSetType:'',
+      favoriteChecked: false
     }
   }
 }

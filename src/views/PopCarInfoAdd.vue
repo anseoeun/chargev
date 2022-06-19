@@ -2,12 +2,15 @@
     <BtmLayer :visible="visible" @close="$emit('close');" class="pop-car-add max">
       <template slot="content">
           <div class="cont-scroll">
-              <div class="car-info-add-wrap">
-                <CarInfoAdd
-                  :simpleRecognition = true
-                  @confirm="carInfoAddConfirm"
-                 />
-              </div>
+              <CarInfoAdd
+                v-if="status==='carAdd'"
+                @cardRegist="status = 'cardAdd'"
+               />
+               
+              <CardInfoAdd
+                v-if="status==='cardAdd'"
+               />
+               
           </div>
       </template>
     </BtmLayer>
@@ -15,9 +18,11 @@
 
 <script>
 import CarInfoAdd from '@/views/common/CarInfoAdd'
+import CardInfoAdd from '@/views/common/CardInfoAdd'
 export default {
   components:{
-    CarInfoAdd
+    CarInfoAdd,
+    CardInfoAdd
   },    
   props: {
     visible: {
@@ -27,6 +32,7 @@ export default {
   },  
   data(){
       return{
+        status: 'carAdd',
         newRegistShow: false,
         shareKeyShow: false,
         form:{

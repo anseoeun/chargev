@@ -107,7 +107,7 @@
                   <div class="text">{{ item.date }}</div>
                 </template>
                 <template v-if="item.status=='ing'">
-                  <div class="tit">에상<br />도착일</div>
+                  <div class="tit">예상<br />도착일</div>
                   <div class="text">{{ item.date }}</div>
                 </template>
                 <template v-if="item.status=='start'">
