@@ -57,24 +57,22 @@
     <h2 class="guide-tit">카드타입 3</h2>
     <div class="card-wrap">
         <div v-for="(item, index) in cardList2" :key="index" class="card3">
-            <div class="card-info">
-                <div class="card-name">{{ item.name }}</div>
+           <div class="card-info">
+                <div class="card-name">{{ item.company }}카드</div>
                 <div class="card-num">
-                    <span>{{ item.company }}</span>
                     <span>{{ item.num[0] }}</span>
                     <span>{{ item.num[1] }}</span>
                     <span>{{ item.num[2] }}</span>
                     <span>{{ item.num[3] }}</span>
                 </div>
-                <div class="card-date">{{ item.date }}</div>
             </div>
             <div class="btn-box-inner">
-                <button class="btn">카드삭제 <Icon type="delete" /></button>
                 <div class="btn btn-order">
                     <button class="btn-left"><Icon type="arr-left" /></button>
                     결제순서변경
                     <button class="btn-right"><Icon type="arr-right" /></button>
                 </div>
+                <button class="btn">카드삭제 <Icon type="delete" /></button>
             </div>
         </div>
         <button class="card3">
@@ -107,8 +105,7 @@
             <div class="number">{{ item.num }}</div>
             <div class="btn-box-inner">
                 <button class="btn-type1 st2" @click="$set(item, 'selected', !item.selected)">
-                    <template v-if="item.selected">충전차량<Icon type="check" class="on" /></template>
-                    <template v-else>충전차량으로 설정</template>
+                    충전차량으로 설정 <Icon type="check" :class="{on: item.selected}" />
                 </button>
             </div> 
         </div>

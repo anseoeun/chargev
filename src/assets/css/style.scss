@@ -101,9 +101,10 @@ h1.hidden{  border: 0 !important; clip: rect(1px, 1px, 1px, 1px) !important; -we
 .login-wrap{padding:0 rem(24) rem(50);}
 .login-wrap .logo-chargev{padding-top:rem(60);text-align:center;margin-bottom:rem(68);}
 .login-wrap .min-fix{min-height:rem(340);}
-.login-wrap .info-text{font-size:rem(14);margin-top:rem(30);text-align:center;line-height:1.6;}
+.login-wrap .info-text{font-size:rem(14);margin-top:rem(30);text-align:center;line-height:1.6;letter-spacing: 0;}
 .login-wrap .slider-page > .splide > .splide__track > .splide__list > .splide__slide{padding:0 rem(24);padding-bottom:rem(200);}
 .login-wrap .btn-box [class*=btn-type] ~ [class*=btn-type]{margin-top:rem(16);}
+.login-wrap .tit-type1 + .btn-box{margin-top:rem(16);}
 /* login-menu-wrap */
 .login-menu-wrap{padding:0 rem(24) rem(50);}
 .login-menu-wrap .logo-chargev{padding-top:rem(60);text-align:center;}
@@ -589,6 +590,8 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .card-wrap{text-align:center;}
 .card-wrap [class*=card] .center{@include flex(center);flex-direction: column;position:absolute;top:0;left:0;width:100%;height:100%;}
 .card-wrap [class*=card] .center p{margin-top:rem(40);@include bold;color:#fff;font-size:rem(16);letter-spacing: 0.2em;}
+.card-wrap [class*=card] .center p.s-t{font-size:rem(14);@include regular;}
+.card-wrap [class*=card] .center p:only-child{margin-top:0;}
 .card-wrap .tit-type1{margin-bottom:rem(16);}
 .card-wrap .info{margin-top:rem(10);text-align:center;font-size:rem(14);}
 .card-wrap .info .name{margin-right:rem(8);}
@@ -628,7 +631,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .card-wrap .card3 .btn-box-inner .btn ~ .btn{margin-top:rem(8);}
 .card-wrap .card4 {position:relative;margin:0 auto;width:rem(294);height:rem(194);@include flex(center);border:1px solid #FF0000;overflow:hidden;border-radius:rem(16);}
 .card-wrap .card4 p{margin-top:rem(18);text-align:center;}
-.card-wrap .card5 {display:flex;flex-direction: column;position:relative;margin:0 auto;width:rem(294);height:rem(194);padding:rem(20) rem(16) rem(20);font-size:rem(18);overflow:hidden;border-radius:rem(16);border:1px solid #fff;text-align: right;}
+.card-wrap .card5 {display:flex;flex-direction: column;position:relative;margin:0 auto;width:rem(294);height:rem(194);padding:rem(16);font-size:rem(18);overflow:hidden;border-radius:rem(16);border:1px solid #fff;text-align: right;}
 .card-wrap .card5 .center{position:relative;height:100%;}
 .card-wrap .card5.on {border:1px solid #6AB84E;color:#fff;}
 .card-wrap .card5 .car-info-wrap{position:relative;flex:1;display:flex;align-items:center;justify-content: space-between;}
@@ -636,10 +639,10 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .card-wrap .card5 .number{margin-top:rem(16);font-size:rem(22);letter-spacing: 0;display:flex;justify-content: space-between;}
 .card-wrap .card5 .number span{letter-spacing: 0;}
 .card-wrap .card5 .text{font-size:rem(16);text-align:left;}
-.card-wrap .card5 .text ~ .text{margin-top:rem(16);}
+.card-wrap .card5 .text ~ .text{margin-top:rem(18);}
 // .card-wrap .card5 .company-logo{position:absolute;top:rem(16);left:rem(16);}
 .card-wrap .card5 .add-car-txt{font-size:rem(16) !important;margin-top:0 !important;}
-.card-wrap .card5 .point-price{text-align: center;font-size:rem(24);@include bold;letter-spacing: 0.2em;@include flex(center);}
+.card-wrap .card5 .point-price{flex:1;text-align: center;font-size:rem(24);@include bold;letter-spacing: 0.2em;@include flex(center);}
 .card-wrap .card5 .btn-box-inner{margin-top:rem(15);}
 .card-wrap .card5 .btn-box-inner .btn-type1{position:relative;}
 .card-wrap .card5 .btn-box-inner .btn-type1 .i-check{position:absolute;top:50%;right:rem(18);transform:translateY(-50%);-webkit-transform:translateY(-50%);}
@@ -916,12 +919,16 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .rule-wrap .rule-contnet pre{white-space: pre-line;font-size:rem(16);}
 /* layerpopup */ 
 .alert-popup{position:fixed;top:0;left:0;width:100%;height:100%;min-width:rem(320);overflow-y:auto;z-index:100;}
+.alert-popup .btn-close{position:absolute;top:rem(5);right:rem(5);width:rem(40);height:rem(40);@include flex(center)}
+.alert-popup .btn-close svg path{stroke: #000}
 .alert-popup .dim{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);}
 .alert-popup .popup{@include posCenter;padding:rem(16);margin:0 auto;width:rem(324);max-width:90%;box-shadow: 0 rem(1) rem(2) rgba(40, 41, 61, 0.04), 0 rem(3) rem(6) rgba(96, 97, 112, 0.16);border-radius:rem(8);background:#fff;}
 .alert-popup .popup .pop-header{position:relative;}
 .alert-popup .popup .pop-header .pop-tit{margin-bottom:rem(16);text-align:center;@include bold;font-size:rem(24);color:#000;letter-spacing: 0.2em;}
 .alert-popup .popup .pop-header .pop-tit .t-s{font-size:rem(20);}
-.alert-popup .popup .pop-body .alert-txt{font-size:rem(14);text-align:center;color:#8A8B8C;line-height:1.5;letter-spacing: -0.05em;}
+.alert-popup .popup .pop-body .alert-txt{font-size:rem(14);text-align:center;color:#8A8B8C;line-height:1.5;letter-spacing:0;}
+.alert-popup .popup .pop-body .alert-txt *{letter-spacing:0;}
+.alert-popup .popup .pop-body .alert-txt .t-m{font-size:rem(16);}
 .alert-popup .popup .pop-body .btn-wrap{margin-top:rem(16);}
 .alert-popup .btn-wrap [class*=btn-type] ~ [class*=btn-type]{margin-top:rem(16);}
 .alert-popup.header-title-size2 .popup .pop-header .pop-tit{font-size:rem(20);letter-spacing: 0.1em;}

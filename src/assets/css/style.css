@@ -2353,7 +2353,7 @@ h1.hidden {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
 .header .status.on {
@@ -2376,7 +2376,7 @@ h1.hidden {
   right: 0;
   font-size: 0.649rem;
   color: #000;
-  font-weight: 400;
+  font-weight: 400 !important;
   width: 0.845rem;
   text-align: center;
 }
@@ -2511,6 +2511,7 @@ h1.hidden {
   margin-top: 1.949rem;
   text-align: center;
   line-height: 1.6;
+  letter-spacing: 0;
 }
 
 .login-wrap .slider-page > .splide > .splide__track > .splide__list > .splide__slide {
@@ -2519,6 +2520,10 @@ h1.hidden {
 }
 
 .login-wrap .btn-box [class*=btn-type] ~ [class*=btn-type] {
+  margin-top: 1.039rem;
+}
+
+.login-wrap .tit-type1 + .btn-box {
   margin-top: 1.039rem;
 }
 
@@ -2680,7 +2685,7 @@ input[type=text], input[type=password], input[type=number], textarea {
   padding: 0 0.519rem;
   line-height: 2.079rem;
   height: 2.079rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 0.909rem;
   border-radius: 0.129rem;
   background: #2A2B2C;
@@ -2705,11 +2710,11 @@ input[type=text], input[type=password], input[type=number], textarea {
 
 /* weight */
 .bold {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .regular {
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
 /* v-center*/
@@ -2903,7 +2908,7 @@ i[class*=i-] .svg-prevent {
 .tit-type1 {
   font-size: 1.039rem;
   color: #fff;
-  font-weight: 700;
+  font-weight: 700 !important;
   text-align: center;
   letter-spacing: 0.2em;
 }
@@ -2911,7 +2916,7 @@ i[class*=i-] .svg-prevent {
 .tit-type2 {
   font-size: 1.039rem;
   color: #fff;
-  font-weight: 700;
+  font-weight: 700 !important;
   padding: 0.519rem 0;
   border-bottom: 1px solid #fff;
 }
@@ -2973,7 +2978,7 @@ i[class*=i-] .svg-prevent {
   min-width: 4.159rem;
   font-size: 0.909rem;
   color: #8A8B8C;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .tab-type1 button ~ button {
@@ -3139,7 +3144,7 @@ i[class*=i-] .svg-prevent {
 
 .btm-layer-wrap.agency-select-wrap .agency-select .tit {
   display: block;
-  font-weight: 700;
+  font-weight: 700 !important;
   margin-bottom: 1.559rem;
 }
 
@@ -3191,7 +3196,7 @@ i[class*=i-] .svg-prevent {
 .transparent-box-wrap .tit {
   display: block;
   margin-bottom: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   text-align: center;
 }
 
@@ -3247,7 +3252,7 @@ i[class*=i-] .svg-prevent {
 .form-box-wrap .tit {
   display: block;
   margin-bottom: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   text-align: center;
 }
 
@@ -3314,7 +3319,7 @@ i[class*=i-] .svg-prevent {
   padding: 0 0.519rem;
   line-height: 2.079rem;
   height: 2.079rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 0.909rem;
   border-radius: 0.129rem;
   background: #2A2B2C;
@@ -3432,7 +3437,7 @@ i[class*=i-] .svg-prevent {
 /* grid-list-menu */
 .grid-list-menu {
   font-size: 0.779rem;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .grid-list-menu > .row {
@@ -3691,7 +3696,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .history-list .box b {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .history-list .btn-check {
@@ -3762,7 +3767,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .history-list .t-wrap .row .cell .tit {
-  font-weight: 700;
+  font-weight: 700 !important;
   display: block;
 }
 
@@ -3812,7 +3817,7 @@ i[class*=i-] .svg-prevent {
 .history-list2 li .box .txt-status {
   margin-bottom: 0.519rem;
   font-size: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   letter-spacing: 0.2em;
 }
 
@@ -4057,7 +4062,7 @@ i[class*=i-] .svg-prevent {
   justify-content: flex-start;
   flex-direction: row;
   align-items: flex-start;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 0.909rem;
   width: 100%;
 }
@@ -4077,14 +4082,14 @@ i[class*=i-] .svg-prevent {
 
 .charge-station .row .cell .status {
   color: #8FFF44;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 1.039rem;
   letter-spacing: 0.2em;
 }
 
 .charge-station .row .cell .company {
   color: #fff;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 1.039rem;
   letter-spacing: 0.2em;
 }
@@ -4095,7 +4100,7 @@ i[class*=i-] .svg-prevent {
 
 .charge-station .place-tit {
   font-size: 1.559rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   line-height: 1.1em;
 }
 
@@ -4196,13 +4201,13 @@ i[class*=i-] .svg-prevent {
 
 .charge-place .place-tit {
   font-size: 1.559rem;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .charge-place .txt {
   margin-top: 1.039rem;
   font-size: 0.909rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   color: #8A8B8C;
 }
 
@@ -4286,7 +4291,7 @@ i[class*=i-] .svg-prevent {
 .charge-wrap .text-charge-status {
   height: 9.36rem;
   font-size: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4319,7 +4324,7 @@ i[class*=i-] .svg-prevent {
 .charge-wrap .kwh-text b {
   margin-top: 4.159rem;
   font-size: 3.119rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   text-shadow: 0 0 1.299rem rgba(255, 255, 255, 0.7);
 }
 
@@ -4327,7 +4332,7 @@ i[class*=i-] .svg-prevent {
   margin-top: 0.649rem;
   color: #8A8B8C;
   font-size: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .charge-wrap .text-price {
@@ -4351,7 +4356,7 @@ i[class*=i-] .svg-prevent {
 
 .charge-wrap .time-start-end .cell strong {
   display: block;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 1.039rem;
 }
 
@@ -4414,7 +4419,7 @@ i[class*=i-] .svg-prevent {
 
 .charge-list .row .addr {
   font-size: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   letter-spacing: 0.2em;
 }
 
@@ -4425,7 +4430,7 @@ i[class*=i-] .svg-prevent {
 
 .charge-list .row .status {
   color: #8FFF44;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 1.039rem;
 }
 
@@ -4434,13 +4439,13 @@ i[class*=i-] .svg-prevent {
 }
 
 .charge-list .row .price {
-  font-weight: 400;
+  font-weight: 400 !important;
   font-size: 0.909rem;
 }
 
 .charge-list .row .number {
   font-size: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .charge-list .t-s {
@@ -4449,7 +4454,7 @@ i[class*=i-] .svg-prevent {
 
 .charge-list .tag {
   margin-top: 0.324rem;
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
 .charge-list .tag span {
@@ -4649,7 +4654,7 @@ i[class*=i-] .svg-prevent {
   padding-bottom: 0.519rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   color: #CACBCC;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .notice-wrap .noti-list .noti .tit {
@@ -4759,10 +4764,19 @@ i[class*=i-] .svg-prevent {
 
 .card-wrap [class*=card] .center p {
   margin-top: 2.599rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   color: #fff;
   font-size: 1.039rem;
   letter-spacing: 0.2em;
+}
+
+.card-wrap [class*=card] .center p.s-t {
+  font-size: 0.909rem;
+  font-weight: 400 !important;
+}
+
+.card-wrap [class*=card] .center p:only-child {
+  margin-top: 0;
 }
 
 .card-wrap .tit-type1 {
@@ -4942,7 +4956,7 @@ i[class*=i-] .svg-prevent {
   position: relative;
   flex: 1;
   font-size: 1.299rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -5041,7 +5055,7 @@ i[class*=i-] .svg-prevent {
   margin: 0 auto;
   width: 19.11rem;
   height: 12.61rem;
-  padding: 1.299rem 1.039rem 1.299rem;
+  padding: 1.039rem;
   font-size: 1.17rem;
   overflow: hidden;
   border-radius: 1.039rem;
@@ -5089,7 +5103,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .card-wrap .card5 .text ~ .text {
-  margin-top: 1.039rem;
+  margin-top: 1.17rem;
 }
 
 .card-wrap .card5 .add-car-txt {
@@ -5098,9 +5112,10 @@ i[class*=i-] .svg-prevent {
 }
 
 .card-wrap .card5 .point-price {
+  flex: 1;
   text-align: center;
   font-size: 1.559rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   letter-spacing: 0.2em;
   display: flex;
   align-items: center;
@@ -5543,7 +5558,7 @@ i[class*=i-] .svg-prevent {
 .place-card .desc .tit {
   display: block;
   font-size: 1.299rem;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .place-card .desc .txt {
@@ -5562,7 +5577,7 @@ i[class*=i-] .svg-prevent {
 .place-card .desc .price,
 .place-card .desc .item {
   font-size: 1.299rem;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .place-card .desc .tit:only-child {
@@ -5613,7 +5628,7 @@ i[class*=i-] .svg-prevent {
 .select-date > .row .cell.prev,
 .select-date > .row .cell.next {
   font-size: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .select-date > .row .cell.prev i,
@@ -5760,7 +5775,7 @@ i[class*=i-] .svg-prevent {
 
 .my-info-box .grid-list .text {
   font-size: 0.909rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   letter-spacing: 0.2em;
 }
 
@@ -5832,7 +5847,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .qna-wrap .bold-text {
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 1.039rem;
   margin: 2.079rem 0;
 }
@@ -5933,7 +5948,7 @@ i[class*=i-] .svg-prevent {
 .qna-detail .box .tit {
   font-size: 1.039rem;
   color: #5A5B5C;
-  font-weight: 700;
+  font-weight: 700 !important;
   display: block;
   margin-bottom: 1.039rem;
 }
@@ -6000,7 +6015,7 @@ i[class*=i-] .svg-prevent {
   flex-direction: row;
   align-items: flex-start;
   font-size: 1.039rem;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .charger-info .row ~ .row {
@@ -6009,7 +6024,7 @@ i[class*=i-] .svg-prevent {
 
 .charger-info .row .number {
   font-size: 0.909rem;
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
 .charger-info .row .right {
@@ -6440,6 +6455,22 @@ i[class*=i-] .svg-prevent {
   z-index: 100;
 }
 
+.alert-popup .btn-close {
+  position: absolute;
+  top: 0.324rem;
+  right: 0.324rem;
+  width: 2.599rem;
+  height: 2.599rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.alert-popup .btn-close svg path {
+  stroke: #000;
+}
+
 .alert-popup .dim {
   position: absolute;
   top: 0;
@@ -6471,7 +6502,7 @@ i[class*=i-] .svg-prevent {
 .alert-popup .popup .pop-header .pop-tit {
   margin-bottom: 1.039rem;
   text-align: center;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 1.559rem;
   color: #000;
   letter-spacing: 0.2em;
@@ -6486,7 +6517,15 @@ i[class*=i-] .svg-prevent {
   text-align: center;
   color: #8A8B8C;
   line-height: 1.5;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
+}
+
+.alert-popup .popup .pop-body .alert-txt * {
+  letter-spacing: 0;
+}
+
+.alert-popup .popup .pop-body .alert-txt .t-m {
+  font-size: 1.039rem;
 }
 
 .alert-popup .popup .pop-body .btn-wrap {

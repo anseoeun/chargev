@@ -41,19 +41,26 @@
                                         <span>{{ item.num[3] }}</span>
                                     </div>
                                     <div class="btn-box-inner">
-                                        <button class="btn-type1 st2" @click="$set(item, 'selected', !item.selected)">
-                                            <template v-if="item.selected">충전차량<Icon type="check" class="on" /></template>
-                                            <template v-else>충전차량으로 설정</template>
-                                        </button>
+                                      <button class="btn-type1 st2" @click="$set(item, 'selected', !item.selected)">
+                                          충전차량으로 설정 <Icon type="check" :class="{on: item.selected}" />
+                                      </button>
                                     </div> 
                                 </div>
                             </splide-slide>
+                            <splide-slide>
+                              <button class="card3">
+                                  <div class="center">
+                                      <Icon type="add-plus" />
+                                      <p class="txt">차량 추가</p>
+                                  </div>
+                              </button>
+                            </splide-slide>
                         </template>
                     </Carousel>
-                </div>                  
+                </div>
                 <!-- 충전포인트 -->
                 <div class="card-wrap">
-                  <h2 class="tit-type1">충전포인트</h2>                  
+                  <h2 class="tit-type1">충전포인트</h2>
                   <div class="card5">
                       <div class="point-price">
                         총<span>360,000</span>원

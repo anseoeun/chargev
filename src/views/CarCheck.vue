@@ -6,20 +6,28 @@
       <div class="min-fix">
         <div class="card-wrap">
           <h2 class="tit-type1">차량확인</h2>
-            <Carousel class="slide-list" :content="true" :options="sliderOpt">
+            <Carousel class="slide-list" :content="true" :options="carSliderOpt">
                 <template slot="content">
                     <splide-slide v-for="(item, index) in carList" :key="index">
                         <div class="card5" :class="{on: item.selected}">
-                            <div class="text">{{ item.email }}</div>
-                            <div class="text space-text"><span>{{ item.carnum[0] }}</span><span>{{ item.carnum[1] }}</span></div>
-                            <div class="text">
+                            <div class="car-info-wrap">
+                              <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
+                              <Icon v-if="item.company === 'benz'" type="logo-benz" :src="require('@/assets/images/logo/logo-me.png')" class="company-logo" />
+                              <div class="car-info">
+                                  <p class="space-txt"><span>{{ item.carInfo[0] }}</span><span>{{ item.carInfo[1] }}</span></p>
+                                  <p>{{ item.carInfo[2] }}</p>
+                              </div>
+                            </div>
+                            <div class="number">
                                 <span>{{ item.num[0] }}</span> -
                                 <span>{{ item.num[1] }}</span> -
                                 <span>{{ item.num[2] }}</span> -
                                 <span>{{ item.num[3] }}</span>
                             </div>
                             <div class="btn-box-inner">
-                                <button class="btn-type1 st2" @click="btmLayer.PopCarAuth = true">인증하기</button>
+                              <button class="btn-type1 st2" @click="$set(item, 'selected', !item.selected)">
+                                  충전차량으로 설정 <Icon type="check" :class="{on: item.selected}" />
+                              </button>
                             </div> 
                         </div>
                     </splide-slide>
@@ -28,8 +36,7 @@
         </div>
         <div class="btn-box">
             <button class="btn-type1 st2">확인</button>
-            <button class="btn-type1 st2">나중에 등록</button>
-        </div>        
+        </div>
       </div>
       <div class="info-text">
           전화번호와 성함이 일치하는 계정의
@@ -39,42 +46,32 @@
       </div>
     </div>
 
-    <!-- 차량인증 -->
-    <PopCarAuth :visible="btmLayer.PopCarAuth" @close="btmLayer.PopCarAuth = false"/>
   </div>
 </template>
 
 <script>
-import PopCarAuth from '@/views/PopCarAuth'
-export default {
-  components:{
-    PopCarAuth
-  },  
+export default { 
   data(){
     return{
-      sliderOpt: {
+      carSliderOpt: {
         autoWidth: true,
         perMove:1,
         pagination:false,
-      },           
+      },                
       carList: [
           {
-              email: 'email1@email.com',
-              carnum: ['01가5678', 'EQC400'],
+              company: 'bmw',
+              carInfo: ['BMW', '530e', '02보6596'],
               num: ['9999', '9999', '9999', '9999'],
               selected: true,
           },
           {
-              email: 'email1@email.com',
-              carnum: ['01가5678', 'EQC400'],
+              company: 'benz',
+              carInfo: ['BMW', '530e', '02보6596'],
               num: ['9999', '9999', '9999', '9999'],
               selected: false,
           },
-      ],      
-
-      btmLayer:{
-        PopCarAuth: false,
-      }, 
+      ], 
     }
   },
 }

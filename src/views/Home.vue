@@ -18,10 +18,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(value, name, index) in list" :key="index">
-        <td v-if="name == ''" colspan="4"></td>
+      <tr v-for="(value, name, index) in list" :key="value">
+        <td v-if="name.includes('title-')" colspan="4" class="title">{{ value }}</td>
         <template v-else>
-          <td>{{ index + 1 }}</td>
+          <td>{{ index + titleNum }}</td>
           <td>{{ value }}</td>
           <td><router-link :to="'/'+name">{{ '/'+name }}</router-link></td>
           <td></td>
@@ -40,7 +40,9 @@ export default {
   },
   data(){
     return {
+      titleNum: 0,
       list: {
+          'title-sample': '-샘플',        
           //샘플
           'sample/carousel': '샘플/슬라이드',
           'sample/component': '샘플/컴포넌트',
@@ -49,24 +51,30 @@ export default {
           'sample/toggleslide': '샘플/토글슬라이드',
           'sample/card': '샘플/카드',
           'sample/list': '샘플/리스트',
-          '': '',
-
           'sample/alert': '생체인식사용 팝업',
+
+
+          'title-login': '-로그인',   
           // 스플래시
           'splash': '스플래시',
-
           // 로그인
-          'login': '로그인',
-          'LoginMenu': '로그인메뉴',          
-          'LoginMenuMember': '로그인메뉴 멤버',
-          'loginMenuCoper': '로그인메뉴(법인)',
+          'loginMenu': '로그인메뉴',          
+          'loginMenuCoper': '로그인메뉴(법인/개인)',
           'loginRuleList': '로그인약관',
-          'SelfAuth': '본인인증',
-          'CarAuth': '차량인증',
+          'selfAuth': '본인인증',
+          'carAuth': '차량인증',
+          'carCheck': '차량확인',
+          'paymentCheck': '결제정보 확인',
+          'productCheck': '상품확인',
+          'etcInfoInput': '기타정보 입력',
+          'cardIssue': '카드발급',
+          'carRegist': '차량등록',
+          'cardRegist': '카드등록',
+          'PaymentRegist': '결제정보추가',
+          'LoginPin': 'PIN입력',
 
-          'LoginPin': '로그인-기존사용자',
-          'join': '회원가입',        
 
+          'title-page': '-페이지',
           // 메인
           'main': '메인',
           // 알림
@@ -83,6 +91,8 @@ export default {
           'more': '더보기',       
       }
     }
+  },
+  methods: {
   }
 }
 </script>
@@ -98,4 +108,5 @@ export default {
   .index a:link, #mwork a:visited {color:#009; text-decoration:none;}
   .index a:hover, #mwork a:active {color:#00f; text-decoration:underline;}
   .index tr:hover td {background-color:#eee !important;}
+  .index .title {background-color:#eee !important;}
 </style>

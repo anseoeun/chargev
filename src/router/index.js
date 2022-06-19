@@ -17,16 +17,20 @@ const routes = [
 
   // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
-	{ path: '/login', component: () => import('@/views/Login.vue')},
 	{ path: '/loginMenu', meta: {back:false }, component: () => import('@/views/LoginMenu.vue')},
-	{ path: '/LoginMenuMember', meta:{user:'member'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginMenuCoper', meta:{user:'coper'}, component: () => import('@/views/LoginMenu.vue')},
 	{ path: '/loginRuleList', component: () => import('@/views/LoginRuleList.vue')},
 	{ path: '/selfAuth', component: () => import('@/views/SelfAuth.vue')},
 	{ path: '/carAuth', component: () => import('@/views/CarAuth.vue')},
-
+	{ path: '/carCheck', component: () => import('@/views/CarCheck.vue')},
+	{ path: '/paymentCheck', component: () => import('@/views/PaymentCheck.vue')},
+	{ path: '/productCheck', component: () => import('@/views/ProductCheck.vue')},
+	{ path: '/etcInfoInput', component: () => import('@/views/EtcInfoInput.vue')},
+	{ path: '/cardIssue', component: () => import('@/views/CardIssue.vue')},
+	{ path: '/carRegist', component: () => import('@/views/CarRegist.vue')},
+	{ path: '/cardRegist', component: () => import('@/views/CardRegist.vue')},
+	{ path: '/paymentRegist', component: () => import('@/views/PaymentRegist.vue')},
 	{ path: '/LoginPin', component: () => import('@/views/LoginPin.vue')},
-	{ path: '/join', component: () => import('@/views/Join.vue')},
   // 메인
   { path: '/main', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/Main.vue')},
   // 알림
