@@ -207,8 +207,7 @@
                                             </div>
                                             <div class="btn-box-inner">
                                                 <button class="btn-type1 st2" @click="$set(item, 'selected', !item.selected)">
-                                                    <template v-if="item.selected">충전차량<Icon type="check" class="on" /></template>
-                                                    <template v-else>충전차량으로 설정</template>
+                                                    충전차량으로 설정 <Icon type="check" :class="{on: item.selected}" />
                                                 </button>
                                             </div> 
                                         </div>
@@ -312,9 +311,6 @@
       </template>
     </Carousel>
 
-
-    <!-- 주소 -->
-    <PopAddr :visible="btmLayer.PopAddr" @close="btmLayer.PopAddr = false"/>
     <!-- 모바일 충전권 / 쿠폰 등록 -->
     <PopPin :visible="btmLayer.PopPin" @close="btmLayer.PopPin = false"/>
     <!-- 모바일 충전권 / 쿠폰 등록 -->
@@ -324,7 +320,7 @@
     <!-- 블루멤버스 계정연동 -->
     <PopBlumembersAdd :visible="btmLayer.PopBlumembersAdd" @close="btmLayer.PopBlumembersAdd = false"/>
     <!-- 차량정보 -->
-    <PopCarInfoAdd :visible="btmLayer.PopCarInfoAdd" @close="btmLayer.PopCarInfoAdd = false"/>
+    <PopCarInfoAdd :visible="btmLayer.PopCarInfoAdd" @close="btmLayer.PopCarInfoAdd = false" @postCode="btmLayer.PopAddr = true" />
 
     <!-- 문의내역리스트 -->
     <PopQnaList :visible="btmLayer.PopQnaList" :gbn.sync="qnaGbn" @close="btmLayer.PopQnaList = false"
@@ -353,7 +349,8 @@
     <!-- 약관리스트 -->
     <PopRuleList :visible="btmLayer.PopRuleList" :gbn.sync="ruleGbn" @close="btmLayer.PopRuleList = false" />
     
-    
+    <!-- 주소 -->
+    <PopAddr :visible="btmLayer.PopAddr" @close="btmLayer.PopAddr = false"/>    
     <!-- 팝업 -->
     <Alert :is-open="alertPopColpleted" @close="alertPopColpleted = false" class="header-title-size2">
         <template slot="header">문의가 등록되었습니다.</template>

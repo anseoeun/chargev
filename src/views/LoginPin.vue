@@ -8,6 +8,9 @@
         <PinSetting :form="form" @pinSetting="pinIniputStatus = 'completion'" />
       </div>
       <div v-if="pinIniputStatus != 'completion'" class="info-text">
+        로그인을 위해 PIN코드를 입력해주세요.
+      </div>
+      <div v-if="pinIniputStatus != 'completion'" class="info-text">
         PIN코드를 입력해주세요.
         <br />PIN코드는 충전시작,앱 로그인시 사용됩니다. 
       </div>

@@ -4,27 +4,9 @@
     <div class="login-wrap">
       <div class="logo-chargev"><Icon type="chargev" /></div>
       <div class="min-fix">
-        <div class="form-box-wrap">
-          <h2 class="tit-type1 c-white">카드발급</h2>
-            <div class="form-box">
-              <div class="row">
-                  <div class="input auto">
-                      <Input type="number" v-model="form.addr" placeholder="주소" />
-                  </div>
-                  <div class="right">
-                    <button class="btn" @click="btmLayer.PopAddr = true">우편번호</button>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="input auto">
-                      <Input type="number" v-model="form.addr2" placeholder="상세주소" />
-                  </div>
-              </div>
-            </div>
-            <div class="btn-box">
-                <button class="btn-type1 st2">확인</button>
-            </div>
-        </div>
+          <CardIssueComp
+            @postCode="btmLayer.PopAddr = true"
+            />
       </div>
       <div class="info-text">
         멤버십카드를 발급받기 위한 주소를 입력해주세요.
@@ -39,9 +21,11 @@
 
 <script>
 import PopAddr from '@/views/PopAddr'
+import CardIssueComp from '@/views/common/CardIssueComp'
 export default { 
   components:{
     PopAddr,
+    CardIssueComp
   },
   data(){
     return{

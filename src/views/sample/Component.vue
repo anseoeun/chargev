@@ -15,6 +15,7 @@
 
     <h2 class="guide-tit">Alert 팝업</h2>    
     <button class="btn-type1 st2" @click="alertPop = true">Alert 팝업열기</button>
+    <button class="btn-type1 st2" @click="biometricsPop = true">생체인식팝업</button>
 
     <h2 class="guide-tit">팝업</h2>    
     <button class="btn-type1 st2" @click="btmLayer.PopCarMembershipCard = true">슬라이드 팝업열기</button>
@@ -29,6 +30,17 @@
           Alert 팝업 내용 내용
         </template>
     </Alert>        
+    <!-- 팝업 -->
+    <Alert :is-open="biometricsPop" @close="biometricsPop = false" :confirm="false" class="header-title-size2">
+        <template slot="header">생체인식 사용</template>
+        <template slot="body">
+          <span class="bold t-m">생체인식을 사용하시겠습니까?</span>
+        </template>
+        <template slot="btn">
+          <button class="btn-type1 st1" @click="alertPop = false">사용</button>
+          <button class="btn-type1 st3" @click="alertPop = false">사용안함</button>
+        </template>
+    </Alert>    
 
     <!-- 슬라이드 팝업열기 -->
     <PopCarMembershipCard :visible="btmLayer.PopCarMembershipCard" @close="btmLayer.PopCarMembershipCard = false" />  
@@ -55,6 +67,7 @@ export default {
     data(){
       return{
         alertPop: false,
+        biometricsPop: false,
         btmLayer:{
           PopCarMembershipCard: false,
           PopAddr: false,

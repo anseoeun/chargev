@@ -9,6 +9,12 @@
                
               <CardInfoAdd
                 v-if="status==='cardAdd'"
+                @cardIssue="status = 'cardIssue'"
+               />
+
+              <CardIssueComp
+                v-if="status==='cardIssue'"
+                @postCode="$emit('postCode')"
                />
                
           </div>
@@ -19,10 +25,12 @@
 <script>
 import CarInfoAdd from '@/views/common/CarInfoAdd'
 import CardInfoAdd from '@/views/common/CardInfoAdd'
+import CardIssueComp from '@/views/common/CardIssueComp'
 export default {
   components:{
     CarInfoAdd,
-    CardInfoAdd
+    CardInfoAdd,
+    CardIssueComp
   },    
   props: {
     visible: {

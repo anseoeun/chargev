@@ -4,13 +4,12 @@
       <div class="charge-list">
         <ul>
           <li v-for="(item, index) in chargeList" :key="index">
-            <router-link to="/" class="link">
+            <button class="link" @click="$emit('selected')">
               <div class="row">
                 <div class="cell">
                   <div class="addr" v-html="item.addr"></div>
                   <div class="addr2">
                     <div class="row">
-                      <div class="cell label">주소</div>
                       <div class="cell" v-html="item.addr2"></div>
                     </div>
                   </div>
@@ -20,14 +19,14 @@
                 </div>
                 <div class="cell right">
                   <div class="company">차지비</div>
-                  <div class="status t-s">{{ item.status }}</div>
-                  <div>{{ item.km }}</div>
+                  <div class="status">{{ item.status }}</div>
+                  <div class="distance">{{ item.km }}</div>
                 </div>
               </div>
               <div class="tag">
                 <span v-for="(item, i) in item.tag" :key="i">{{ item }}</span>
               </div>
-            </router-link>
+            </button>
           </li>
         </ul>
       </div>
@@ -46,19 +45,24 @@
                     <span v-for="(item, i) in item.tag" :key="i">{{ item }}</span>
                   </div>
               </div>
-              <div class="cell right">
-                  <div class="status">{{ item.status }}</div>
-                  <div class="t-s">{{ item.speed }}</div>
-                  <div class="t-s">{{ item.etc }}</div>
+              <div class="cell right f-col-box">
+                  <div v-if="type != 'breakdown'" class="status">{{ item.status }}</div>
+                  <div class="bottom">
+                    <div class="t-s">{{ item.speed }}</div>
+                    <div class="t-s">{{ item.etc }}</div>
+                  </div>
               </div>
-              <div class="cell btn-menu">
-                <button class="btn"><Icon type="charge" /><span>충전</span></button>
-                <button class="btn"><Icon type="clock" /><span>예약</span></button>
+              <div v-if="type === 'breakdown'" class="cell btn-menu">
+                <button class="btn" @click="$emit('selected')"><span>선택</span></button>
+              </div>
+              <div v-else class="cell btn-menu">
+                <button class="btn" @click="$emit('reserve')"><Icon type="clock" /><span>예약</span></button>
+                <button class="btn" @click="$emit('charge')"><Icon type="charge-half" /><span>충전</span></button>
               </div>
             </div>
           </li>
         </ul>
-      </div>      
+      </div>   
 
       <h2 class="guide-tit">내역 리스트</h2>
       <ul class="history-list">
@@ -246,27 +250,63 @@ export default {
           }
         ],
 
-        issueList: [  
-          {
-            status: 'complete',
-            recipient: '김김김',
-            mailman: '홍홍홍',
-            date: '2022-05-03',
-            selected: true,
-          },
-          {
-            status: 'ing',
-            recipient: '김김김',
-            mailman: '홍홍홍',
-            date: '2022-05-03',
-          },
-          {
-            status: 'start',
-            recipient: '김김김',
-            mailman: '홍홍홍',
-            date: '2022-05-03',
-          },
-        ],        
+      issueList: [  
+        {
+          status: 'complete',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+          selected: true,
+        },
+        {
+          status: 'ing',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'start',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'complete',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'ing',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'start',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'complete',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'ing',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+        {
+          status: 'start',
+          recipient: '김김김',
+          mailman: '홍홍홍',
+          date: '2022-05-03',
+        },
+      ],       
 
         qnaServiceList: [
             '충전기 사용방법',
@@ -322,7 +362,7 @@ export default {
             date: '2021-01-01 01:02:03',
             text: '충전이 시작되었습니다.'
           },
-        ],        
+        ],   
           
         paymentInfoList: [
           {

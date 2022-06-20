@@ -2796,6 +2796,14 @@ input[type=text], input[type=password], input[type=number], textarea {
   box-shadow: inset 0 0 0.324rem #407c1d;
 }
 
+[class*=btn-type] i:first-child {
+  margin-right: 0.519rem;
+}
+
+[class*=btn-type] i:last-child {
+  margin-left: 0.519rem;
+}
+
 .btn-type1 {
   display: block;
   height: 3.119rem;
@@ -3060,7 +3068,7 @@ i[class*=i-] .svg-prevent {
   opacity: 0.5;
 }
 
-.btm-layer-wrap:not(.no-dim) .btm-layer {
+.btm-layer-wrap:not(.no-dim):not(.agency-select-wrap) .btm-layer {
   -webkit-mask-image: linear-gradient(180deg, transparent 1%, #000 4%);
 }
 
@@ -4062,6 +4070,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 
 .price-slider .noUi-horizontal .noUi-marker-horizontal.noUi-marker-large {
   display: none;
+}
+
+.price-slider .noUi-horizontal .noUi-base {
+  height: 110%;
 }
 
 .price-slider .noUi-horizontal .noUi-value {
@@ -6124,6 +6136,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   padding: 0.585rem 0;
 }
 .photo-list::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-list:empty {
   display: none;
 }
 

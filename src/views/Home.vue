@@ -51,8 +51,6 @@ export default {
           'sample/toggleslide': '샘플/토글슬라이드',
           'sample/card': '샘플/카드',
           'sample/list': '샘플/리스트',
-          'sample/alert': '생체인식사용 팝업',
-
 
           'title-login': '-로그인',   
           // 스플래시

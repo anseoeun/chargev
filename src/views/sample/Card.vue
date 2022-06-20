@@ -4,7 +4,7 @@
     <div class="card-wrap">
       <div v-for="(item, index) in cardList" :key="index" class="card">
             <div class="logo">
-              <Icon type="chargev6" />
+              <Icon type="chargev" />
             </div>
             <div class="grid-list">
                 <div class="row">
@@ -20,10 +20,6 @@
                     <div class="tit">연동차량</div>
                     <div class="text">{{ item.car }}</div>
                 </div>
-                <div class="row">
-                    <div class="tit">연동상품</div>
-                    <div class="text">{{ item.product }}</div>
-                </div>
             </div>
             <div class="btn-box-inner">
                 <button class="btn">멤버십카드 재발급</button>
@@ -34,7 +30,7 @@
     <h2 class="guide-tit">카드타입 2</h2>
     <div class="card-wrap">
       <div v-for="(item, index) in cargePointList" :key="index" class="card2">
-          <div class="bg" :style="`background-image:url(${item.src})`"></div>
+          <!-- <div class="bg" :style="`background-image:url(${item.src})`"></div> -->
           <Icon v-if="item.company === 'bmw'" type="logo-bmw" />
           <Icon v-if="item.company === 'chargev'" type="chargev4" />
           <div class="main-txt">
@@ -96,13 +92,20 @@
     <h2 class="guide-tit">카드타입 5</h2>
     <div class="card-wrap">
         <div v-for="(item, index) in carList3" :key="index" class="card5">
-            <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
-            <Icon v-if="item.company === 'benz'" type="logo-benz" :src="require('@/assets/images/logo/logo-me.png')" class="company-logo" />
-            <div class="car-info">
-                <p class="space-txt"><span>{{ item.carInfo[0] }}</span><span>{{ item.carInfo[1] }}</span></p>
-                <p>{{ item.carInfo[2] }}</p>
+            <div class="car-info-wrap">
+                <Icon v-if="item.company === 'bmw'" type="logo-bmw2" class="company-logo" />
+                <Icon v-if="item.company === 'benz'" type="logo-benz" :src="require('@/assets/images/logo/logo-me.png')" class="company-logo" />
+                <div class="car-info">
+                    <p class="space-txt"><span>{{ item.carInfo[0] }}</span><span>{{ item.carInfo[1] }}</span></p>
+                    <p>{{ item.carInfo[2] }}</p>
+                </div>
             </div>
-            <div class="number">{{ item.num }}</div>
+            <div class="number">
+                <span>{{ item.num[0] }}</span> -
+                <span>{{ item.num[1] }}</span> -
+                <span>{{ item.num[2] }}</span> -
+                <span>{{ item.num[3] }}</span>
+            </div>
             <div class="btn-box-inner">
                 <button class="btn-type1 st2" @click="$set(item, 'selected', !item.selected)">
                     충전차량으로 설정 <Icon type="check" :class="{on: item.selected}" />
@@ -124,20 +127,20 @@
         <div v-for="(item, index) in placeList" :key="index" class="place-card">
             <div class="img" :style="`background-image:url(${item.src})`"></div>
             <div class="desc">
-                <strong class="tit">{{ item.type }}</strong>
-                <div class="txt">신청이 완료되었습니다.</div>
+            <strong class="tit">{{ item.type }}</strong>
+            <!-- <div v-if="item.status == 'complate'" class="txt">신청이 완료되었습니다.</div> -->
             </div>
         </div>
         <button class="card">
             <div class="center">
                 <Icon type="add-plus" />
-                <p class="txt">설치신청 추가</p>
+                <p class="txt">충전기 추가 설치신청</p>
             </div>
         </button> 
         <button v-for="(item, index) in placeList2" :key="index" class="place-card">
+            <span class="tag">{{ item.title }}</span>
             <div class="img" :style="`background-image:url(${item.src})`"></div>
             <div class="desc type2">
-                <strong class="tit">{{ item.title }}</strong>
                 <div class="price">{{ item.price }}</div>
                 <div class="item">{{ item.item }}</div>
             </div>
@@ -200,40 +203,41 @@ export default {
         ], 
         
         carList3: [
-            {
-                company: 'bmw',
-                carInfo: ['BMW', '530e', '02보6596'],
-                num: '9999-9999-9999-9999',
-                selected: true,
-            },
-            {
-                company: 'benz',
-                carInfo: ['BMW', '530e', '02보6596'],
-                num: '1010-0101-1234-1234',
-                selected: false,
-            },
+          {
+              company: 'bmw',
+              carInfo: ['BMW', '530e', '02보6596'],
+              num: ['9999', '9999', '9999', '9999'],
+              selected: true,
+          },
+          {
+              company: 'benz',
+              carInfo: ['BMW', '530e', '02보6596'],
+              num: ['9999', '9999', '9999', '9999'],
+              selected: false,
+          },
         ],  
 
         applyList: [
             {
-            type: '단독주택',
-            src: require('@/assets/images/temp-place.jpg'),
-            status: 'complate'
+                type: '단독주택',
+                src: require('@/assets/images/temp-place.jpg'),
+                status: 'complate'
             }
         ],      
         
         placeList: [
             {
-                title: '단독주택',
+                type: '단독주택',
                 src: require('@/assets/images/temp-place.jpg'),
-            },
+                status: 'complate'
+            }
         ],
         //충전기 선택
         placeList2: [
             {
                 title: '모델A',
                 price: '1,500,000',
-                item: '설치비, vat포함',
+                item: '설치비, VAT포함',
                 src: require('@/assets/images/temp-place.jpg'),
             },
         ],        

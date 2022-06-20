@@ -110,6 +110,10 @@ export default {
     title:{
         type: String,
         default: '차량등록'
+    },
+    status: {
+        type: String,
+        default: 'regist-person'
     }
  },
   data(){
@@ -137,6 +141,13 @@ export default {
       ],      
       inconsistencyPop: false,
       copeerCheckPop: false
+    }
+  },
+  watch:{
+    status(value){
+      if(value){
+        this.carIniputStatus = value;
+      }
     }
   },
   methods:{

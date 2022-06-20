@@ -22,6 +22,7 @@
         <div class="min-fix">
           <CarInfoAdd
             @status="setStatus"
+            :status="status"
             />
         </div>
         <div v-if="status === 'regist-person'" class="info-text">

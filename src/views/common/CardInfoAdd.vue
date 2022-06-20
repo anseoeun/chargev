@@ -59,6 +59,13 @@
                 </template>
             </Carousel>
           </div>
+          <div v-if="status === 'regist'" class="btn-box">
+            <button class="btn-type1 st2">프로모션 상품 조회</button>
+          </div>
+          <div v-if="status === 'nocard'" class="btn-box">
+            <button class="btn-type1 st2">차량등록 완료</button>
+            <button class="btn-type1 st2" @click="$emit('cardIssue')">멤버십카드 발급하기</button>
+          </div>          
         </template>
 
     </div>
@@ -67,12 +74,12 @@
 <script>
 
 export default {
- props:{
-    title:{
-        type: String,
-        default: '카드등록'
-    }
- },
+  props:{
+      title:{
+          type: String,
+          default: '카드등록'
+      }
+  },  
   data(){
     return{
       status: 'basic',
@@ -101,10 +108,5 @@ export default {
       ],
     }
   },
-  methods:{
-    setStatus(status){
-        this.$emit('status', status);
-    }
-  }
 }
 </script>

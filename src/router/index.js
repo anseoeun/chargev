@@ -13,7 +13,6 @@ const routes = [
   { path: '/sample/toggleslide', meta: { layout: 'None' }, component: () => import('@/views/sample/Toggleslide.vue')  },
   { path: '/sample/card', meta: { layout: 'None' }, component: () => import('@/views/sample/Card.vue')  },
   { path: '/sample/list', meta: { layout: 'None' }, component: () => import('@/views/sample/List.vue')  },
-  { path: '/sample/alert', meta: { layout: 'None' }, component: () => import('@/views/sample/Alert.vue')  },
 
   // 로그인
 	{ path: '/splash', component: () => import('@/views/Splash.vue')},
@@ -48,7 +47,7 @@ const routes = [
   // 신청
 	{ path: '/apply', meta: {layout: 'Default', menu:'apply' }, component: () => import('@/views/Apply.vue')},
   // 더보기
-	{ path: '/more', meta: {layout: 'Default', menu:'apply' }, component: () => import('@/views/More.vue')},
+	{ path: '/more', meta: {layout: 'Default', menu:'more' }, component: () => import('@/views/More.vue')},
 ]
 
 for(let i=0;i<routes.length;i++){
