@@ -2009,25 +2009,25 @@
 /* Scrollbar
  -------------------------- */
 @font-face {
-  font-family: "Gotham";
+  font-family: "Montserrat";
   src: url("~@/assets/fonts/Montserrat-Bold.woff") format("woff"), url("~@/assets/fonts/Montserrat-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Gotham";
+  font-family: "Montserrat";
   src: url("~@/assets/fonts/Montserrat-SemiBold.woff") format("woff"), url("~@/assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: "Gotham";
+  font-family: "Montserrat";
   src: url("~@/assets/fonts/Montserrat-Medium.woff") format("woff"), url("~@/assets/fonts/Montserrat-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: "Gotham";
+  font-family: "Montserrat";
   src: url("~@/assets/fonts/Montserrat-Regular.woff") format("woff"), url("~@/assets/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -2062,7 +2062,7 @@
 
 body {
   line-height: 1.25;
-  font-family: "Gotham", "Sans-serif";
+  font-family: "Montserrat", "Sans-serif";
   -webkit-text-size-adjust: none;
   color: #515A6E;
   word-break: keep-all;
@@ -6550,7 +6550,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   font-weight: 700 !important;
   font-size: 1.559rem;
   color: #000;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
 }
 
 .alert-popup .popup .pop-header .pop-tit .t-s {

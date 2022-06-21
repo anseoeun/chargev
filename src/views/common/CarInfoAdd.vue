@@ -1,7 +1,7 @@
 <template>
     <div class="form-box-wrap">
         <h2 class="tit-type1 c-white">{{ title }}</h2>
-        <template v-if="carIniputStatus == 'regist-person'">
+        <template v-if="status === 'carRegist-basic'">
             <div class="form-box">
                 <div class="row">
                     <div class="input">
@@ -15,13 +15,13 @@
                 </div>
             </div>
             <div class="btn-box">
-                <button  class="btn-type1 st2"  @click="setStatus('completion');title='차량등록';">찾기</button>
-                <button class="btn-type1 st2" @click="inconsistencyPop = true">찾기(소유자명 불일치)</button>
-                <button class="btn-type1 st2" @click="setStatus('regist-shareKey')">공유키 사용(법인차량 등록)</button>
+                <button  class="btn-type1 st2"  @click="$emit('find');;">찾기</button>
+                <button class="btn-type1 st2" @click="$emit('inconsistencyPop')">찾기(소유자명 불일치)</button>
+                <button class="btn-type1 st2" @click="$emit('shareKey')">공유키 사용(법인차량 등록)</button>
             </div>
         </template>
 
-        <template v-if="carIniputStatus == 'regist-coper'">
+        <template v-if="status == 'carRegist-rent'">
           <div class="form-box-wrap">
             <div class="form-box">
               <div class="row">
@@ -47,7 +47,7 @@
           </div>
         </template>
 
-        <template v-if="carIniputStatus == 'regist-shareKey'">
+        <template v-if="status == 'carRegist-shareKey'">
             <div class="form-box-wrap">
                 <div class="form-box">
                 <div class="row">
@@ -66,8 +66,8 @@
                 </div>
             </div>
         </template>
-
-        <template v-if="carIniputStatus == 'completion'">
+        
+        <template v-if="status === 'carRegist-regist'">
             <div class="card-wrap">
                 <div class="card5">
                     <div class="car-info-wrap">
@@ -84,14 +84,7 @@
             </div>
         </template>
 
-        <!-- 팝업 -->
-        <Alert :is-open="inconsistencyPop" @close="inconsistencyPop = false" :close="true" class="header-title-size2">
-            <template slot="header">소유자명 불일치</template>
-            <template slot="body">
-            소유자가 일치하지 않습니다.
-            <br />차량정보 등록은 실 소유자만 가능합니다.
-            </template>
-        </Alert>
+
         <Alert :is-open="copeerCheckPop" @close="copeerCheckPop = false" :close="true" class="header-title-size2">      
             <template slot="header">법인명 확인필요</template>
             <template slot="body">
@@ -113,7 +106,7 @@ export default {
     },
     status: {
         type: String,
-        default: 'regist-person'
+        default: ''
     }
  },
   data(){
@@ -144,11 +137,11 @@ export default {
     }
   },
   watch:{
-    status(value){
-      if(value){
-        this.carIniputStatus = value;
-      }
-    }
+    // status(value){
+    //   if(value){
+    //     this.carIniputStatus = value;
+    //   }
+    // }
   },
   methods:{
     setStatus(status){

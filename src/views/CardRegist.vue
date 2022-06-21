@@ -5,8 +5,8 @@
       <div class="logo-chargev"><Icon type="chargev" /></div>
       <template v-if="status === 'basic'">
         <div class="min-fix">
-          <h2 class="tit-type1">카드등록</h2>
           <div class="form-box-wrap">
+            <h2 class="tit-type1">카드등록</h2>
             <div class="form-box">
               <div class="row">
                   <div class="input auto">

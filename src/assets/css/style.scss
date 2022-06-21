@@ -3,10 +3,10 @@
 @import 'mixin';
 
 @each $name, $file, $weight, $style in 
-('Gotham', 'Montserrat-Bold', 700, normal),
-('Gotham', 'Montserrat-SemiBold', 600, normal),
-('Gotham', 'Montserrat-Medium', 500, normal),
-('Gotham', 'Montserrat-Regular', 400, normal),
+('Montserrat', 'Montserrat-Bold', 700, normal),
+('Montserrat', 'Montserrat-SemiBold', 600, normal),
+('Montserrat', 'Montserrat-Medium', 500, normal),
+('Montserrat', 'Montserrat-Regular', 400, normal),
 {
   @include font-face($name, $file, $weight, $style);
 }
@@ -16,7 +16,7 @@
 =========================================== */
 *{margin:0;padding:0;border:none;word-break:break-all;box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-overflow-scrolling:touch;-webkit-hyphens:auto;hyphens:auto;vertical-align:baseline;font-size:inherit;line-height:inherit;font-family:inherit;color:inherit;font-weight:inherit;letter-spacing: 0.1em;}
 *:before, *:after{box-sizing:border-box;-webkit-box-sizing:border-box;}
-body{line-height:1.25;font-family:"Gotham", "Sans-serif";-webkit-text-size-adjust:none;color:$c-base;word-break:keep-all;word-wrap:break-word;color:#fff;font-weight:400;}
+body{line-height:1.25;font-family:"Montserrat", "Sans-serif";-webkit-text-size-adjust:none;color:$c-base;word-break:keep-all;word-wrap:break-word;color:#fff;font-weight:400;}
 dl,ul,ol,menu,li {list-style:none;}
 p{margin:0;}
 table {width:100%;border-collapse:collapse;border-spacing:0}
@@ -934,7 +934,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle{right:rem(-12) !important}
 .alert-popup .dim{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);}
 .alert-popup .popup{@include posCenter;padding:rem(16);margin:0 auto;width:rem(324);max-width:90%;box-shadow: 0 rem(1) rem(2) rgba(40, 41, 61, 0.04), 0 rem(3) rem(6) rgba(96, 97, 112, 0.16);border-radius:rem(8);background:#fff;}
 .alert-popup .popup .pop-header{position:relative;}
-.alert-popup .popup .pop-header .pop-tit{margin-bottom:rem(16);text-align:center;@include bold;font-size:rem(24);color:#000;letter-spacing: 0.2em;}
+.alert-popup .popup .pop-header .pop-tit{margin-bottom:rem(16);text-align:center;@include bold;font-size:rem(24);color:#000;letter-spacing: 0.15em;}
 .alert-popup .popup .pop-header .pop-tit .t-s{font-size:rem(20);}
 .alert-popup .popup .pop-body .alert-txt{font-size:rem(14);text-align:center;color:#8A8B8C;line-height:1.5;letter-spacing:0;}
 .alert-popup .popup .pop-body .alert-txt *{letter-spacing:0;}

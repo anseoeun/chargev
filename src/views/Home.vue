@@ -52,13 +52,15 @@ export default {
           'sample/card': '샘플/카드',
           'sample/list': '샘플/리스트',
 
-          'title-login': '-로그인',   
+          'title-login': '-로그인',
           // 스플래시
           'splash': '스플래시',
           // 로그인
           'loginMenu': '로그인메뉴',          
           'loginMenuCoper': '로그인메뉴(법인/개인)',
           'loginRuleList': '로그인약관',
+          'login': '로그인',
+
           'selfAuth': '본인인증',
           'carAuth': '차량인증',
           'carCheck': '차량확인',

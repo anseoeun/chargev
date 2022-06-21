@@ -49,7 +49,7 @@
                 </div>
               </div>
               <div class="btn-box">
-                <button class="btn-type1 st2">등록</button>
+                <button class="btn-type1 st2" @click="$emit('regist')">등록</button>
               </div>
           </template>
         </div>
