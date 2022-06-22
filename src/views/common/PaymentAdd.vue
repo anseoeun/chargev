@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="btn-box">
-                <button class="btn-type1 st2" @click="paymentIniputStatus = 'completion';$emit('status', paymentIniputStatus)">확인</button>
+                <button class="btn-type1 st2" @click="paymentIniputStatus = 'completion';$emit('add')">확인</button>
             </div>
         </template>
         <!-- 완료-->
@@ -95,10 +95,6 @@
 
 export default {
   props:{
-    completeType: {
-      type : String,
-      default: ''
-    },
     form: {
       type: Object,
       default: ()=>{}

@@ -31,6 +31,7 @@
         <!-- 카드등록 -->
         <CardRegist :form="form"
           @regist="status='carAdd';guideTextStatus='carAdd-promo'"
+          @nocard="status='carAdd';guideTextStatus='carAdd-complete'"
          />
       </div>
       <div v-if="status === 'carAdd'" class="min-fix">
@@ -38,12 +39,14 @@
         <CarAdd
           :isPromo="true"
           @promoSearch="status='productCheck';guideTextStatus='productCheck2'"
+          @promoSearchNo="status='productCheck-noProduct';guideTextStatus='productCheck-noProduct'"
          />
       </div>
 
-      <div v-if="status === 'productCheck'" class="min-fix">
+      <div v-if="status.includes('productCheck')" class="min-fix">
         <!-- 상품확인 -->
         <ProductCheck
+           :status="status"
            @complete="status='paymentAdd';guideTextStatus='paymentAdd'"
          />
       </div>
@@ -51,7 +54,8 @@
         <!-- 결제정보추가 -->
         <PaymentAdd
           :form="form"
-           @complete="status='etcInfoInput';guideTextStatus='etcInfoInput'"
+            @add="guideTextStatus='paymentAdd-complete'"
+           @complete="status='etcInfoInput';guideTextStatus='etcInfo'"
          />
       </div>
       <div v-if="status === 'etcInfoInput'" class="min-fix">

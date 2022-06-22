@@ -295,7 +295,7 @@ i[class*=i-] .svg-prevent{position:absolute;top:0;left:0;z-index: 1;width:100%;h
 .form-box .row .input{flex:1;}
 .form-box .row .right{margin-left:rem(16);}
 .form-box .row .input{flex:1;}
-.form-box .btn{display:inline-block;padding:0 rem(8);line-height:rem(32);height:rem(32);@include bold;font-size:rem(14);border-radius:rem(2);background:#2A2B2C;}
+.form-box .btn{display:inline-block;padding:0 rem(8);line-height:rem(32);height:rem(32);font-size:rem(14);border-radius:rem(2);background:#2A2B2C;}
 .form-box .btn-box{margin-top:rem(16);}
 .form-box .info-box{background:#2A2B2C;border-radius:rem(4);padding:rem(16);}
 .form-box .info-box .row{@include flex;}

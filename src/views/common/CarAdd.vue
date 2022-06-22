@@ -40,6 +40,7 @@
       </div>
       <div v-if="isPromo" class="btn-box">
         <button class="btn-type1 st2" @click="$emit('promoSearch')">프로모션 상품 조회</button>
+        <button class="btn-type1 st2" @click="$emit('promoSearchNo')">프로모션 상품 조회(상품없음)</button>
       </div>
       <div v-else class="btn-box">
         <button class="btn-type1 st2">차량등록 완료</button>

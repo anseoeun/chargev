@@ -2,11 +2,16 @@
     <div class="card-wrap-wrap">
         <div class="card-wrap">
           <h2 class="tit-type1">상품확인</h2>
+            <div v-if="status === 'productCheck-noProduct'" class="card2">
+                <div class="center">
+                    <p class="s-t">일치하는 상품이 없습니다.</p>
+                </div>
+            </div>          
           <!-- 
             //상품하나일경우 아래 옵션설정
             //destroy: true
            -->
-            <Carousel class="slide-list" :content="true" :options="cardSliderOpt">
+            <Carousel v-else class="slide-list" :content="true" :options="cardSliderOpt">
                 <template slot="content">
                     <splide-slide v-for="(item, index) in cargePointList" :key="index">
                         <div class="card2" :class="{on: item.selected}">
@@ -25,11 +30,6 @@
                     </splide-slide>
                 </template>
             </Carousel>
-            <div class="card2">
-              <div class="center">
-                  <p class="s-t">일치하는 상품이 없습니다.</p>
-              </div>
-          </div>
         </div>
         <div class="btn-box">
             <button class="btn-type1 st2" @click="$emit('complete')">확인</button>
@@ -39,6 +39,12 @@
 
 <script>
 export default { 
+ props:{
+    status: {
+        type: String,
+        default: ''
+    }
+ },
   data(){
     return{
       cardSliderOpt: {

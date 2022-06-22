@@ -39,7 +39,7 @@
         차대번호 대조를 통해
         <br />차량에 부여된 프로모션 상품이 조회되었습니다.
     </div>
-    <div v-else-if="status === 'productCheck3'" class="info-text">
+    <div v-else-if="status === 'productCheck-noProduct'" class="info-text">
       일치하는 프로모션 상품이 없습니다.
       <br />프로모션 상품은 차대번호가 등록된 후 지급됩니다.
     </div>    
@@ -109,16 +109,28 @@
     </div>   
 
      <!--결제정보추가  -->
-      <div v-else-if="status === 'basic'" class="info-text">
+      <div v-else-if="status === 'paymentAdd'" class="info-text">
         충전요금 결제를 위한 결제카드정보를 입력합니다.
         <br />신용카드번호 및 유효기간, 비밀번호 앞2자리를
         <br />입력해주세요.
       </div>
-      <div v-else-if="status === 'completion'" class="info-text">
+      <div v-else-if="status === 'paymentAdd-complete'" class="info-text">
         결제카드를 추가로 등록하길 원하시는 경우
         <br />카드 추가 버튼을 눌러 추가 가능합니다.
         <br />PAYCO 연동시 등록된 신용카드는 비활성화됩니다.
       </div>     
+
+      <!-- 기타정보입력 -->
+      <div v-else-if="status === 'etcInfo'" class="info-text">
+          주소, 이메일을 입력해주세요.
+      </div>
+      <div v-else-if="status === 'etcInfo-addrCheck'" class="info-text">
+          주소를 확인해주세요.
+          <br />주소가 변경되었다면 새로운 주소를 입력바랍니다.
+      </div>
+      <div v-else-if="status === 'etcInfo-addrInput'" class="info-text">
+          주소를 입력해주세요.
+      </div>      
 </template>
 
 <script>
