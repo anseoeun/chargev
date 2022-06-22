@@ -51,9 +51,17 @@ export default {
         perPage: 1,
         perMove: 1,
         arrows: false,
+
+         //센터모드일경우
+        // focus  : 'center',
+        // trimSpace: false,   
+
         // destroy: true, 슬라이드 destroy
         // rewind: true, // 맨끝에서 처음으로 다시 돌아가기
         // pagination: false
+     
+        //하나일경우 아래 옵션설정
+        //destroy: true        
       },
     }
   },

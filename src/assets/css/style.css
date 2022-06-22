@@ -2507,20 +2507,17 @@ h1.hidden {
 }
 
 .login-wrap .info-text {
+  width: calc(100% + 3.119rem);
+  margin-left: -1.56rem;
   font-size: 0.909rem;
   margin-top: 1.949rem;
   text-align: center;
   line-height: 1.6;
-  letter-spacing: 0;
 }
 
 .login-wrap .slider-page > .splide > .splide__track > .splide__list > .splide__slide {
   padding: 0 1.559rem;
   padding-bottom: 13rem;
-}
-
-.login-wrap .btn-box [class*=btn-type] ~ [class*=btn-type] {
-  margin-top: 1.039rem;
 }
 
 .login-wrap .tit-type1 + .btn-box {
@@ -2756,6 +2753,10 @@ input[type=text], input[type=password], input[type=number], textarea {
 }
 
 /* btn-style */
+.btn-box [class*=btn-type] ~ [class*=btn-type] {
+  margin-top: 1.039rem;
+}
+
 .tit-type1 + [class*=btn-type] {
   margin-top: 1.039rem;
 }
@@ -3136,7 +3137,7 @@ i[class*=i-] .svg-prevent {
   overflow-y: auto;
   padding-bottom: 1.949rem !important;
   margin-bottom: 0;
-  max-height: calc(100vh - 6.239rem);
+  max-height: calc(100vh - 0rem);
 }
 
 .btm-layer-wrap .slider-page,
@@ -3205,7 +3206,7 @@ i[class*=i-] .svg-prevent {
 }
 
 .btm-layer-wrap.max .btm-layer .cont-scroll {
-  min-height: calc(100vh - 6.239rem);
+  min-height: calc(100vh - 0rem);
 }
 
 /* transparent-box */
@@ -5238,18 +5239,11 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .card-wrap .slide-list {
   width: 100vw;
   margin-left: -1.56rem;
+  padding: 0 0.519rem;
 }
 
-.card-wrap .slide-list li ~ li {
-  padding-left: 1.039rem;
-}
-
-.card-wrap .slide-list li:first-child {
-  padding-left: 3.119rem;
-}
-
-.card-wrap .slide-list li:last-child {
-  padding-right: 3.119rem;
+.card-wrap .slide-list li {
+  padding: 0 0.519rem;
 }
 
 .card-wrap + .btn-box {
@@ -5534,16 +5528,8 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   margin-left: -1.56rem;
 }
 
-.place-list .splide__list li:first-child {
-  padding-left: 1.559rem;
-}
-
-.place-list .splide__list li:last-child {
-  padding-right: 1.559rem;
-}
-
-.place-list .splide__list li ~ li {
-  padding-left: 1.039rem;
+.place-list .splide__list li {
+  padding: 0 0.519rem;
 }
 
 /* place-card */

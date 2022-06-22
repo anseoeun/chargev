@@ -128,6 +128,8 @@ export default {
         autoWidth: true,
         perMove:1,
         pagination:false,
+        focus  : 'center',
+        trimSpace: false,        
       },
       cargeList: [
           {

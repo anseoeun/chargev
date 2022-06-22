@@ -168,7 +168,7 @@
     <!-- 주소 -->
     <PopAddr :visible="btmLayer.PopAddr" @close="btmLayer.PopAddr = false"/>
     <!-- 충전기설치신청 -->
-    <PopChargerApply :visible="btmLayer.PopChargerApply" @close="btmLayer.PopChargerApply = false"/>
+    <PopChargerApply :visible="btmLayer.PopChargerApply" @close="btmLayer.PopChargerApply = false" />
   </div>
 </template>
 
@@ -195,6 +195,8 @@ export default {
         autoWidth: true,
         perMove:1,
         pagination:false,
+        focus  : 'center',
+        trimSpace: false,        
       },
       cardList: [
           {

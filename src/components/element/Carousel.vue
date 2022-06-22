@@ -4,6 +4,7 @@
       ref="slider"
       class="slider"
       :options="setOption"
+      :style={opacity:opacity}
       @splide:mounted="init"
       @splide:move="onMove"
       @splide:moved="onMoved"
@@ -67,6 +68,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    opacity:{
+      type: String,
+      default: '1',
+    }
   },
   
   data() {

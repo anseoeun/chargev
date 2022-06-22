@@ -1,7 +1,7 @@
 <template>
-    <BtmLayer :visible="visible" @close="$emit('close');" class="pop-charger-apply max">
+    <BtmLayer :visible="visible" @close="$emit('close');close" class="pop-charger-apply max" @opended="opended">
       <template slot="content">
-        <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page">
+        <Carousel :options="options" :content="true" :customPaging="true" :page.sync="currentPage" class="slider-page" :opacity="opacity" :key="opacity">
           <template slot="content">
               <splide-slide>
                 <div class="charger-install-wrap">
@@ -195,10 +195,13 @@ export default {
 
   data(){
     return{
+       opacity: 0,
       placeSlideOpt: {
         autoWidth:true,
         perMove:1,
         pagination:false,
+        focus  : 'center',
+        trimSpace: false,        
       },
 
       //설치장소 선택
@@ -324,6 +327,12 @@ export default {
     getTimeStatus(status){  
       return status ? '가능' : '접수<br>마감'
     },  
+    close(){
+      this.opacity = 0
+    },
+    opended(){
+      this.opacity = 1
+    }    
   }
 }
 </script>

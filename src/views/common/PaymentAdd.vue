@@ -1,7 +1,7 @@
 <template>
     <div class="form-box-wrap">
         <h2 class="tit-type1 c-white">결제정보 추가</h2>
-        <template v-if="paymentIniputStatus != 'completion'">
+        <template v-if="status === 'paymentAdd'">
             <div class="form-box">
                 <div class="row">
                     <div class="input auto">
@@ -20,27 +20,11 @@
                 </div>
             </div>
             <div class="btn-box">
-                <button class="btn-type1 st2" @click="paymentIniputStatus = 'completion';$emit('add')">확인</button>
+                <button class="btn-type1 st2" @click="$emit('add')">확인</button>
             </div>
         </template>
         <!-- 완료-->
-        <template v-if="paymentIniputStatus == 'completion'">
-            <!-- <div class="card-wrap">
-                <div class="card3">
-                    <div class="card-info">
-                        <div class="card-name">{{ cardList[0].company }}카드</div>
-                        <div class="card-num">
-                            <span>{{ cardList[0].num[0] }}</span>
-                            <span>{{ cardList[0].num[1] }}</span>
-                            <span>{{ cardList[0].num[2] }}</span>
-                            <span>{{ cardList[0].num[3] }}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-box">
-                <button class="btn-type1 st2" @click="confirm">확인</button>
-            </div>                 -->
+        <template v-if="status === 'paymentAdd-complete'">
             <div class="card-wrap">
                 <Carousel class="slide-list" :content="true" :options="cardSliderOpt">
                     <template slot="content">
@@ -86,6 +70,26 @@
             </div>
             <div class="btn-box">
                 <button class="btn-type1 st2" @click="$emit('complete')">확인</button>
+                <button class="btn-type1 st2" @click="$emit('complete2')">확인(PIN으로 이동)</button>
+            </div>
+        </template>
+        <!-- 완료2-->
+        <template v-if="status === 'paymentAdd-complete2'">
+            <div class="card-wrap">
+                <div class="card3">
+                    <div class="card-info">
+                        <div class="card-name">{{ cardList[0].company }}카드</div>
+                        <div class="card-num">
+                            <span>{{ cardList[0].num[0] }}</span>
+                            <span>{{ cardList[0].num[1] }}</span>
+                            <span>{{ cardList[0].num[2] }}</span>
+                            <span>{{ cardList[0].num[3] }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box">
+                <button class="btn-type1 st2">확인</button>
             </div>
         </template>
     </div>
@@ -95,6 +99,10 @@
 
 export default {
   props:{
+    status: {
+        type: String,
+        default: ''
+    },    
     form: {
       type: Object,
       default: ()=>{}
@@ -102,7 +110,7 @@ export default {
   },
   data(){
     return{
-      paymentIniputStatus: 'camera',
+      paymentIniputStatus: '',
     //   carIniputStatus: 'basic',
       pinIniputStatus: '',
 
@@ -111,6 +119,8 @@ export default {
         perMove:1,
         pagination:false,
         destroy: false,
+        focus  : 'center',
+        trimSpace: false,        
       },      
       // 신용카드
       cardList: [

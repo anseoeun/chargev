@@ -38,13 +38,13 @@
             </template>
         </Carousel>
       </div>
-      <div v-if="isPromo" class="btn-box">
+      <div v-if="status === 'carAdd-promo'" class="btn-box">
         <button class="btn-type1 st2" @click="$emit('promoSearch')">프로모션 상품 조회</button>
         <button class="btn-type1 st2" @click="$emit('promoSearchNo')">프로모션 상품 조회(상품없음)</button>
       </div>
-      <div v-else class="btn-box">
-        <button class="btn-type1 st2">차량등록 완료</button>
-        <button class="btn-type1 st2">멤버십카드 발급하기</button>
+      <div v-if="status === 'carAdd-complete'" class="btn-box">
+        <button class="btn-type1 st2" @click="$emit('complete')">차량등록 완료</button>
+        <button class="btn-type1 st2" @click="$emit('cardIssue')">멤버십카드 발급하기</button>
       </div>
     </div>
     
@@ -57,10 +57,6 @@ export default {
         type: String,
         default: ''
     }, 
-    isPromo: {
-      type: Boolean,
-      default: false,
-    }
   },    
   data(){
     return{             
@@ -68,6 +64,8 @@ export default {
         autoWidth: true,
         perMove:1,
         pagination:false,
+        focus  : 'center',
+        trimSpace: false,        
       },            
       carList: [
           {

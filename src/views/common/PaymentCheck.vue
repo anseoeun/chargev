@@ -42,6 +42,8 @@ export default {
         autoWidth: true,
         perMove:1,
         pagination:false,
+        focus  : 'center',
+        trimSpace: false,        
       },                
       // 신용카드
       cardList: [

@@ -4,12 +4,7 @@
       <div class="form-box">
         <div class="row">
             <div class="input auto">
-                <Input type="text" v-model="form.carnum" placeholder="차량번호" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="input auto">
-                <Input type="text" v-model="form.name" placeholder="소유자명" />
+                <Input type="text" v-model="form.cardnum" placeholder="멤버십카드번호" />
             </div>
         </div>
       </div>

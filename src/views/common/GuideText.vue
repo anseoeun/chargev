@@ -130,7 +130,13 @@
       </div>
       <div v-else-if="status === 'etcInfo-addrInput'" class="info-text">
           주소를 입력해주세요.
-      </div>      
+      </div>   
+
+      <!-- 카드발급 -->
+      <div v-else-if="status === 'cardIssue'" class="info-text">
+        멤버십카드를 발급받기 위한 주소를 입력해주세요.
+        <br />카드 발급 비용은 6,000원입니다.
+      </div>
 </template>
 
 <script>

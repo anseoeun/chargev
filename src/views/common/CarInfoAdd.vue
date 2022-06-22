@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="btn-box">
-                <button  class="btn-type1 st2"  @click="$emit('find');;">찾기</button>
+                <button  class="btn-type1 st2" @click="$emit('find');">찾기</button>
                 <button class="btn-type1 st2" @click="$emit('inconsistencyPop')">찾기(소유자명 불일치)</button>
                 <button class="btn-type1 st2" @click="$emit('shareKey')">공유키 사용(법인차량 등록)</button>
             </div>
@@ -41,8 +41,7 @@
               </div>
             </div>
             <div class="btn-box">
-                <button class="btn-type1 st2" @click="status = 'completion'">찾기</button>
-                <button class="btn-type1 st2" @click="copeerCheckPop = true">찾기(법인명 확인필요)</button>
+                <button class="btn-type1 st2" @click="$emit('find');">찾기</button>
             </div>
           </div>
         </template>
@@ -62,7 +61,8 @@
                 </div>
                 </div>
                 <div class="btn-box">
-                    <button class="btn-type1 st2" @click="setStatus('completion')">찾기</button>
+                    <button class="btn-type1 st2" @click="$emit('findShareKey');">찾기</button>
+                    <button class="btn-type1 st2" @click="$emit('copeerCheckPop')">찾기(법인명 확인필요)</button>                    
                 </div>
             </div>
         </template>
@@ -82,17 +82,7 @@
             <div class="btn-box">
                 <button class="btn-type1 st2" @click="$emit('cardRegist')">카드등록</button>
             </div>
-        </template>
-
-
-        <Alert :is-open="copeerCheckPop" @close="copeerCheckPop = false" :close="true" class="header-title-size2">      
-            <template slot="header">법인명 확인필요</template>
-            <template slot="body">
-                법인명이 일치하지 않습니다.
-                <br />자동차등록증상의 법인명을
-                <br />정확하게 입력바랍니다.  ex) (주)차지비
-            </template>
-        </Alert>        
+        </template>     
     </div>
 </template>
 
@@ -134,19 +124,6 @@ export default {
       ],      
       inconsistencyPop: false,
       copeerCheckPop: false
-    }
-  },
-  watch:{
-    // status(value){
-    //   if(value){
-    //     this.carIniputStatus = value;
-    //   }
-    // }
-  },
-  methods:{
-    setStatus(status){
-        this.carIniputStatus = status;
-        this.$emit('status', status);
     }
   }
 }

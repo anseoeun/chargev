@@ -51,6 +51,8 @@ export default {
         autoWidth: true,
         perMove:1,
         pagination:false,
+        focus  : 'center',
+        trimSpace: false,        
         //하나일경우 아래 옵션설정
         //destroy: true
       },

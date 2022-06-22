@@ -17,7 +17,7 @@
                </div>
 
                <div class="btn-wrap">
-                 <button v-if="confirm" class="btn-type1 st1" @click="$emit('close')">확인</button>
+                 <button v-if="confirm" class="btn-type1 st1" @click="$emit('close');$emit('confirm')">확인</button>
                  <slot name="btn" />
                </div>
           </div>

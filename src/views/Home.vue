@@ -60,19 +60,7 @@ export default {
           'loginMenuCoper': '로그인메뉴(법인/개인)',
           'loginRuleList': '로그인약관',
           'login': '로그인',
-
-          'selfAuth': '본인인증',
-          'carAuth': '차량인증',
-          'carCheck': '차량확인',
-          'paymentCheck': '결제정보 확인',
-          'productCheck': '상품확인',
-          'etcInfoInput': '기타정보 입력',
-          'cardIssue': '카드발급',
-          'carRegist': '차량등록',
-          'cardRegist': '카드등록',
-          'PaymentRegist': '결제정보추가',
-          'LoginPin': 'PIN입력',
-
+          'join': '회원가입',
 
           'title-page': '-페이지',
           // 메인

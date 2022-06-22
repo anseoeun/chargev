@@ -3,8 +3,10 @@
       <template slot="content">
           <div class="cont-scroll">
               <PaymentAdd
+                :form="form"
+                :status="status"
                 @confirm="paymentAddConfirm"
-                completeType="type2"
+                @add="status='paymentAdd-complete2'"
                />
           </div>
       </template>
@@ -25,6 +27,7 @@ export default {
   },  
   data(){
       return{
+          status: 'paymentAdd',
           form:{},
       }
   },

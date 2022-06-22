@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="btn-box">
-            <button class="btn-type1 st2">결제하기</button>
+            <button class="btn-type1 st2" @click="$emit('payment')">결제하기</button>
         </div>
     </div>
 </template>

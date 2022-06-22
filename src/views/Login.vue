@@ -40,7 +40,7 @@
         <EtcInfoInput
           :form="form"
            @popAddr="btmLayer.PopAddr=true"
-           @complete="status='pinSetting';guideTextStatus='pinSetting'"
+           @complete="status='pinSetting';guideTextStatus='pinSetting';alert.biometricsPop=true"
          />
       </div>
       <div v-if="status === 'pinSetting'" class="min-fix">

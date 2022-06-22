@@ -22,17 +22,6 @@ const routes = [
 	{ path: '/login', component: () => import('@/views/Login.vue')},
 	{ path: '/join', component: () => import('@/views/Join.vue')},
 
-	{ path: '/selfAuth', component: () => import('@/views/SelfAuth.vue')},
-	{ path: '/carAuth', component: () => import('@/views/CarAuth.vue')},
-	{ path: '/carCheck', component: () => import('@/views/CarCheck.vue')},
-	{ path: '/paymentCheck', component: () => import('@/views/PaymentCheck.vue')},
-	{ path: '/productCheck', component: () => import('@/views/ProductCheck.vue')},
-	{ path: '/etcInfoInput', component: () => import('@/views/EtcInfoInput.vue')},
-	{ path: '/cardIssue', component: () => import('@/views/CardIssue.vue')},
-	{ path: '/carRegist', component: () => import('@/views/CarRegist.vue')},
-	{ path: '/cardRegist', component: () => import('@/views/CardRegist.vue')},
-	{ path: '/paymentRegist', component: () => import('@/views/PaymentRegist.vue')},
-	{ path: '/LoginPin', component: () => import('@/views/LoginPin.vue')},
   // 메인
   { path: '/main', meta: {layout: 'Default', menu:'home' }, component: () => import('@/views/Main.vue')},
   // 알림

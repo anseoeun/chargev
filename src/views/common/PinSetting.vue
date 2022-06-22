@@ -18,32 +18,26 @@
           </div>
       </div>
       </div>
-      <!-- <div class="btn-box">
-        <button class="btn-type1 st2" @click="pinSetting">확인</button>
-      </div> -->
     </div>
     <div v-else-if="pinSet" class="form-box-wrap">
       <strong class="tit">PIN 재입력</strong>
       <div class="form-box">
-      <div class="row">
-          <div class="input">
-              <div class="inp-pin">
-                <div class="pin">
-                    <Input type="password" v-model="form.pin2[0]" autocomplete="new-password" maxlength="1" />
-                    <Input type="password" v-model="form.pin2[1]" autocomplete="new-password" maxlength="1" />
-                    <Input type="password" v-model="form.pin2[2]" autocomplete="new-password" maxlength="1" />
-                    <Input type="password" v-model="form.pin2[3]" autocomplete="new-password" maxlength="1" />
-                    <Input type="password" v-model="form.pin2[4]" autocomplete="new-password" maxlength="1" />
-                    <Input type="password" v-model="form.pin2[5]" autocomplete="new-password" maxlength="1" />
+        <div class="row">
+            <div class="input">
+                <div class="inp-pin">
+                  <div class="pin">
+                      <Input type="password" v-model="form.pin2[0]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin2[1]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin2[2]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin2[3]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin2[4]" autocomplete="new-password" maxlength="1" />
+                      <Input type="password" v-model="form.pin2[5]" autocomplete="new-password" maxlength="1" />
+                  </div>
+                  <Input type="number" v-model="form.pin2" @focus="initPinFocus('check')" maxlength="6" />
                 </div>
-                <Input type="number" v-model="form.pin2" @focus="initPinFocus('check')" maxlength="6" />
-              </div>
-          </div>
+            </div>
+        </div>
       </div>
-      </div>
-      <!-- <div class="btn-box">
-        <button class="btn-type1 st2">확인</button>
-      </div> -->
     </div>
 </template>
 
@@ -51,10 +45,6 @@
 
 export default {
   props: {
-    visible: {
-      type: Boolean,
-      default: false  
-    },
     form: {
       type: Object,
       default: ()=>{}
