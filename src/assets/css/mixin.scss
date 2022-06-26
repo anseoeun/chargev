@@ -21,7 +21,8 @@ $c-base	: #515A6E;
 // $base-font-set	:$base-font-head-regular, 'sans-serif';
 
 $max: 720px;
-$size: 28px;
+$size: 18.5px;
+$ftsize: 28px;
 
 @media screen and (min-width: $max) {
   :root {
@@ -34,8 +35,11 @@ $size: 28px;
 @for $i from 1 to 401 {
   @media screen and (max-width: ( $max - ( 1px * $i ) )) {
     html {
-      font-size: ($size - (0.038875 * $i));
-      // font-size: ($size - (0.054875 * $i));
+      // font-size: ($size - (0.038875 * $i));
+      // font-size: (25px - (0.0545454 * $i));
+      // font-size: (22.8225px - (0.038875 * $i));
+      // font-size: (22.8225px - (0.038875 * $i));
+      font-size: ($size - (0.0257575 * $i));
     }
   }
 }
@@ -50,8 +54,8 @@ $size: 28px;
 
 @function rem($pxValue){
   // @return unquote(calc((stripUnit($pxValue) / stripUnit($size)) * 1.95)+'rem');
-  @return unquote(calc(floor(((stripUnit($pxValue) / stripUnit($size)) * 1.82) * 1000)/1000) +'rem');
-  // @return unquote(calc(floor(((stripUnit($pxValue) / stripUnit($size)) * 2.802) * 1000)/1000) +'rem');
+  // @return unquote(calc(floor(((stripUnit($pxValue) / stripUnit($size)) * 1.82) * 1000)/1000) +'rem');
+  @return unquote(calc(floor(((stripUnit($pxValue) / stripUnit($ftsize)) * 2.802) * 10)/10) +'rem');
 }
 
 // @function stripUnit($value) {

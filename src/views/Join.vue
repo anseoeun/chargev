@@ -6,14 +6,14 @@
       <div v-if="status === 'selfAuth'" class="min-fix">
         <!-- 본인인증 -->
         <SelfAuth :form="form" @agencyOpen="btmLayer.agency=true"
-          @complete="status='carRegistMenu';guideTextStatus='carRegistMenu'"
+          @complete="status='carSelectMenu';guideTextStatus='carSelectMenu'"
          />
       </div>
-      <div v-if="status === 'carRegistMenu'" class="min-fix">
+      <div v-if="status === 'carSelectMenu'" class="min-fix">
         <!-- 차량등록메뉴 -->
         <CarRegistMenu
-          @basic="status='carRegist-basic';guideTextStatus='carRegist-basic'"
-          @rent="status='carRegist-rent';guideTextStatus='carRegist-rent'"
+          @basic="status='carRegist-basic';guideTextStatus='carSelect-basic'"
+          @rent="status='carRegist-rent';guideTextStatus='carSelect-rent'"
           @later="alert.registAfterPop=true"
          />
       </div>

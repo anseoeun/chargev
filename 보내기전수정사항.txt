@@ -9,3 +9,53 @@ app.vue 하단
 console.log체크
 
 scss , sass 검색
+
+------------------------------------------
+
+css 수정
+ ~ ,  + ,  > , 
+, 개행하기
+
+*:before, *:after {
+
+, i
+
+dl, ul, ol, menu, li {
+dl, 
+ul, 
+ol, 
+menu, 
+li {
+뒤에 공백제거
+
+
+img,
+fieldset {
+
+i,
+em,
+address {
+
+input[type=number], textarea {
+input[type=number],
+textarea {
+
+
+.using-history .calendar {
+  width: calc(100%+3.119rem); 띄우기
+%+로검색
+
+  -ms-hyphens: auto;
+      hyphens: auto; 앞으로땡기기
+
+  -webkit-animation: fade-in 2.4s forwards;
+          animation: fade-in 2.4s forwards;
+앞으로땡기기
+
+@keyframes 한칸씩 내리기
+
+}
+.
+위 한칸씩 내리기
+ color: black; -->  color: rgb(0, 0, 0);
+background: black; --> background: rgb(0, 0, 0);

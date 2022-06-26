@@ -1,0 +1,5 @@
+550 .charge-list .btn
+491 .charge-place .number{margin-top:rem(16);font-size:rem(31.37);}
+621 .card-wrap .card .btn-box-inner .btn{position:relative;height:rem(48);
+757 .select-date > .row .cell.tit{font-size:rem(12.31);}
+764 .select-date > .row .cell button{height:100%;width:100%;font-size:rem(14.2);}

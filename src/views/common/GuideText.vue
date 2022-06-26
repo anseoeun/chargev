@@ -55,27 +55,28 @@
       PIN코드를 확인해주세요.
     </div>    
 
-    <!-- 차량등록 -->
-    <div v-else-if="status === 'carRegistMenu'" class="info-text">
+    <!-- 차량등록메뉴 -->
+    <div v-else-if="status === 'carSelectMenu'" class="info-text">
         리스 또는 렌트차량의 경우 “리스/렌트”,
         <br />그 밖의 차량은 “일반/법인”을 선택해주세요.
     </div>    
-    <div v-else-if="status === 'carRegist-basic'" class="info-text">
+    <div v-else-if="status === 'carSelect-basic'" class="info-text">
       차량번호를 통해 차량정보를 추가합니다.
       <br />자동차등록증상의 소유자명을 정확하게 입력해주세요.
       <br />기존에 법인회원가입을 통해 등록된 법인차량이 있는 경우
       <br />공유키 사용(법인차량 등록) 버튼을 눌러주세요.
     </div>
+    <div v-else-if="status === 'carSelect-rent'" class="info-text">
+      차량번호를 통해 차량정보를 추가합니다.
+      <br />법인, 리스/렌트 차량의 경우 자동차등록증상의
+      <br />소유자명을 정확하게 입력해주세요.
+    </div>
+    <!-- 차량등록 -->    
     <div v-else-if="status === 'carRegist-shareKey'" class="info-text">
       차량번호를 통해 차량정보를 추가합니다.
       <br />법인, 리스/렌트 차량의 경우 자동차등록증상의
       <br />소유자명을 정확하게 입력해주세요.
-    </div>
-    <div v-else-if="status === 'carRegist-rent'" class="info-text">
-      차량번호를 통해 차량정보를 추가합니다.
-      <br />법인, 리스/렌트 차량의 경우 자동차등록증상의
-      <br />소유자명을 정확하게 입력해주세요.
-    </div>
+    </div>    
     <div v-else-if="status === 'carRegist-complete'" class="info-text">
       차량조회가 완료되었습니다.
       <br />충전시 사용할 멤버십카드를 등록합니다.

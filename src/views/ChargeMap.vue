@@ -4,11 +4,14 @@
       <!-- ※ 개발시 백그라운드 제거 -->
       <div class="map" :style="`background:url('${require('@/assets/images/temp-map.jpg')}') no-repeat 50% 50%;background-size:cover`"></div>
 
-      <div class="map-menu">
-        <button><Icon type="map-pos" /></button>
-        <button><Icon type="map-index" /></button>
-        <button @click="btmLayer.PopMapFilter = true"><Icon type="map-filter" /></button>
-        <button @click="btmLayer.PopMapLegend = true"><Icon type="map-legend" /></button>
+      <div class="map-menu" :class="{on: mapMenuTogStatus}">
+        <button class="map-menu-btn-tog" @click="mapMenuTogStatus = !mapMenuTogStatus"><Icon type="map-tog" /></button>
+        <div v-if="mapMenuTogStatus" class="map-menu-tog">
+          <button><Icon type="map-pos2" /></button>
+          <button><Icon type="map-index2" /></button>
+          <button @click="btmLayer.PopMapFilter = true"><Icon type="map-filter" /></button>
+          <button @click="btmLayer.PopMapLegend = true"><Icon type="map-legend" /></button>
+        </div>
       </div>
 
       <button class="mapindex" style="top:150px;left:180px;">
@@ -58,6 +61,7 @@ export default {
   },
   data(){
     return{
+      mapMenuTogStatus: true,
       timeSetType:'',
       options: {
         perPage: 1,
